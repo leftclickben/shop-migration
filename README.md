@@ -20,7 +20,7 @@ itself requires PHP, and handles the task of importing from CSV into MySQL.
 
 ## Setting Up
 
-Once this repo is cloned and prerequisites are installed, all that is required is to install the local node package 
+Once this repo is cloned and prerequisites are installed, all that is required is to install the local node package
 dependencies using the standard command:
 
     npm install
