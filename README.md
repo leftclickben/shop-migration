@@ -18,6 +18,26 @@ MySQL and PHP are not prerequisites.  Although the eventual target system is Mag
 database, the actual target for the migration scripts is a Magento2-compatible CSV file, not the database.  Magento2
 itself requires PHP, and handles the task of importing from CSV into MySQL.
 
+## Setting Up
+
+Once this repo is cloned and prerequisites are installed, all that is required is to install the local node package 
+dependencies using the standard command:
+
+    npm install
+
+## Path Configuration
+
+''TODO''
+
 ## Running a Migration
 
-TBC
+Once the migration configuration has been created and verified, running a migration is simply a matter of running the
+main `migrate` script.  From the project root:
+
+    bin/migrate
+
+This wrapper script sets up the relevant directories, cleans up the results of previous migrations, and then passes
+control to the `process-csv.js` node script, which generates the target CSV.
+
+Assuming there are no errors, when the `migrate` script is complete, the target directory will be populated with the
+resulting CSV files ready for import.
