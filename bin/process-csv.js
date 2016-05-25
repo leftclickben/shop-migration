@@ -19,6 +19,9 @@
                 var title = record.Title.trim()
                     .replace(/\s*[-(]\s*out\s+of\s+(?:stock|print|order).*$/i, '')
                     .replace(/\s*[-(]\s*special\s+orders?\s+only.*$/i, '');
+                if (!record.RRP) {
+                    return undefined;
+                }
                 return {
                     sku: 'BOOK-' + record.BookCode,
                     store_view_code: '',
@@ -37,7 +40,8 @@
                     special_price: '',
                     special_price_from_date: '',
                     special_price_to_date: '',
-                    url_key: slug(title),
+                    // TODO Deal with duplicates properly through data cleaning
+                    url_key: slug(title) + '-' + record.BookCode,
                     meta_title: title,
                     meta_keywords: [ 'Western Australia', 'History', record.Category.toLowerCase() ].join(', '), // TODO Others? Author?
                     meta_description: record.Description,
@@ -69,7 +73,8 @@
                     country_of_manufacture: 'Australia',
                     // TODO Derive correct value for `quantity_and_stock_status`
                     additional_attributes: [ 'has_options=0', 'is_returnable=Use config', 'quantity_and_stock_status=In stock', 'required_options=0' ].join(','),
-                    qty: record.NoInStock,
+                    // TODO Do negative numbers in `NoInStock` mean something in particular?
+                    qty: Math.max(0, record.NoInStock),
                     out_of_stock_qty: 0,
                     use_config_min_qty: 1,
                     is_qty_decimal: 0,
