@@ -1,0 +1,21 @@
+{
+  "name": "shop-migration",
+  "version": "0.0.1",
+  "description": "Migration scripts from legacy database for Magento2 used for RWAHS shop.",
+  "main": "bin/migrate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rwahs/shop-migration.git"
+  },
+  "author": "Gaia Resources <dev@gaiaresources.com.au>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rwahs/shop-migration/issues"
+  },
+  "homepage": "https://github.com/rwahs/shop-migration#readme",
+  "dependencies": {
+    "csv": "^1.1.0",
+    "lodash": "^4.13.1",
+    "slug": "^0.9.1"
+  }
+}
