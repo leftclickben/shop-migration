@@ -17,8 +17,8 @@
             .pipe(csv.parse({ columns: true }))
             .pipe(csv.transform(function (record) {
                 var title = record.Title.trim()
-                    .replace(/\s*-\s*out of stock\s*-?\s*$/i, '')
-                    .replace(/\s*-\s*special order only\s*-\s*$/i, '');
+                    .replace(/\s*[-(]\s*out\s+of\s+(?:stock|print|order).*$/i, '')
+                    .replace(/\s*[-(]\s*special\s+orders?\s+only.*$/i, '');
                 return {
                     sku: 'BOOK-' + record.BookCode,
                     store_view_code: '',
