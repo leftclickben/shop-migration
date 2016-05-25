@@ -1,0 +1,12 @@
+*.log
+*.out
+*.pid
+*.sublime-*
+*.swo
+*.swp
+.DS_Store
+.project
+npm-debug.log
+.idea/
+log/
+node_modules/
