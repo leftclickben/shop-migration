@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#
+# migrate
+#
+# Main migration script for RWAHS shop from legacy bookshop database to Magento2-compatible CSV.
+#
+
+set -e
+set -u
+
+# Settings
+# TODO Get these from configuration file
+accessDatabase=/home/benn/rwahs/source/RWAHSBookshop_be.accdb
+workPath=/home/benn/rwahs/work
+targetPath=/home/benn/rwahs/target
+
+# Ensure source database exists
+if [ ! -f "${accessDatabase}" ]; then
+    echo "Access database file not found: ${accessDatabase}" &>2
+    exit 1
+fi
+
+# Create clean working directory
+rm -rf "${workPath}"
+mkdir -p "${workPath}"
+
+# Extract all tables into CSV files
+for table in `mdb-tables "${accessDatabase}"`; do
+    mdb-export "${accessDatabase}" "${table}" >"${workPath}/${table}.csv"
+done
+
+# Create clean target directory
+rm -rf "${targetPath}"
+mkdir -p "${targetPath}"
+
+# Run the node script that processes the CSV files into the target directory
+"$(readlink -f $(dirname ${0}))/process-csv.js" "${workPath}" "${targetPath}"
