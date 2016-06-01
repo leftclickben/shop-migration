@@ -13,6 +13,7 @@ set -u
 accessDatabase=/home/benn/rwahs/source/RWAHSBookshop_be.accdb
 workPath=/home/benn/rwahs/work
 targetPath=/home/benn/rwahs/target
+imagesPath=/home/benn/rwahs/source/images
 
 # Ensure source database exists
 if [ ! -f "${accessDatabase}" ]; then
@@ -34,4 +35,4 @@ rm -rf "${targetPath}"
 mkdir -p "${targetPath}"
 
 # Run the node script that processes the CSV files into the target directory
-"$(readlink -f $(dirname ${0}))/process-csv.js" "${workPath}" "${targetPath}"
+"$(readlink -f $(dirname ${0}))/process-csv.js" "${workPath}" "${targetPath}" "${imagesPath}"
