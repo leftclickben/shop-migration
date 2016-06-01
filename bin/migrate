@@ -27,7 +27,7 @@ mkdir -p "${workPath}"
 
 # Extract all tables into CSV files
 for table in `mdb-tables "${accessDatabase}"`; do
-    mdb-export "${accessDatabase}" "${table}" >"${workPath}/${table}.csv"
+    mdb-export -D "%Y-%m-%d %H:%M:%S" "${accessDatabase}" "${table}" >"${workPath}/${table}.csv"
 done
 
 # Create clean target directory

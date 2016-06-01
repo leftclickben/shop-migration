@@ -18,11 +18,10 @@
                 console.error('Could not read images path "%s", please check the path exists and try again', imagesPath);
                 return;
             }
-            console.log(JSON.stringify(imageFilenames));
             fs.createReadStream(workPath + '/Books.csv')
                 .pipe(csv.parse({ columns: true }))
                 .pipe(csv.transform(function (record) {
-                    var title, imageFilename;
+                    var title;
 
                     if (!record.RRP) {
                         return undefined;
@@ -31,8 +30,6 @@
                     title = record.Title.trim()
                         .replace(/\s*[-(]\s*out\s+of\s+(?:stock|print|order).*$/i, '')
                         .replace(/\s*[-(]\s*special\s+orders?\s+only.*$/i, '');
-
-                    imageFilename = _.find(imageFilenames, (filename) => filename.match(new RegExp('^' + record.BookCode + '_')));
 
                     return {
                         sku: 'BOOK-' + record.BookCode,
@@ -56,15 +53,19 @@
                         meta_title: title,
                         meta_keywords: [ 'Western Australia', 'History', record.Category.toLowerCase() ].join(', '), // TODO Others? Author?
                         meta_description: record.Description,
-                        base_image: imageFilename,
+                        base_image: _.find(imageFilenames, (filename) => filename.match(new RegExp('^' + record.BookCode + '_'))),
                         base_image_label: 'Cover of ' + title,
                         small_image: '',
                         small_image_label: '',
                         thumbnail_image: '',
                         thumbnail_image_label: '',
-                        // TODO Creation date is earliest of `FirstOrderDate`, `LastSaleDate`, `LastUpdate`, `StocktakeDate`, `new Date()`
-                        created_at: new Date(),
-                        updated_at: record.LastUpdate,
+                        created_at: (new Date(Math.min(
+                            record.FirstOrderDate ? Date.parse(record.FirstOrderDate) : Date.now(),
+                            record.LastSaleDate ? Date.parse(record.LastSaleDate) : Date.now(),
+                            record.LastUpdate ? Date.parse(record.LastUpdate) : Date.now(),
+                            record.StocktakeDate ? Date.parse(record.StocktakeDate) : Date.now()
+                        ))).toISOString(),
+                        updated_at: record.LastUpdate ? (new Date(record.LastUpdate)).toISOString() : Date.now(),
                         new_from_date: '',
                         new_to_date: '',
                         display_product_options_in: 'Block after Info Column',
@@ -114,7 +115,6 @@
                         related_skus: '',
                         crosssell_skus: '',
                         upsell_skus: '',
-                        // TODO Images
                         additional_images: '',
                         additional_image_labels: '',
                         hide_from_product_page: '',
