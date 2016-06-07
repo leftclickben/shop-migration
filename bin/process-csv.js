@@ -31,6 +31,7 @@
 
     // Generate "products.csv" based on the source data.
     processProducts = function (workPath, targetPath) {
+        var skippedRecords = [];
         console.log('Processing CSV data with workPath="%s", targetPath="%s"', workPath, targetPath);
         fs.readdir(targetPath + '/images', function (err, imageFilenames) {
             if (err) {
@@ -43,6 +44,7 @@
                     var title, imageFilename;
 
                     if (!record.RRP) {
+                        skippedRecords.push({ record: record, reason: 'RRP is zero or missing' });
                         return undefined;
                     }
 
@@ -144,6 +146,26 @@
                     };
                 }))
                 .on('error', console.error)
+                .on('end', function () {
+                    if (skippedRecords.length > 0) {
+                        csv.stringify(
+                            _(skippedRecords)
+                                .map(function (skipped, index) {
+                                    return [
+                                        index + 1,
+                                        skipped.record.BookCode,
+                                        skipped.record.Title,
+                                        skipped.reason
+                                    ];
+                                })
+                                .unshift([ '#', 'BookCode', 'Title', 'Reason for Skipping' ])
+                                .value(),
+                            function (err, csvData) {
+                                fs.writeFile(targetPath + '/skipped-records.csv', csvData);
+                            }
+                        );
+                    }
+                })
                 .pipe(csv.stringify({ header: true }))
                 .pipe(fs.createWriteStream(targetPath + '/products.csv'));
         });
