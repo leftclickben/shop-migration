@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#
+# reset-db
+#
+# Database reset script for RWAHS shop (magento2)
+#
+
+set -e
+set -u
+
+# Settings
+# TODO Get these from configuration file
+dbauth=-uroot
+dbhost=
+dbname=magento2
+
+# Reset the database using the current seed
+mysqladmin ${dbauth} ${dbhost} -f drop "${dbname}"
+mysqladmin ${dbauth} ${dbhost} create "${dbname}"
+mysql ${dbauth} ${dbhost} "${dbname}" <"$(readlink -f $(dirname $(dirname ${0})))/db/seed.sql"
+echo "Database reset completed."

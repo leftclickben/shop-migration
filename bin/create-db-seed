@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#
+# create-db-seed
+#
+# Create a database seed from the current magento2 database.
+#
+
+set -e
+set -u
+
+# Settings
+# TODO Get these from configuration file
+dbauth=-uroot
+dbhost=
+dbname=magento2
+
+# Create new database seed
+mysqldump ${dbauth} ${dbhost} "${dbname}" >"$(readlink -f $(dirname $(dirname ${0})))/db/seed.sql"
