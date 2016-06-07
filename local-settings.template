@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# local-settings.template
+#
+# Copy this file to `local-settings` and set the correct values.
+#
+
+dbauth="-uuser -ppassword"
+dbhost="-hdbhost.example.com"
+dbname="magento2"
+
+sourcePath="/path/to/source"
+workPath="/path/to/work"
+targetPath="/path/to/target"
