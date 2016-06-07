@@ -10,14 +10,21 @@ set -u
 
 # Settings
 # TODO Get these from configuration file
-accessDatabase=/home/benn/rwahs/source/RWAHSBookshop_be.accdb
+sourcePath=/home/benn/rwahs/source
 workPath=/home/benn/rwahs/work
 targetPath=/home/benn/rwahs/target
-imagesPath=/home/benn/rwahs/source/images
 
-# Ensure source database exists
-if [ ! -f "${accessDatabase}" ]; then
-    echo "Access database file not found: ${accessDatabase}" &>2
+# Ensure source database and images exists
+if [ ! -d "${sourcePath}" ]; then
+	echo "Source path directory not found: ${sourcePath}" &>2
+	exit 1
+fi
+if [ ! -f "${sourcePath}/RWAHSBookshop_be.accdb" ]; then
+    echo "Access database file not found: ${sourcePath}/RWAHSBookshop_be.accdb" &>2
+    exit 1
+fi
+if [ ! -d "${sourcePath}/images" ]; then
+    echo "Access database file not found: ${sourcePath}/images" &>2
     exit 1
 fi
 
@@ -26,13 +33,16 @@ rm -rf "${workPath}"
 mkdir -p "${workPath}"
 
 # Extract all tables into CSV files
-for table in `mdb-tables "${accessDatabase}"`; do
-    mdb-export -D "%Y-%m-%d %H:%M:%S" "${accessDatabase}" "${table}" >"${workPath}/${table}.csv"
+for table in `mdb-tables "${sourcePath}/RWAHSBookshop_be.accdb"`; do
+    mdb-export -D "%Y-%m-%d %H:%M:%S" "${sourcePath}/RWAHSBookshop_be.accdb" "${table}" >"${workPath}/${table}.csv"
 done
 
-# Create clean target directory
+# Create clean target directory (creating `images` also creates the `${targetPath}` itself due to `-p`)
 rm -rf "${targetPath}"
-mkdir -p "${targetPath}"
+mkdir -p "${targetPath}/images"
+
+# Process images from source into target, normalising filenames
+"$(readlink -f $(dirname ${0}))/process-images.js" "${sourcePath}/images" "${targetPath}/images"
 
 # Run the node script that processes the CSV files into the target directory
-"$(readlink -f $(dirname ${0}))/process-csv.js" "${workPath}" "${targetPath}" "${imagesPath}"
+"$(readlink -f $(dirname ${0}))/process-csv.js" "${workPath}" "${targetPath}"

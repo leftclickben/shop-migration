@@ -11,17 +11,17 @@
     slug.defaults.mode = 'rfc3986';
 
     // Generate "products.csv" based on the source data.
-    processProducts = function (workPath, targetPath, imagesPath) {
-        console.log('Processing with workPath="%s", targetPath="%s", imagesPath="%s"', workPath, targetPath, imagesPath);
-        fs.readdir(imagesPath, function (err, imageFilenames) {
+    processProducts = function (workPath, targetPath) {
+        console.log('Processing CSV data with workPath="%s", targetPath="%s"', workPath, targetPath);
+        fs.readdir(targetPath + '/images', function (err, imageFilenames) {
             if (err) {
-                console.error('Could not read images path "%s", please check the path exists and try again', imagesPath);
+                console.error('Could not read images path "%s", please check the path exists and try again', targetPath + '/images');
                 return;
             }
             fs.createReadStream(workPath + '/Books.csv')
                 .pipe(csv.parse({ columns: true }))
                 .pipe(csv.transform(function (record) {
-                    var title;
+                    var title, imageFilename;
 
                     if (!record.RRP) {
                         return undefined;
@@ -31,12 +31,14 @@
                         .replace(/\s*[-(]\s*out\s+of\s+(?:stock|print|order).*$/i, '')
                         .replace(/\s*[-(]\s*special\s+orders?\s+only.*$/i, '');
 
+                    imageFilename = _.find(imageFilenames, (filename) => filename.match(new RegExp('^' + record.BookCode + '_')));
+
                     return {
                         sku: 'BOOK-' + record.BookCode,
                         store_view_code: '',
                         attribute_set_code: 'Default',
                         product_type: 'simple',
-                        categories: record.Category,
+                        categories: 'Default Category / Books / ' + record.Category,
                         product_websites: 'base',
                         name: title,
                         description: record.Description,
@@ -53,12 +55,12 @@
                         meta_title: title,
                         meta_keywords: [ 'Western Australia', 'History', record.Category.toLowerCase() ].join(', '), // TODO Others? Author?
                         meta_description: record.Description,
-                        base_image: _.find(imageFilenames, (filename) => filename.match(new RegExp('^' + record.BookCode + '_'))),
-                        base_image_label: 'Cover of ' + title,
-                        small_image: '',
-                        small_image_label: '',
-                        thumbnail_image: '',
-                        thumbnail_image_label: '',
+                        base_image: imageFilename,
+                        base_image_label: imageFilename ? 'Cover of ' + title : '',
+                        small_image: imageFilename,
+                        small_image_label: imageFilename ? 'Cover of ' + title : '',
+                        thumbnail_image: imageFilename,
+                        thumbnail_image_label: imageFilename ? 'Cover of ' + title : '',
                         created_at: (new Date(Math.min(
                             record.FirstOrderDate ? Date.parse(record.FirstOrderDate) : Date.now(),
                             record.LastSaleDate ? Date.parse(record.LastSaleDate) : Date.now(),
@@ -130,15 +132,13 @@
 
     // Bootstrap for command-line usage.
     if (require.main === module) {
-        if (process.argv.length < 5) {
-            console.error('Insufficient arguments provided. Usage: %s %s [work-path] [target-path] [image-path]', process.argv[0], process.argv[1]);
+        if (process.argv.length < 4) {
+            console.error('Insufficient arguments provided. Usage: %s %s [work-path] [target-path]', process.argv[0], process.argv[1]);
             return process.exit(1);
         }
-        processProducts(process.argv[2], process.argv[3], process.argv[4]);
+        processProducts(process.argv[2], process.argv[3]);
     }
 
-    // Export module pattern.
-    module.exports = {
-        processProducts: processProducts
-    };
+    // Export function.
+    module.exports = processProducts;
 }(require('lodash'), require('fs'), require('csv'), require('slug')));
