@@ -12,21 +12,21 @@
 
     // Map for category values
     categoryMap = {
-        'AUTOBIOGRAPHY / BIOGRAPHY': 'Default Category / Books / Biographical',
-        'EXPLORATION AND TRAVEL': 'Default Category / Books / Travel',
-        'GOLD': 'Default Category / Books / Gold',
-        'HISTORICAL NOVEL': 'Default Category / Books / Historical Novel',
-        'INDIGENOUS HISTORY   [ABORIGINES]': 'Default Category / Books / Indigenous History',
-        'INDIGENOUS HISTORY (Aborigines)': 'Default Category / Books / Indigenous History',
-        'LOCAL AND REGIONAL HISTORY': 'Default Category / Books / Local History',
-        'MARITIME HISTORY': 'Default Category / Books / Maritime',
-        'MILITARY': 'Default Category / Books / Military',
-        'RAILWAYS AND TRANSPORT': 'Default Category / Books / Railways & Transport',
-        'SOCIAL HISTORY': 'Default Category / Books / Social History',
-        'STATEWIDE': 'Default Category / Books / State History',
-        'STUDIES IN WESTERN AUSTRALIAN HISTORY': 'Default Category / Books / State History',
-        'WA HISTORY - STATEWIDE': 'Default Category / Books / State History',
-        'YOUTH AND CHILDREN': 'Default Category / Books / Youth & Children'
+        'AUTOBIOGRAPHY / BIOGRAPHY': 'Default Category/Books/Biographical',
+        'EXPLORATION AND TRAVEL': 'Default Category/Books/Travel',
+        'GOLD': 'Default Category/Books/Gold',
+        'HISTORICAL NOVEL': 'Default Category/Books/Historical Novel',
+        'INDIGENOUS HISTORY   [ABORIGINES]': 'Default Category/Books/Indigenous History',
+        'INDIGENOUS HISTORY (Aborigines)': 'Default Category/Books/Indigenous History',
+        'LOCAL AND REGIONAL HISTORY': 'Default Category/Books/Local History',
+        'MARITIME HISTORY': 'Default Category/Books/Maritime',
+        'MILITARY': 'Default Category/Books/Military',
+        'RAILWAYS AND TRANSPORT': 'Default Category/Books/Railways & Transport',
+        'SOCIAL HISTORY': 'Default Category/Books/Social History',
+        'STATEWIDE': 'Default Category/Books/State History',
+        'STUDIES IN WESTERN AUSTRALIAN HISTORY': 'Default Category/Books/State History',
+        'WA HISTORY - STATEWIDE': 'Default Category/Books/State History',
+        'YOUTH AND CHILDREN': 'Default Category/Books/Youth & Children'
     };
 
     // Generate "products.csv" based on the source data.
@@ -57,7 +57,7 @@
                         store_view_code: '',
                         attribute_set_code: 'Default',
                         product_type: 'simple',
-                        categories: categoryMap[record.Category.trim()] || 'Default Category / Books / Other',
+                        categories: categoryMap[record.Category.trim()] || 'Default Category/Books/Other',
                         product_websites: 'base',
                         name: title,
                         description: record.Description,
