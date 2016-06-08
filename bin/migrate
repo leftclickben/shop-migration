@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+#
+# migrate
+#
+# Main migration script for RWAHS shop from legacy bookshop database to Magento2-compatible CSV.
+#
+
+set -e
+set -u
+
+# Settings
+localSettings="$(readlink -f $(dirname $(dirname ${0})))/local-settings"
+if [ ! -f "${localSettings}" ]; then
+	echo "Local settings file not found: ${localSettings}" >&2
+	exit 1
+fi
+source "${localSettings}"
+
+# Ensure source database and images exists
+if [ ! -d "${sourcePath}" ]; then
+	echo "Source path directory not found: ${sourcePath}" >&2
+	exit 1
+fi
+if [ ! -f "${sourcePath}/RWAHSBookshop_be.accdb" ]; then
+    echo "Access database file not found: ${sourcePath}/RWAHSBookshop_be.accdb" >&2
+    exit 1
+fi
+if [ ! -d "${sourcePath}/images" ]; then
+    echo "Access database file not found: ${sourcePath}/images" >&2
+    exit 1
+fi
+
+# Create clean working directory
+rm -rf "${workPath}"
+mkdir -p "${workPath}"
+
+# Extract all tables into CSV files
+for table in `mdb-tables "${sourcePath}/RWAHSBookshop_be.accdb"`; do
+    mdb-export -D "%Y-%m-%d %H:%M:%S" "${sourcePath}/RWAHSBookshop_be.accdb" "${table}" >"${workPath}/${table}.csv"
+done
+
+# Create clean target directory (creating `images` also creates the `${targetPath}` itself due to `-p`)
+rm -rf "${targetPath}"
+mkdir -p "${targetPath}/images"
+
+# Process images from source into target, normalising filenames
+"$(readlink -f $(dirname ${0}))/process-images.js" "${sourcePath}/images" "${targetPath}/images"
+
+# Run the node script that processes the CSV files into the target directory
+"$(readlink -f $(dirname ${0}))/process-csv.js" "${workPath}" "${targetPath}"

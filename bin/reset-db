@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#
+# reset-db
+#
+# Database reset script for RWAHS shop (magento2)
+#
+
+set -e
+set -u
+
+# Settings
+localSettings="$(readlink -f $(dirname $(dirname ${0})))/local-settings"
+if [ ! -f "${localSettings}" ]; then
+	echo "Local settings file not found: ${localSettings}" >&2
+	exit 1
+fi
+source "${localSettings}"
+
+# Reset the database using the current seed
+mysqladmin ${dbauth} ${dbhost} -f drop "${dbname}"
+mysqladmin ${dbauth} ${dbhost} create "${dbname}"
+mysql ${dbauth} ${dbhost} "${dbname}" <"$(readlink -f $(dirname $(dirname ${0})))/db/seed.sql"
+echo "Database reset completed."

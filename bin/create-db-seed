@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# create-db-seed
+#
+# Create a database seed from the current magento2 database.
+#
+
+set -e
+set -u
+
+# Settings
+localSettings="$(readlink -f $(dirname $(dirname ${0})))/local-settings"
+if [ ! -f "${localSettings}" ]; then
+	echo "Local settings file not found: ${localSettings}" >&2
+	exit 1
+fi
+source "${localSettings}"
+
+# Create new database seed
+mysqldump ${dbauth} ${dbhost} "${dbname}" >"$(readlink -f $(dirname $(dirname ${0})))/db/seed.sql"
