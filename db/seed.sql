@@ -64,7 +64,7 @@ CREATE TABLE `admin_system_messages` (
 
 LOCK TABLES `admin_system_messages` WRITE;
 /*!40000 ALTER TABLE `admin_system_messages` DISABLE KEYS */;
-INSERT INTO `admin_system_messages` VALUES ('e10d8106728b231a10d34db6f6ac97de',1,'2016-06-07 09:04:34');
+INSERT INTO `admin_system_messages` VALUES ('8f0a7d5ccc2119269341401dc6bb59f2',1,'2016-06-21 03:39:41');
 /*!40000 ALTER TABLE `admin_system_messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -9761,7 +9761,7 @@ CREATE TABLE `theme` (
 
 LOCK TABLES `theme` WRITE;
 /*!40000 ALTER TABLE `theme` DISABLE KEYS */;
-INSERT INTO `theme` VALUES (1,NULL,'Magento/blank','Magento Blank','preview_image_574ff666ebbbb.jpeg',0,'frontend',0,'Magento/blank'),(2,1,'Magento/luma','Magento Luma','preview_image_574ff66701960.jpeg',0,'frontend',0,'Magento/luma'),(3,NULL,'Magento/backend','Magento 2 backend',NULL,0,'adminhtml',0,'Magento/backend'),(4,1,'Venustheme/yume','Venustheme Yume','preview_image_57567aa7806a4.jpeg',0,'frontend',0,'Venustheme/yume'),(5,4,'Gaia/rwahstweaks','RWAHS Tweaks Subtheme','preview_image_57567aa78adf2.jpeg',0,'frontend',0,'Gaia/rwahstweaks');
+INSERT INTO `theme` VALUES (1,NULL,'Magento/blank','Magento Blank','preview_image_574ff666ebbbb.jpeg',0,'frontend',0,'Magento/blank'),(2,1,'Magento/luma','Magento Luma','preview_image_574ff66701960.jpeg',0,'frontend',0,'Magento/luma'),(3,NULL,'Magento/backend','Magento 2 backend',NULL,0,'adminhtml',0,'Magento/backend'),(4,1,'Venustheme/yume','Venustheme Yume','preview_image_57567aa7806a4.jpeg',0,'frontend',0,'Venustheme/yume'),(5,4,'Gaia/rwahs','RWAHS Subtheme','preview_image_5768b7ed162ca.jpeg',0,'frontend',0,'Gaia/rwahs');
 /*!40000 ALTER TABLE `theme` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -10196,4 +10196,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-07 17:17:09
+-- Dump completed on 2016-06-21 11:45:13
