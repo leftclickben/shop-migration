@@ -52,7 +52,7 @@
                     fs.createReadStream(workPath + '/Books.csv')
                         .pipe(csv.parse({ columns: true }))
                         .pipe(csv.transform(function (record) {
-                            var title, imageFilename, category, attributes, keywords;
+                            var title, imageFilename, category, attributes, keywords, metaDescription;
 
                             if (!record.RRP) {
                                 skippedRecords.push({ record: record, reason: 'RRP is zero or missing' });
@@ -66,6 +66,7 @@
                             category = categoryMap[record.Category.trim()];
                             attributes = [];
                             keywords = [ 'Western Australia', 'History' ];
+                            metaDescription = 'Buy "' + title + '"';
 
                             if (category) {
                                 keywords.push(category.replace(/^.*\//, ''));
@@ -74,11 +75,15 @@
                             if (record.AuthorID && authors[record.AuthorID]) {
                                 attributes.push('author=' + authors[record.AuthorID]);
                                 keywords.push(authors[record.AuthorID]);
+                                metaDescription += ' by ' + authors[record.AuthorID];
                             }
 
                             if (record.Cover) {
                                 attributes.push('cover=' + record.Cover);
+                                metaDescription += ' in ' + record.Cover;
                             }
+
+                            metaDescription += ' from The Royal Western Australian Historical Society Inc.';
 
                             return {
                                 sku: 'BOOK-' + record.BookCode,
@@ -101,7 +106,7 @@
                                 url_key: slug(title) + '-' + record.BookCode,
                                 meta_title: title,
                                 meta_keywords: keywords.join(';'),
-                                meta_description: 'Buy "' + title + '" in ' + record.Cover + ' from The Royal Western Australian Historical Society Inc.',
+                                meta_description: metaDescription,
                                 base_image: imageFilename,
                                 base_image_label: imageFilename ? 'Cover of ' + title : '',
                                 small_image: imageFilename,
