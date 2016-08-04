@@ -46,9 +46,21 @@ control to the `process-csv.js` node script, which generates the target CSV.
 Assuming there are no errors, when the `migrate` script is complete, the target directory will be populated with the
 resulting CSV files ready for import.
 
+### Import Parameters
+
+In the Magento2 admin interface, there are several options presented.  These are the values you should use:
+
+* Entity Type: Products
+* Import Behaviour: Add/Update
+* Field Separator: ,
+* Multiple value separator: ;
+
+In particular, please note the "Multiple value separator" is a semicolon, not a comma, which is the default.  This is
+necessary to match the format produced by the migration script (and to handle names like "Smith, R" in the data).
+
 ## Database Cycles
 
-There are two scripts which manipulate the entire database contents.  
+There are two scripts which manipulate the entire database contents.
 
 The `create-db-seed` script creates a new version of `db/seed.sql` based on the current database contents:
 
