@@ -3790,7 +3790,7 @@ CREATE TABLE `customer_visitor` (
   PRIMARY KEY (`visitor_id`),
   KEY `CUSTOMER_VISITOR_CUSTOMER_ID` (`customer_id`),
   KEY `CUSTOMER_VISITOR_LAST_VISIT_AT` (`last_visit_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Visitor Table';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='Visitor Table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3799,7 +3799,6 @@ CREATE TABLE `customer_visitor` (
 
 LOCK TABLES `customer_visitor` WRITE;
 /*!40000 ALTER TABLE `customer_visitor` DISABLE KEYS */;
-INSERT INTO `customer_visitor` VALUES (1,NULL,'hsdtmjpcgbv2g5rlk3gfbfju40','2016-06-02 09:45:33'),(2,NULL,'8s481jd1rdlj23dv0c4tnd0ep2','2016-06-07 09:11:02');
 /*!40000 ALTER TABLE `customer_visitor` ENABLE KEYS */;
 UNLOCK TABLES;
 
