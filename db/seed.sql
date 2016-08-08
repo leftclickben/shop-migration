@@ -757,8 +757,8 @@ INSERT INTO `catalog_eav_attribute` VALUES (127,NULL,1,0,0,0,0,0,0,0,0,1,0,'down
 INSERT INTO `catalog_eav_attribute` VALUES (128,NULL,0,1,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
 INSERT INTO `catalog_eav_attribute` VALUES (129,NULL,2,1,1,0,0,0,0,0,0,1,0,'simple,virtual,bundle,downloadable,configurable',0,0,0,0,0,1,0,1,1,NULL);
 INSERT INTO `catalog_eav_attribute` VALUES (130,'Magento\\GiftMessage\\Block\\Adminhtml\\Product\\Helper\\Form\\Config',1,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,1,0,0,1,NULL);
-INSERT INTO `catalog_eav_attribute` VALUES (131,NULL,0,1,1,1,0,1,1,0,0,1,0,NULL,1,0,0,0,0,1,1,1,1,NULL);
-INSERT INTO `catalog_eav_attribute` VALUES (132,NULL,0,1,1,1,0,1,1,0,0,1,0,NULL,1,0,0,0,0,1,1,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (131,NULL,0,1,1,0,1,1,1,0,0,1,0,NULL,1,0,0,0,0,1,1,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (132,NULL,0,1,1,0,1,1,1,0,0,1,0,NULL,1,0,0,0,0,1,1,1,1,NULL);
 /*!40000 ALTER TABLE `catalog_eav_attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
