@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.28, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.30, for debian-linux-gnu (x86_64)
 --
--- Host: localhost    Database: magento2
+-- Host: localhost    Database: t
 -- ------------------------------------------------------
--- Server version	5.6.28-0ubuntu0.14.04.1
+-- Server version	5.6.30-0ubuntu0.14.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -37,6 +37,7 @@ CREATE TABLE `admin_passwords` (
 --
 -- Dumping data for table `admin_passwords`
 --
+-- ORDER BY:  `password_id`
 
 LOCK TABLES `admin_passwords` WRITE;
 /*!40000 ALTER TABLE `admin_passwords` DISABLE KEYS */;
@@ -61,6 +62,7 @@ CREATE TABLE `admin_system_messages` (
 --
 -- Dumping data for table `admin_system_messages`
 --
+-- ORDER BY:  `identity`
 
 LOCK TABLES `admin_system_messages` WRITE;
 /*!40000 ALTER TABLE `admin_system_messages` DISABLE KEYS */;
@@ -102,6 +104,7 @@ CREATE TABLE `admin_user` (
 --
 -- Dumping data for table `admin_user`
 --
+-- ORDER BY:  `user_id`
 
 LOCK TABLES `admin_user` WRITE;
 /*!40000 ALTER TABLE `admin_user` DISABLE KEYS */;
@@ -129,12 +132,13 @@ CREATE TABLE `adminnotification_inbox` (
   KEY `ADMINNOTIFICATION_INBOX_SEVERITY` (`severity`),
   KEY `ADMINNOTIFICATION_INBOX_IS_READ` (`is_read`),
   KEY `ADMINNOTIFICATION_INBOX_IS_REMOVE` (`is_remove`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='Adminnotification Inbox';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Adminnotification Inbox';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `adminnotification_inbox`
 --
+-- ORDER BY:  `notification_id`
 
 LOCK TABLES `adminnotification_inbox` WRITE;
 /*!40000 ALTER TABLE `adminnotification_inbox` DISABLE KEYS */;
@@ -166,10 +170,12 @@ CREATE TABLE `authorization_role` (
 --
 -- Dumping data for table `authorization_role`
 --
+-- ORDER BY:  `role_id`
 
 LOCK TABLES `authorization_role` WRITE;
 /*!40000 ALTER TABLE `authorization_role` DISABLE KEYS */;
-INSERT INTO `authorization_role` VALUES (1,0,1,1,'G',0,'2','Administrators'),(2,1,2,0,'U',1,'2','administrator');
+INSERT INTO `authorization_role` VALUES (1,0,1,1,'G',0,'2','Administrators');
+INSERT INTO `authorization_role` VALUES (2,1,2,0,'U',1,'2','administrator');
 /*!40000 ALTER TABLE `authorization_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -196,6 +202,7 @@ CREATE TABLE `authorization_rule` (
 --
 -- Dumping data for table `authorization_rule`
 --
+-- ORDER BY:  `rule_id`
 
 LOCK TABLES `authorization_rule` WRITE;
 /*!40000 ALTER TABLE `authorization_rule` DISABLE KEYS */;
@@ -224,6 +231,7 @@ CREATE TABLE `cache` (
 --
 -- Dumping data for table `cache`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `cache` WRITE;
 /*!40000 ALTER TABLE `cache` DISABLE KEYS */;
@@ -248,6 +256,7 @@ CREATE TABLE `cache_tag` (
 --
 -- Dumping data for table `cache_tag`
 --
+-- ORDER BY:  `tag`,`cache_id`
 
 LOCK TABLES `cache_tag` WRITE;
 /*!40000 ALTER TABLE `cache_tag` DISABLE KEYS */;
@@ -273,6 +282,7 @@ CREATE TABLE `captcha_log` (
 --
 -- Dumping data for table `captcha_log`
 --
+-- ORDER BY:  `type`,`value`
 
 LOCK TABLES `captcha_log` WRITE;
 /*!40000 ALTER TABLE `captcha_log` DISABLE KEYS */;
@@ -304,10 +314,12 @@ CREATE TABLE `catalog_category_entity` (
 --
 -- Dumping data for table `catalog_category_entity`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `catalog_category_entity` WRITE;
 /*!40000 ALTER TABLE `catalog_category_entity` DISABLE KEYS */;
-INSERT INTO `catalog_category_entity` VALUES (1,0,0,'2016-06-02 09:03:36','2016-06-02 09:03:36','1',0,0,1),(2,3,1,'2016-06-02 09:03:36','2016-06-02 09:03:36','1/2',1,1,0);
+INSERT INTO `catalog_category_entity` VALUES (1,0,0,'2016-06-02 09:03:36','2016-06-02 09:03:36','1',0,0,1);
+INSERT INTO `catalog_category_entity` VALUES (2,3,1,'2016-06-02 09:03:36','2016-06-02 09:03:36','1/2',1,1,0);
 /*!40000 ALTER TABLE `catalog_category_entity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -338,10 +350,12 @@ CREATE TABLE `catalog_category_entity_datetime` (
 --
 -- Dumping data for table `catalog_category_entity_datetime`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `catalog_category_entity_datetime` WRITE;
 /*!40000 ALTER TABLE `catalog_category_entity_datetime` DISABLE KEYS */;
-INSERT INTO `catalog_category_entity_datetime` VALUES (1,58,0,1,NULL),(2,58,0,2,NULL);
+INSERT INTO `catalog_category_entity_datetime` VALUES (1,58,0,1,NULL);
+INSERT INTO `catalog_category_entity_datetime` VALUES (2,58,0,2,NULL);
 /*!40000 ALTER TABLE `catalog_category_entity_datetime` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -372,6 +386,7 @@ CREATE TABLE `catalog_category_entity_decimal` (
 --
 -- Dumping data for table `catalog_category_entity_decimal`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `catalog_category_entity_decimal` WRITE;
 /*!40000 ALTER TABLE `catalog_category_entity_decimal` DISABLE KEYS */;
@@ -405,10 +420,13 @@ CREATE TABLE `catalog_category_entity_int` (
 --
 -- Dumping data for table `catalog_category_entity_int`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `catalog_category_entity_int` WRITE;
 /*!40000 ALTER TABLE `catalog_category_entity_int` DISABLE KEYS */;
-INSERT INTO `catalog_category_entity_int` VALUES (1,66,0,1,1),(2,43,0,2,1),(3,66,0,2,1);
+INSERT INTO `catalog_category_entity_int` VALUES (1,66,0,1,1);
+INSERT INTO `catalog_category_entity_int` VALUES (2,43,0,2,1);
+INSERT INTO `catalog_category_entity_int` VALUES (3,66,0,2,1);
 /*!40000 ALTER TABLE `catalog_category_entity_int` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -439,10 +457,12 @@ CREATE TABLE `catalog_category_entity_text` (
 --
 -- Dumping data for table `catalog_category_entity_text`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `catalog_category_entity_text` WRITE;
 /*!40000 ALTER TABLE `catalog_category_entity_text` DISABLE KEYS */;
-INSERT INTO `catalog_category_entity_text` VALUES (1,64,0,1,NULL),(2,64,0,2,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (1,64,0,1,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (2,64,0,2,NULL);
 /*!40000 ALTER TABLE `catalog_category_entity_text` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -473,10 +493,13 @@ CREATE TABLE `catalog_category_entity_varchar` (
 --
 -- Dumping data for table `catalog_category_entity_varchar`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `catalog_category_entity_varchar` WRITE;
 /*!40000 ALTER TABLE `catalog_category_entity_varchar` DISABLE KEYS */;
-INSERT INTO `catalog_category_entity_varchar` VALUES (1,42,0,1,'Root Catalog'),(2,42,0,2,'Default Category'),(3,49,0,2,'PRODUCTS');
+INSERT INTO `catalog_category_entity_varchar` VALUES (1,42,0,1,'Root Catalog');
+INSERT INTO `catalog_category_entity_varchar` VALUES (2,42,0,2,'Default Category');
+INSERT INTO `catalog_category_entity_varchar` VALUES (3,49,0,2,'PRODUCTS');
 /*!40000 ALTER TABLE `catalog_category_entity_varchar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -501,6 +524,7 @@ CREATE TABLE `catalog_category_product` (
 --
 -- Dumping data for table `catalog_category_product`
 --
+-- ORDER BY:  `category_id`,`product_id`
 
 LOCK TABLES `catalog_category_product` WRITE;
 /*!40000 ALTER TABLE `catalog_category_product` DISABLE KEYS */;
@@ -530,6 +554,7 @@ CREATE TABLE `catalog_category_product_index` (
 --
 -- Dumping data for table `catalog_category_product_index`
 --
+-- ORDER BY:  `category_id`,`product_id`,`store_id`
 
 LOCK TABLES `catalog_category_product_index` WRITE;
 /*!40000 ALTER TABLE `catalog_category_product_index` DISABLE KEYS */;
@@ -590,6 +615,7 @@ CREATE TABLE `catalog_compare_item` (
 --
 -- Dumping data for table `catalog_compare_item`
 --
+-- ORDER BY:  `catalog_compare_item_id`
 
 LOCK TABLES `catalog_compare_item` WRITE;
 /*!40000 ALTER TABLE `catalog_compare_item` DISABLE KEYS */;
@@ -638,10 +664,101 @@ CREATE TABLE `catalog_eav_attribute` (
 --
 -- Dumping data for table `catalog_eav_attribute`
 --
+-- ORDER BY:  `attribute_id`
 
 LOCK TABLES `catalog_eav_attribute` WRITE;
 /*!40000 ALTER TABLE `catalog_eav_attribute` DISABLE KEYS */;
-INSERT INTO `catalog_eav_attribute` VALUES (42,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(43,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(44,NULL,0,1,0,0,0,0,1,0,0,0,0,NULL,0,0,1,0,0,0,0,0,1,NULL),(45,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(46,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(47,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(48,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(49,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(50,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(51,NULL,1,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(52,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(53,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(54,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(55,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(56,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(57,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(58,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(59,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(60,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(61,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(62,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(63,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(64,'Magento\\Catalog\\Block\\Adminhtml\\Category\\Helper\\Sortby\\Available',0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(65,'Magento\\Catalog\\Block\\Adminhtml\\Category\\Helper\\Sortby\\DefaultSortby',0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(66,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(67,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(68,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(69,'Magento\\Catalog\\Block\\Adminhtml\\Category\\Helper\\Pricestep',0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(70,NULL,0,1,1,0,0,0,0,0,0,1,1,NULL,1,0,0,0,0,0,0,0,5,NULL),(71,NULL,1,1,1,0,1,0,0,0,0,0,0,NULL,1,0,0,0,0,0,0,0,6,NULL),(72,NULL,0,1,1,0,1,0,1,0,0,0,0,NULL,1,0,1,0,0,0,0,0,1,NULL),(73,NULL,0,1,1,0,1,0,1,0,0,1,0,NULL,1,0,1,0,0,1,0,0,1,NULL),(74,NULL,2,1,1,1,0,0,0,0,0,1,1,'simple,virtual,bundle,downloadable,configurable',1,0,0,0,0,0,0,0,1,NULL),(75,NULL,2,1,0,0,0,0,0,0,0,1,0,'simple,virtual,bundle,downloadable,configurable',0,0,0,0,0,1,0,1,1,NULL),(76,NULL,2,1,0,0,0,0,0,0,0,1,0,'simple,virtual,bundle,downloadable,configurable',0,0,0,0,0,1,0,0,1,NULL),(77,NULL,2,1,0,0,0,0,0,0,0,1,0,'simple,virtual,bundle,downloadable,configurable',0,0,0,0,0,1,0,0,1,NULL),(78,NULL,2,1,0,0,0,0,0,0,0,0,0,'simple,virtual,downloadable',0,0,0,0,0,1,0,1,1,NULL),(79,'Magento\\Catalog\\Block\\Adminhtml\\Product\\Helper\\Form\\Weight',1,1,0,0,0,0,0,0,0,0,0,'simple,virtual,bundle,downloadable,configurable',0,0,0,0,0,1,0,1,1,NULL),(80,NULL,1,1,1,1,1,0,0,0,0,0,0,'simple',1,0,0,0,0,1,0,1,1,NULL),(81,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,1,0,1,1,NULL),(82,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,1,0,1,1,NULL),(83,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,1,0,1,1,NULL),(84,'Magento\\Catalog\\Block\\Adminhtml\\Product\\Helper\\Form\\BaseImage',0,1,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(85,NULL,0,1,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(86,NULL,0,1,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(87,NULL,1,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(88,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(89,NULL,2,1,0,0,0,0,0,0,0,0,0,'simple,virtual,bundle,downloadable,configurable',0,0,0,0,0,0,0,0,1,NULL),(90,NULL,1,1,1,1,1,0,0,0,0,0,0,'simple,virtual,configurable',1,0,0,0,0,1,0,1,1,NULL),(91,NULL,2,1,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,1,0,0,1,NULL),(92,NULL,2,1,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,1,0,0,1,NULL),(93,NULL,1,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(94,'Magento\\Framework\\Data\\Form\\Element\\Hidden',2,1,1,0,0,0,0,0,0,1,0,NULL,0,0,0,0,1,0,0,0,1,NULL),(95,NULL,0,0,0,0,0,0,0,0,0,0,0,'simple,virtual,bundle,downloadable,configurable',0,0,0,0,0,0,0,0,1,NULL),(96,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,1,0,0,0,1,NULL),(97,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,1,0,1,1,NULL),(98,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,1,0,0,1,NULL),(99,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,1,0,0,1,NULL),(100,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(101,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,1,0,0,1,NULL),(102,'Magento\\Catalog\\Block\\Adminhtml\\Product\\Helper\\Form\\Category',1,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(103,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(104,NULL,1,0,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(105,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(106,NULL,0,0,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(107,NULL,0,0,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(108,NULL,0,0,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(109,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(110,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(111,NULL,2,1,0,0,0,0,0,0,0,0,0,'simple,bundle,grouped,configurable',0,0,0,0,0,1,0,1,1,NULL),(112,'Magento\\CatalogInventory\\Block\\Adminhtml\\Form\\Field\\Stock',1,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(113,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(114,NULL,0,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(115,NULL,0,1,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,1,0,1,1,NULL),(116,NULL,0,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(117,'Magento\\Msrp\\Block\\Adminhtml\\Product\\Helper\\Form\\Type',2,1,0,0,0,0,0,0,0,1,0,'simple,virtual,downloadable,bundle,configurable',0,0,0,0,0,1,0,1,1,NULL),(118,'Magento\\Msrp\\Block\\Adminhtml\\Product\\Helper\\Form\\Type\\Price',2,1,0,0,0,0,0,0,0,1,0,'simple,virtual,downloadable,bundle,configurable',0,0,0,0,0,0,0,0,1,NULL),(119,NULL,1,1,0,0,0,0,0,0,0,1,0,'bundle',0,0,0,0,0,0,0,0,1,NULL),(120,NULL,1,0,0,0,0,0,0,0,0,0,0,'bundle',0,0,0,0,0,0,0,0,1,NULL),(121,NULL,1,0,0,0,0,0,0,0,0,1,0,'bundle',0,0,0,0,0,0,0,0,1,NULL),(122,NULL,1,1,0,0,0,0,0,0,0,1,0,'bundle',0,0,0,0,0,0,0,0,1,NULL),(123,NULL,1,0,0,0,0,0,0,0,0,1,0,'bundle',0,0,0,0,0,0,0,0,1,NULL),(124,NULL,1,0,0,0,0,0,0,0,0,1,0,'downloadable',0,0,0,0,0,0,0,0,1,NULL),(125,NULL,0,0,0,0,0,0,0,0,0,0,0,'downloadable',0,0,0,0,0,0,0,0,1,NULL),(126,NULL,0,0,0,0,0,0,0,0,0,0,0,'downloadable',0,0,0,0,0,0,0,0,1,NULL),(127,NULL,1,0,0,0,0,0,0,0,0,1,0,'downloadable',0,0,0,0,0,0,0,0,1,NULL),(128,NULL,0,1,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,0,0,0,1,NULL),(129,NULL,2,1,1,0,0,0,0,0,0,1,0,'simple,virtual,bundle,downloadable,configurable',0,0,0,0,0,1,0,1,1,NULL),(130,'Magento\\GiftMessage\\Block\\Adminhtml\\Product\\Helper\\Form\\Config',1,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,1,0,0,1,NULL),(131,NULL,0,1,0,0,0,0,1,0,0,0,0,NULL,0,0,0,0,0,1,1,1,1,NULL),(132,NULL,0,1,0,0,0,0,1,0,0,0,0,NULL,0,0,0,0,0,1,1,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (42,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (43,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (44,NULL,0,1,0,0,0,0,1,0,0,0,0,NULL,0,0,1,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (45,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (46,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (47,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (48,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (49,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (50,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (51,NULL,1,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (52,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (53,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (54,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (55,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (56,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (57,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (58,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (59,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (60,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (61,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (62,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (63,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (64,'Magento\\Catalog\\Block\\Adminhtml\\Category\\Helper\\Sortby\\Available',0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (65,'Magento\\Catalog\\Block\\Adminhtml\\Category\\Helper\\Sortby\\DefaultSortby',0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (66,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (67,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (68,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (69,'Magento\\Catalog\\Block\\Adminhtml\\Category\\Helper\\Pricestep',0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (70,NULL,0,1,1,0,0,0,0,0,0,1,1,NULL,1,0,0,0,0,0,0,0,5,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (71,NULL,1,1,1,0,1,0,0,0,0,0,0,NULL,1,0,0,0,0,0,0,0,6,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (72,NULL,0,1,1,0,1,0,1,0,0,0,0,NULL,1,0,1,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (73,NULL,0,1,1,0,1,0,1,0,0,1,0,NULL,1,0,1,0,0,1,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (74,NULL,2,1,1,1,0,0,0,0,0,1,1,'simple,virtual,bundle,downloadable,configurable',1,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (75,NULL,2,1,0,0,0,0,0,0,0,1,0,'simple,virtual,bundle,downloadable,configurable',0,0,0,0,0,1,0,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (76,NULL,2,1,0,0,0,0,0,0,0,1,0,'simple,virtual,bundle,downloadable,configurable',0,0,0,0,0,1,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (77,NULL,2,1,0,0,0,0,0,0,0,1,0,'simple,virtual,bundle,downloadable,configurable',0,0,0,0,0,1,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (78,NULL,2,1,0,0,0,0,0,0,0,0,0,'simple,virtual,downloadable',0,0,0,0,0,1,0,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (79,'Magento\\Catalog\\Block\\Adminhtml\\Product\\Helper\\Form\\Weight',1,1,0,0,0,0,0,0,0,0,0,'simple,virtual,bundle,downloadable,configurable',0,0,0,0,0,1,0,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (80,NULL,1,1,1,1,1,0,0,0,0,0,0,'simple',1,0,0,0,0,1,0,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (81,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,1,0,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (82,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,1,0,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (83,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,1,0,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (84,'Magento\\Catalog\\Block\\Adminhtml\\Product\\Helper\\Form\\BaseImage',0,1,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (85,NULL,0,1,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (86,NULL,0,1,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (87,NULL,1,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (88,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (89,NULL,2,1,0,0,0,0,0,0,0,0,0,'simple,virtual,bundle,downloadable,configurable',0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (90,NULL,1,1,1,1,1,0,0,0,0,0,0,'simple,virtual,configurable',1,0,0,0,0,1,0,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (91,NULL,2,1,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,1,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (92,NULL,2,1,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,1,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (93,NULL,1,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (94,'Magento\\Framework\\Data\\Form\\Element\\Hidden',2,1,1,0,0,0,0,0,0,1,0,NULL,0,0,0,0,1,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (95,NULL,0,0,0,0,0,0,0,0,0,0,0,'simple,virtual,bundle,downloadable,configurable',0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (96,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,1,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (97,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,1,0,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (98,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,1,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (99,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,1,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (100,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (101,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,1,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (102,'Magento\\Catalog\\Block\\Adminhtml\\Product\\Helper\\Form\\Category',1,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (103,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (104,NULL,1,0,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (105,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (106,NULL,0,0,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (107,NULL,0,0,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (108,NULL,0,0,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (109,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (110,NULL,1,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (111,NULL,2,1,0,0,0,0,0,0,0,0,0,'simple,bundle,grouped,configurable',0,0,0,0,0,1,0,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (112,'Magento\\CatalogInventory\\Block\\Adminhtml\\Form\\Field\\Stock',1,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (113,NULL,0,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (114,NULL,0,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (115,NULL,0,1,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,1,0,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (116,NULL,0,0,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (117,'Magento\\Msrp\\Block\\Adminhtml\\Product\\Helper\\Form\\Type',2,1,0,0,0,0,0,0,0,1,0,'simple,virtual,downloadable,bundle,configurable',0,0,0,0,0,1,0,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (118,'Magento\\Msrp\\Block\\Adminhtml\\Product\\Helper\\Form\\Type\\Price',2,1,0,0,0,0,0,0,0,1,0,'simple,virtual,downloadable,bundle,configurable',0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (119,NULL,1,1,0,0,0,0,0,0,0,1,0,'bundle',0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (120,NULL,1,0,0,0,0,0,0,0,0,0,0,'bundle',0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (121,NULL,1,0,0,0,0,0,0,0,0,1,0,'bundle',0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (122,NULL,1,1,0,0,0,0,0,0,0,1,0,'bundle',0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (123,NULL,1,0,0,0,0,0,0,0,0,1,0,'bundle',0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (124,NULL,1,0,0,0,0,0,0,0,0,1,0,'downloadable',0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (125,NULL,0,0,0,0,0,0,0,0,0,0,0,'downloadable',0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (126,NULL,0,0,0,0,0,0,0,0,0,0,0,'downloadable',0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (127,NULL,1,0,0,0,0,0,0,0,0,1,0,'downloadable',0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (128,NULL,0,1,0,0,0,0,0,0,0,1,0,NULL,0,0,0,0,0,0,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (129,NULL,2,1,1,0,0,0,0,0,0,1,0,'simple,virtual,bundle,downloadable,configurable',0,0,0,0,0,1,0,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (130,'Magento\\GiftMessage\\Block\\Adminhtml\\Product\\Helper\\Form\\Config',1,1,0,0,0,0,0,0,0,0,0,NULL,0,0,0,0,0,1,0,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (131,NULL,0,1,0,0,0,0,1,0,0,0,0,NULL,0,0,0,0,0,1,1,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (132,NULL,0,1,0,0,0,0,1,0,0,0,0,NULL,0,0,0,0,0,1,1,1,1,NULL);
 /*!40000 ALTER TABLE `catalog_eav_attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -667,6 +784,7 @@ CREATE TABLE `catalog_product_bundle_option` (
 --
 -- Dumping data for table `catalog_product_bundle_option`
 --
+-- ORDER BY:  `option_id`
 
 LOCK TABLES `catalog_product_bundle_option` WRITE;
 /*!40000 ALTER TABLE `catalog_product_bundle_option` DISABLE KEYS */;
@@ -694,6 +812,7 @@ CREATE TABLE `catalog_product_bundle_option_value` (
 --
 -- Dumping data for table `catalog_product_bundle_option_value`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `catalog_product_bundle_option_value` WRITE;
 /*!40000 ALTER TABLE `catalog_product_bundle_option_value` DISABLE KEYS */;
@@ -725,6 +844,7 @@ CREATE TABLE `catalog_product_bundle_price_index` (
 --
 -- Dumping data for table `catalog_product_bundle_price_index`
 --
+-- ORDER BY:  `entity_id`,`website_id`,`customer_group_id`
 
 LOCK TABLES `catalog_product_bundle_price_index` WRITE;
 /*!40000 ALTER TABLE `catalog_product_bundle_price_index` DISABLE KEYS */;
@@ -760,6 +880,7 @@ CREATE TABLE `catalog_product_bundle_selection` (
 --
 -- Dumping data for table `catalog_product_bundle_selection`
 --
+-- ORDER BY:  `selection_id`
 
 LOCK TABLES `catalog_product_bundle_selection` WRITE;
 /*!40000 ALTER TABLE `catalog_product_bundle_selection` DISABLE KEYS */;
@@ -788,6 +909,7 @@ CREATE TABLE `catalog_product_bundle_selection_price` (
 --
 -- Dumping data for table `catalog_product_bundle_selection_price`
 --
+-- ORDER BY:  `selection_id`,`website_id`
 
 LOCK TABLES `catalog_product_bundle_selection_price` WRITE;
 /*!40000 ALTER TABLE `catalog_product_bundle_selection_price` DISABLE KEYS */;
@@ -814,6 +936,7 @@ CREATE TABLE `catalog_product_bundle_stock_index` (
 --
 -- Dumping data for table `catalog_product_bundle_stock_index`
 --
+-- ORDER BY:  `entity_id`,`website_id`,`stock_id`,`option_id`
 
 LOCK TABLES `catalog_product_bundle_stock_index` WRITE;
 /*!40000 ALTER TABLE `catalog_product_bundle_stock_index` DISABLE KEYS */;
@@ -846,6 +969,7 @@ CREATE TABLE `catalog_product_entity` (
 --
 -- Dumping data for table `catalog_product_entity`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `catalog_product_entity` WRITE;
 /*!40000 ALTER TABLE `catalog_product_entity` DISABLE KEYS */;
@@ -878,6 +1002,7 @@ CREATE TABLE `catalog_product_entity_datetime` (
 --
 -- Dumping data for table `catalog_product_entity_datetime`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `catalog_product_entity_datetime` WRITE;
 /*!40000 ALTER TABLE `catalog_product_entity_datetime` DISABLE KEYS */;
@@ -910,6 +1035,7 @@ CREATE TABLE `catalog_product_entity_decimal` (
 --
 -- Dumping data for table `catalog_product_entity_decimal`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `catalog_product_entity_decimal` WRITE;
 /*!40000 ALTER TABLE `catalog_product_entity_decimal` DISABLE KEYS */;
@@ -944,6 +1070,7 @@ CREATE TABLE `catalog_product_entity_gallery` (
 --
 -- Dumping data for table `catalog_product_entity_gallery`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `catalog_product_entity_gallery` WRITE;
 /*!40000 ALTER TABLE `catalog_product_entity_gallery` DISABLE KEYS */;
@@ -976,6 +1103,7 @@ CREATE TABLE `catalog_product_entity_int` (
 --
 -- Dumping data for table `catalog_product_entity_int`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `catalog_product_entity_int` WRITE;
 /*!40000 ALTER TABLE `catalog_product_entity_int` DISABLE KEYS */;
@@ -1004,6 +1132,7 @@ CREATE TABLE `catalog_product_entity_media_gallery` (
 --
 -- Dumping data for table `catalog_product_entity_media_gallery`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `catalog_product_entity_media_gallery` WRITE;
 /*!40000 ALTER TABLE `catalog_product_entity_media_gallery` DISABLE KEYS */;
@@ -1038,6 +1167,7 @@ CREATE TABLE `catalog_product_entity_media_gallery_value` (
 --
 -- Dumping data for table `catalog_product_entity_media_gallery_value`
 --
+-- ORDER BY:  `record_id`
 
 LOCK TABLES `catalog_product_entity_media_gallery_value` WRITE;
 /*!40000 ALTER TABLE `catalog_product_entity_media_gallery_value` DISABLE KEYS */;
@@ -1064,6 +1194,7 @@ CREATE TABLE `catalog_product_entity_media_gallery_value_to_entity` (
 --
 -- Dumping data for table `catalog_product_entity_media_gallery_value_to_entity`
 --
+-- ORDER BY:  `value_id`,`entity_id`
 
 LOCK TABLES `catalog_product_entity_media_gallery_value_to_entity` WRITE;
 /*!40000 ALTER TABLE `catalog_product_entity_media_gallery_value_to_entity` DISABLE KEYS */;
@@ -1095,6 +1226,7 @@ CREATE TABLE `catalog_product_entity_media_gallery_value_video` (
 --
 -- Dumping data for table `catalog_product_entity_media_gallery_value_video`
 --
+-- ORDER BY:  `value_id`,`store_id`
 
 LOCK TABLES `catalog_product_entity_media_gallery_value_video` WRITE;
 /*!40000 ALTER TABLE `catalog_product_entity_media_gallery_value_video` DISABLE KEYS */;
@@ -1127,6 +1259,7 @@ CREATE TABLE `catalog_product_entity_text` (
 --
 -- Dumping data for table `catalog_product_entity_text`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `catalog_product_entity_text` WRITE;
 /*!40000 ALTER TABLE `catalog_product_entity_text` DISABLE KEYS */;
@@ -1161,6 +1294,7 @@ CREATE TABLE `catalog_product_entity_tier_price` (
 --
 -- Dumping data for table `catalog_product_entity_tier_price`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `catalog_product_entity_tier_price` WRITE;
 /*!40000 ALTER TABLE `catalog_product_entity_tier_price` DISABLE KEYS */;
@@ -1193,6 +1327,7 @@ CREATE TABLE `catalog_product_entity_varchar` (
 --
 -- Dumping data for table `catalog_product_entity_varchar`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `catalog_product_entity_varchar` WRITE;
 /*!40000 ALTER TABLE `catalog_product_entity_varchar` DISABLE KEYS */;
@@ -1221,6 +1356,7 @@ CREATE TABLE `catalog_product_index_eav` (
 --
 -- Dumping data for table `catalog_product_index_eav`
 --
+-- ORDER BY:  `entity_id`,`attribute_id`,`store_id`,`value`
 
 LOCK TABLES `catalog_product_index_eav` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_eav` DISABLE KEYS */;
@@ -1249,6 +1385,7 @@ CREATE TABLE `catalog_product_index_eav_decimal` (
 --
 -- Dumping data for table `catalog_product_index_eav_decimal`
 --
+-- ORDER BY:  `entity_id`,`attribute_id`,`store_id`
 
 LOCK TABLES `catalog_product_index_eav_decimal` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_eav_decimal` DISABLE KEYS */;
@@ -1277,6 +1414,7 @@ CREATE TABLE `catalog_product_index_eav_decimal_idx` (
 --
 -- Dumping data for table `catalog_product_index_eav_decimal_idx`
 --
+-- ORDER BY:  `entity_id`,`attribute_id`,`store_id`,`value`
 
 LOCK TABLES `catalog_product_index_eav_decimal_idx` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_eav_decimal_idx` DISABLE KEYS */;
@@ -1305,6 +1443,7 @@ CREATE TABLE `catalog_product_index_eav_decimal_tmp` (
 --
 -- Dumping data for table `catalog_product_index_eav_decimal_tmp`
 --
+-- ORDER BY:  `entity_id`,`attribute_id`,`store_id`
 
 LOCK TABLES `catalog_product_index_eav_decimal_tmp` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_eav_decimal_tmp` DISABLE KEYS */;
@@ -1333,6 +1472,7 @@ CREATE TABLE `catalog_product_index_eav_idx` (
 --
 -- Dumping data for table `catalog_product_index_eav_idx`
 --
+-- ORDER BY:  `entity_id`,`attribute_id`,`store_id`,`value`
 
 LOCK TABLES `catalog_product_index_eav_idx` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_eav_idx` DISABLE KEYS */;
@@ -1361,6 +1501,7 @@ CREATE TABLE `catalog_product_index_eav_tmp` (
 --
 -- Dumping data for table `catalog_product_index_eav_tmp`
 --
+-- ORDER BY:  `entity_id`,`attribute_id`,`store_id`,`value`
 
 LOCK TABLES `catalog_product_index_eav_tmp` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_eav_tmp` DISABLE KEYS */;
@@ -1397,6 +1538,7 @@ CREATE TABLE `catalog_product_index_price` (
 --
 -- Dumping data for table `catalog_product_index_price`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`
 
 LOCK TABLES `catalog_product_index_price` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price` DISABLE KEYS */;
@@ -1431,6 +1573,7 @@ CREATE TABLE `catalog_product_index_price_bundle_idx` (
 --
 -- Dumping data for table `catalog_product_index_price_bundle_idx`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`
 
 LOCK TABLES `catalog_product_index_price_bundle_idx` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_bundle_idx` DISABLE KEYS */;
@@ -1461,6 +1604,7 @@ CREATE TABLE `catalog_product_index_price_bundle_opt_idx` (
 --
 -- Dumping data for table `catalog_product_index_price_bundle_opt_idx`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`,`option_id`
 
 LOCK TABLES `catalog_product_index_price_bundle_opt_idx` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_bundle_opt_idx` DISABLE KEYS */;
@@ -1491,6 +1635,7 @@ CREATE TABLE `catalog_product_index_price_bundle_opt_tmp` (
 --
 -- Dumping data for table `catalog_product_index_price_bundle_opt_tmp`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`,`option_id`
 
 LOCK TABLES `catalog_product_index_price_bundle_opt_tmp` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_bundle_opt_tmp` DISABLE KEYS */;
@@ -1521,6 +1666,7 @@ CREATE TABLE `catalog_product_index_price_bundle_sel_idx` (
 --
 -- Dumping data for table `catalog_product_index_price_bundle_sel_idx`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`,`option_id`,`selection_id`
 
 LOCK TABLES `catalog_product_index_price_bundle_sel_idx` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_bundle_sel_idx` DISABLE KEYS */;
@@ -1551,6 +1697,7 @@ CREATE TABLE `catalog_product_index_price_bundle_sel_tmp` (
 --
 -- Dumping data for table `catalog_product_index_price_bundle_sel_tmp`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`,`option_id`,`selection_id`
 
 LOCK TABLES `catalog_product_index_price_bundle_sel_tmp` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_bundle_sel_tmp` DISABLE KEYS */;
@@ -1585,6 +1732,7 @@ CREATE TABLE `catalog_product_index_price_bundle_tmp` (
 --
 -- Dumping data for table `catalog_product_index_price_bundle_tmp`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`
 
 LOCK TABLES `catalog_product_index_price_bundle_tmp` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_bundle_tmp` DISABLE KEYS */;
@@ -1612,6 +1760,7 @@ CREATE TABLE `catalog_product_index_price_cfg_opt_agr_idx` (
 --
 -- Dumping data for table `catalog_product_index_price_cfg_opt_agr_idx`
 --
+-- ORDER BY:  `parent_id`,`child_id`,`customer_group_id`,`website_id`
 
 LOCK TABLES `catalog_product_index_price_cfg_opt_agr_idx` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_cfg_opt_agr_idx` DISABLE KEYS */;
@@ -1639,6 +1788,7 @@ CREATE TABLE `catalog_product_index_price_cfg_opt_agr_tmp` (
 --
 -- Dumping data for table `catalog_product_index_price_cfg_opt_agr_tmp`
 --
+-- ORDER BY:  `parent_id`,`child_id`,`customer_group_id`,`website_id`
 
 LOCK TABLES `catalog_product_index_price_cfg_opt_agr_tmp` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_cfg_opt_agr_tmp` DISABLE KEYS */;
@@ -1666,6 +1816,7 @@ CREATE TABLE `catalog_product_index_price_cfg_opt_idx` (
 --
 -- Dumping data for table `catalog_product_index_price_cfg_opt_idx`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`
 
 LOCK TABLES `catalog_product_index_price_cfg_opt_idx` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_cfg_opt_idx` DISABLE KEYS */;
@@ -1693,6 +1844,7 @@ CREATE TABLE `catalog_product_index_price_cfg_opt_tmp` (
 --
 -- Dumping data for table `catalog_product_index_price_cfg_opt_tmp`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`
 
 LOCK TABLES `catalog_product_index_price_cfg_opt_tmp` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_cfg_opt_tmp` DISABLE KEYS */;
@@ -1719,6 +1871,7 @@ CREATE TABLE `catalog_product_index_price_downlod_idx` (
 --
 -- Dumping data for table `catalog_product_index_price_downlod_idx`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`
 
 LOCK TABLES `catalog_product_index_price_downlod_idx` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_downlod_idx` DISABLE KEYS */;
@@ -1745,6 +1898,7 @@ CREATE TABLE `catalog_product_index_price_downlod_tmp` (
 --
 -- Dumping data for table `catalog_product_index_price_downlod_tmp`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`
 
 LOCK TABLES `catalog_product_index_price_downlod_tmp` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_downlod_tmp` DISABLE KEYS */;
@@ -1776,6 +1930,7 @@ CREATE TABLE `catalog_product_index_price_final_idx` (
 --
 -- Dumping data for table `catalog_product_index_price_final_idx`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`
 
 LOCK TABLES `catalog_product_index_price_final_idx` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_final_idx` DISABLE KEYS */;
@@ -1807,6 +1962,7 @@ CREATE TABLE `catalog_product_index_price_final_tmp` (
 --
 -- Dumping data for table `catalog_product_index_price_final_tmp`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`
 
 LOCK TABLES `catalog_product_index_price_final_tmp` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_final_tmp` DISABLE KEYS */;
@@ -1840,6 +1996,7 @@ CREATE TABLE `catalog_product_index_price_idx` (
 --
 -- Dumping data for table `catalog_product_index_price_idx`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`
 
 LOCK TABLES `catalog_product_index_price_idx` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_idx` DISABLE KEYS */;
@@ -1868,6 +2025,7 @@ CREATE TABLE `catalog_product_index_price_opt_agr_idx` (
 --
 -- Dumping data for table `catalog_product_index_price_opt_agr_idx`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`,`option_id`
 
 LOCK TABLES `catalog_product_index_price_opt_agr_idx` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_opt_agr_idx` DISABLE KEYS */;
@@ -1896,6 +2054,7 @@ CREATE TABLE `catalog_product_index_price_opt_agr_tmp` (
 --
 -- Dumping data for table `catalog_product_index_price_opt_agr_tmp`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`,`option_id`
 
 LOCK TABLES `catalog_product_index_price_opt_agr_tmp` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_opt_agr_tmp` DISABLE KEYS */;
@@ -1923,6 +2082,7 @@ CREATE TABLE `catalog_product_index_price_opt_idx` (
 --
 -- Dumping data for table `catalog_product_index_price_opt_idx`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`
 
 LOCK TABLES `catalog_product_index_price_opt_idx` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_opt_idx` DISABLE KEYS */;
@@ -1950,6 +2110,7 @@ CREATE TABLE `catalog_product_index_price_opt_tmp` (
 --
 -- Dumping data for table `catalog_product_index_price_opt_tmp`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`
 
 LOCK TABLES `catalog_product_index_price_opt_tmp` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_opt_tmp` DISABLE KEYS */;
@@ -1983,6 +2144,7 @@ CREATE TABLE `catalog_product_index_price_tmp` (
 --
 -- Dumping data for table `catalog_product_index_price_tmp`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`
 
 LOCK TABLES `catalog_product_index_price_tmp` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_price_tmp` DISABLE KEYS */;
@@ -2013,6 +2175,7 @@ CREATE TABLE `catalog_product_index_tier_price` (
 --
 -- Dumping data for table `catalog_product_index_tier_price`
 --
+-- ORDER BY:  `entity_id`,`customer_group_id`,`website_id`
 
 LOCK TABLES `catalog_product_index_tier_price` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_tier_price` DISABLE KEYS */;
@@ -2039,6 +2202,7 @@ CREATE TABLE `catalog_product_index_website` (
 --
 -- Dumping data for table `catalog_product_index_website`
 --
+-- ORDER BY:  `website_id`
 
 LOCK TABLES `catalog_product_index_website` WRITE;
 /*!40000 ALTER TABLE `catalog_product_index_website` DISABLE KEYS */;
@@ -2071,6 +2235,7 @@ CREATE TABLE `catalog_product_link` (
 --
 -- Dumping data for table `catalog_product_link`
 --
+-- ORDER BY:  `link_id`
 
 LOCK TABLES `catalog_product_link` WRITE;
 /*!40000 ALTER TABLE `catalog_product_link` DISABLE KEYS */;
@@ -2098,10 +2263,15 @@ CREATE TABLE `catalog_product_link_attribute` (
 --
 -- Dumping data for table `catalog_product_link_attribute`
 --
+-- ORDER BY:  `product_link_attribute_id`
 
 LOCK TABLES `catalog_product_link_attribute` WRITE;
 /*!40000 ALTER TABLE `catalog_product_link_attribute` DISABLE KEYS */;
-INSERT INTO `catalog_product_link_attribute` VALUES (1,1,'position','int'),(2,4,'position','int'),(3,5,'position','int'),(4,3,'position','int'),(5,3,'qty','decimal');
+INSERT INTO `catalog_product_link_attribute` VALUES (1,1,'position','int');
+INSERT INTO `catalog_product_link_attribute` VALUES (2,4,'position','int');
+INSERT INTO `catalog_product_link_attribute` VALUES (3,5,'position','int');
+INSERT INTO `catalog_product_link_attribute` VALUES (4,3,'position','int');
+INSERT INTO `catalog_product_link_attribute` VALUES (5,3,'qty','decimal');
 /*!40000 ALTER TABLE `catalog_product_link_attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2128,6 +2298,7 @@ CREATE TABLE `catalog_product_link_attribute_decimal` (
 --
 -- Dumping data for table `catalog_product_link_attribute_decimal`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `catalog_product_link_attribute_decimal` WRITE;
 /*!40000 ALTER TABLE `catalog_product_link_attribute_decimal` DISABLE KEYS */;
@@ -2157,6 +2328,7 @@ CREATE TABLE `catalog_product_link_attribute_int` (
 --
 -- Dumping data for table `catalog_product_link_attribute_int`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `catalog_product_link_attribute_int` WRITE;
 /*!40000 ALTER TABLE `catalog_product_link_attribute_int` DISABLE KEYS */;
@@ -2186,6 +2358,7 @@ CREATE TABLE `catalog_product_link_attribute_varchar` (
 --
 -- Dumping data for table `catalog_product_link_attribute_varchar`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `catalog_product_link_attribute_varchar` WRITE;
 /*!40000 ALTER TABLE `catalog_product_link_attribute_varchar` DISABLE KEYS */;
@@ -2209,10 +2382,14 @@ CREATE TABLE `catalog_product_link_type` (
 --
 -- Dumping data for table `catalog_product_link_type`
 --
+-- ORDER BY:  `link_type_id`
 
 LOCK TABLES `catalog_product_link_type` WRITE;
 /*!40000 ALTER TABLE `catalog_product_link_type` DISABLE KEYS */;
-INSERT INTO `catalog_product_link_type` VALUES (1,'relation'),(3,'super'),(4,'up_sell'),(5,'cross_sell');
+INSERT INTO `catalog_product_link_type` VALUES (1,'relation');
+INSERT INTO `catalog_product_link_type` VALUES (3,'super');
+INSERT INTO `catalog_product_link_type` VALUES (4,'up_sell');
+INSERT INTO `catalog_product_link_type` VALUES (5,'cross_sell');
 /*!40000 ALTER TABLE `catalog_product_link_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2243,6 +2420,7 @@ CREATE TABLE `catalog_product_option` (
 --
 -- Dumping data for table `catalog_product_option`
 --
+-- ORDER BY:  `option_id`
 
 LOCK TABLES `catalog_product_option` WRITE;
 /*!40000 ALTER TABLE `catalog_product_option` DISABLE KEYS */;
@@ -2273,6 +2451,7 @@ CREATE TABLE `catalog_product_option_price` (
 --
 -- Dumping data for table `catalog_product_option_price`
 --
+-- ORDER BY:  `option_price_id`
 
 LOCK TABLES `catalog_product_option_price` WRITE;
 /*!40000 ALTER TABLE `catalog_product_option_price` DISABLE KEYS */;
@@ -2302,6 +2481,7 @@ CREATE TABLE `catalog_product_option_title` (
 --
 -- Dumping data for table `catalog_product_option_title`
 --
+-- ORDER BY:  `option_title_id`
 
 LOCK TABLES `catalog_product_option_title` WRITE;
 /*!40000 ALTER TABLE `catalog_product_option_title` DISABLE KEYS */;
@@ -2332,6 +2512,7 @@ CREATE TABLE `catalog_product_option_type_price` (
 --
 -- Dumping data for table `catalog_product_option_type_price`
 --
+-- ORDER BY:  `option_type_price_id`
 
 LOCK TABLES `catalog_product_option_type_price` WRITE;
 /*!40000 ALTER TABLE `catalog_product_option_type_price` DISABLE KEYS */;
@@ -2361,6 +2542,7 @@ CREATE TABLE `catalog_product_option_type_title` (
 --
 -- Dumping data for table `catalog_product_option_type_title`
 --
+-- ORDER BY:  `option_type_title_id`
 
 LOCK TABLES `catalog_product_option_type_title` WRITE;
 /*!40000 ALTER TABLE `catalog_product_option_type_title` DISABLE KEYS */;
@@ -2388,6 +2570,7 @@ CREATE TABLE `catalog_product_option_type_value` (
 --
 -- Dumping data for table `catalog_product_option_type_value`
 --
+-- ORDER BY:  `option_type_id`
 
 LOCK TABLES `catalog_product_option_type_value` WRITE;
 /*!40000 ALTER TABLE `catalog_product_option_type_value` DISABLE KEYS */;
@@ -2414,6 +2597,7 @@ CREATE TABLE `catalog_product_relation` (
 --
 -- Dumping data for table `catalog_product_relation`
 --
+-- ORDER BY:  `parent_id`,`child_id`
 
 LOCK TABLES `catalog_product_relation` WRITE;
 /*!40000 ALTER TABLE `catalog_product_relation` DISABLE KEYS */;
@@ -2441,6 +2625,7 @@ CREATE TABLE `catalog_product_super_attribute` (
 --
 -- Dumping data for table `catalog_product_super_attribute`
 --
+-- ORDER BY:  `product_super_attribute_id`
 
 LOCK TABLES `catalog_product_super_attribute` WRITE;
 /*!40000 ALTER TABLE `catalog_product_super_attribute` DISABLE KEYS */;
@@ -2471,6 +2656,7 @@ CREATE TABLE `catalog_product_super_attribute_label` (
 --
 -- Dumping data for table `catalog_product_super_attribute_label`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `catalog_product_super_attribute_label` WRITE;
 /*!40000 ALTER TABLE `catalog_product_super_attribute_label` DISABLE KEYS */;
@@ -2499,6 +2685,7 @@ CREATE TABLE `catalog_product_super_link` (
 --
 -- Dumping data for table `catalog_product_super_link`
 --
+-- ORDER BY:  `link_id`
 
 LOCK TABLES `catalog_product_super_link` WRITE;
 /*!40000 ALTER TABLE `catalog_product_super_link` DISABLE KEYS */;
@@ -2525,6 +2712,7 @@ CREATE TABLE `catalog_product_website` (
 --
 -- Dumping data for table `catalog_product_website`
 --
+-- ORDER BY:  `product_id`,`website_id`
 
 LOCK TABLES `catalog_product_website` WRITE;
 /*!40000 ALTER TABLE `catalog_product_website` DISABLE KEYS */;
@@ -2579,6 +2767,7 @@ CREATE TABLE `cataloginventory_stock` (
 --
 -- Dumping data for table `cataloginventory_stock`
 --
+-- ORDER BY:  `stock_id`
 
 LOCK TABLES `cataloginventory_stock` WRITE;
 /*!40000 ALTER TABLE `cataloginventory_stock` DISABLE KEYS */;
@@ -2632,6 +2821,7 @@ CREATE TABLE `cataloginventory_stock_item` (
 --
 -- Dumping data for table `cataloginventory_stock_item`
 --
+-- ORDER BY:  `item_id`
 
 LOCK TABLES `cataloginventory_stock_item` WRITE;
 /*!40000 ALTER TABLE `cataloginventory_stock_item` DISABLE KEYS */;
@@ -2660,6 +2850,7 @@ CREATE TABLE `cataloginventory_stock_status` (
 --
 -- Dumping data for table `cataloginventory_stock_status`
 --
+-- ORDER BY:  `product_id`,`website_id`,`stock_id`
 
 LOCK TABLES `cataloginventory_stock_status` WRITE;
 /*!40000 ALTER TABLE `cataloginventory_stock_status` DISABLE KEYS */;
@@ -2688,6 +2879,7 @@ CREATE TABLE `cataloginventory_stock_status_idx` (
 --
 -- Dumping data for table `cataloginventory_stock_status_idx`
 --
+-- ORDER BY:  `product_id`,`website_id`,`stock_id`
 
 LOCK TABLES `cataloginventory_stock_status_idx` WRITE;
 /*!40000 ALTER TABLE `cataloginventory_stock_status_idx` DISABLE KEYS */;
@@ -2716,6 +2908,7 @@ CREATE TABLE `cataloginventory_stock_status_tmp` (
 --
 -- Dumping data for table `cataloginventory_stock_status_tmp`
 --
+-- ORDER BY:  `product_id`,`website_id`,`stock_id`
 
 LOCK TABLES `cataloginventory_stock_status_tmp` WRITE;
 /*!40000 ALTER TABLE `cataloginventory_stock_status_tmp` DISABLE KEYS */;
@@ -2753,6 +2946,7 @@ CREATE TABLE `catalogrule` (
 --
 -- Dumping data for table `catalogrule`
 --
+-- ORDER BY:  `rule_id`
 
 LOCK TABLES `catalogrule` WRITE;
 /*!40000 ALTER TABLE `catalogrule` DISABLE KEYS */;
@@ -2779,6 +2973,7 @@ CREATE TABLE `catalogrule_customer_group` (
 --
 -- Dumping data for table `catalogrule_customer_group`
 --
+-- ORDER BY:  `rule_id`,`customer_group_id`
 
 LOCK TABLES `catalogrule_customer_group` WRITE;
 /*!40000 ALTER TABLE `catalogrule_customer_group` DISABLE KEYS */;
@@ -2808,6 +3003,7 @@ CREATE TABLE `catalogrule_group_website` (
 --
 -- Dumping data for table `catalogrule_group_website`
 --
+-- ORDER BY:  `rule_id`,`customer_group_id`,`website_id`
 
 LOCK TABLES `catalogrule_group_website` WRITE;
 /*!40000 ALTER TABLE `catalogrule_group_website` DISABLE KEYS */;
@@ -2848,6 +3044,7 @@ CREATE TABLE `catalogrule_product` (
 --
 -- Dumping data for table `catalogrule_product`
 --
+-- ORDER BY:  `rule_product_id`
 
 LOCK TABLES `catalogrule_product` WRITE;
 /*!40000 ALTER TABLE `catalogrule_product` DISABLE KEYS */;
@@ -2881,6 +3078,7 @@ CREATE TABLE `catalogrule_product_price` (
 --
 -- Dumping data for table `catalogrule_product_price`
 --
+-- ORDER BY:  `rule_product_price_id`
 
 LOCK TABLES `catalogrule_product_price` WRITE;
 /*!40000 ALTER TABLE `catalogrule_product_price` DISABLE KEYS */;
@@ -2907,6 +3105,7 @@ CREATE TABLE `catalogrule_website` (
 --
 -- Dumping data for table `catalogrule_website`
 --
+-- ORDER BY:  `rule_id`,`website_id`
 
 LOCK TABLES `catalogrule_website` WRITE;
 /*!40000 ALTER TABLE `catalogrule_website` DISABLE KEYS */;
@@ -2932,6 +3131,7 @@ CREATE TABLE `catalogsearch_fulltext_scope1` (
 --
 -- Dumping data for table `catalogsearch_fulltext_scope1`
 --
+-- ORDER BY:  `entity_id`,`attribute_id`
 
 LOCK TABLES `catalogsearch_fulltext_scope1` WRITE;
 /*!40000 ALTER TABLE `catalogsearch_fulltext_scope1` DISABLE KEYS */;
@@ -2961,6 +3161,7 @@ CREATE TABLE `checkout_agreement` (
 --
 -- Dumping data for table `checkout_agreement`
 --
+-- ORDER BY:  `agreement_id`
 
 LOCK TABLES `checkout_agreement` WRITE;
 /*!40000 ALTER TABLE `checkout_agreement` DISABLE KEYS */;
@@ -2987,6 +3188,7 @@ CREATE TABLE `checkout_agreement_store` (
 --
 -- Dumping data for table `checkout_agreement_store`
 --
+-- ORDER BY:  `agreement_id`,`store_id`
 
 LOCK TABLES `checkout_agreement_store` WRITE;
 /*!40000 ALTER TABLE `checkout_agreement_store` DISABLE KEYS */;
@@ -3016,10 +3218,15 @@ CREATE TABLE `cms_block` (
 --
 -- Dumping data for table `cms_block`
 --
+-- ORDER BY:  `block_id`
 
 LOCK TABLES `cms_block` WRITE;
 /*!40000 ALTER TABLE `cms_block` DISABLE KEYS */;
-INSERT INTO `cms_block` VALUES (1,'Footer top','block-footertop','<div class=\"row\">\r\n<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\">\r\n<h3><a href=\"#\">Shop</a></h3>\r\n</div>\r\n<div class=\"panel-body\">\r\n<p>Browse the Royal Western Australia\'s Historical Society online shop, selling books, tours, prints and publications.</p>\r\n<p><a href=\"#\">Browse store</a></p>\r\n</div>\r\n</div>\r\n</div>\r\n<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\">\r\n<h3><a href=\"#\">Collections</a></h3>\r\n</div>\r\n<div class=\"panel-body\">\r\n<p>View the Royal Western Australian Historic Society\'s online collections.</p>\r\n<p><a href=\"#\">Browse collections</a></p>\r\n</div>\r\n</div>\r\n</div>\r\n<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\">\r\n<h3><a href=\"#\">Website</a></h3>\r\n</div>\r\n<div class=\"panel-body\">\r\n<p>View the Royal Western Australian Historic Society\'s website.</p>\r\n<p><a href=\"#\">Visit the website</a></p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>','2016-06-07 09:07:36','2016-06-07 09:07:36',1),(2,'Footer centre','block-footercenter','<p><span>Copyright &copy; The Royal Western Australian Historical Society Inc. |&nbsp;</span><a href=\"http://rwahs-test.dd:8083/copyright\">Copyright</a><span>&nbsp;|&nbsp;</span><a href=\"http://rwahs-test.dd:8083/disclaimer\">Disclaimer</a><span>.</span></p>\r\n<p><img src=\"{{media url=\"wysiwyg/dca-lottery-west.jpg\"}}\" alt=\"Supported by DCA and LotteryWest\" width=\"248\" height=\"45\" /></p>','2016-06-07 09:08:22','2016-06-07 09:08:22',1),(3,'Banner top','banner-product-01','<div class=\"row\">\r\n<div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">\r\n<div class=\"block block-static\">\r\n<div class=\"static-content\">\r\n<div class=\"static-title\">RWAHS Shop</div>\r\n<div class=\"static-desc\">Browse our online store of or books, prints and artefacts.</div>\r\n<div class=\"static-link\"><a href=\"{{store url=\"\"}}trina-turk-womens-tara-carmel-crep.html\"><span>view more</span></a></div>\r\n</div>\r\n<div class=\"img-content\"><a href=\"#\"><img class=\"img-responsive\" src=\"{{media url=\"wysiwyg/home-static/banner-01.png\"}}\" alt=\"Product-01\" /></a></div>\r\n</div>\r\n</div>\r\n</div>','2016-06-07 09:09:00','2016-06-07 09:09:00',1),(4,'Banner middle','banner-product-023','<div class=\"row\">\r\n<div class=\"col-lg-8 col-md-8 col-sm-8 col-xs-12\">\r\n<div class=\"block block-static2\">\r\n<div class=\"static-content\">\r\n<div class=\"static-title\">Prints and replications</div>\r\n<div class=\"static-desc\">Order prints and replications of items from the collections</div>\r\n<div class=\"static-link\"><a href=\"{{store url=\"\"}}nine-west-flip-lock-satchel-bag.html\"><span>view more</span></a></div>\r\n</div>\r\n<div class=\"img-content\"><a href=\"#\"><img class=\"img-responsive\" src=\"{{media url=\"wysiwyg/home-static/banner-02.png\"}}\" alt=\"Product-02\" /></a></div>\r\n</div>\r\n</div>\r\n<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-left-0\">\r\n<div class=\"block block-static3\">\r\n<div class=\"static-content\">\r\n<div class=\"static-title\">Books</div>\r\n<div class=\"static-desc\">Browse rare and unique books</div>\r\n<div class=\"static-link\"><a href=\"{{store url=\"\"}}maggy-london-womens-printed.html\"><span>view more</span></a></div>\r\n</div>\r\n<div class=\"img-content\"><a href=\"#\"><img class=\"img-responsive\" src=\"{{media url=\"wysiwyg/home-static/banner-03.png\"}}\" alt=\"Product-03\" /></a></div>\r\n</div>\r\n</div>\r\n</div>','2016-06-07 09:09:32','2016-06-07 09:09:32',1),(5,'Banner bottom','banner-product-045','<div class=\"row\">\r\n<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-right-0\">\r\n<div class=\"block block-static3 color-black\">\r\n<div class=\"static-content\">\r\n<div class=\"static-title\">Talks and lectures</div>\r\n<div class=\"static-desc\">Book lectures and events now</div>\r\n<div class=\"static-link\"><a href=\"{{store url=\"\"}}venturer-excursion-organizer-bag.html\"><span>view more</span></a></div>\r\n</div>\r\n<div class=\"img-content\"><a href=\"#\"><img class=\"img-responsive\" src=\"{{media url=\"wysiwyg/home-static/banner-04.png\"}}\" alt=\"Product-04\" /></a></div>\r\n</div>\r\n</div>\r\n<div class=\"col-lg-8 col-md-8 col-sm-8 col-xs-12\">\r\n<div class=\"block block-static4\">\r\n<div class=\"static-content\">\r\n<div class=\"static-title\">Tours and events</div>\r\n<div class=\"static-desc\">Book online and get tickets for upcoming events</div>\r\n<div class=\"static-desc\">Free shipping</div>\r\n<div class=\"static-link\"><a href=\"{{store url=\"\"}}breathe-easy-tank.html\"><span>view more</span></a></div>\r\n</div>\r\n<div class=\"img-content\"><a href=\"#\"><img class=\"img-responsive\" src=\"{{media url=\"wysiwyg/home-static/banner-05.png\"}}\" alt=\"Product-05\" /></a></div>\r\n</div>\r\n</div>\r\n</div>','2016-06-07 09:10:18','2016-06-07 09:10:18',1);
+INSERT INTO `cms_block` VALUES (1,'Footer top','block-footertop','<div class=\"row\">\r\n<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\">\r\n<h3><a href=\"#\">Shop</a></h3>\r\n</div>\r\n<div class=\"panel-body\">\r\n<p>Browse the Royal Western Australia\'s Historical Society online shop, selling books, tours, prints and publications.</p>\r\n<p><a href=\"#\">Browse store</a></p>\r\n</div>\r\n</div>\r\n</div>\r\n<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\">\r\n<h3><a href=\"#\">Collections</a></h3>\r\n</div>\r\n<div class=\"panel-body\">\r\n<p>View the Royal Western Australian Historic Society\'s online collections.</p>\r\n<p><a href=\"#\">Browse collections</a></p>\r\n</div>\r\n</div>\r\n</div>\r\n<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12\">\r\n<div class=\"panel panel-default\">\r\n<div class=\"panel-heading\">\r\n<h3><a href=\"#\">Website</a></h3>\r\n</div>\r\n<div class=\"panel-body\">\r\n<p>View the Royal Western Australian Historic Society\'s website.</p>\r\n<p><a href=\"#\">Visit the website</a></p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>','2016-06-07 09:07:36','2016-06-07 09:07:36',1);
+INSERT INTO `cms_block` VALUES (2,'Footer centre','block-footercenter','<p><span>Copyright &copy; The Royal Western Australian Historical Society Inc. |&nbsp;</span><a href=\"http://rwahs-test.dd:8083/copyright\">Copyright</a><span>&nbsp;|&nbsp;</span><a href=\"http://rwahs-test.dd:8083/disclaimer\">Disclaimer</a><span>.</span></p>\r\n<p><img src=\"{{media url=\"wysiwyg/dca-lottery-west.jpg\"}}\" alt=\"Supported by DCA and LotteryWest\" width=\"248\" height=\"45\" /></p>','2016-06-07 09:08:22','2016-06-07 09:08:22',1);
+INSERT INTO `cms_block` VALUES (3,'Banner top','banner-product-01','<div class=\"row\">\r\n<div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">\r\n<div class=\"block block-static\">\r\n<div class=\"static-content\">\r\n<div class=\"static-title\">RWAHS Shop</div>\r\n<div class=\"static-desc\">Browse our online store of or books, prints and artefacts.</div>\r\n<div class=\"static-link\"><a href=\"{{store url=\"\"}}trina-turk-womens-tara-carmel-crep.html\"><span>view more</span></a></div>\r\n</div>\r\n<div class=\"img-content\"><a href=\"#\"><img class=\"img-responsive\" src=\"{{media url=\"wysiwyg/home-static/banner-01.png\"}}\" alt=\"Product-01\" /></a></div>\r\n</div>\r\n</div>\r\n</div>','2016-06-07 09:09:00','2016-06-07 09:09:00',1);
+INSERT INTO `cms_block` VALUES (4,'Banner middle','banner-product-023','<div class=\"row\">\r\n<div class=\"col-lg-8 col-md-8 col-sm-8 col-xs-12\">\r\n<div class=\"block block-static2\">\r\n<div class=\"static-content\">\r\n<div class=\"static-title\">Prints and replications</div>\r\n<div class=\"static-desc\">Order prints and replications of items from the collections</div>\r\n<div class=\"static-link\"><a href=\"{{store url=\"\"}}nine-west-flip-lock-satchel-bag.html\"><span>view more</span></a></div>\r\n</div>\r\n<div class=\"img-content\"><a href=\"#\"><img class=\"img-responsive\" src=\"{{media url=\"wysiwyg/home-static/banner-02.png\"}}\" alt=\"Product-02\" /></a></div>\r\n</div>\r\n</div>\r\n<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-left-0\">\r\n<div class=\"block block-static3\">\r\n<div class=\"static-content\">\r\n<div class=\"static-title\">Books</div>\r\n<div class=\"static-desc\">Browse rare and unique books</div>\r\n<div class=\"static-link\"><a href=\"{{store url=\"\"}}maggy-london-womens-printed.html\"><span>view more</span></a></div>\r\n</div>\r\n<div class=\"img-content\"><a href=\"#\"><img class=\"img-responsive\" src=\"{{media url=\"wysiwyg/home-static/banner-03.png\"}}\" alt=\"Product-03\" /></a></div>\r\n</div>\r\n</div>\r\n</div>','2016-06-07 09:09:32','2016-06-07 09:09:32',1);
+INSERT INTO `cms_block` VALUES (5,'Banner bottom','banner-product-045','<div class=\"row\">\r\n<div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-right-0\">\r\n<div class=\"block block-static3 color-black\">\r\n<div class=\"static-content\">\r\n<div class=\"static-title\">Talks and lectures</div>\r\n<div class=\"static-desc\">Book lectures and events now</div>\r\n<div class=\"static-link\"><a href=\"{{store url=\"\"}}venturer-excursion-organizer-bag.html\"><span>view more</span></a></div>\r\n</div>\r\n<div class=\"img-content\"><a href=\"#\"><img class=\"img-responsive\" src=\"{{media url=\"wysiwyg/home-static/banner-04.png\"}}\" alt=\"Product-04\" /></a></div>\r\n</div>\r\n</div>\r\n<div class=\"col-lg-8 col-md-8 col-sm-8 col-xs-12\">\r\n<div class=\"block block-static4\">\r\n<div class=\"static-content\">\r\n<div class=\"static-title\">Tours and events</div>\r\n<div class=\"static-desc\">Book online and get tickets for upcoming events</div>\r\n<div class=\"static-desc\">Free shipping</div>\r\n<div class=\"static-link\"><a href=\"{{store url=\"\"}}breathe-easy-tank.html\"><span>view more</span></a></div>\r\n</div>\r\n<div class=\"img-content\"><a href=\"#\"><img class=\"img-responsive\" src=\"{{media url=\"wysiwyg/home-static/banner-05.png\"}}\" alt=\"Product-05\" /></a></div>\r\n</div>\r\n</div>\r\n</div>','2016-06-07 09:10:18','2016-06-07 09:10:18',1);
 /*!40000 ALTER TABLE `cms_block` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3043,10 +3250,15 @@ CREATE TABLE `cms_block_store` (
 --
 -- Dumping data for table `cms_block_store`
 --
+-- ORDER BY:  `block_id`,`store_id`
 
 LOCK TABLES `cms_block_store` WRITE;
 /*!40000 ALTER TABLE `cms_block_store` DISABLE KEYS */;
-INSERT INTO `cms_block_store` VALUES (1,1),(2,1),(3,1),(4,1),(5,1);
+INSERT INTO `cms_block_store` VALUES (1,1);
+INSERT INTO `cms_block_store` VALUES (2,1);
+INSERT INTO `cms_block_store` VALUES (3,1);
+INSERT INTO `cms_block_store` VALUES (4,1);
+INSERT INTO `cms_block_store` VALUES (5,1);
 /*!40000 ALTER TABLE `cms_block_store` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3085,10 +3297,14 @@ CREATE TABLE `cms_page` (
 --
 -- Dumping data for table `cms_page`
 --
+-- ORDER BY:  `page_id`
 
 LOCK TABLES `cms_page` WRITE;
 /*!40000 ALTER TABLE `cms_page` DISABLE KEYS */;
-INSERT INTO `cms_page` VALUES (1,'404 Not Found','2columns-right','Page keywords','Page description','no-route','Whoops, our bad...','<dl>\r\n<dt>The page you requested was not found, and we have a fine guess why.</dt>\r\n<dd>\r\n<ul class=\"disc\">\r\n<li>If you typed the URL directly, please make sure the spelling is correct.</li>\r\n<li>If you clicked on a link to get here, the link is outdated.</li>\r\n</ul></dd>\r\n</dl>\r\n<dl>\r\n<dt>What can you do?</dt>\r\n<dd>Have no fear, help is near! There are many ways you can get back on track with Magento Store.</dd>\r\n<dd>\r\n<ul class=\"disc\">\r\n<li><a href=\"#\" onclick=\"history.go(-1); return false;\">Go back</a> to the previous page.</li>\r\n<li>Use the search bar at the top of the page to search for your products.</li>\r\n<li>Follow these links to get you back on track!<br /><a href=\"{{store url=\"\"}}\">Store Home</a> <span class=\"separator\">|</span> <a href=\"{{store url=\"customer/account\"}}\">My Account</a></li></ul></dd></dl>\r\n','2016-06-02 09:03:35','2016-06-02 09:03:35',1,0,NULL,NULL,NULL,NULL,NULL,NULL),(2,'Home page','1column',NULL,NULL,'home','Home Page','<p>{{widget type=\"Magento\\Cms\\Block\\Widget\\Block\" template=\"widget/static_block/default.phtml\" block_id=\"3\"}}{{widget type=\"Magento\\Cms\\Block\\Widget\\Block\" template=\"widget/static_block/default.phtml\" block_id=\"4\"}}{{widget type=\"Magento\\Cms\\Block\\Widget\\Block\" template=\"widget/static_block/default.phtml\" block_id=\"5\"}}</p>','2016-06-02 09:03:35','2016-06-07 09:12:14',1,0,'<!--\r\n    <referenceContainer name=\"right\">\r\n        <action method=\"unsetChild\"><argument name=\"alias\" xsi:type=\"string\">right.reports.product.viewed</argument></action>\r\n        <action method=\"unsetChild\"><argument name=\"alias\" xsi:type=\"string\">right.reports.product.compared</argument></action>\r\n    </referenceContainer>-->',NULL,NULL,NULL,NULL,NULL),(3,'Enable Cookies','1column',NULL,NULL,'enable-cookies','What are Cookies?','<div class=\"enable-cookies cms-content\">\r\n<p>\"Cookies\" are little pieces of data we send when you visit our store. Cookies help us get to know you better and personalize your experience. Plus they help protect you and other shoppers from fraud.</p>\r\n<p style=\"margin-bottom: 20px;\">Set your browser to accept cookies so you can buy items, save items, and receive customized recommendations. Here’s how:</p>\r\n<ul>\r\n<li><a href=\"https://support.google.com/accounts/answer/61416?hl=en\" target=\"_blank\">Google Chrome</a></li>\r\n<li><a href=\"http://windows.microsoft.com/en-us/internet-explorer/delete-manage-cookies\" target=\"_blank\">Internet Explorer</a></li>\r\n<li><a href=\"http://support.apple.com/kb/PH19214\" target=\"_blank\">Safari</a></li>\r\n<li><a href=\"https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences\" target=\"_blank\">Mozilla/Firefox</a></li>\r\n</ul>\r\n</div>','2016-06-02 09:03:35','2016-06-02 09:03:35',1,0,NULL,NULL,NULL,NULL,NULL,NULL),(4,'Privacy and Cookie Policy','1column',NULL,NULL,'privacy-policy-cookie-restriction-mode','Privacy and Cookie Policy','<div class=\"privacy-policy cms-content\">\n    <div class=\"message info\">\n        <span>\n            Please replace this text with you Privacy Policy.\n            Please add any additional cookies your website uses below (e.g. Google Analytics).\n        </span>\n    </div>\n    <p>\n        This privacy policy sets out how this website (hereafter \"the Store\") uses and protects any information that\n        you give the Store while using this website. The Store is committed to ensuring that your privacy is protected.\n        Should we ask you to provide certain information by which you can be identified when using this website, then\n        you can be assured that it will only be used in accordance with this privacy statement. The Store may change\n        this policy from time to time by updating this page. You should check this page from time to time to ensure\n        that you are happy with any changes.\n    </p>\n    <h2>What we collect</h2>\n    <p>We may collect the following information:</p>\n    <ul>\n        <li>name</li>\n        <li>contact information including email address</li>\n        <li>demographic information such as postcode, preferences and interests</li>\n        <li>other information relevant to customer surveys and/or offers</li>\n    </ul>\n    <p>\n        For the exhaustive list of cookies we collect see the <a href=\"#list\">List of cookies we collect</a> section.\n    </p>\n    <h2>What we do with the information we gather</h2>\n    <p>\n        We require this information to understand your needs and provide you with a better service,\n        and in particular for the following reasons:\n    </p>\n    <ul>\n        <li>Internal record keeping.</li>\n        <li>We may use the information to improve our products and services.</li>\n        <li>\n            We may periodically send promotional emails about new products, special offers or other information which we\n            think you may find interesting using the email address which you have provided.\n        </li>\n        <li>\n            From time to time, we may also use your information to contact you for market research purposes.\n            We may contact you by email, phone, fax or mail. We may use the information to customise the website\n            according to your interests.\n        </li>\n    </ul>\n    <h2>Security</h2>\n    <p>\n        We are committed to ensuring that your information is secure. In order to prevent unauthorised access or\n        disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and\n        secure the information we collect online.\n    </p>\n    <h2>How we use cookies</h2>\n    <p>\n        A cookie is a small file which asks permission to be placed on your computer\'s hard drive.\n        Once you agree, the file is added and the cookie helps analyse web traffic or lets you know when you visit\n        a particular site. Cookies allow web applications to respond to you as an individual. The web application\n        can tailor its operations to your needs, likes and dislikes by gathering and remembering information about\n        your preferences.\n    </p>\n    <p>\n        We use traffic log cookies to identify which pages are being used. This helps us analyse data about web page\n        traffic and improve our website in order to tailor it to customer needs. We only use this information for\n        statistical analysis purposes and then the data is removed from the system.\n    </p>\n    <p>\n        Overall, cookies help us provide you with a better website, by enabling us to monitor which pages you find\n        useful and which you do not. A cookie in no way gives us access to your computer or any information about you,\n        other than the data you choose to share with us. You can choose to accept or decline cookies.\n        Most web browsers automatically accept cookies, but you can usually modify your browser setting\n        to decline cookies if you prefer. This may prevent you from taking full advantage of the website.\n    </p>\n    <h2>Links to other websites</h2>\n    <p>\n        Our website may contain links to other websites of interest. However, once you have used these links\n        to leave our site, you should note that we do not have any control over that other website.\n        Therefore, we cannot be responsible for the protection and privacy of any information which you provide whilst\n        visiting such sites and such sites are not governed by this privacy statement.\n        You should exercise caution and look at the privacy statement applicable to the website in question.\n    </p>\n    <h2>Controlling your personal information</h2>\n    <p>You may choose to restrict the collection or use of your personal information in the following ways:</p>\n    <ul>\n        <li>\n            whenever you are asked to fill in a form on the website, look for the box that you can click to indicate\n            that you do not want the information to be used by anybody for direct marketing purposes\n        </li>\n        <li>\n            if you have previously agreed to us using your personal information for direct marketing purposes,\n            you may change your mind at any time by letting us know using our Contact Us information\n        </li>\n    </ul>\n    <p>\n        We will not sell, distribute or lease your personal information to third parties unless we have your permission\n        or are required by law to do so. We may use your personal information to send you promotional information\n        about third parties which we think you may find interesting if you tell us that you wish this to happen.\n    </p>\n    <p>\n        You may request details of personal information which we hold about you under the Data Protection Act 1998.\n        A small fee will be payable. If you would like a copy of the information held on you please email us this\n        request using our Contact Us information.\n    </p>\n    <p>\n        If you believe that any information we are holding on you is incorrect or incomplete,\n        please write to or email us as soon as possible, at the above address.\n        We will promptly correct any information found to be incorrect.\n    </p>\n    <h2><a name=\"list\"></a>List of cookies we collect</h2>\n    <p>The table below lists the cookies we collect and what information they store.</p>\n    <table class=\"data-table\">\n        <thead>\n            <tr>\n                <th>COOKIE name</th>\n                <th>COOKIE Description</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr>\n                <th>CART</th>\n                <td>The association with your shopping cart.</td>\n            </tr>\n            <tr>\n                <th>CATEGORY_INFO</th>\n                <td>Stores the category info on the page, that allows to display pages more quickly.</td>\n            </tr>\n            <tr>\n                <th>COMPARE</th>\n                <td>The items that you have in the Compare Products list.</td>\n            </tr>\n            <tr>\n                <th>CUSTOMER</th>\n                <td>An encrypted version of your customer id with the store.</td>\n            </tr>\n            <tr>\n                <th>CUSTOMER_AUTH</th>\n                <td>An indicator if you are currently logged into the store.</td>\n            </tr>\n            <tr>\n                <th>CUSTOMER_INFO</th>\n                <td>An encrypted version of the customer group you belong to.</td>\n            </tr>\n            <tr>\n                <th>CUSTOMER_SEGMENT_IDS</th>\n                <td>Stores the Customer Segment ID</td>\n            </tr>\n            <tr>\n                <th>EXTERNAL_NO_CACHE</th>\n                <td>A flag, which indicates whether caching is disabled or not.</td>\n            </tr>\n            <tr>\n                <th>FORM_KEY</th>\n                <td>Stores form key used by page cache functionality.</td>\n            </tr>\n            <tr>\n                <th>FRONTEND</th>\n                <td>Your session ID on the server.</td>\n            </tr>\n            <tr>\n                <th>GUEST-VIEW</th>\n                <td>Allows guests to edit their orders.</td>\n            </tr>\n            <tr>\n                <th>LAST_CATEGORY</th>\n                <td>The last category you visited.</td>\n            </tr>\n            <tr>\n                <th>LAST_PRODUCT</th>\n                <td>The most recent product you have viewed.</td>\n            </tr>\n            <tr>\n                <th>NEWMESSAGE</th>\n                <td>Indicates whether a new message has been received.</td>\n            </tr>\n            <tr>\n                <th>NO_CACHE</th>\n                <td>Indicates whether it is allowed to use cache.</td>\n            </tr>\n            <tr>\n                <th>PERSISTENT_SHOPPING_CART</th>\n                <td>A link to information about your cart and viewing history if you have asked the site.</td>\n            </tr>\n            <tr>\n                <th>RECENTLYCOMPARED</th>\n                <td>The items that you have recently compared.</td>\n            </tr>\n            <tr>\n                <th>STF</th>\n                <td>Information on products you have emailed to friends.</td>\n            </tr>\n            <tr>\n                <th>STORE</th>\n                <td>The store view or language you have selected.</td>\n            </tr>\n            <tr>\n                <th>USER_ALLOWED_SAVE_COOKIE</th>\n                <td>Indicates whether a customer allowed to use cookies.</td>\n            </tr>\n            <tr>\n                <th>VIEWED_PRODUCT_IDS</th>\n                <td>The products that you have recently viewed.</td>\n            </tr>\n            <tr>\n                <th>WISHLIST</th>\n                <td>An encrypted list of products added to your Wish List.</td>\n            </tr>\n            <tr>\n                <th>WISHLIST_CNT</th>\n                <td>The number of items in your Wish List.</td>\n            </tr>\n        </tbody>\n    </table>\n</div>','2016-06-02 09:03:35','2016-06-02 09:03:35',1,0,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `cms_page` VALUES (1,'404 Not Found','2columns-right','Page keywords','Page description','no-route','Whoops, our bad...','<dl>\r\n<dt>The page you requested was not found, and we have a fine guess why.</dt>\r\n<dd>\r\n<ul class=\"disc\">\r\n<li>If you typed the URL directly, please make sure the spelling is correct.</li>\r\n<li>If you clicked on a link to get here, the link is outdated.</li>\r\n</ul></dd>\r\n</dl>\r\n<dl>\r\n<dt>What can you do?</dt>\r\n<dd>Have no fear, help is near! There are many ways you can get back on track with Magento Store.</dd>\r\n<dd>\r\n<ul class=\"disc\">\r\n<li><a href=\"#\" onclick=\"history.go(-1); return false;\">Go back</a> to the previous page.</li>\r\n<li>Use the search bar at the top of the page to search for your products.</li>\r\n<li>Follow these links to get you back on track!<br /><a href=\"{{store url=\"\"}}\">Store Home</a> <span class=\"separator\">|</span> <a href=\"{{store url=\"customer/account\"}}\">My Account</a></li></ul></dd></dl>\r\n','2016-06-02 09:03:35','2016-06-02 09:03:35',1,0,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `cms_page` VALUES (2,'Home page','1column',NULL,NULL,'home','Home Page','<p>{{widget type=\"Magento\\Cms\\Block\\Widget\\Block\" template=\"widget/static_block/default.phtml\" block_id=\"3\"}}{{widget type=\"Magento\\Cms\\Block\\Widget\\Block\" template=\"widget/static_block/default.phtml\" block_id=\"4\"}}{{widget type=\"Magento\\Cms\\Block\\Widget\\Block\" template=\"widget/static_block/default.phtml\" block_id=\"5\"}}</p>','2016-06-02 09:03:35','2016-06-07 09:12:14',1,0,'<!--\r\n    <referenceContainer name=\"right\">\r\n        <action method=\"unsetChild\"><argument name=\"alias\" xsi:type=\"string\">right.reports.product.viewed</argument></action>\r\n        <action method=\"unsetChild\"><argument name=\"alias\" xsi:type=\"string\">right.reports.product.compared</argument></action>\r\n    </referenceContainer>-->',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `cms_page` VALUES (3,'Enable Cookies','1column',NULL,NULL,'enable-cookies','What are Cookies?','<div class=\"enable-cookies cms-content\">\r\n<p>\"Cookies\" are little pieces of data we send when you visit our store. Cookies help us get to know you better and personalize your experience. Plus they help protect you and other shoppers from fraud.</p>\r\n<p style=\"margin-bottom: 20px;\">Set your browser to accept cookies so you can buy items, save items, and receive customized recommendations. Here’s how:</p>\r\n<ul>\r\n<li><a href=\"https://support.google.com/accounts/answer/61416?hl=en\" target=\"_blank\">Google Chrome</a></li>\r\n<li><a href=\"http://windows.microsoft.com/en-us/internet-explorer/delete-manage-cookies\" target=\"_blank\">Internet Explorer</a></li>\r\n<li><a href=\"http://support.apple.com/kb/PH19214\" target=\"_blank\">Safari</a></li>\r\n<li><a href=\"https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences\" target=\"_blank\">Mozilla/Firefox</a></li>\r\n</ul>\r\n</div>','2016-06-02 09:03:35','2016-06-02 09:03:35',1,0,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `cms_page` VALUES (4,'Privacy and Cookie Policy','1column',NULL,NULL,'privacy-policy-cookie-restriction-mode','Privacy and Cookie Policy','<div class=\"privacy-policy cms-content\">\n    <div class=\"message info\">\n        <span>\n            Please replace this text with you Privacy Policy.\n            Please add any additional cookies your website uses below (e.g. Google Analytics).\n        </span>\n    </div>\n    <p>\n        This privacy policy sets out how this website (hereafter \"the Store\") uses and protects any information that\n        you give the Store while using this website. The Store is committed to ensuring that your privacy is protected.\n        Should we ask you to provide certain information by which you can be identified when using this website, then\n        you can be assured that it will only be used in accordance with this privacy statement. The Store may change\n        this policy from time to time by updating this page. You should check this page from time to time to ensure\n        that you are happy with any changes.\n    </p>\n    <h2>What we collect</h2>\n    <p>We may collect the following information:</p>\n    <ul>\n        <li>name</li>\n        <li>contact information including email address</li>\n        <li>demographic information such as postcode, preferences and interests</li>\n        <li>other information relevant to customer surveys and/or offers</li>\n    </ul>\n    <p>\n        For the exhaustive list of cookies we collect see the <a href=\"#list\">List of cookies we collect</a> section.\n    </p>\n    <h2>What we do with the information we gather</h2>\n    <p>\n        We require this information to understand your needs and provide you with a better service,\n        and in particular for the following reasons:\n    </p>\n    <ul>\n        <li>Internal record keeping.</li>\n        <li>We may use the information to improve our products and services.</li>\n        <li>\n            We may periodically send promotional emails about new products, special offers or other information which we\n            think you may find interesting using the email address which you have provided.\n        </li>\n        <li>\n            From time to time, we may also use your information to contact you for market research purposes.\n            We may contact you by email, phone, fax or mail. We may use the information to customise the website\n            according to your interests.\n        </li>\n    </ul>\n    <h2>Security</h2>\n    <p>\n        We are committed to ensuring that your information is secure. In order to prevent unauthorised access or\n        disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and\n        secure the information we collect online.\n    </p>\n    <h2>How we use cookies</h2>\n    <p>\n        A cookie is a small file which asks permission to be placed on your computer\'s hard drive.\n        Once you agree, the file is added and the cookie helps analyse web traffic or lets you know when you visit\n        a particular site. Cookies allow web applications to respond to you as an individual. The web application\n        can tailor its operations to your needs, likes and dislikes by gathering and remembering information about\n        your preferences.\n    </p>\n    <p>\n        We use traffic log cookies to identify which pages are being used. This helps us analyse data about web page\n        traffic and improve our website in order to tailor it to customer needs. We only use this information for\n        statistical analysis purposes and then the data is removed from the system.\n    </p>\n    <p>\n        Overall, cookies help us provide you with a better website, by enabling us to monitor which pages you find\n        useful and which you do not. A cookie in no way gives us access to your computer or any information about you,\n        other than the data you choose to share with us. You can choose to accept or decline cookies.\n        Most web browsers automatically accept cookies, but you can usually modify your browser setting\n        to decline cookies if you prefer. This may prevent you from taking full advantage of the website.\n    </p>\n    <h2>Links to other websites</h2>\n    <p>\n        Our website may contain links to other websites of interest. However, once you have used these links\n        to leave our site, you should note that we do not have any control over that other website.\n        Therefore, we cannot be responsible for the protection and privacy of any information which you provide whilst\n        visiting such sites and such sites are not governed by this privacy statement.\n        You should exercise caution and look at the privacy statement applicable to the website in question.\n    </p>\n    <h2>Controlling your personal information</h2>\n    <p>You may choose to restrict the collection or use of your personal information in the following ways:</p>\n    <ul>\n        <li>\n            whenever you are asked to fill in a form on the website, look for the box that you can click to indicate\n            that you do not want the information to be used by anybody for direct marketing purposes\n        </li>\n        <li>\n            if you have previously agreed to us using your personal information for direct marketing purposes,\n            you may change your mind at any time by letting us know using our Contact Us information\n        </li>\n    </ul>\n    <p>\n        We will not sell, distribute or lease your personal information to third parties unless we have your permission\n        or are required by law to do so. We may use your personal information to send you promotional information\n        about third parties which we think you may find interesting if you tell us that you wish this to happen.\n    </p>\n    <p>\n        You may request details of personal information which we hold about you under the Data Protection Act 1998.\n        A small fee will be payable. If you would like a copy of the information held on you please email us this\n        request using our Contact Us information.\n    </p>\n    <p>\n        If you believe that any information we are holding on you is incorrect or incomplete,\n        please write to or email us as soon as possible, at the above address.\n        We will promptly correct any information found to be incorrect.\n    </p>\n    <h2><a name=\"list\"></a>List of cookies we collect</h2>\n    <p>The table below lists the cookies we collect and what information they store.</p>\n    <table class=\"data-table\">\n        <thead>\n            <tr>\n                <th>COOKIE name</th>\n                <th>COOKIE Description</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr>\n                <th>CART</th>\n                <td>The association with your shopping cart.</td>\n            </tr>\n            <tr>\n                <th>CATEGORY_INFO</th>\n                <td>Stores the category info on the page, that allows to display pages more quickly.</td>\n            </tr>\n            <tr>\n                <th>COMPARE</th>\n                <td>The items that you have in the Compare Products list.</td>\n            </tr>\n            <tr>\n                <th>CUSTOMER</th>\n                <td>An encrypted version of your customer id with the store.</td>\n            </tr>\n            <tr>\n                <th>CUSTOMER_AUTH</th>\n                <td>An indicator if you are currently logged into the store.</td>\n            </tr>\n            <tr>\n                <th>CUSTOMER_INFO</th>\n                <td>An encrypted version of the customer group you belong to.</td>\n            </tr>\n            <tr>\n                <th>CUSTOMER_SEGMENT_IDS</th>\n                <td>Stores the Customer Segment ID</td>\n            </tr>\n            <tr>\n                <th>EXTERNAL_NO_CACHE</th>\n                <td>A flag, which indicates whether caching is disabled or not.</td>\n            </tr>\n            <tr>\n                <th>FORM_KEY</th>\n                <td>Stores form key used by page cache functionality.</td>\n            </tr>\n            <tr>\n                <th>FRONTEND</th>\n                <td>Your session ID on the server.</td>\n            </tr>\n            <tr>\n                <th>GUEST-VIEW</th>\n                <td>Allows guests to edit their orders.</td>\n            </tr>\n            <tr>\n                <th>LAST_CATEGORY</th>\n                <td>The last category you visited.</td>\n            </tr>\n            <tr>\n                <th>LAST_PRODUCT</th>\n                <td>The most recent product you have viewed.</td>\n            </tr>\n            <tr>\n                <th>NEWMESSAGE</th>\n                <td>Indicates whether a new message has been received.</td>\n            </tr>\n            <tr>\n                <th>NO_CACHE</th>\n                <td>Indicates whether it is allowed to use cache.</td>\n            </tr>\n            <tr>\n                <th>PERSISTENT_SHOPPING_CART</th>\n                <td>A link to information about your cart and viewing history if you have asked the site.</td>\n            </tr>\n            <tr>\n                <th>RECENTLYCOMPARED</th>\n                <td>The items that you have recently compared.</td>\n            </tr>\n            <tr>\n                <th>STF</th>\n                <td>Information on products you have emailed to friends.</td>\n            </tr>\n            <tr>\n                <th>STORE</th>\n                <td>The store view or language you have selected.</td>\n            </tr>\n            <tr>\n                <th>USER_ALLOWED_SAVE_COOKIE</th>\n                <td>Indicates whether a customer allowed to use cookies.</td>\n            </tr>\n            <tr>\n                <th>VIEWED_PRODUCT_IDS</th>\n                <td>The products that you have recently viewed.</td>\n            </tr>\n            <tr>\n                <th>WISHLIST</th>\n                <td>An encrypted list of products added to your Wish List.</td>\n            </tr>\n            <tr>\n                <th>WISHLIST_CNT</th>\n                <td>The number of items in your Wish List.</td>\n            </tr>\n        </tbody>\n    </table>\n</div>','2016-06-02 09:03:35','2016-06-02 09:03:35',1,0,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `cms_page` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3112,10 +3328,14 @@ CREATE TABLE `cms_page_store` (
 --
 -- Dumping data for table `cms_page_store`
 --
+-- ORDER BY:  `page_id`,`store_id`
 
 LOCK TABLES `cms_page_store` WRITE;
 /*!40000 ALTER TABLE `cms_page_store` DISABLE KEYS */;
-INSERT INTO `cms_page_store` VALUES (1,0),(3,0),(4,0),(2,1);
+INSERT INTO `cms_page_store` VALUES (1,0);
+INSERT INTO `cms_page_store` VALUES (2,1);
+INSERT INTO `cms_page_store` VALUES (3,0);
+INSERT INTO `cms_page_store` VALUES (4,0);
 /*!40000 ALTER TABLE `cms_page_store` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3140,10 +3360,837 @@ CREATE TABLE `core_config_data` (
 --
 -- Dumping data for table `core_config_data`
 --
+-- ORDER BY:  `config_id`
 
 LOCK TABLES `core_config_data` WRITE;
 /*!40000 ALTER TABLE `core_config_data` DISABLE KEYS */;
-INSERT INTO `core_config_data` VALUES (1,'websites',1,'web/unsecure/base_url','http://localhost/magento2/'),(2,'default',0,'general/region/display_all','1'),(3,'default',0,'general/region/state_required','AT,BR,CA,EE,FI,FR,DE,LV,LT,RO,ES,CH,US'),(4,'default',0,'catalog/category/root_id',NULL),(5,'default',0,'general/country/default','AU'),(6,'default',0,'general/country/allow','AU'),(7,'default',0,'general/country/optional_zip_countries','HK,IE,MO,PA,GB'),(8,'default',0,'general/country/eu_countries','AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,GB'),(9,'default',0,'general/locale/timezone','Australia/Perth'),(10,'default',0,'general/locale/code','en_AU'),(11,'default',0,'general/locale/weight_unit','kgs'),(12,'default',0,'general/locale/firstday','0'),(13,'default',0,'general/locale/weekend','0,6'),(14,'default',0,'general/store_information/name','Royal WA Historical Society Bookshop, Nedlands'),(15,'default',0,'general/store_information/phone','08 9386 3841'),(16,'default',0,'general/store_information/hours','9.30am to 5pm weekdays'),(17,'default',0,'general/store_information/country_id','AU'),(18,'default',0,'general/store_information/region_id','Western Australia'),(19,'default',0,'general/store_information/postcode','6009'),(20,'default',0,'general/store_information/city','Nedlands'),(21,'default',0,'general/store_information/street_line1','Stirling House'),(22,'default',0,'general/store_information/street_line2','49 Broadway'),(23,'default',0,'general/store_information/merchant_vat_number',NULL),(24,'default',0,'general/single_store_mode/enabled','1'),(25,'default',0,'web/url/use_store','0'),(26,'default',0,'web/url/redirect_to_base','1'),(27,'default',0,'web/seo/use_rewrites','0'),(28,'default',0,'web/unsecure/base_url','{{base_url}}'),(29,'default',0,'web/unsecure/base_link_url','{{unsecure_base_url}}'),(30,'default',0,'web/unsecure/base_static_url',NULL),(31,'default',0,'web/unsecure/base_media_url',NULL),(32,'default',0,'web/secure/base_url','{{base_url}}'),(33,'default',0,'web/secure/base_link_url','{{secure_base_url}}'),(34,'default',0,'web/secure/base_static_url',NULL),(35,'default',0,'web/secure/base_media_url',NULL),(36,'default',0,'web/secure/use_in_frontend','1'),(37,'default',0,'web/secure/use_in_adminhtml','1'),(38,'default',0,'web/secure/offloader_header','SSL_OFFLOADED'),(39,'default',0,'web/default/front','cms'),(40,'default',0,'web/default/cms_home_page','home'),(41,'default',0,'web/default/no_route','cms/noroute/index'),(42,'default',0,'web/default/cms_no_route','no-route'),(43,'default',0,'web/default/cms_no_cookies','enable-cookies'),(44,'default',0,'web/default/show_cms_breadcrumbs','1'),(45,'default',0,'web/cookie/cookie_lifetime','3600'),(46,'default',0,'web/cookie/cookie_path',NULL),(47,'default',0,'web/cookie/cookie_domain',NULL),(48,'default',0,'web/cookie/cookie_httponly','1'),(49,'default',0,'web/cookie/cookie_restriction','0'),(50,'default',0,'web/session/use_remote_addr','0'),(51,'default',0,'web/session/use_http_via','0'),(52,'default',0,'web/session/use_http_x_forwarded_for','0'),(53,'default',0,'web/session/use_http_user_agent','0'),(54,'default',0,'web/session/use_frontend_sid','1'),(55,'default',0,'web/browser_capabilities/cookies','1'),(56,'default',0,'web/browser_capabilities/javascript','1'),(57,'default',0,'web/browser_capabilities/local_storage','0'),(58,'default',0,'design/theme/theme_id','5'),(59,'default',0,'design/theme/ua_regexp','a:0:{}'),(60,'default',0,'design/head/default_title',NULL),(61,'default',0,'design/head/title_prefix',NULL),(62,'default',0,'design/head/title_suffix','| Royal Western Australian Historical Society Shop'),(63,'default',0,'design/head/default_description','Buy books, maps, photographs and archival products from the Royal Western Australian Historical Society Book Shop.'),(64,'default',0,'design/head/default_keywords','Western Australia, Western Australian, WA, RWAHS, Historical Society, History, Historical, book, books, map, maps, photograph, photographs, archive, archives, archival products'),(65,'default',0,'design/head/includes',NULL),(66,'default',0,'design/head/demonotice','0'),(67,'default',0,'design/head/shortcut_icon',NULL),(68,'default',0,'design/search_engine_robots/default_robots','INDEX,FOLLOW'),(69,'default',0,'design/search_engine_robots/custom_instructions',NULL),(70,'default',0,'design/header/logo_width','272'),(71,'default',0,'design/header/logo_height','75'),(72,'default',0,'design/header/logo_alt','Royal Western Australian Historical Society logo'),(73,'default',0,'design/header/welcome',NULL),(74,'default',0,'design/header/logo_src','default/logo-small.png'),(75,'default',0,'design/footer/copyright','Copyright © 2016 Royal Western Australian Historical Society, Inc. All rights reserved.'),(76,'default',0,'design/footer/absolute_footer',NULL),(77,'default',0,'design/watermark/image_size',NULL),(78,'default',0,'design/watermark/image_imageOpacity',NULL),(79,'default',0,'design/watermark/image_position','stretch'),(80,'default',0,'design/watermark/small_image_size',NULL),(81,'default',0,'design/watermark/small_image_imageOpacity',NULL),(82,'default',0,'design/watermark/small_image_position','stretch'),(83,'default',0,'design/watermark/swatch_image_size',NULL),(84,'default',0,'design/watermark/swatch_image_imageOpacity',NULL),(85,'default',0,'design/watermark/swatch_image_position','stretch'),(86,'default',0,'design/watermark/thumbnail_size',NULL),(87,'default',0,'design/watermark/thumbnail_imageOpacity',NULL),(88,'default',0,'design/watermark/thumbnail_position','stretch'),(89,'default',0,'design/watermark/image_image',NULL),(90,'default',0,'design/watermark/small_image_image',NULL),(91,'default',0,'design/watermark/swatch_image_image',NULL),(92,'default',0,'design/watermark/thumbnail_image',NULL),(93,'default',0,'design/pagination/pagination_frame','5'),(94,'default',0,'design/pagination/pagination_frame_skip',NULL),(95,'default',0,'design/pagination/anchor_text_for_previous',NULL),(96,'default',0,'design/pagination/anchor_text_for_next',NULL),(97,'default',0,'design/email/logo_alt',NULL),(98,'default',0,'design/email/logo_width','226'),(99,'default',0,'design/email/logo_height','68'),(100,'default',0,'design/email/header_template','design_email_header_template'),(101,'default',0,'design/email/footer_template','design_email_footer_template'),(102,'default',0,'design/email/logo','default/logo-small.png'),(103,'default',0,'currency/options/base','AUD'),(104,'default',0,'currency/options/default','AUD'),(105,'default',0,'currency/options/allow','AUD'),(106,'default',0,'currency/webservicex/timeout','100'),(107,'default',0,'currency/import/enabled','0'),(108,'default',0,'currency/import/service','webservicex'),(109,'default',0,'crontab/default/jobs/currency_rates_update/schedule/cron_expr','0 0 * * *'),(110,'default',0,'currency/import/time','00,00,00'),(111,'default',0,'currency/import/frequency','D'),(112,'default',0,'currency/import/error_email',NULL),(113,'default',0,'currency/import/error_email_identity','general'),(114,'default',0,'currency/import/error_email_template','currency_import_error_email_template'),(115,'default',0,'trans_email/ident_general/name','Royal Western Australian Historical Society'),(116,'default',0,'trans_email/ident_general/email','shop@histwest.org.au'),(117,'default',0,'trans_email/ident_sales/name','Sales - Royal Western Australian Historical Society'),(118,'default',0,'trans_email/ident_sales/email','shop@histwest.org.au'),(119,'default',0,'trans_email/ident_support/name','Customer Support - Royal Western Australian Historical Society'),(120,'default',0,'trans_email/ident_support/email','shop@histwest.org.au'),(121,'default',0,'trans_email/ident_custom1/name','Custom 1'),(122,'default',0,'trans_email/ident_custom1/email','custom1@example.com'),(123,'default',0,'trans_email/ident_custom2/name','Royal Western Australian Historical Society'),(124,'default',0,'trans_email/ident_custom2/email','no-reply@histwest.org.au'),(125,'default',0,'contact/contact/enabled','1'),(126,'default',0,'contact/email/recipient_email','shop@histwest.org.au'),(127,'default',0,'contact/email/sender_email_identity','custom2'),(128,'default',0,'contact/email/email_template','contact_email_email_template'),(129,'default',0,'reports/dashboard/ytd_start','7,1'),(130,'default',0,'reports/dashboard/mtd_start','1'),(131,'default',0,'catalog/fields_masks/sku','{{name}}'),(132,'default',0,'catalog/fields_masks/meta_title','{{name}}'),(133,'default',0,'catalog/fields_masks/meta_keyword','{{name}}'),(134,'default',0,'catalog/fields_masks/meta_description','{{name}} {{description}}'),(135,'default',0,'catalog/review/allow_guest','0'),(136,'default',0,'catalog/frontend/list_mode','grid-list'),(137,'default',0,'catalog/frontend/grid_per_page_values','12,24,48'),(138,'default',0,'catalog/frontend/grid_per_page','12'),(139,'default',0,'catalog/frontend/list_per_page_values','12,24,48'),(140,'default',0,'catalog/frontend/list_per_page','12'),(141,'default',0,'catalog/frontend/list_allow_all','0'),(142,'default',0,'catalog/frontend/default_sort_by','position'),(143,'default',0,'catalog/frontend/flat_catalog_category','0'),(144,'default',0,'catalog/frontend/flat_catalog_product','0'),(145,'default',0,'catalog/frontend/parse_url_directives','1'),(146,'default',0,'catalog/frontend/swatches_per_product','16'),(147,'default',0,'catalog/productalert/allow_price','1'),(148,'default',0,'catalog/productalert/email_price_template','catalog_productalert_email_price_template'),(149,'default',0,'catalog/productalert/allow_stock','1'),(150,'default',0,'catalog/productalert/email_stock_template','catalog_productalert_email_stock_template'),(151,'default',0,'catalog/productalert/email_identity','custom2'),(152,'default',0,'catalog/productalert_cron/frequency','D'),(153,'default',0,'crontab/default/jobs/catalog_product_alert/schedule/cron_expr','0 0 * * *'),(154,'default',0,'crontab/default/jobs/catalog_product_alert/run/model',NULL),(155,'default',0,'catalog/productalert_cron/time','00,00,00'),(156,'default',0,'catalog/productalert_cron/error_email','admin@histwest.org.au'),(157,'default',0,'catalog/productalert_cron/error_email_identity','custom2'),(158,'default',0,'catalog/productalert_cron/error_email_template','catalog_productalert_cron_error_email_template'),(159,'default',0,'catalog/recently_products/viewed_count','5'),(160,'default',0,'catalog/recently_products/compared_count','5'),(161,'default',0,'catalog/product_video/youtube_api_key',NULL),(162,'default',0,'catalog/product_video/play_if_base','0'),(163,'default',0,'catalog/product_video/show_related','0'),(164,'default',0,'catalog/product_video/video_auto_restart','0'),(165,'default',0,'catalog/layered_navigation/display_product_count','1'),(166,'default',0,'catalog/layered_navigation/price_range_calculation','improved'),(167,'default',0,'catalog/search/min_query_length','1'),(168,'default',0,'catalog/search/max_query_length','128'),(169,'default',0,'catalog/search/engine','mysql'),(170,'default',0,'catalog/seo/search_terms','1'),(171,'default',0,'catalog/seo/product_url_suffix','.html'),(172,'default',0,'catalog/seo/category_url_suffix','.html'),(173,'default',0,'catalog/seo/product_use_categories','1'),(174,'default',0,'catalog/seo/save_rewrites_history','1'),(175,'default',0,'catalog/seo/title_separator','-'),(176,'default',0,'catalog/seo/category_canonical_tag','1'),(177,'default',0,'catalog/seo/product_canonical_tag','1'),(178,'default',0,'catalog/navigation/max_depth','0'),(179,'default',0,'catalog/downloadable/order_item_status','9'),(180,'default',0,'catalog/downloadable/downloads_number','0'),(181,'default',0,'catalog/downloadable/shareable','0'),(182,'default',0,'catalog/downloadable/samples_title','Samples'),(183,'default',0,'catalog/downloadable/links_title','Links'),(184,'default',0,'catalog/downloadable/links_target_new_window','1'),(185,'default',0,'catalog/downloadable/content_disposition','inline'),(186,'default',0,'catalog/downloadable/disable_guest_checkout','1'),(187,'default',0,'catalog/custom_options/use_calendar','1'),(188,'default',0,'catalog/custom_options/date_fields_order','d,m,y'),(189,'default',0,'catalog/custom_options/time_format','24h'),(190,'default',0,'catalog/custom_options/year_range',','),(191,'default',0,'catalog/placeholder/image_placeholder',NULL),(192,'default',0,'catalog/placeholder/small_image_placeholder',NULL),(193,'default',0,'catalog/placeholder/swatch_image_placeholder',NULL),(194,'default',0,'catalog/placeholder/thumbnail_placeholder',NULL),(195,'default',0,'cataloginventory/options/can_back_in_stock','1'),(196,'default',0,'cataloginventory/options/can_subtract','1'),(197,'default',0,'cataloginventory/options/show_out_of_stock','0'),(198,'default',0,'cataloginventory/options/stock_threshold_qty','1'),(199,'default',0,'cataloginventory/options/display_product_stock_status','1'),(200,'default',0,'cataloginventory/item_options/manage_stock','1'),(201,'default',0,'cataloginventory/item_options/backorders','0'),(202,'default',0,'cataloginventory/item_options/max_sale_qty','10000'),(203,'default',0,'cataloginventory/item_options/min_qty','0'),(204,'default',0,'cataloginventory/item_options/min_sale_qty','1'),(205,'default',0,'cataloginventory/item_options/notify_stock_qty','1'),(206,'default',0,'cataloginventory/item_options/enable_qty_increments','0'),(207,'default',0,'cataloginventory/item_options/auto_return','0'),(208,'default',0,'sitemap/category/changefreq','daily'),(209,'default',0,'sitemap/category/priority','0.5'),(210,'default',0,'sitemap/product/changefreq','daily'),(211,'default',0,'sitemap/product/priority','1'),(212,'default',0,'sitemap/product/image_include','all'),(213,'default',0,'sitemap/page/changefreq','daily'),(214,'default',0,'sitemap/page/priority','0.25'),(215,'default',0,'sitemap/generate/enabled','1'),(216,'default',0,'sitemap/generate/time','00,00,00'),(217,'default',0,'sitemap/generate/frequency','D'),(218,'default',0,'crontab/default/jobs/sitemap_generate/schedule/cron_expr','0 0 * * *'),(219,'default',0,'crontab/default/jobs/sitemap_generate/run/model',NULL),(220,'default',0,'sitemap/generate/error_email','admin@histwest.org.au'),(221,'default',0,'sitemap/generate/error_email_identity','custom2'),(222,'default',0,'sitemap/generate/error_email_template','sitemap_generate_error_email_template'),(223,'default',0,'sitemap/limit/max_lines','50000'),(224,'default',0,'sitemap/limit/max_file_size','10485760'),(225,'default',0,'sitemap/search_engines/submission_robots','0'),(226,'default',0,'sendfriend/email/enabled','1'),(227,'default',0,'sendfriend/email/template','sendfriend_email_template'),(228,'default',0,'sendfriend/email/allow_guest','0'),(229,'default',0,'sendfriend/email/max_recipients','5'),(230,'default',0,'sendfriend/email/max_per_hour','5'),(231,'default',0,'sendfriend/email/check_by','0'),(232,'default',0,'customer/online_customers/online_minutes_interval',NULL),(233,'default',0,'customer/create_account/auto_group_assign','0'),(234,'default',0,'customer/create_account/default_group','1'),(235,'default',0,'customer/create_account/viv_disable_auto_group_assign_default','0'),(236,'default',0,'customer/create_account/vat_frontend_visibility','0'),(237,'default',0,'customer/create_account/email_domain','example.com'),(238,'default',0,'customer/create_account/email_template','customer_create_account_email_template'),(239,'default',0,'customer/create_account/email_no_password_template','customer_create_account_email_no_password_template'),(240,'default',0,'customer/create_account/email_identity','support'),(241,'default',0,'customer/create_account/confirm','1'),(242,'default',0,'customer/create_account/email_confirmation_template','customer_create_account_email_confirmation_template'),(243,'default',0,'customer/create_account/email_confirmed_template','customer_create_account_email_confirmed_template'),(244,'default',0,'customer/create_account/generate_human_friendly_id','0'),(245,'default',0,'customer/password/forgot_email_template','customer_password_forgot_email_template'),(246,'default',0,'customer/password/remind_email_template','customer_password_remind_email_template'),(247,'default',0,'customer/password/reset_password_template','customer_password_reset_password_template'),(248,'default',0,'customer/password/forgot_email_identity','support'),(249,'default',0,'customer/password/reset_link_expiration_period','1'),(250,'default',0,'customer/address/street_lines','2'),(251,'default',0,'customer/address/prefix_show','opt'),(252,'default',0,'customer/address/prefix_options',NULL),(253,'default',0,'customer/address/middlename_show','0'),(254,'default',0,'customer/address/suffix_show','opt'),(255,'default',0,'customer/address/suffix_options',NULL),(256,'default',0,'customer/address/dob_show','opt'),(257,'default',0,'customer/address/taxvat_show',NULL),(258,'default',0,'customer/address/gender_show',NULL),(259,'default',0,'customer/startup/redirect_dashboard','0'),(260,'default',0,'customer/address_templates/text','{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}\r\n{{depend company}}{{var company}}{{/depend}}\r\n{{if street1}}{{var street1}}\r\n{{/if}}\r\n{{depend street2}}{{var street2}}{{/depend}}\r\n{{depend street3}}{{var street3}}{{/depend}}\r\n{{depend street4}}{{var street4}}{{/depend}}\r\n{{if city}}{{var city}},  {{/if}}{{if region}}{{var region}}, {{/if}}{{if postcode}}{{var postcode}}{{/if}}\r\n{{var country}}\r\nT: {{var telephone}}\r\n{{depend fax}}F: {{var fax}}{{/depend}}\r\n{{depend vat_id}}VAT: {{var vat_id}}{{/depend}}'),(261,'default',0,'customer/address_templates/oneline','{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}, {{var street}}, {{var city}}, {{var region}} {{var postcode}}, {{var country}}'),(262,'default',0,'customer/address_templates/html','{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}{{depend firstname}}<br/>{{/depend}}\r\n{{depend company}}{{var company}}<br />{{/depend}}\r\n{{if street1}}{{var street1}}<br />{{/if}}\r\n{{depend street2}}{{var street2}}<br />{{/depend}}\r\n{{depend street3}}{{var street3}}<br />{{/depend}}\r\n{{depend street4}}{{var street4}}<br />{{/depend}}\r\n{{if city}}{{var city}},  {{/if}}{{if region}}{{var region}}, {{/if}}{{if postcode}}{{var postcode}}{{/if}}<br/>\r\n{{var country}}<br/>\r\n{{depend telephone}}T: {{var telephone}}{{/depend}}\r\n{{depend fax}}<br/>F: {{var fax}}{{/depend}}\r\n{{depend vat_id}}<br/>VAT: {{var vat_id}}{{/depend}}'),(263,'default',0,'customer/address_templates/pdf','{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}|\r\n{{depend company}}{{var company}}|{{/depend}}\r\n{{if street1}}{{var street1}}\r\n{{/if}}\r\n{{depend street2}}{{var street2}}|{{/depend}}\r\n{{depend street3}}{{var street3}}|{{/depend}}\r\n{{depend street4}}{{var street4}}|{{/depend}}\r\n{{if city}}{{var city}},|{{/if}}\r\n{{if region}}{{var region}}, {{/if}}{{if postcode}}{{var postcode}}{{/if}}|\r\n{{var country}}|\r\n{{depend telephone}}T: {{var telephone}}{{/depend}}|\r\n{{depend fax}}<br/>F: {{var fax}}{{/depend}}|\r\n{{depend vat_id}}<br/>VAT: {{var vat_id}}{{/depend}}|'),(264,'default',0,'customer/captcha/enable','1'),(265,'default',0,'customer/captcha/font','linlibertine'),(266,'default',0,'customer/captcha/forms','user_create,user_forgotpassword,guest_checkout,register_during_checkout,contact_us'),(267,'default',0,'customer/captcha/mode','after_fail'),(268,'default',0,'customer/captcha/failed_attempts_login','3'),(269,'default',0,'customer/captcha/timeout','7'),(270,'default',0,'customer/captcha/length','4-5'),(271,'default',0,'customer/captcha/symbols','ABCDEFGHJKLMNQRTYabdefghjkmnpqrstuvwxyz23456789'),(272,'default',0,'customer/captcha/case_sensitive','0'),(273,'default',0,'persistent/options/enabled','1'),(274,'default',0,'persistent/options/lifetime','31536000'),(275,'default',0,'persistent/options/remember_enabled','1'),(276,'default',0,'persistent/options/remember_default','1'),(277,'default',0,'persistent/options/logout_clear','1'),(278,'default',0,'persistent/options/shopping_cart','1'),(279,'default',0,'sales/general/hide_customer_ip','0'),(280,'default',0,'sales/totals_sort/subtotal','10'),(281,'default',0,'sales/totals_sort/discount','20'),(282,'default',0,'sales/totals_sort/shipping','30'),(283,'default',0,'sales/totals_sort/weee','35'),(284,'default',0,'sales/totals_sort/tax','40'),(285,'default',0,'sales/totals_sort/grand_total','100'),(286,'default',0,'sales/reorder/allow','1'),(287,'default',0,'sales/identity/address',NULL),(288,'default',0,'sales/identity/logo',NULL),(289,'default',0,'sales/identity/logo_html',NULL),(290,'default',0,'sales/minimum_order/active','0'),(291,'default',0,'sales/minimum_order/amount',NULL),(292,'default',0,'sales/minimum_order/tax_including','1'),(293,'default',0,'sales/minimum_order/description',NULL),(294,'default',0,'sales/minimum_order/error_message',NULL),(295,'default',0,'sales/minimum_order/multi_address','0'),(296,'default',0,'sales/minimum_order/multi_address_description',NULL),(297,'default',0,'sales/minimum_order/multi_address_error_message',NULL),(298,'default',0,'sales/dashboard/use_aggregated_data','0'),(299,'default',0,'sales/orders/delete_pending_after','480'),(300,'default',0,'sales/gift_options/allow_order','0'),(301,'default',0,'sales/gift_options/allow_items','0'),(302,'default',0,'sales/msrp/enabled','0'),(303,'default',0,'sales/msrp/display_price_type','1'),(304,'default',0,'sales/msrp/explanation_message','Our price is lower than the manufacturer\'s \"minimum advertised price.\" As a result, we cannot show you the price in catalog or the product page. <br /><br /> You have no obligation to purchase the product once you know the price. You can simply remove the item from your cart.'),(305,'default',0,'sales/msrp/explanation_message_whats_this','Our price is lower than the manufacturer\'s \"minimum advertised price.\" As a result, we cannot show you the price in catalog or the product page. <br /><br /> You have no obligation to purchase the product once you know the price. You can simply remove the item from your cart.'),(306,'default',0,'sales_email/general/async_sending','0'),(307,'default',0,'sales_email/order/enabled','1'),(308,'default',0,'sales_email/order/identity','sales'),(309,'default',0,'sales_email/order/template','sales_email_order_template'),(310,'default',0,'sales_email/order/guest_template','sales_email_order_guest_template'),(311,'default',0,'sales_email/order/copy_to','shop@histwest.org.au'),(312,'default',0,'sales_email/order/copy_method','bcc'),(313,'default',0,'sales_email/order_comment/enabled','1'),(314,'default',0,'sales_email/order_comment/identity','sales'),(315,'default',0,'sales_email/order_comment/template','sales_email_order_comment_template'),(316,'default',0,'sales_email/order_comment/guest_template','sales_email_order_comment_guest_template'),(317,'default',0,'sales_email/order_comment/copy_to',NULL),(318,'default',0,'sales_email/order_comment/copy_method','bcc'),(319,'default',0,'sales_email/invoice/enabled','1'),(320,'default',0,'sales_email/invoice/identity','sales'),(321,'default',0,'sales_email/invoice/template','sales_email_invoice_template'),(322,'default',0,'sales_email/invoice/guest_template','sales_email_invoice_guest_template'),(323,'default',0,'sales_email/invoice/copy_to',NULL),(324,'default',0,'sales_email/invoice/copy_method','bcc'),(325,'default',0,'sales_email/invoice_comment/enabled','1'),(326,'default',0,'sales_email/invoice_comment/identity','sales'),(327,'default',0,'sales_email/invoice_comment/template','sales_email_invoice_comment_template'),(328,'default',0,'sales_email/invoice_comment/guest_template','sales_email_invoice_comment_guest_template'),(329,'default',0,'sales_email/invoice_comment/copy_to',NULL),(330,'default',0,'sales_email/invoice_comment/copy_method','bcc'),(331,'default',0,'sales_email/shipment/enabled','1'),(332,'default',0,'sales_email/shipment/identity','sales'),(333,'default',0,'sales_email/shipment/template','sales_email_shipment_template'),(334,'default',0,'sales_email/shipment/guest_template','sales_email_shipment_guest_template'),(335,'default',0,'sales_email/shipment/copy_to',NULL),(336,'default',0,'sales_email/shipment/copy_method','bcc'),(337,'default',0,'sales_email/shipment_comment/enabled','1'),(338,'default',0,'sales_email/shipment_comment/identity','sales'),(339,'default',0,'sales_email/shipment_comment/template','sales_email_shipment_comment_template'),(340,'default',0,'sales_email/shipment_comment/guest_template','sales_email_shipment_comment_guest_template'),(341,'default',0,'sales_email/shipment_comment/copy_to',NULL),(342,'default',0,'sales_email/shipment_comment/copy_method','bcc'),(343,'default',0,'sales_email/creditmemo/enabled','1'),(344,'default',0,'sales_email/creditmemo/identity','sales'),(345,'default',0,'sales_email/creditmemo/template','sales_email_creditmemo_template'),(346,'default',0,'sales_email/creditmemo/guest_template','sales_email_creditmemo_guest_template'),(347,'default',0,'sales_email/creditmemo/copy_to',NULL),(348,'default',0,'sales_email/creditmemo/copy_method','bcc'),(349,'default',0,'sales_email/creditmemo_comment/enabled','1'),(350,'default',0,'sales_email/creditmemo_comment/identity','sales'),(351,'default',0,'sales_email/creditmemo_comment/template','sales_email_creditmemo_comment_template'),(352,'default',0,'sales_email/creditmemo_comment/guest_template','sales_email_creditmemo_comment_guest_template'),(353,'default',0,'sales_email/creditmemo_comment/copy_to',NULL),(354,'default',0,'sales_email/creditmemo_comment/copy_method','bcc'),(355,'default',0,'tax/classes/shipping_tax_class','2'),(356,'default',0,'tax/classes/default_product_tax_class','2'),(357,'default',0,'tax/classes/default_customer_tax_class','3'),(358,'default',0,'tax/calculation/algorithm','TOTAL_BASE_CALCULATION'),(359,'default',0,'tax/calculation/based_on','shipping'),(360,'default',0,'tax/calculation/price_includes_tax','0'),(361,'default',0,'tax/calculation/shipping_includes_tax','0'),(362,'default',0,'tax/calculation/apply_after_discount','1'),(363,'default',0,'tax/calculation/discount_tax','0'),(364,'default',0,'tax/calculation/apply_tax_on','0'),(365,'default',0,'tax/calculation/cross_border_trade_enabled','0'),(366,'default',0,'tax/defaults/country','AU'),(367,'default',0,'tax/defaults/region','0'),(368,'default',0,'tax/defaults/postcode',NULL),(369,'default',0,'tax/display/type','2'),(370,'default',0,'tax/notification/ignore_discount','0'),(371,'default',0,'tax/notification/ignore_price_display','0'),(372,'default',0,'tax/display/shipping','2'),(373,'default',0,'tax/cart_display/price','2'),(374,'default',0,'tax/cart_display/subtotal','2'),(375,'default',0,'tax/cart_display/shipping','2'),(376,'default',0,'tax/cart_display/grandtotal','1'),(377,'default',0,'tax/cart_display/full_summary','1'),(378,'default',0,'tax/cart_display/zero_tax','0'),(379,'default',0,'tax/sales_display/price','2'),(380,'default',0,'tax/sales_display/subtotal','2'),(381,'default',0,'tax/sales_display/shipping','2'),(382,'default',0,'tax/sales_display/grandtotal','1'),(383,'default',0,'tax/sales_display/full_summary','1'),(384,'default',0,'tax/sales_display/zero_tax','0'),(385,'default',0,'tax/weee/enable','0'),(386,'default',0,'tax/weee/display_list','1'),(387,'default',0,'tax/weee/display','1'),(388,'default',0,'tax/weee/display_sales','1'),(389,'default',0,'tax/weee/display_email','1'),(390,'default',0,'tax/weee/apply_vat','0'),(391,'default',0,'tax/weee/include_in_subtotal','0'),(392,'default',0,'checkout/options/onepage_checkout_enabled','1'),(393,'default',0,'checkout/options/guest_checkout','1'),(394,'default',0,'checkout/options/enable_agreements','1'),(395,'default',0,'checkout/cart/delete_quote_after','30'),(396,'default',0,'checkout/cart/redirect_to_cart','0'),(397,'default',0,'checkout/cart/grouped_product_image','itself'),(398,'default',0,'checkout/cart/configurable_product_image','parent'),(399,'default',0,'checkout/cart_link/use_qty','1'),(400,'default',0,'checkout/sidebar/display','1'),(401,'default',0,'checkout/sidebar/count','5'),(402,'default',0,'checkout/payment_failed/receiver','general'),(403,'default',0,'checkout/payment_failed/identity','custom2'),(404,'default',0,'checkout/payment_failed/template','checkout_payment_failed_template'),(405,'default',0,'checkout/payment_failed/copy_to',NULL),(406,'default',0,'checkout/payment_failed/copy_method','bcc'),(407,'default',0,'shipping/origin/country_id','AU'),(408,'default',0,'shipping/origin/region_id','Western Australia'),(409,'default',0,'shipping/origin/postcode','6009'),(410,'default',0,'shipping/origin/city','Nedlands'),(411,'default',0,'shipping/origin/street_line1',NULL),(412,'default',0,'shipping/origin/street_line2',NULL),(413,'default',0,'shipping/shipping_policy/enable_shipping_policy','0'),(414,'default',0,'shipping/shipping_policy/shipping_policy_content',NULL),(415,'default',0,'multishipping/options/checkout_multiple','0'),(416,'default',0,'multishipping/options/checkout_multiple_maximum_qty','100'),(417,'default',0,'carriers/freeshipping/active','0'),(418,'default',0,'carriers/freeshipping/title','Free Shipping'),(419,'default',0,'carriers/freeshipping/name','Free'),(420,'default',0,'carriers/freeshipping/free_shipping_subtotal',NULL),(421,'default',0,'carriers/freeshipping/specificerrmsg','This shipping method is not available. To use this shipping method, please contact us.'),(422,'default',0,'carriers/freeshipping/sallowspecific','0'),(423,'default',0,'carriers/freeshipping/specificcountry',NULL),(424,'default',0,'carriers/freeshipping/showmethod','0'),(425,'default',0,'carriers/freeshipping/sort_order',NULL),(426,'default',0,'carriers/flatrate/active','1'),(427,'default',0,'carriers/flatrate/title','Flat Rate'),(428,'default',0,'carriers/flatrate/name','Fixed'),(429,'default',0,'carriers/flatrate/type','I'),(430,'default',0,'carriers/flatrate/price','5.00'),(431,'default',0,'carriers/flatrate/handling_type','F'),(432,'default',0,'carriers/flatrate/handling_fee',NULL),(433,'default',0,'carriers/flatrate/specificerrmsg','This shipping method is not available. To use this shipping method, please contact us.'),(434,'default',0,'carriers/flatrate/sallowspecific','0'),(435,'default',0,'carriers/flatrate/specificcountry',NULL),(436,'default',0,'carriers/flatrate/showmethod','0'),(437,'default',0,'carriers/flatrate/sort_order',NULL),(438,'default',0,'carriers/tablerate/active','0'),(439,'default',0,'carriers/tablerate/title','Best Way'),(440,'default',0,'carriers/tablerate/name','Table Rate'),(441,'default',0,'carriers/tablerate/condition_name','package_weight'),(442,'default',0,'carriers/tablerate/include_virtual_price','1'),(443,'websites',1,'carriers/tablerate/import','1464860840,,,,4,0'),(444,'default',0,'carriers/tablerate/handling_type','F'),(445,'default',0,'carriers/tablerate/handling_fee',NULL),(446,'default',0,'carriers/tablerate/specificerrmsg','This shipping method is not available. To use this shipping method, please contact us.'),(447,'default',0,'carriers/tablerate/sallowspecific','0'),(448,'default',0,'carriers/tablerate/specificcountry',NULL),(449,'default',0,'carriers/tablerate/showmethod','0'),(450,'default',0,'carriers/tablerate/sort_order',NULL),(451,'default',0,'carriers/ups/active','0'),(452,'default',0,'carriers/ups/type','UPS'),(453,'default',0,'carriers/ups/is_account_live','0'),(454,'default',0,'carriers/ups/mode_xml','1'),(455,'default',0,'carriers/ups/gateway_xml_url','https://onlinetools.ups.com/ups.app/xml/Rate'),(456,'default',0,'carriers/ups/origin_shipment','Shipments Originating in United States'),(457,'default',0,'carriers/ups/negotiated_active','0'),(458,'default',0,'carriers/ups/gateway_url','http://www.ups.com/using/services/rave/qcostcgi.cgi'),(459,'default',0,'carriers/ups/title','United Parcel Service'),(460,'default',0,'carriers/ups/shipment_requesttype','0'),(461,'default',0,'carriers/ups/shipper_number',NULL),(462,'default',0,'carriers/ups/container','CP'),(463,'default',0,'carriers/ups/unit_of_measure','LBS'),(464,'default',0,'carriers/ups/tracking_xml_url','https://www.ups.com/ups.app/xml/Track'),(465,'default',0,'carriers/ups/dest_type','RES'),(466,'default',0,'carriers/ups/max_package_weight','150'),(467,'default',0,'carriers/ups/pickup','CC'),(468,'default',0,'carriers/ups/min_package_weight','0.1'),(469,'default',0,'carriers/ups/handling_type','F'),(470,'default',0,'carriers/ups/handling_action','O'),(471,'default',0,'carriers/ups/handling_fee',NULL),(472,'default',0,'carriers/ups/allowed_methods','1DM,1DML,1DA,1DAL,1DAPI,1DP,1DPL,2DM,2DML,2DA,2DAL,3DS,GND,GNDCOM,GNDRES,STD,XPR,WXS,XPRL,XDM,XDML,XPD'),(473,'default',0,'carriers/ups/free_method','GND'),(474,'default',0,'carriers/ups/free_shipping_enable','0'),(475,'default',0,'carriers/ups/free_shipping_subtotal',NULL),(476,'default',0,'carriers/ups/specificerrmsg','This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.'),(477,'default',0,'carriers/ups/sallowspecific','0'),(478,'default',0,'carriers/ups/specificcountry',NULL),(479,'default',0,'carriers/ups/showmethod','0'),(480,'default',0,'carriers/ups/debug','0'),(481,'default',0,'carriers/ups/sort_order',NULL),(482,'default',0,'carriers/usps/active','0'),(483,'default',0,'carriers/usps/gateway_url','http://production.shippingapis.com/ShippingAPI.dll'),(484,'default',0,'carriers/usps/gateway_secure_url','https://secure.shippingapis.com/ShippingAPI.dll'),(485,'default',0,'carriers/usps/title','United States Postal Service'),(486,'default',0,'carriers/usps/mode','0'),(487,'default',0,'carriers/usps/shipment_requesttype','0'),(488,'default',0,'carriers/usps/container','VARIABLE'),(489,'default',0,'carriers/usps/size','REGULAR'),(490,'default',0,'carriers/usps/machinable','true'),(491,'default',0,'carriers/usps/max_package_weight','70'),(492,'default',0,'carriers/usps/handling_type','F'),(493,'default',0,'carriers/usps/handling_action','O'),(494,'default',0,'carriers/usps/handling_fee',NULL),(495,'default',0,'carriers/usps/allowed_methods','0_FCLE,0_FCL,0_FCP,1,2,3,4,6,7,13,16,17,22,23,25,27,28,33,34,35,36,37,42,43,53,57,61,INT_1,INT_2,INT_4,INT_6,INT_7,INT_8,INT_9,INT_10,INT_11,INT_12,INT_13,INT_14,INT_15,INT_16,INT_20'),(496,'default',0,'carriers/usps/free_method',NULL),(497,'default',0,'carriers/usps/free_shipping_subtotal',NULL),(498,'default',0,'carriers/usps/specificerrmsg','This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.'),(499,'default',0,'carriers/usps/sallowspecific','0'),(500,'default',0,'carriers/usps/specificcountry',NULL),(501,'default',0,'carriers/usps/debug','0'),(502,'default',0,'carriers/usps/showmethod','0'),(503,'default',0,'carriers/usps/sort_order',NULL),(504,'default',0,'carriers/usps/free_shipping_enable','0'),(505,'default',0,'carriers/fedex/active','0'),(506,'default',0,'carriers/fedex/title','Federal Express'),(507,'default',0,'carriers/fedex/sandbox_mode','0'),(508,'default',0,'carriers/fedex/production_webservices_url','https://ws.fedex.com:443/web-services/'),(509,'default',0,'carriers/fedex/shipment_requesttype','0'),(510,'default',0,'carriers/fedex/packaging','YOUR_PACKAGING'),(511,'default',0,'carriers/fedex/dropoff','REGULAR_PICKUP'),(512,'default',0,'carriers/fedex/unit_of_measure','LB'),(513,'default',0,'carriers/fedex/max_package_weight','150'),(514,'default',0,'carriers/fedex/handling_type','F'),(515,'default',0,'carriers/fedex/handling_action','O'),(516,'default',0,'carriers/fedex/handling_fee',NULL),(517,'default',0,'carriers/fedex/residence_delivery','0'),(518,'default',0,'carriers/fedex/allowed_methods','EUROPE_FIRST_INTERNATIONAL_PRIORITY,FEDEX_1_DAY_FREIGHT,FEDEX_2_DAY_FREIGHT,FEDEX_2_DAY,FEDEX_2_DAY_AM,FEDEX_3_DAY_FREIGHT,FEDEX_EXPRESS_SAVER,FEDEX_GROUND,FIRST_OVERNIGHT,GROUND_HOME_DELIVERY,INTERNATIONAL_ECONOMY,INTERNATIONAL_ECONOMY_FREIGHT,INTERNATIONAL_FIRST,INTERNATIONAL_GROUND,INTERNATIONAL_PRIORITY,INTERNATIONAL_PRIORITY_FREIGHT,PRIORITY_OVERNIGHT,SMART_POST,STANDARD_OVERNIGHT,FEDEX_FREIGHT,FEDEX_NATIONAL_FREIGHT'),(519,'default',0,'carriers/fedex/smartpost_hubid',NULL),(520,'default',0,'carriers/fedex/free_method','FEDEX_GROUND'),(521,'default',0,'carriers/fedex/free_shipping_enable','0'),(522,'default',0,'carriers/fedex/free_shipping_subtotal',NULL),(523,'default',0,'carriers/fedex/specificerrmsg','This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.'),(524,'default',0,'carriers/fedex/sallowspecific','0'),(525,'default',0,'carriers/fedex/specificcountry',NULL),(526,'default',0,'carriers/fedex/debug','0'),(527,'default',0,'carriers/fedex/showmethod','0'),(528,'default',0,'carriers/fedex/sort_order',NULL),(529,'default',0,'carriers/dhl/active','0'),(530,'default',0,'carriers/dhl/title','DHL'),(531,'default',0,'carriers/dhl/gateway_url','https://xmlpi-ea.dhl.com/XMLShippingServlet'),(532,'default',0,'carriers/dhl/account',NULL),(533,'default',0,'carriers/dhl/content_type','N'),(534,'default',0,'carriers/dhl/handling_type','F'),(535,'default',0,'carriers/dhl/handling_action','O'),(536,'default',0,'carriers/dhl/handling_fee',NULL),(537,'default',0,'carriers/dhl/divide_order_weight','1'),(538,'default',0,'carriers/dhl/unit_of_measure','K'),(539,'default',0,'carriers/dhl/size','0'),(540,'default',0,'carriers/dhl/nondoc_methods','1,3,4,8,P,Q,E,F,H,J,M,V,Y'),(541,'default',0,'carriers/dhl/ready_time',NULL),(542,'default',0,'carriers/dhl/specificerrmsg','This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.'),(543,'default',0,'carriers/dhl/free_method_nondoc',NULL),(544,'default',0,'carriers/dhl/free_shipping_enable','0'),(545,'default',0,'carriers/dhl/free_shipping_subtotal',NULL),(546,'default',0,'carriers/dhl/sallowspecific','0'),(547,'default',0,'carriers/dhl/specificcountry',NULL),(548,'default',0,'carriers/dhl/showmethod','0'),(549,'default',0,'carriers/dhl/debug','0'),(550,'default',0,'carriers/dhl/sort_order',NULL),(551,'default',0,'paypal/general/merchant_country','AU'),(552,'default',0,'payment/braintree/active','0'),(553,'default',0,'payment/braintree_paypal/active','0'),(554,'default',0,'payment/braintree/title','Credit Card (Braintree)'),(555,'default',0,'payment/braintree/environment','sandbox'),(556,'default',0,'payment/braintree/payment_action','authorize'),(557,'default',0,'payment/braintree/merchant_account_id',NULL),(558,'default',0,'payment/braintree/merchant_id',NULL),(559,'default',0,'payment/braintree/debug','0'),(560,'default',0,'payment/braintree/capture_action','invoice'),(561,'default',0,'payment/braintree/order_status','processing'),(562,'default',0,'payment/braintree/use_vault','0'),(563,'default',0,'payment/braintree/duplicate_card','0'),(564,'default',0,'payment/braintree/useccv','1'),(565,'default',0,'payment/braintree/cctypes','AE,VI,MC,DI,JCB'),(566,'default',0,'payment/braintree/enable_cc_detection','1'),(567,'default',0,'payment/braintree/fraudprotection','0'),(568,'default',0,'payment/braintree/kount_id',NULL),(569,'default',0,'payment/braintree/usecache','0'),(570,'default',0,'payment/braintree/sort_order',NULL),(571,'default',0,'payment/braintree/allowspecific','0'),(572,'default',0,'payment/braintree/specificcountry',NULL),(573,'default',0,'payment/braintree/countrycreditcard','a:0:{}'),(574,'default',0,'payment/braintree_paypal/title','PayPal (Braintree)'),(575,'default',0,'payment/braintree_paypal/sort_order',NULL),(576,'default',0,'payment/braintree_paypal/merchant_name_override',NULL),(577,'default',0,'payment/braintree_paypal/payment_action','authorize'),(578,'default',0,'payment/braintree_paypal/order_status','processing'),(579,'default',0,'payment/braintree_paypal/allowspecific','0'),(580,'default',0,'payment/braintree_paypal/specificcountry',NULL),(581,'default',0,'payment/braintree_paypal/require_billing_address','0'),(582,'default',0,'payment/braintree_paypal/display_on_shopping_cart','0'),(583,'default',0,'payment/braintree_paypal/allow_shipping_address_override','0'),(584,'default',0,'payment/braintree_paypal/debug','0'),(585,'default',0,'payment/braintree/verify_3dsecure','0'),(586,'default',0,'payment/payflow_express/active','0'),(587,'default',0,'payment/payflow_advanced/active','0'),(588,'default',0,'payment/payflow_express_bml/active','0'),(589,'default',0,'paypal/general/business_account',NULL),(590,'default',0,'payment/payflow_advanced/partner','PayPal'),(591,'default',0,'payment/payflow_advanced/vendor','PayPal'),(592,'default',0,'payment/payflow_advanced/sandbox_flag','0'),(593,'default',0,'payment/payflow_advanced/use_proxy','0'),(594,'default',0,'payment/paypal_express_bml/publisher_id',NULL),(595,'default',0,'payment/paypal_express_bml/homepage_display','0'),(596,'default',0,'payment/paypal_express_bml/homepage_position','0'),(597,'default',0,'payment/paypal_express_bml/homepage_size','190x100'),(598,'default',0,'payment/paypal_express_bml/categorypage_display','0'),(599,'default',0,'payment/paypal_express_bml/categorypage_position','0'),(600,'default',0,'payment/paypal_express_bml/categorypage_size','190x100'),(601,'default',0,'payment/paypal_express_bml/productpage_display','0'),(602,'default',0,'payment/paypal_express_bml/productpage_position','0'),(603,'default',0,'payment/paypal_express_bml/productpage_size','190x100'),(604,'default',0,'payment/paypal_express_bml/checkout_display','0'),(605,'default',0,'payment/paypal_express_bml/checkout_position','0'),(606,'default',0,'payment/paypal_express_bml/checkout_size','234x60'),(607,'default',0,'payment/payflow_advanced/title','Credit Card'),(608,'default',0,'payment/payflow_advanced/sort_order',NULL),(609,'default',0,'payment/payflow_advanced/payment_action','Authorization'),(610,'default',0,'payment/payflow_advanced/allowspecific','0'),(611,'default',0,'payment/payflow_advanced/debug','0'),(612,'default',0,'payment/payflow_advanced/verify_peer','1'),(613,'default',0,'payment/payflow_advanced/csc_editable','1'),(614,'default',0,'payment/payflow_advanced/csc_required','1'),(615,'default',0,'payment/payflow_advanced/email_confirmation','0'),(616,'default',0,'payment/payflow_advanced/url_method','GET'),(617,'default',0,'paypal/fetch_reports/ftp_sandbox','0'),(618,'default',0,'paypal/fetch_reports/ftp_ip',NULL),(619,'default',0,'paypal/fetch_reports/ftp_path',NULL),(620,'default',0,'paypal/fetch_reports/active','0'),(621,'default',0,'paypal/fetch_reports/schedule','1'),(622,'default',0,'paypal/fetch_reports/time','00,00,00'),(623,'default',0,'paypal/style/logo',NULL),(624,'default',0,'paypal/style/page_style',NULL),(625,'default',0,'paypal/style/paypal_hdrimg',NULL),(626,'default',0,'paypal/style/paypal_hdrbackcolor',NULL),(627,'default',0,'paypal/style/paypal_hdrbordercolor',NULL),(628,'default',0,'paypal/style/paypal_payflowcolor',NULL),(629,'default',0,'payment/payflow_express/title','PayPal Express Checkout Payflow Edition'),(630,'default',0,'payment/payflow_express/sort_order',NULL),(631,'default',0,'payment/payflow_express/payment_action','Authorization'),(632,'default',0,'payment/payflow_express/visible_on_product','1'),(633,'default',0,'payment/payflow_express/visible_on_cart','1'),(634,'default',0,'payment/payflow_express/allowspecific','0'),(635,'default',0,'payment/payflow_express/debug','0'),(636,'default',0,'payment/payflow_express/verify_peer','1'),(637,'default',0,'payment/payflow_express/line_items_enabled','1'),(638,'default',0,'payment/paypal_express/skip_order_review_step','1'),(639,'default',0,'payment/paypal_payment_pro/active','0'),(640,'default',0,'payment/payflowpro/partner',NULL),(641,'default',0,'payment/payflowpro/vendor',NULL),(642,'default',0,'payment/payflowpro/sandbox_flag','0'),(643,'default',0,'payment/payflowpro/use_proxy','0'),(644,'default',0,'payment/payflowpro/title','Credit Card'),(645,'default',0,'payment/payflowpro/sort_order',NULL),(646,'default',0,'payment/payflowpro/payment_action','Authorization'),(647,'default',0,'payment/payflowpro/cctypes','AE,VI'),(648,'default',0,'payment/payflowpro/allowspecific','0'),(649,'default',0,'payment/payflowpro/debug','0'),(650,'default',0,'payment/payflowpro/verify_peer','1'),(651,'default',0,'payment/payflowpro/useccv','1'),(652,'default',0,'payment/payflowpro/avs_street','0'),(653,'default',0,'payment/payflowpro/avs_zip','0'),(654,'default',0,'payment/payflowpro/avs_international','0'),(655,'default',0,'payment/payflowpro/avs_security_code','1'),(656,'default',0,'payment/wps_express/active','0'),(657,'default',0,'payment/wps_express_bml/active','0'),(658,'default',0,'paypal/wpp/api_authentication','0'),(659,'default',0,'paypal/wpp/sandbox_flag','0'),(660,'default',0,'paypal/wpp/use_proxy','0'),(661,'default',0,'payment/paypal_express/title','PayPal Express Checkout'),(662,'default',0,'payment/paypal_express/sort_order',NULL),(663,'default',0,'payment/paypal_express/payment_action','Authorization'),(664,'default',0,'payment/paypal_express/visible_on_product','1'),(665,'default',0,'payment/paypal_express/visible_on_cart','1'),(666,'default',0,'payment/paypal_express/allowspecific','0'),(667,'default',0,'payment/paypal_express/debug','0'),(668,'default',0,'payment/paypal_express/verify_peer','1'),(669,'default',0,'payment/paypal_express/line_items_enabled','1'),(670,'default',0,'payment/paypal_express/transfer_shipping_options','0'),(671,'default',0,'paypal/wpp/button_flavor','dynamic'),(672,'default',0,'payment/paypal_express/solution_type','Mark'),(673,'default',0,'payment/paypal_express/require_billing_address','0'),(674,'default',0,'payment/paypal_express/allow_ba_signup','never'),(675,'default',0,'payment/paypal_billing_agreement/active','1'),(676,'default',0,'payment/paypal_billing_agreement/title','PayPal Billing Agreement'),(677,'default',0,'payment/paypal_billing_agreement/sort_order',NULL),(678,'default',0,'payment/paypal_billing_agreement/payment_action','Authorization'),(679,'default',0,'payment/paypal_billing_agreement/allowspecific','0'),(680,'default',0,'payment/paypal_billing_agreement/debug','0'),(681,'default',0,'payment/paypal_billing_agreement/verify_peer','1'),(682,'default',0,'payment/paypal_billing_agreement/line_items_enabled','0'),(683,'default',0,'payment/paypal_billing_agreement/allow_billing_agreement_wizard','1'),(684,'default',0,'payment/payflowpro/active','0'),(685,'default',0,'payment/payflow_link/active','0'),(686,'default',0,'payment/payflow_link/partner','PayPal'),(687,'default',0,'payment/payflow_link/vendor',NULL),(688,'default',0,'payment/payflow_link/sandbox_flag','0'),(689,'default',0,'payment/payflow_link/use_proxy','0'),(690,'default',0,'payment/payflow_link/title','Credit Card'),(691,'default',0,'payment/payflow_link/sort_order',NULL),(692,'default',0,'payment/payflow_link/payment_action','Authorization'),(693,'default',0,'payment/payflow_link/allowspecific','0'),(694,'default',0,'payment/payflow_link/debug','0'),(695,'default',0,'payment/payflow_link/verify_peer','1'),(696,'default',0,'payment/payflow_link/csc_editable','1'),(697,'default',0,'payment/payflow_link/csc_required','1'),(698,'default',0,'payment/payflow_link/email_confirmation','0'),(699,'default',0,'payment/payflow_link/url_method','GET'),(700,'default',0,'payment/paypal_express/active','0'),(701,'default',0,'payment/paypal_express_bml/active','0'),(702,'default',0,'payment/cashondelivery/active','1'),(703,'default',0,'payment/cashondelivery/title','Cash On Delivery'),(704,'default',0,'payment/cashondelivery/order_status','pending'),(705,'default',0,'payment/cashondelivery/allowspecific','0'),(706,'default',0,'payment/cashondelivery/specificcountry',NULL),(707,'default',0,'payment/cashondelivery/instructions',NULL),(708,'default',0,'payment/cashondelivery/min_order_total',NULL),(709,'default',0,'payment/cashondelivery/max_order_total',NULL),(710,'default',0,'payment/cashondelivery/sort_order',NULL),(711,'default',0,'payment/banktransfer/active','1'),(712,'default',0,'payment/banktransfer/title','Bank Transfer Payment'),(713,'default',0,'payment/banktransfer/order_status','pending'),(714,'default',0,'payment/banktransfer/allowspecific','0'),(715,'default',0,'payment/banktransfer/specificcountry',NULL),(716,'default',0,'payment/banktransfer/instructions',NULL),(717,'default',0,'payment/banktransfer/min_order_total',NULL),(718,'default',0,'payment/banktransfer/max_order_total',NULL),(719,'default',0,'payment/banktransfer/sort_order',NULL),(720,'default',0,'payment/free/title','No Payment Information Required'),(721,'default',0,'payment/free/active','1'),(722,'default',0,'payment/free/order_status','pending'),(723,'default',0,'payment/free/allowspecific','0'),(724,'default',0,'payment/free/specificcountry',NULL),(725,'default',0,'payment/free/sort_order','1'),(726,'default',0,'payment/checkmo/active','1'),(727,'default',0,'payment/checkmo/title','Check / Money order'),(728,'default',0,'payment/checkmo/order_status','pending'),(729,'default',0,'payment/checkmo/allowspecific','0'),(730,'default',0,'payment/checkmo/specificcountry',NULL),(731,'default',0,'payment/checkmo/payable_to',NULL),(732,'default',0,'payment/checkmo/mailing_address',NULL),(733,'default',0,'payment/checkmo/min_order_total',NULL),(734,'default',0,'payment/checkmo/max_order_total',NULL),(735,'default',0,'payment/checkmo/sort_order',NULL),(736,'default',0,'payment/purchaseorder/active','0'),(737,'default',0,'payment/purchaseorder/title','Purchase Order'),(738,'default',0,'payment/purchaseorder/order_status','pending'),(739,'default',0,'payment/purchaseorder/allowspecific','0'),(740,'default',0,'payment/purchaseorder/specificcountry',NULL),(741,'default',0,'payment/purchaseorder/min_order_total',NULL),(742,'default',0,'payment/purchaseorder/max_order_total',NULL),(743,'default',0,'payment/purchaseorder/sort_order',NULL),(744,'default',0,'payment/authorizenet_directpost/active','0'),(745,'default',0,'payment/authorizenet_directpost/payment_action','authorize'),(746,'default',0,'payment/authorizenet_directpost/title','Credit Card Direct Post (Authorize.net)'),(747,'default',0,'payment/authorizenet_directpost/order_status','processing'),(748,'default',0,'payment/authorizenet_directpost/test','1'),(749,'default',0,'payment/authorizenet_directpost/cgi_url','https://secure.authorize.net/gateway/transact.dll'),(750,'default',0,'payment/authorizenet_directpost/cgi_url_td','https://api2.authorize.net/xml/v1/request.api'),(751,'default',0,'payment/authorizenet_directpost/currency','USD'),(752,'default',0,'payment/authorizenet_directpost/debug','0'),(753,'default',0,'payment/authorizenet_directpost/email_customer','0'),(754,'default',0,'payment/authorizenet_directpost/merchant_email',NULL),(755,'default',0,'payment/authorizenet_directpost/cctypes','AE,VI,MC,DI'),(756,'default',0,'payment/authorizenet_directpost/useccv','0'),(757,'default',0,'payment/authorizenet_directpost/allowspecific','0'),(758,'default',0,'payment/authorizenet_directpost/min_order_total',NULL),(759,'default',0,'payment/authorizenet_directpost/max_order_total',NULL),(760,'default',0,'payment/authorizenet_directpost/sort_order',NULL),(761,'default',0,'admin/emails/forgot_email_template','admin_emails_forgot_email_template'),(762,'default',0,'admin/emails/forgot_email_identity','custom2'),(763,'default',0,'admin/emails/password_reset_link_expiration_period','1'),(764,'default',0,'admin/emails/reset_password_template','admin_emails_reset_password_template'),(765,'default',0,'admin/startup/menu_item_id','Magento_Backend::dashboard'),(766,'default',0,'admin/url/use_custom','0'),(767,'default',0,'admin/url/use_custom_path','0'),(768,'default',0,'admin/security/use_form_key','1'),(769,'default',0,'admin/security/use_case_sensitive_login','1'),(770,'default',0,'admin/security/session_lifetime','3600'),(771,'default',0,'admin/security/lockout_failures','10'),(772,'default',0,'admin/security/lockout_threshold','30'),(773,'default',0,'admin/security/password_lifetime','90'),(774,'default',0,'admin/security/password_is_forced','1'),(775,'default',0,'admin/dashboard/enable_charts','0'),(776,'default',0,'admin/captcha/enable','0'),(777,'default',0,'system/full_page_cache/varnish/access_list','localhost'),(778,'default',0,'system/full_page_cache/varnish/backend_host','localhost'),(779,'default',0,'system/full_page_cache/varnish/backend_port','8080'),(780,'default',0,'system/cron/index/schedule_generate_every','1'),(781,'default',0,'system/cron/index/schedule_ahead_for','4'),(782,'default',0,'system/cron/index/schedule_lifetime','2'),(783,'default',0,'system/cron/index/history_cleanup_every','10'),(784,'default',0,'system/cron/index/history_success_lifetime','60'),(785,'default',0,'system/cron/index/history_failure_lifetime','600'),(786,'default',0,'system/cron/index/use_separate_process','1'),(787,'default',0,'system/cron/default/schedule_generate_every','15'),(788,'default',0,'system/cron/default/schedule_ahead_for','20'),(789,'default',0,'system/cron/default/schedule_lifetime','15'),(790,'default',0,'system/cron/default/history_cleanup_every','10'),(791,'default',0,'system/cron/default/history_success_lifetime','60'),(792,'default',0,'system/cron/default/history_failure_lifetime','600'),(793,'default',0,'system/cron/default/use_separate_process','0'),(794,'default',0,'system/smtp/disable','0'),(795,'default',0,'system/smtp/host','localhost'),(796,'default',0,'system/smtp/port','25'),(797,'default',0,'system/smtp/set_return_path','0'),(798,'default',0,'system/currency/installed','AUD'),(799,'default',0,'system/adminnotification/use_https','1'),(800,'default',0,'system/adminnotification/frequency','1'),(801,'default',0,'system/backup/enabled','0'),(802,'default',0,'system/full_page_cache/caching_application','1'),(803,'default',0,'system/full_page_cache/ttl','86400'),(804,'default',0,'system/media_storage_configuration/media_storage','0'),(805,'default',0,'system/media_storage_configuration/configuration_update_time','3600'),(806,'default',0,'dev/front_end_development_workflow/type','server_side_compilation'),(807,'default',0,'dev/restrict/allow_ips',NULL),(808,'default',0,'dev/debug/template_hints_storefront','0'),(809,'default',0,'dev/debug/template_hints_admin','0'),(810,'default',0,'dev/debug/template_hints_blocks','0'),(811,'default',0,'dev/template/allow_symlink','0'),(812,'default',0,'dev/template/minify_html','0'),(813,'default',0,'dev/translate_inline/active','0'),(814,'default',0,'dev/translate_inline/active_admin','0'),(815,'default',0,'dev/js/enable_js_bundling','0'),(816,'default',0,'dev/js/merge_files','0'),(817,'default',0,'dev/js/minify_files','0'),(818,'default',0,'dev/js/translate_strategy','dictionary'),(819,'default',0,'dev/js/session_storage_logging','0'),(820,'default',0,'dev/js/session_storage_key','collected_errors'),(821,'default',0,'dev/css/merge_css_files','0'),(822,'default',0,'dev/css/minify_files','0'),(823,'default',0,'dev/image/default_adapter','GD2'),(824,'default',0,'dev/static/sign','0'),(825,'default',0,'dev/grid/async_indexing','0'),(826,'default',0,'catalog/layered_navigation/one_price_interval','0'),(827,'default',0,'catalog/layered_navigation/interval_division_limit','9');
+INSERT INTO `core_config_data` VALUES (1,'websites',1,'web/unsecure/base_url','http://localhost/magento2/');
+INSERT INTO `core_config_data` VALUES (2,'default',0,'general/region/display_all','1');
+INSERT INTO `core_config_data` VALUES (3,'default',0,'general/region/state_required','AT,BR,CA,EE,FI,FR,DE,LV,LT,RO,ES,CH,US');
+INSERT INTO `core_config_data` VALUES (4,'default',0,'catalog/category/root_id',NULL);
+INSERT INTO `core_config_data` VALUES (5,'default',0,'general/country/default','AU');
+INSERT INTO `core_config_data` VALUES (6,'default',0,'general/country/allow','AU');
+INSERT INTO `core_config_data` VALUES (7,'default',0,'general/country/optional_zip_countries','HK,IE,MO,PA,GB');
+INSERT INTO `core_config_data` VALUES (8,'default',0,'general/country/eu_countries','AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,GB');
+INSERT INTO `core_config_data` VALUES (9,'default',0,'general/locale/timezone','Australia/Perth');
+INSERT INTO `core_config_data` VALUES (10,'default',0,'general/locale/code','en_AU');
+INSERT INTO `core_config_data` VALUES (11,'default',0,'general/locale/weight_unit','kgs');
+INSERT INTO `core_config_data` VALUES (12,'default',0,'general/locale/firstday','0');
+INSERT INTO `core_config_data` VALUES (13,'default',0,'general/locale/weekend','0,6');
+INSERT INTO `core_config_data` VALUES (14,'default',0,'general/store_information/name','Royal WA Historical Society Bookshop, Nedlands');
+INSERT INTO `core_config_data` VALUES (15,'default',0,'general/store_information/phone','08 9386 3841');
+INSERT INTO `core_config_data` VALUES (16,'default',0,'general/store_information/hours','9.30am to 5pm weekdays');
+INSERT INTO `core_config_data` VALUES (17,'default',0,'general/store_information/country_id','AU');
+INSERT INTO `core_config_data` VALUES (18,'default',0,'general/store_information/region_id','Western Australia');
+INSERT INTO `core_config_data` VALUES (19,'default',0,'general/store_information/postcode','6009');
+INSERT INTO `core_config_data` VALUES (20,'default',0,'general/store_information/city','Nedlands');
+INSERT INTO `core_config_data` VALUES (21,'default',0,'general/store_information/street_line1','Stirling House');
+INSERT INTO `core_config_data` VALUES (22,'default',0,'general/store_information/street_line2','49 Broadway');
+INSERT INTO `core_config_data` VALUES (23,'default',0,'general/store_information/merchant_vat_number',NULL);
+INSERT INTO `core_config_data` VALUES (24,'default',0,'general/single_store_mode/enabled','1');
+INSERT INTO `core_config_data` VALUES (25,'default',0,'web/url/use_store','0');
+INSERT INTO `core_config_data` VALUES (26,'default',0,'web/url/redirect_to_base','1');
+INSERT INTO `core_config_data` VALUES (27,'default',0,'web/seo/use_rewrites','0');
+INSERT INTO `core_config_data` VALUES (28,'default',0,'web/unsecure/base_url','{{base_url}}');
+INSERT INTO `core_config_data` VALUES (29,'default',0,'web/unsecure/base_link_url','{{unsecure_base_url}}');
+INSERT INTO `core_config_data` VALUES (30,'default',0,'web/unsecure/base_static_url',NULL);
+INSERT INTO `core_config_data` VALUES (31,'default',0,'web/unsecure/base_media_url',NULL);
+INSERT INTO `core_config_data` VALUES (32,'default',0,'web/secure/base_url','{{base_url}}');
+INSERT INTO `core_config_data` VALUES (33,'default',0,'web/secure/base_link_url','{{secure_base_url}}');
+INSERT INTO `core_config_data` VALUES (34,'default',0,'web/secure/base_static_url',NULL);
+INSERT INTO `core_config_data` VALUES (35,'default',0,'web/secure/base_media_url',NULL);
+INSERT INTO `core_config_data` VALUES (36,'default',0,'web/secure/use_in_frontend','1');
+INSERT INTO `core_config_data` VALUES (37,'default',0,'web/secure/use_in_adminhtml','1');
+INSERT INTO `core_config_data` VALUES (38,'default',0,'web/secure/offloader_header','SSL_OFFLOADED');
+INSERT INTO `core_config_data` VALUES (39,'default',0,'web/default/front','cms');
+INSERT INTO `core_config_data` VALUES (40,'default',0,'web/default/cms_home_page','home');
+INSERT INTO `core_config_data` VALUES (41,'default',0,'web/default/no_route','cms/noroute/index');
+INSERT INTO `core_config_data` VALUES (42,'default',0,'web/default/cms_no_route','no-route');
+INSERT INTO `core_config_data` VALUES (43,'default',0,'web/default/cms_no_cookies','enable-cookies');
+INSERT INTO `core_config_data` VALUES (44,'default',0,'web/default/show_cms_breadcrumbs','1');
+INSERT INTO `core_config_data` VALUES (45,'default',0,'web/cookie/cookie_lifetime','3600');
+INSERT INTO `core_config_data` VALUES (46,'default',0,'web/cookie/cookie_path',NULL);
+INSERT INTO `core_config_data` VALUES (47,'default',0,'web/cookie/cookie_domain',NULL);
+INSERT INTO `core_config_data` VALUES (48,'default',0,'web/cookie/cookie_httponly','1');
+INSERT INTO `core_config_data` VALUES (49,'default',0,'web/cookie/cookie_restriction','0');
+INSERT INTO `core_config_data` VALUES (50,'default',0,'web/session/use_remote_addr','0');
+INSERT INTO `core_config_data` VALUES (51,'default',0,'web/session/use_http_via','0');
+INSERT INTO `core_config_data` VALUES (52,'default',0,'web/session/use_http_x_forwarded_for','0');
+INSERT INTO `core_config_data` VALUES (53,'default',0,'web/session/use_http_user_agent','0');
+INSERT INTO `core_config_data` VALUES (54,'default',0,'web/session/use_frontend_sid','1');
+INSERT INTO `core_config_data` VALUES (55,'default',0,'web/browser_capabilities/cookies','1');
+INSERT INTO `core_config_data` VALUES (56,'default',0,'web/browser_capabilities/javascript','1');
+INSERT INTO `core_config_data` VALUES (57,'default',0,'web/browser_capabilities/local_storage','0');
+INSERT INTO `core_config_data` VALUES (58,'default',0,'design/theme/theme_id','5');
+INSERT INTO `core_config_data` VALUES (59,'default',0,'design/theme/ua_regexp','a:0:{}');
+INSERT INTO `core_config_data` VALUES (60,'default',0,'design/head/default_title',NULL);
+INSERT INTO `core_config_data` VALUES (61,'default',0,'design/head/title_prefix',NULL);
+INSERT INTO `core_config_data` VALUES (62,'default',0,'design/head/title_suffix','| Royal Western Australian Historical Society Shop');
+INSERT INTO `core_config_data` VALUES (63,'default',0,'design/head/default_description','Buy books, maps, photographs and archival products from the Royal Western Australian Historical Society Book Shop.');
+INSERT INTO `core_config_data` VALUES (64,'default',0,'design/head/default_keywords','Western Australia, Western Australian, WA, RWAHS, Historical Society, History, Historical, book, books, map, maps, photograph, photographs, archive, archives, archival products');
+INSERT INTO `core_config_data` VALUES (65,'default',0,'design/head/includes',NULL);
+INSERT INTO `core_config_data` VALUES (66,'default',0,'design/head/demonotice','0');
+INSERT INTO `core_config_data` VALUES (67,'default',0,'design/head/shortcut_icon',NULL);
+INSERT INTO `core_config_data` VALUES (68,'default',0,'design/search_engine_robots/default_robots','INDEX,FOLLOW');
+INSERT INTO `core_config_data` VALUES (69,'default',0,'design/search_engine_robots/custom_instructions',NULL);
+INSERT INTO `core_config_data` VALUES (70,'default',0,'design/header/logo_width','272');
+INSERT INTO `core_config_data` VALUES (71,'default',0,'design/header/logo_height','75');
+INSERT INTO `core_config_data` VALUES (72,'default',0,'design/header/logo_alt','Royal Western Australian Historical Society logo');
+INSERT INTO `core_config_data` VALUES (73,'default',0,'design/header/welcome',NULL);
+INSERT INTO `core_config_data` VALUES (74,'default',0,'design/header/logo_src','default/logo-small.png');
+INSERT INTO `core_config_data` VALUES (75,'default',0,'design/footer/copyright','Copyright © 2016 Royal Western Australian Historical Society, Inc. All rights reserved.');
+INSERT INTO `core_config_data` VALUES (76,'default',0,'design/footer/absolute_footer',NULL);
+INSERT INTO `core_config_data` VALUES (77,'default',0,'design/watermark/image_size',NULL);
+INSERT INTO `core_config_data` VALUES (78,'default',0,'design/watermark/image_imageOpacity',NULL);
+INSERT INTO `core_config_data` VALUES (79,'default',0,'design/watermark/image_position','stretch');
+INSERT INTO `core_config_data` VALUES (80,'default',0,'design/watermark/small_image_size',NULL);
+INSERT INTO `core_config_data` VALUES (81,'default',0,'design/watermark/small_image_imageOpacity',NULL);
+INSERT INTO `core_config_data` VALUES (82,'default',0,'design/watermark/small_image_position','stretch');
+INSERT INTO `core_config_data` VALUES (83,'default',0,'design/watermark/swatch_image_size',NULL);
+INSERT INTO `core_config_data` VALUES (84,'default',0,'design/watermark/swatch_image_imageOpacity',NULL);
+INSERT INTO `core_config_data` VALUES (85,'default',0,'design/watermark/swatch_image_position','stretch');
+INSERT INTO `core_config_data` VALUES (86,'default',0,'design/watermark/thumbnail_size',NULL);
+INSERT INTO `core_config_data` VALUES (87,'default',0,'design/watermark/thumbnail_imageOpacity',NULL);
+INSERT INTO `core_config_data` VALUES (88,'default',0,'design/watermark/thumbnail_position','stretch');
+INSERT INTO `core_config_data` VALUES (89,'default',0,'design/watermark/image_image',NULL);
+INSERT INTO `core_config_data` VALUES (90,'default',0,'design/watermark/small_image_image',NULL);
+INSERT INTO `core_config_data` VALUES (91,'default',0,'design/watermark/swatch_image_image',NULL);
+INSERT INTO `core_config_data` VALUES (92,'default',0,'design/watermark/thumbnail_image',NULL);
+INSERT INTO `core_config_data` VALUES (93,'default',0,'design/pagination/pagination_frame','5');
+INSERT INTO `core_config_data` VALUES (94,'default',0,'design/pagination/pagination_frame_skip',NULL);
+INSERT INTO `core_config_data` VALUES (95,'default',0,'design/pagination/anchor_text_for_previous',NULL);
+INSERT INTO `core_config_data` VALUES (96,'default',0,'design/pagination/anchor_text_for_next',NULL);
+INSERT INTO `core_config_data` VALUES (97,'default',0,'design/email/logo_alt',NULL);
+INSERT INTO `core_config_data` VALUES (98,'default',0,'design/email/logo_width','226');
+INSERT INTO `core_config_data` VALUES (99,'default',0,'design/email/logo_height','68');
+INSERT INTO `core_config_data` VALUES (100,'default',0,'design/email/header_template','design_email_header_template');
+INSERT INTO `core_config_data` VALUES (101,'default',0,'design/email/footer_template','design_email_footer_template');
+INSERT INTO `core_config_data` VALUES (102,'default',0,'design/email/logo','default/logo-small.png');
+INSERT INTO `core_config_data` VALUES (103,'default',0,'currency/options/base','AUD');
+INSERT INTO `core_config_data` VALUES (104,'default',0,'currency/options/default','AUD');
+INSERT INTO `core_config_data` VALUES (105,'default',0,'currency/options/allow','AUD');
+INSERT INTO `core_config_data` VALUES (106,'default',0,'currency/webservicex/timeout','100');
+INSERT INTO `core_config_data` VALUES (107,'default',0,'currency/import/enabled','0');
+INSERT INTO `core_config_data` VALUES (108,'default',0,'currency/import/service','webservicex');
+INSERT INTO `core_config_data` VALUES (109,'default',0,'crontab/default/jobs/currency_rates_update/schedule/cron_expr','0 0 * * *');
+INSERT INTO `core_config_data` VALUES (110,'default',0,'currency/import/time','00,00,00');
+INSERT INTO `core_config_data` VALUES (111,'default',0,'currency/import/frequency','D');
+INSERT INTO `core_config_data` VALUES (112,'default',0,'currency/import/error_email',NULL);
+INSERT INTO `core_config_data` VALUES (113,'default',0,'currency/import/error_email_identity','general');
+INSERT INTO `core_config_data` VALUES (114,'default',0,'currency/import/error_email_template','currency_import_error_email_template');
+INSERT INTO `core_config_data` VALUES (115,'default',0,'trans_email/ident_general/name','Royal Western Australian Historical Society');
+INSERT INTO `core_config_data` VALUES (116,'default',0,'trans_email/ident_general/email','shop@histwest.org.au');
+INSERT INTO `core_config_data` VALUES (117,'default',0,'trans_email/ident_sales/name','Sales - Royal Western Australian Historical Society');
+INSERT INTO `core_config_data` VALUES (118,'default',0,'trans_email/ident_sales/email','shop@histwest.org.au');
+INSERT INTO `core_config_data` VALUES (119,'default',0,'trans_email/ident_support/name','Customer Support - Royal Western Australian Historical Society');
+INSERT INTO `core_config_data` VALUES (120,'default',0,'trans_email/ident_support/email','shop@histwest.org.au');
+INSERT INTO `core_config_data` VALUES (121,'default',0,'trans_email/ident_custom1/name','Custom 1');
+INSERT INTO `core_config_data` VALUES (122,'default',0,'trans_email/ident_custom1/email','custom1@example.com');
+INSERT INTO `core_config_data` VALUES (123,'default',0,'trans_email/ident_custom2/name','Royal Western Australian Historical Society');
+INSERT INTO `core_config_data` VALUES (124,'default',0,'trans_email/ident_custom2/email','no-reply@histwest.org.au');
+INSERT INTO `core_config_data` VALUES (125,'default',0,'contact/contact/enabled','1');
+INSERT INTO `core_config_data` VALUES (126,'default',0,'contact/email/recipient_email','shop@histwest.org.au');
+INSERT INTO `core_config_data` VALUES (127,'default',0,'contact/email/sender_email_identity','custom2');
+INSERT INTO `core_config_data` VALUES (128,'default',0,'contact/email/email_template','contact_email_email_template');
+INSERT INTO `core_config_data` VALUES (129,'default',0,'reports/dashboard/ytd_start','7,1');
+INSERT INTO `core_config_data` VALUES (130,'default',0,'reports/dashboard/mtd_start','1');
+INSERT INTO `core_config_data` VALUES (131,'default',0,'catalog/fields_masks/sku','{{name}}');
+INSERT INTO `core_config_data` VALUES (132,'default',0,'catalog/fields_masks/meta_title','{{name}}');
+INSERT INTO `core_config_data` VALUES (133,'default',0,'catalog/fields_masks/meta_keyword','{{name}}');
+INSERT INTO `core_config_data` VALUES (134,'default',0,'catalog/fields_masks/meta_description','{{name}} {{description}}');
+INSERT INTO `core_config_data` VALUES (135,'default',0,'catalog/review/allow_guest','0');
+INSERT INTO `core_config_data` VALUES (136,'default',0,'catalog/frontend/list_mode','grid-list');
+INSERT INTO `core_config_data` VALUES (137,'default',0,'catalog/frontend/grid_per_page_values','12,24,48');
+INSERT INTO `core_config_data` VALUES (138,'default',0,'catalog/frontend/grid_per_page','12');
+INSERT INTO `core_config_data` VALUES (139,'default',0,'catalog/frontend/list_per_page_values','12,24,48');
+INSERT INTO `core_config_data` VALUES (140,'default',0,'catalog/frontend/list_per_page','12');
+INSERT INTO `core_config_data` VALUES (141,'default',0,'catalog/frontend/list_allow_all','0');
+INSERT INTO `core_config_data` VALUES (142,'default',0,'catalog/frontend/default_sort_by','position');
+INSERT INTO `core_config_data` VALUES (143,'default',0,'catalog/frontend/flat_catalog_category','0');
+INSERT INTO `core_config_data` VALUES (144,'default',0,'catalog/frontend/flat_catalog_product','0');
+INSERT INTO `core_config_data` VALUES (145,'default',0,'catalog/frontend/parse_url_directives','1');
+INSERT INTO `core_config_data` VALUES (146,'default',0,'catalog/frontend/swatches_per_product','16');
+INSERT INTO `core_config_data` VALUES (147,'default',0,'catalog/productalert/allow_price','1');
+INSERT INTO `core_config_data` VALUES (148,'default',0,'catalog/productalert/email_price_template','catalog_productalert_email_price_template');
+INSERT INTO `core_config_data` VALUES (149,'default',0,'catalog/productalert/allow_stock','1');
+INSERT INTO `core_config_data` VALUES (150,'default',0,'catalog/productalert/email_stock_template','catalog_productalert_email_stock_template');
+INSERT INTO `core_config_data` VALUES (151,'default',0,'catalog/productalert/email_identity','custom2');
+INSERT INTO `core_config_data` VALUES (152,'default',0,'catalog/productalert_cron/frequency','D');
+INSERT INTO `core_config_data` VALUES (153,'default',0,'crontab/default/jobs/catalog_product_alert/schedule/cron_expr','0 0 * * *');
+INSERT INTO `core_config_data` VALUES (154,'default',0,'crontab/default/jobs/catalog_product_alert/run/model',NULL);
+INSERT INTO `core_config_data` VALUES (155,'default',0,'catalog/productalert_cron/time','00,00,00');
+INSERT INTO `core_config_data` VALUES (156,'default',0,'catalog/productalert_cron/error_email','admin@histwest.org.au');
+INSERT INTO `core_config_data` VALUES (157,'default',0,'catalog/productalert_cron/error_email_identity','custom2');
+INSERT INTO `core_config_data` VALUES (158,'default',0,'catalog/productalert_cron/error_email_template','catalog_productalert_cron_error_email_template');
+INSERT INTO `core_config_data` VALUES (159,'default',0,'catalog/recently_products/viewed_count','5');
+INSERT INTO `core_config_data` VALUES (160,'default',0,'catalog/recently_products/compared_count','5');
+INSERT INTO `core_config_data` VALUES (161,'default',0,'catalog/product_video/youtube_api_key',NULL);
+INSERT INTO `core_config_data` VALUES (162,'default',0,'catalog/product_video/play_if_base','0');
+INSERT INTO `core_config_data` VALUES (163,'default',0,'catalog/product_video/show_related','0');
+INSERT INTO `core_config_data` VALUES (164,'default',0,'catalog/product_video/video_auto_restart','0');
+INSERT INTO `core_config_data` VALUES (165,'default',0,'catalog/layered_navigation/display_product_count','1');
+INSERT INTO `core_config_data` VALUES (166,'default',0,'catalog/layered_navigation/price_range_calculation','improved');
+INSERT INTO `core_config_data` VALUES (167,'default',0,'catalog/search/min_query_length','1');
+INSERT INTO `core_config_data` VALUES (168,'default',0,'catalog/search/max_query_length','128');
+INSERT INTO `core_config_data` VALUES (169,'default',0,'catalog/search/engine','mysql');
+INSERT INTO `core_config_data` VALUES (170,'default',0,'catalog/seo/search_terms','1');
+INSERT INTO `core_config_data` VALUES (171,'default',0,'catalog/seo/product_url_suffix','.html');
+INSERT INTO `core_config_data` VALUES (172,'default',0,'catalog/seo/category_url_suffix','.html');
+INSERT INTO `core_config_data` VALUES (173,'default',0,'catalog/seo/product_use_categories','1');
+INSERT INTO `core_config_data` VALUES (174,'default',0,'catalog/seo/save_rewrites_history','1');
+INSERT INTO `core_config_data` VALUES (175,'default',0,'catalog/seo/title_separator','-');
+INSERT INTO `core_config_data` VALUES (176,'default',0,'catalog/seo/category_canonical_tag','1');
+INSERT INTO `core_config_data` VALUES (177,'default',0,'catalog/seo/product_canonical_tag','1');
+INSERT INTO `core_config_data` VALUES (178,'default',0,'catalog/navigation/max_depth','0');
+INSERT INTO `core_config_data` VALUES (179,'default',0,'catalog/downloadable/order_item_status','9');
+INSERT INTO `core_config_data` VALUES (180,'default',0,'catalog/downloadable/downloads_number','0');
+INSERT INTO `core_config_data` VALUES (181,'default',0,'catalog/downloadable/shareable','0');
+INSERT INTO `core_config_data` VALUES (182,'default',0,'catalog/downloadable/samples_title','Samples');
+INSERT INTO `core_config_data` VALUES (183,'default',0,'catalog/downloadable/links_title','Links');
+INSERT INTO `core_config_data` VALUES (184,'default',0,'catalog/downloadable/links_target_new_window','1');
+INSERT INTO `core_config_data` VALUES (185,'default',0,'catalog/downloadable/content_disposition','inline');
+INSERT INTO `core_config_data` VALUES (186,'default',0,'catalog/downloadable/disable_guest_checkout','1');
+INSERT INTO `core_config_data` VALUES (187,'default',0,'catalog/custom_options/use_calendar','1');
+INSERT INTO `core_config_data` VALUES (188,'default',0,'catalog/custom_options/date_fields_order','d,m,y');
+INSERT INTO `core_config_data` VALUES (189,'default',0,'catalog/custom_options/time_format','24h');
+INSERT INTO `core_config_data` VALUES (190,'default',0,'catalog/custom_options/year_range',',');
+INSERT INTO `core_config_data` VALUES (191,'default',0,'catalog/placeholder/image_placeholder',NULL);
+INSERT INTO `core_config_data` VALUES (192,'default',0,'catalog/placeholder/small_image_placeholder',NULL);
+INSERT INTO `core_config_data` VALUES (193,'default',0,'catalog/placeholder/swatch_image_placeholder',NULL);
+INSERT INTO `core_config_data` VALUES (194,'default',0,'catalog/placeholder/thumbnail_placeholder',NULL);
+INSERT INTO `core_config_data` VALUES (195,'default',0,'cataloginventory/options/can_back_in_stock','1');
+INSERT INTO `core_config_data` VALUES (196,'default',0,'cataloginventory/options/can_subtract','1');
+INSERT INTO `core_config_data` VALUES (197,'default',0,'cataloginventory/options/show_out_of_stock','0');
+INSERT INTO `core_config_data` VALUES (198,'default',0,'cataloginventory/options/stock_threshold_qty','1');
+INSERT INTO `core_config_data` VALUES (199,'default',0,'cataloginventory/options/display_product_stock_status','1');
+INSERT INTO `core_config_data` VALUES (200,'default',0,'cataloginventory/item_options/manage_stock','1');
+INSERT INTO `core_config_data` VALUES (201,'default',0,'cataloginventory/item_options/backorders','0');
+INSERT INTO `core_config_data` VALUES (202,'default',0,'cataloginventory/item_options/max_sale_qty','10000');
+INSERT INTO `core_config_data` VALUES (203,'default',0,'cataloginventory/item_options/min_qty','0');
+INSERT INTO `core_config_data` VALUES (204,'default',0,'cataloginventory/item_options/min_sale_qty','1');
+INSERT INTO `core_config_data` VALUES (205,'default',0,'cataloginventory/item_options/notify_stock_qty','1');
+INSERT INTO `core_config_data` VALUES (206,'default',0,'cataloginventory/item_options/enable_qty_increments','0');
+INSERT INTO `core_config_data` VALUES (207,'default',0,'cataloginventory/item_options/auto_return','0');
+INSERT INTO `core_config_data` VALUES (208,'default',0,'sitemap/category/changefreq','daily');
+INSERT INTO `core_config_data` VALUES (209,'default',0,'sitemap/category/priority','0.5');
+INSERT INTO `core_config_data` VALUES (210,'default',0,'sitemap/product/changefreq','daily');
+INSERT INTO `core_config_data` VALUES (211,'default',0,'sitemap/product/priority','1');
+INSERT INTO `core_config_data` VALUES (212,'default',0,'sitemap/product/image_include','all');
+INSERT INTO `core_config_data` VALUES (213,'default',0,'sitemap/page/changefreq','daily');
+INSERT INTO `core_config_data` VALUES (214,'default',0,'sitemap/page/priority','0.25');
+INSERT INTO `core_config_data` VALUES (215,'default',0,'sitemap/generate/enabled','1');
+INSERT INTO `core_config_data` VALUES (216,'default',0,'sitemap/generate/time','00,00,00');
+INSERT INTO `core_config_data` VALUES (217,'default',0,'sitemap/generate/frequency','D');
+INSERT INTO `core_config_data` VALUES (218,'default',0,'crontab/default/jobs/sitemap_generate/schedule/cron_expr','0 0 * * *');
+INSERT INTO `core_config_data` VALUES (219,'default',0,'crontab/default/jobs/sitemap_generate/run/model',NULL);
+INSERT INTO `core_config_data` VALUES (220,'default',0,'sitemap/generate/error_email','admin@histwest.org.au');
+INSERT INTO `core_config_data` VALUES (221,'default',0,'sitemap/generate/error_email_identity','custom2');
+INSERT INTO `core_config_data` VALUES (222,'default',0,'sitemap/generate/error_email_template','sitemap_generate_error_email_template');
+INSERT INTO `core_config_data` VALUES (223,'default',0,'sitemap/limit/max_lines','50000');
+INSERT INTO `core_config_data` VALUES (224,'default',0,'sitemap/limit/max_file_size','10485760');
+INSERT INTO `core_config_data` VALUES (225,'default',0,'sitemap/search_engines/submission_robots','0');
+INSERT INTO `core_config_data` VALUES (226,'default',0,'sendfriend/email/enabled','1');
+INSERT INTO `core_config_data` VALUES (227,'default',0,'sendfriend/email/template','sendfriend_email_template');
+INSERT INTO `core_config_data` VALUES (228,'default',0,'sendfriend/email/allow_guest','0');
+INSERT INTO `core_config_data` VALUES (229,'default',0,'sendfriend/email/max_recipients','5');
+INSERT INTO `core_config_data` VALUES (230,'default',0,'sendfriend/email/max_per_hour','5');
+INSERT INTO `core_config_data` VALUES (231,'default',0,'sendfriend/email/check_by','0');
+INSERT INTO `core_config_data` VALUES (232,'default',0,'customer/online_customers/online_minutes_interval',NULL);
+INSERT INTO `core_config_data` VALUES (233,'default',0,'customer/create_account/auto_group_assign','0');
+INSERT INTO `core_config_data` VALUES (234,'default',0,'customer/create_account/default_group','1');
+INSERT INTO `core_config_data` VALUES (235,'default',0,'customer/create_account/viv_disable_auto_group_assign_default','0');
+INSERT INTO `core_config_data` VALUES (236,'default',0,'customer/create_account/vat_frontend_visibility','0');
+INSERT INTO `core_config_data` VALUES (237,'default',0,'customer/create_account/email_domain','example.com');
+INSERT INTO `core_config_data` VALUES (238,'default',0,'customer/create_account/email_template','customer_create_account_email_template');
+INSERT INTO `core_config_data` VALUES (239,'default',0,'customer/create_account/email_no_password_template','customer_create_account_email_no_password_template');
+INSERT INTO `core_config_data` VALUES (240,'default',0,'customer/create_account/email_identity','support');
+INSERT INTO `core_config_data` VALUES (241,'default',0,'customer/create_account/confirm','1');
+INSERT INTO `core_config_data` VALUES (242,'default',0,'customer/create_account/email_confirmation_template','customer_create_account_email_confirmation_template');
+INSERT INTO `core_config_data` VALUES (243,'default',0,'customer/create_account/email_confirmed_template','customer_create_account_email_confirmed_template');
+INSERT INTO `core_config_data` VALUES (244,'default',0,'customer/create_account/generate_human_friendly_id','0');
+INSERT INTO `core_config_data` VALUES (245,'default',0,'customer/password/forgot_email_template','customer_password_forgot_email_template');
+INSERT INTO `core_config_data` VALUES (246,'default',0,'customer/password/remind_email_template','customer_password_remind_email_template');
+INSERT INTO `core_config_data` VALUES (247,'default',0,'customer/password/reset_password_template','customer_password_reset_password_template');
+INSERT INTO `core_config_data` VALUES (248,'default',0,'customer/password/forgot_email_identity','support');
+INSERT INTO `core_config_data` VALUES (249,'default',0,'customer/password/reset_link_expiration_period','1');
+INSERT INTO `core_config_data` VALUES (250,'default',0,'customer/address/street_lines','2');
+INSERT INTO `core_config_data` VALUES (251,'default',0,'customer/address/prefix_show','opt');
+INSERT INTO `core_config_data` VALUES (252,'default',0,'customer/address/prefix_options',NULL);
+INSERT INTO `core_config_data` VALUES (253,'default',0,'customer/address/middlename_show','0');
+INSERT INTO `core_config_data` VALUES (254,'default',0,'customer/address/suffix_show','opt');
+INSERT INTO `core_config_data` VALUES (255,'default',0,'customer/address/suffix_options',NULL);
+INSERT INTO `core_config_data` VALUES (256,'default',0,'customer/address/dob_show','opt');
+INSERT INTO `core_config_data` VALUES (257,'default',0,'customer/address/taxvat_show',NULL);
+INSERT INTO `core_config_data` VALUES (258,'default',0,'customer/address/gender_show',NULL);
+INSERT INTO `core_config_data` VALUES (259,'default',0,'customer/startup/redirect_dashboard','0');
+INSERT INTO `core_config_data` VALUES (260,'default',0,'customer/address_templates/text','{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}\r\n{{depend company}}{{var company}}{{/depend}}\r\n{{if street1}}{{var street1}}\r\n{{/if}}\r\n{{depend street2}}{{var street2}}{{/depend}}\r\n{{depend street3}}{{var street3}}{{/depend}}\r\n{{depend street4}}{{var street4}}{{/depend}}\r\n{{if city}}{{var city}},  {{/if}}{{if region}}{{var region}}, {{/if}}{{if postcode}}{{var postcode}}{{/if}}\r\n{{var country}}\r\nT: {{var telephone}}\r\n{{depend fax}}F: {{var fax}}{{/depend}}\r\n{{depend vat_id}}VAT: {{var vat_id}}{{/depend}}');
+INSERT INTO `core_config_data` VALUES (261,'default',0,'customer/address_templates/oneline','{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}, {{var street}}, {{var city}}, {{var region}} {{var postcode}}, {{var country}}');
+INSERT INTO `core_config_data` VALUES (262,'default',0,'customer/address_templates/html','{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}{{depend firstname}}<br/>{{/depend}}\r\n{{depend company}}{{var company}}<br />{{/depend}}\r\n{{if street1}}{{var street1}}<br />{{/if}}\r\n{{depend street2}}{{var street2}}<br />{{/depend}}\r\n{{depend street3}}{{var street3}}<br />{{/depend}}\r\n{{depend street4}}{{var street4}}<br />{{/depend}}\r\n{{if city}}{{var city}},  {{/if}}{{if region}}{{var region}}, {{/if}}{{if postcode}}{{var postcode}}{{/if}}<br/>\r\n{{var country}}<br/>\r\n{{depend telephone}}T: {{var telephone}}{{/depend}}\r\n{{depend fax}}<br/>F: {{var fax}}{{/depend}}\r\n{{depend vat_id}}<br/>VAT: {{var vat_id}}{{/depend}}');
+INSERT INTO `core_config_data` VALUES (263,'default',0,'customer/address_templates/pdf','{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}|\r\n{{depend company}}{{var company}}|{{/depend}}\r\n{{if street1}}{{var street1}}\r\n{{/if}}\r\n{{depend street2}}{{var street2}}|{{/depend}}\r\n{{depend street3}}{{var street3}}|{{/depend}}\r\n{{depend street4}}{{var street4}}|{{/depend}}\r\n{{if city}}{{var city}},|{{/if}}\r\n{{if region}}{{var region}}, {{/if}}{{if postcode}}{{var postcode}}{{/if}}|\r\n{{var country}}|\r\n{{depend telephone}}T: {{var telephone}}{{/depend}}|\r\n{{depend fax}}<br/>F: {{var fax}}{{/depend}}|\r\n{{depend vat_id}}<br/>VAT: {{var vat_id}}{{/depend}}|');
+INSERT INTO `core_config_data` VALUES (264,'default',0,'customer/captcha/enable','1');
+INSERT INTO `core_config_data` VALUES (265,'default',0,'customer/captcha/font','linlibertine');
+INSERT INTO `core_config_data` VALUES (266,'default',0,'customer/captcha/forms','user_create,user_forgotpassword,guest_checkout,register_during_checkout,contact_us');
+INSERT INTO `core_config_data` VALUES (267,'default',0,'customer/captcha/mode','after_fail');
+INSERT INTO `core_config_data` VALUES (268,'default',0,'customer/captcha/failed_attempts_login','3');
+INSERT INTO `core_config_data` VALUES (269,'default',0,'customer/captcha/timeout','7');
+INSERT INTO `core_config_data` VALUES (270,'default',0,'customer/captcha/length','4-5');
+INSERT INTO `core_config_data` VALUES (271,'default',0,'customer/captcha/symbols','ABCDEFGHJKLMNQRTYabdefghjkmnpqrstuvwxyz23456789');
+INSERT INTO `core_config_data` VALUES (272,'default',0,'customer/captcha/case_sensitive','0');
+INSERT INTO `core_config_data` VALUES (273,'default',0,'persistent/options/enabled','1');
+INSERT INTO `core_config_data` VALUES (274,'default',0,'persistent/options/lifetime','31536000');
+INSERT INTO `core_config_data` VALUES (275,'default',0,'persistent/options/remember_enabled','1');
+INSERT INTO `core_config_data` VALUES (276,'default',0,'persistent/options/remember_default','1');
+INSERT INTO `core_config_data` VALUES (277,'default',0,'persistent/options/logout_clear','1');
+INSERT INTO `core_config_data` VALUES (278,'default',0,'persistent/options/shopping_cart','1');
+INSERT INTO `core_config_data` VALUES (279,'default',0,'sales/general/hide_customer_ip','0');
+INSERT INTO `core_config_data` VALUES (280,'default',0,'sales/totals_sort/subtotal','10');
+INSERT INTO `core_config_data` VALUES (281,'default',0,'sales/totals_sort/discount','20');
+INSERT INTO `core_config_data` VALUES (282,'default',0,'sales/totals_sort/shipping','30');
+INSERT INTO `core_config_data` VALUES (283,'default',0,'sales/totals_sort/weee','35');
+INSERT INTO `core_config_data` VALUES (284,'default',0,'sales/totals_sort/tax','40');
+INSERT INTO `core_config_data` VALUES (285,'default',0,'sales/totals_sort/grand_total','100');
+INSERT INTO `core_config_data` VALUES (286,'default',0,'sales/reorder/allow','1');
+INSERT INTO `core_config_data` VALUES (287,'default',0,'sales/identity/address',NULL);
+INSERT INTO `core_config_data` VALUES (288,'default',0,'sales/identity/logo',NULL);
+INSERT INTO `core_config_data` VALUES (289,'default',0,'sales/identity/logo_html',NULL);
+INSERT INTO `core_config_data` VALUES (290,'default',0,'sales/minimum_order/active','0');
+INSERT INTO `core_config_data` VALUES (291,'default',0,'sales/minimum_order/amount',NULL);
+INSERT INTO `core_config_data` VALUES (292,'default',0,'sales/minimum_order/tax_including','1');
+INSERT INTO `core_config_data` VALUES (293,'default',0,'sales/minimum_order/description',NULL);
+INSERT INTO `core_config_data` VALUES (294,'default',0,'sales/minimum_order/error_message',NULL);
+INSERT INTO `core_config_data` VALUES (295,'default',0,'sales/minimum_order/multi_address','0');
+INSERT INTO `core_config_data` VALUES (296,'default',0,'sales/minimum_order/multi_address_description',NULL);
+INSERT INTO `core_config_data` VALUES (297,'default',0,'sales/minimum_order/multi_address_error_message',NULL);
+INSERT INTO `core_config_data` VALUES (298,'default',0,'sales/dashboard/use_aggregated_data','0');
+INSERT INTO `core_config_data` VALUES (299,'default',0,'sales/orders/delete_pending_after','480');
+INSERT INTO `core_config_data` VALUES (300,'default',0,'sales/gift_options/allow_order','0');
+INSERT INTO `core_config_data` VALUES (301,'default',0,'sales/gift_options/allow_items','0');
+INSERT INTO `core_config_data` VALUES (302,'default',0,'sales/msrp/enabled','0');
+INSERT INTO `core_config_data` VALUES (303,'default',0,'sales/msrp/display_price_type','1');
+INSERT INTO `core_config_data` VALUES (304,'default',0,'sales/msrp/explanation_message','Our price is lower than the manufacturer\'s \"minimum advertised price.\" As a result, we cannot show you the price in catalog or the product page. <br /><br /> You have no obligation to purchase the product once you know the price. You can simply remove the item from your cart.');
+INSERT INTO `core_config_data` VALUES (305,'default',0,'sales/msrp/explanation_message_whats_this','Our price is lower than the manufacturer\'s \"minimum advertised price.\" As a result, we cannot show you the price in catalog or the product page. <br /><br /> You have no obligation to purchase the product once you know the price. You can simply remove the item from your cart.');
+INSERT INTO `core_config_data` VALUES (306,'default',0,'sales_email/general/async_sending','0');
+INSERT INTO `core_config_data` VALUES (307,'default',0,'sales_email/order/enabled','1');
+INSERT INTO `core_config_data` VALUES (308,'default',0,'sales_email/order/identity','sales');
+INSERT INTO `core_config_data` VALUES (309,'default',0,'sales_email/order/template','sales_email_order_template');
+INSERT INTO `core_config_data` VALUES (310,'default',0,'sales_email/order/guest_template','sales_email_order_guest_template');
+INSERT INTO `core_config_data` VALUES (311,'default',0,'sales_email/order/copy_to','shop@histwest.org.au');
+INSERT INTO `core_config_data` VALUES (312,'default',0,'sales_email/order/copy_method','bcc');
+INSERT INTO `core_config_data` VALUES (313,'default',0,'sales_email/order_comment/enabled','1');
+INSERT INTO `core_config_data` VALUES (314,'default',0,'sales_email/order_comment/identity','sales');
+INSERT INTO `core_config_data` VALUES (315,'default',0,'sales_email/order_comment/template','sales_email_order_comment_template');
+INSERT INTO `core_config_data` VALUES (316,'default',0,'sales_email/order_comment/guest_template','sales_email_order_comment_guest_template');
+INSERT INTO `core_config_data` VALUES (317,'default',0,'sales_email/order_comment/copy_to',NULL);
+INSERT INTO `core_config_data` VALUES (318,'default',0,'sales_email/order_comment/copy_method','bcc');
+INSERT INTO `core_config_data` VALUES (319,'default',0,'sales_email/invoice/enabled','1');
+INSERT INTO `core_config_data` VALUES (320,'default',0,'sales_email/invoice/identity','sales');
+INSERT INTO `core_config_data` VALUES (321,'default',0,'sales_email/invoice/template','sales_email_invoice_template');
+INSERT INTO `core_config_data` VALUES (322,'default',0,'sales_email/invoice/guest_template','sales_email_invoice_guest_template');
+INSERT INTO `core_config_data` VALUES (323,'default',0,'sales_email/invoice/copy_to',NULL);
+INSERT INTO `core_config_data` VALUES (324,'default',0,'sales_email/invoice/copy_method','bcc');
+INSERT INTO `core_config_data` VALUES (325,'default',0,'sales_email/invoice_comment/enabled','1');
+INSERT INTO `core_config_data` VALUES (326,'default',0,'sales_email/invoice_comment/identity','sales');
+INSERT INTO `core_config_data` VALUES (327,'default',0,'sales_email/invoice_comment/template','sales_email_invoice_comment_template');
+INSERT INTO `core_config_data` VALUES (328,'default',0,'sales_email/invoice_comment/guest_template','sales_email_invoice_comment_guest_template');
+INSERT INTO `core_config_data` VALUES (329,'default',0,'sales_email/invoice_comment/copy_to',NULL);
+INSERT INTO `core_config_data` VALUES (330,'default',0,'sales_email/invoice_comment/copy_method','bcc');
+INSERT INTO `core_config_data` VALUES (331,'default',0,'sales_email/shipment/enabled','1');
+INSERT INTO `core_config_data` VALUES (332,'default',0,'sales_email/shipment/identity','sales');
+INSERT INTO `core_config_data` VALUES (333,'default',0,'sales_email/shipment/template','sales_email_shipment_template');
+INSERT INTO `core_config_data` VALUES (334,'default',0,'sales_email/shipment/guest_template','sales_email_shipment_guest_template');
+INSERT INTO `core_config_data` VALUES (335,'default',0,'sales_email/shipment/copy_to',NULL);
+INSERT INTO `core_config_data` VALUES (336,'default',0,'sales_email/shipment/copy_method','bcc');
+INSERT INTO `core_config_data` VALUES (337,'default',0,'sales_email/shipment_comment/enabled','1');
+INSERT INTO `core_config_data` VALUES (338,'default',0,'sales_email/shipment_comment/identity','sales');
+INSERT INTO `core_config_data` VALUES (339,'default',0,'sales_email/shipment_comment/template','sales_email_shipment_comment_template');
+INSERT INTO `core_config_data` VALUES (340,'default',0,'sales_email/shipment_comment/guest_template','sales_email_shipment_comment_guest_template');
+INSERT INTO `core_config_data` VALUES (341,'default',0,'sales_email/shipment_comment/copy_to',NULL);
+INSERT INTO `core_config_data` VALUES (342,'default',0,'sales_email/shipment_comment/copy_method','bcc');
+INSERT INTO `core_config_data` VALUES (343,'default',0,'sales_email/creditmemo/enabled','1');
+INSERT INTO `core_config_data` VALUES (344,'default',0,'sales_email/creditmemo/identity','sales');
+INSERT INTO `core_config_data` VALUES (345,'default',0,'sales_email/creditmemo/template','sales_email_creditmemo_template');
+INSERT INTO `core_config_data` VALUES (346,'default',0,'sales_email/creditmemo/guest_template','sales_email_creditmemo_guest_template');
+INSERT INTO `core_config_data` VALUES (347,'default',0,'sales_email/creditmemo/copy_to',NULL);
+INSERT INTO `core_config_data` VALUES (348,'default',0,'sales_email/creditmemo/copy_method','bcc');
+INSERT INTO `core_config_data` VALUES (349,'default',0,'sales_email/creditmemo_comment/enabled','1');
+INSERT INTO `core_config_data` VALUES (350,'default',0,'sales_email/creditmemo_comment/identity','sales');
+INSERT INTO `core_config_data` VALUES (351,'default',0,'sales_email/creditmemo_comment/template','sales_email_creditmemo_comment_template');
+INSERT INTO `core_config_data` VALUES (352,'default',0,'sales_email/creditmemo_comment/guest_template','sales_email_creditmemo_comment_guest_template');
+INSERT INTO `core_config_data` VALUES (353,'default',0,'sales_email/creditmemo_comment/copy_to',NULL);
+INSERT INTO `core_config_data` VALUES (354,'default',0,'sales_email/creditmemo_comment/copy_method','bcc');
+INSERT INTO `core_config_data` VALUES (355,'default',0,'tax/classes/shipping_tax_class','2');
+INSERT INTO `core_config_data` VALUES (356,'default',0,'tax/classes/default_product_tax_class','2');
+INSERT INTO `core_config_data` VALUES (357,'default',0,'tax/classes/default_customer_tax_class','3');
+INSERT INTO `core_config_data` VALUES (358,'default',0,'tax/calculation/algorithm','TOTAL_BASE_CALCULATION');
+INSERT INTO `core_config_data` VALUES (359,'default',0,'tax/calculation/based_on','shipping');
+INSERT INTO `core_config_data` VALUES (360,'default',0,'tax/calculation/price_includes_tax','0');
+INSERT INTO `core_config_data` VALUES (361,'default',0,'tax/calculation/shipping_includes_tax','0');
+INSERT INTO `core_config_data` VALUES (362,'default',0,'tax/calculation/apply_after_discount','1');
+INSERT INTO `core_config_data` VALUES (363,'default',0,'tax/calculation/discount_tax','0');
+INSERT INTO `core_config_data` VALUES (364,'default',0,'tax/calculation/apply_tax_on','0');
+INSERT INTO `core_config_data` VALUES (365,'default',0,'tax/calculation/cross_border_trade_enabled','0');
+INSERT INTO `core_config_data` VALUES (366,'default',0,'tax/defaults/country','AU');
+INSERT INTO `core_config_data` VALUES (367,'default',0,'tax/defaults/region','0');
+INSERT INTO `core_config_data` VALUES (368,'default',0,'tax/defaults/postcode',NULL);
+INSERT INTO `core_config_data` VALUES (369,'default',0,'tax/display/type','2');
+INSERT INTO `core_config_data` VALUES (370,'default',0,'tax/notification/ignore_discount','0');
+INSERT INTO `core_config_data` VALUES (371,'default',0,'tax/notification/ignore_price_display','0');
+INSERT INTO `core_config_data` VALUES (372,'default',0,'tax/display/shipping','2');
+INSERT INTO `core_config_data` VALUES (373,'default',0,'tax/cart_display/price','2');
+INSERT INTO `core_config_data` VALUES (374,'default',0,'tax/cart_display/subtotal','2');
+INSERT INTO `core_config_data` VALUES (375,'default',0,'tax/cart_display/shipping','2');
+INSERT INTO `core_config_data` VALUES (376,'default',0,'tax/cart_display/grandtotal','1');
+INSERT INTO `core_config_data` VALUES (377,'default',0,'tax/cart_display/full_summary','1');
+INSERT INTO `core_config_data` VALUES (378,'default',0,'tax/cart_display/zero_tax','0');
+INSERT INTO `core_config_data` VALUES (379,'default',0,'tax/sales_display/price','2');
+INSERT INTO `core_config_data` VALUES (380,'default',0,'tax/sales_display/subtotal','2');
+INSERT INTO `core_config_data` VALUES (381,'default',0,'tax/sales_display/shipping','2');
+INSERT INTO `core_config_data` VALUES (382,'default',0,'tax/sales_display/grandtotal','1');
+INSERT INTO `core_config_data` VALUES (383,'default',0,'tax/sales_display/full_summary','1');
+INSERT INTO `core_config_data` VALUES (384,'default',0,'tax/sales_display/zero_tax','0');
+INSERT INTO `core_config_data` VALUES (385,'default',0,'tax/weee/enable','0');
+INSERT INTO `core_config_data` VALUES (386,'default',0,'tax/weee/display_list','1');
+INSERT INTO `core_config_data` VALUES (387,'default',0,'tax/weee/display','1');
+INSERT INTO `core_config_data` VALUES (388,'default',0,'tax/weee/display_sales','1');
+INSERT INTO `core_config_data` VALUES (389,'default',0,'tax/weee/display_email','1');
+INSERT INTO `core_config_data` VALUES (390,'default',0,'tax/weee/apply_vat','0');
+INSERT INTO `core_config_data` VALUES (391,'default',0,'tax/weee/include_in_subtotal','0');
+INSERT INTO `core_config_data` VALUES (392,'default',0,'checkout/options/onepage_checkout_enabled','1');
+INSERT INTO `core_config_data` VALUES (393,'default',0,'checkout/options/guest_checkout','1');
+INSERT INTO `core_config_data` VALUES (394,'default',0,'checkout/options/enable_agreements','1');
+INSERT INTO `core_config_data` VALUES (395,'default',0,'checkout/cart/delete_quote_after','30');
+INSERT INTO `core_config_data` VALUES (396,'default',0,'checkout/cart/redirect_to_cart','0');
+INSERT INTO `core_config_data` VALUES (397,'default',0,'checkout/cart/grouped_product_image','itself');
+INSERT INTO `core_config_data` VALUES (398,'default',0,'checkout/cart/configurable_product_image','parent');
+INSERT INTO `core_config_data` VALUES (399,'default',0,'checkout/cart_link/use_qty','1');
+INSERT INTO `core_config_data` VALUES (400,'default',0,'checkout/sidebar/display','1');
+INSERT INTO `core_config_data` VALUES (401,'default',0,'checkout/sidebar/count','5');
+INSERT INTO `core_config_data` VALUES (402,'default',0,'checkout/payment_failed/receiver','general');
+INSERT INTO `core_config_data` VALUES (403,'default',0,'checkout/payment_failed/identity','custom2');
+INSERT INTO `core_config_data` VALUES (404,'default',0,'checkout/payment_failed/template','checkout_payment_failed_template');
+INSERT INTO `core_config_data` VALUES (405,'default',0,'checkout/payment_failed/copy_to',NULL);
+INSERT INTO `core_config_data` VALUES (406,'default',0,'checkout/payment_failed/copy_method','bcc');
+INSERT INTO `core_config_data` VALUES (407,'default',0,'shipping/origin/country_id','AU');
+INSERT INTO `core_config_data` VALUES (408,'default',0,'shipping/origin/region_id','Western Australia');
+INSERT INTO `core_config_data` VALUES (409,'default',0,'shipping/origin/postcode','6009');
+INSERT INTO `core_config_data` VALUES (410,'default',0,'shipping/origin/city','Nedlands');
+INSERT INTO `core_config_data` VALUES (411,'default',0,'shipping/origin/street_line1',NULL);
+INSERT INTO `core_config_data` VALUES (412,'default',0,'shipping/origin/street_line2',NULL);
+INSERT INTO `core_config_data` VALUES (413,'default',0,'shipping/shipping_policy/enable_shipping_policy','0');
+INSERT INTO `core_config_data` VALUES (414,'default',0,'shipping/shipping_policy/shipping_policy_content',NULL);
+INSERT INTO `core_config_data` VALUES (415,'default',0,'multishipping/options/checkout_multiple','0');
+INSERT INTO `core_config_data` VALUES (416,'default',0,'multishipping/options/checkout_multiple_maximum_qty','100');
+INSERT INTO `core_config_data` VALUES (417,'default',0,'carriers/freeshipping/active','0');
+INSERT INTO `core_config_data` VALUES (418,'default',0,'carriers/freeshipping/title','Free Shipping');
+INSERT INTO `core_config_data` VALUES (419,'default',0,'carriers/freeshipping/name','Free');
+INSERT INTO `core_config_data` VALUES (420,'default',0,'carriers/freeshipping/free_shipping_subtotal',NULL);
+INSERT INTO `core_config_data` VALUES (421,'default',0,'carriers/freeshipping/specificerrmsg','This shipping method is not available. To use this shipping method, please contact us.');
+INSERT INTO `core_config_data` VALUES (422,'default',0,'carriers/freeshipping/sallowspecific','0');
+INSERT INTO `core_config_data` VALUES (423,'default',0,'carriers/freeshipping/specificcountry',NULL);
+INSERT INTO `core_config_data` VALUES (424,'default',0,'carriers/freeshipping/showmethod','0');
+INSERT INTO `core_config_data` VALUES (425,'default',0,'carriers/freeshipping/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (426,'default',0,'carriers/flatrate/active','1');
+INSERT INTO `core_config_data` VALUES (427,'default',0,'carriers/flatrate/title','Flat Rate');
+INSERT INTO `core_config_data` VALUES (428,'default',0,'carriers/flatrate/name','Fixed');
+INSERT INTO `core_config_data` VALUES (429,'default',0,'carriers/flatrate/type','I');
+INSERT INTO `core_config_data` VALUES (430,'default',0,'carriers/flatrate/price','5.00');
+INSERT INTO `core_config_data` VALUES (431,'default',0,'carriers/flatrate/handling_type','F');
+INSERT INTO `core_config_data` VALUES (432,'default',0,'carriers/flatrate/handling_fee',NULL);
+INSERT INTO `core_config_data` VALUES (433,'default',0,'carriers/flatrate/specificerrmsg','This shipping method is not available. To use this shipping method, please contact us.');
+INSERT INTO `core_config_data` VALUES (434,'default',0,'carriers/flatrate/sallowspecific','0');
+INSERT INTO `core_config_data` VALUES (435,'default',0,'carriers/flatrate/specificcountry',NULL);
+INSERT INTO `core_config_data` VALUES (436,'default',0,'carriers/flatrate/showmethod','0');
+INSERT INTO `core_config_data` VALUES (437,'default',0,'carriers/flatrate/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (438,'default',0,'carriers/tablerate/active','0');
+INSERT INTO `core_config_data` VALUES (439,'default',0,'carriers/tablerate/title','Best Way');
+INSERT INTO `core_config_data` VALUES (440,'default',0,'carriers/tablerate/name','Table Rate');
+INSERT INTO `core_config_data` VALUES (441,'default',0,'carriers/tablerate/condition_name','package_weight');
+INSERT INTO `core_config_data` VALUES (442,'default',0,'carriers/tablerate/include_virtual_price','1');
+INSERT INTO `core_config_data` VALUES (443,'websites',1,'carriers/tablerate/import','1464860840,,,,4,0');
+INSERT INTO `core_config_data` VALUES (444,'default',0,'carriers/tablerate/handling_type','F');
+INSERT INTO `core_config_data` VALUES (445,'default',0,'carriers/tablerate/handling_fee',NULL);
+INSERT INTO `core_config_data` VALUES (446,'default',0,'carriers/tablerate/specificerrmsg','This shipping method is not available. To use this shipping method, please contact us.');
+INSERT INTO `core_config_data` VALUES (447,'default',0,'carriers/tablerate/sallowspecific','0');
+INSERT INTO `core_config_data` VALUES (448,'default',0,'carriers/tablerate/specificcountry',NULL);
+INSERT INTO `core_config_data` VALUES (449,'default',0,'carriers/tablerate/showmethod','0');
+INSERT INTO `core_config_data` VALUES (450,'default',0,'carriers/tablerate/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (451,'default',0,'carriers/ups/active','0');
+INSERT INTO `core_config_data` VALUES (452,'default',0,'carriers/ups/type','UPS');
+INSERT INTO `core_config_data` VALUES (453,'default',0,'carriers/ups/is_account_live','0');
+INSERT INTO `core_config_data` VALUES (454,'default',0,'carriers/ups/mode_xml','1');
+INSERT INTO `core_config_data` VALUES (455,'default',0,'carriers/ups/gateway_xml_url','https://onlinetools.ups.com/ups.app/xml/Rate');
+INSERT INTO `core_config_data` VALUES (456,'default',0,'carriers/ups/origin_shipment','Shipments Originating in United States');
+INSERT INTO `core_config_data` VALUES (457,'default',0,'carriers/ups/negotiated_active','0');
+INSERT INTO `core_config_data` VALUES (458,'default',0,'carriers/ups/gateway_url','http://www.ups.com/using/services/rave/qcostcgi.cgi');
+INSERT INTO `core_config_data` VALUES (459,'default',0,'carriers/ups/title','United Parcel Service');
+INSERT INTO `core_config_data` VALUES (460,'default',0,'carriers/ups/shipment_requesttype','0');
+INSERT INTO `core_config_data` VALUES (461,'default',0,'carriers/ups/shipper_number',NULL);
+INSERT INTO `core_config_data` VALUES (462,'default',0,'carriers/ups/container','CP');
+INSERT INTO `core_config_data` VALUES (463,'default',0,'carriers/ups/unit_of_measure','LBS');
+INSERT INTO `core_config_data` VALUES (464,'default',0,'carriers/ups/tracking_xml_url','https://www.ups.com/ups.app/xml/Track');
+INSERT INTO `core_config_data` VALUES (465,'default',0,'carriers/ups/dest_type','RES');
+INSERT INTO `core_config_data` VALUES (466,'default',0,'carriers/ups/max_package_weight','150');
+INSERT INTO `core_config_data` VALUES (467,'default',0,'carriers/ups/pickup','CC');
+INSERT INTO `core_config_data` VALUES (468,'default',0,'carriers/ups/min_package_weight','0.1');
+INSERT INTO `core_config_data` VALUES (469,'default',0,'carriers/ups/handling_type','F');
+INSERT INTO `core_config_data` VALUES (470,'default',0,'carriers/ups/handling_action','O');
+INSERT INTO `core_config_data` VALUES (471,'default',0,'carriers/ups/handling_fee',NULL);
+INSERT INTO `core_config_data` VALUES (472,'default',0,'carriers/ups/allowed_methods','1DM,1DML,1DA,1DAL,1DAPI,1DP,1DPL,2DM,2DML,2DA,2DAL,3DS,GND,GNDCOM,GNDRES,STD,XPR,WXS,XPRL,XDM,XDML,XPD');
+INSERT INTO `core_config_data` VALUES (473,'default',0,'carriers/ups/free_method','GND');
+INSERT INTO `core_config_data` VALUES (474,'default',0,'carriers/ups/free_shipping_enable','0');
+INSERT INTO `core_config_data` VALUES (475,'default',0,'carriers/ups/free_shipping_subtotal',NULL);
+INSERT INTO `core_config_data` VALUES (476,'default',0,'carriers/ups/specificerrmsg','This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.');
+INSERT INTO `core_config_data` VALUES (477,'default',0,'carriers/ups/sallowspecific','0');
+INSERT INTO `core_config_data` VALUES (478,'default',0,'carriers/ups/specificcountry',NULL);
+INSERT INTO `core_config_data` VALUES (479,'default',0,'carriers/ups/showmethod','0');
+INSERT INTO `core_config_data` VALUES (480,'default',0,'carriers/ups/debug','0');
+INSERT INTO `core_config_data` VALUES (481,'default',0,'carriers/ups/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (482,'default',0,'carriers/usps/active','0');
+INSERT INTO `core_config_data` VALUES (483,'default',0,'carriers/usps/gateway_url','http://production.shippingapis.com/ShippingAPI.dll');
+INSERT INTO `core_config_data` VALUES (484,'default',0,'carriers/usps/gateway_secure_url','https://secure.shippingapis.com/ShippingAPI.dll');
+INSERT INTO `core_config_data` VALUES (485,'default',0,'carriers/usps/title','United States Postal Service');
+INSERT INTO `core_config_data` VALUES (486,'default',0,'carriers/usps/mode','0');
+INSERT INTO `core_config_data` VALUES (487,'default',0,'carriers/usps/shipment_requesttype','0');
+INSERT INTO `core_config_data` VALUES (488,'default',0,'carriers/usps/container','VARIABLE');
+INSERT INTO `core_config_data` VALUES (489,'default',0,'carriers/usps/size','REGULAR');
+INSERT INTO `core_config_data` VALUES (490,'default',0,'carriers/usps/machinable','true');
+INSERT INTO `core_config_data` VALUES (491,'default',0,'carriers/usps/max_package_weight','70');
+INSERT INTO `core_config_data` VALUES (492,'default',0,'carriers/usps/handling_type','F');
+INSERT INTO `core_config_data` VALUES (493,'default',0,'carriers/usps/handling_action','O');
+INSERT INTO `core_config_data` VALUES (494,'default',0,'carriers/usps/handling_fee',NULL);
+INSERT INTO `core_config_data` VALUES (495,'default',0,'carriers/usps/allowed_methods','0_FCLE,0_FCL,0_FCP,1,2,3,4,6,7,13,16,17,22,23,25,27,28,33,34,35,36,37,42,43,53,57,61,INT_1,INT_2,INT_4,INT_6,INT_7,INT_8,INT_9,INT_10,INT_11,INT_12,INT_13,INT_14,INT_15,INT_16,INT_20');
+INSERT INTO `core_config_data` VALUES (496,'default',0,'carriers/usps/free_method',NULL);
+INSERT INTO `core_config_data` VALUES (497,'default',0,'carriers/usps/free_shipping_subtotal',NULL);
+INSERT INTO `core_config_data` VALUES (498,'default',0,'carriers/usps/specificerrmsg','This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.');
+INSERT INTO `core_config_data` VALUES (499,'default',0,'carriers/usps/sallowspecific','0');
+INSERT INTO `core_config_data` VALUES (500,'default',0,'carriers/usps/specificcountry',NULL);
+INSERT INTO `core_config_data` VALUES (501,'default',0,'carriers/usps/debug','0');
+INSERT INTO `core_config_data` VALUES (502,'default',0,'carriers/usps/showmethod','0');
+INSERT INTO `core_config_data` VALUES (503,'default',0,'carriers/usps/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (504,'default',0,'carriers/usps/free_shipping_enable','0');
+INSERT INTO `core_config_data` VALUES (505,'default',0,'carriers/fedex/active','0');
+INSERT INTO `core_config_data` VALUES (506,'default',0,'carriers/fedex/title','Federal Express');
+INSERT INTO `core_config_data` VALUES (507,'default',0,'carriers/fedex/sandbox_mode','0');
+INSERT INTO `core_config_data` VALUES (508,'default',0,'carriers/fedex/production_webservices_url','https://ws.fedex.com:443/web-services/');
+INSERT INTO `core_config_data` VALUES (509,'default',0,'carriers/fedex/shipment_requesttype','0');
+INSERT INTO `core_config_data` VALUES (510,'default',0,'carriers/fedex/packaging','YOUR_PACKAGING');
+INSERT INTO `core_config_data` VALUES (511,'default',0,'carriers/fedex/dropoff','REGULAR_PICKUP');
+INSERT INTO `core_config_data` VALUES (512,'default',0,'carriers/fedex/unit_of_measure','LB');
+INSERT INTO `core_config_data` VALUES (513,'default',0,'carriers/fedex/max_package_weight','150');
+INSERT INTO `core_config_data` VALUES (514,'default',0,'carriers/fedex/handling_type','F');
+INSERT INTO `core_config_data` VALUES (515,'default',0,'carriers/fedex/handling_action','O');
+INSERT INTO `core_config_data` VALUES (516,'default',0,'carriers/fedex/handling_fee',NULL);
+INSERT INTO `core_config_data` VALUES (517,'default',0,'carriers/fedex/residence_delivery','0');
+INSERT INTO `core_config_data` VALUES (518,'default',0,'carriers/fedex/allowed_methods','EUROPE_FIRST_INTERNATIONAL_PRIORITY,FEDEX_1_DAY_FREIGHT,FEDEX_2_DAY_FREIGHT,FEDEX_2_DAY,FEDEX_2_DAY_AM,FEDEX_3_DAY_FREIGHT,FEDEX_EXPRESS_SAVER,FEDEX_GROUND,FIRST_OVERNIGHT,GROUND_HOME_DELIVERY,INTERNATIONAL_ECONOMY,INTERNATIONAL_ECONOMY_FREIGHT,INTERNATIONAL_FIRST,INTERNATIONAL_GROUND,INTERNATIONAL_PRIORITY,INTERNATIONAL_PRIORITY_FREIGHT,PRIORITY_OVERNIGHT,SMART_POST,STANDARD_OVERNIGHT,FEDEX_FREIGHT,FEDEX_NATIONAL_FREIGHT');
+INSERT INTO `core_config_data` VALUES (519,'default',0,'carriers/fedex/smartpost_hubid',NULL);
+INSERT INTO `core_config_data` VALUES (520,'default',0,'carriers/fedex/free_method','FEDEX_GROUND');
+INSERT INTO `core_config_data` VALUES (521,'default',0,'carriers/fedex/free_shipping_enable','0');
+INSERT INTO `core_config_data` VALUES (522,'default',0,'carriers/fedex/free_shipping_subtotal',NULL);
+INSERT INTO `core_config_data` VALUES (523,'default',0,'carriers/fedex/specificerrmsg','This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.');
+INSERT INTO `core_config_data` VALUES (524,'default',0,'carriers/fedex/sallowspecific','0');
+INSERT INTO `core_config_data` VALUES (525,'default',0,'carriers/fedex/specificcountry',NULL);
+INSERT INTO `core_config_data` VALUES (526,'default',0,'carriers/fedex/debug','0');
+INSERT INTO `core_config_data` VALUES (527,'default',0,'carriers/fedex/showmethod','0');
+INSERT INTO `core_config_data` VALUES (528,'default',0,'carriers/fedex/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (529,'default',0,'carriers/dhl/active','0');
+INSERT INTO `core_config_data` VALUES (530,'default',0,'carriers/dhl/title','DHL');
+INSERT INTO `core_config_data` VALUES (531,'default',0,'carriers/dhl/gateway_url','https://xmlpi-ea.dhl.com/XMLShippingServlet');
+INSERT INTO `core_config_data` VALUES (532,'default',0,'carriers/dhl/account',NULL);
+INSERT INTO `core_config_data` VALUES (533,'default',0,'carriers/dhl/content_type','N');
+INSERT INTO `core_config_data` VALUES (534,'default',0,'carriers/dhl/handling_type','F');
+INSERT INTO `core_config_data` VALUES (535,'default',0,'carriers/dhl/handling_action','O');
+INSERT INTO `core_config_data` VALUES (536,'default',0,'carriers/dhl/handling_fee',NULL);
+INSERT INTO `core_config_data` VALUES (537,'default',0,'carriers/dhl/divide_order_weight','1');
+INSERT INTO `core_config_data` VALUES (538,'default',0,'carriers/dhl/unit_of_measure','K');
+INSERT INTO `core_config_data` VALUES (539,'default',0,'carriers/dhl/size','0');
+INSERT INTO `core_config_data` VALUES (540,'default',0,'carriers/dhl/nondoc_methods','1,3,4,8,P,Q,E,F,H,J,M,V,Y');
+INSERT INTO `core_config_data` VALUES (541,'default',0,'carriers/dhl/ready_time',NULL);
+INSERT INTO `core_config_data` VALUES (542,'default',0,'carriers/dhl/specificerrmsg','This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.');
+INSERT INTO `core_config_data` VALUES (543,'default',0,'carriers/dhl/free_method_nondoc',NULL);
+INSERT INTO `core_config_data` VALUES (544,'default',0,'carriers/dhl/free_shipping_enable','0');
+INSERT INTO `core_config_data` VALUES (545,'default',0,'carriers/dhl/free_shipping_subtotal',NULL);
+INSERT INTO `core_config_data` VALUES (546,'default',0,'carriers/dhl/sallowspecific','0');
+INSERT INTO `core_config_data` VALUES (547,'default',0,'carriers/dhl/specificcountry',NULL);
+INSERT INTO `core_config_data` VALUES (548,'default',0,'carriers/dhl/showmethod','0');
+INSERT INTO `core_config_data` VALUES (549,'default',0,'carriers/dhl/debug','0');
+INSERT INTO `core_config_data` VALUES (550,'default',0,'carriers/dhl/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (551,'default',0,'paypal/general/merchant_country','AU');
+INSERT INTO `core_config_data` VALUES (552,'default',0,'payment/braintree/active','0');
+INSERT INTO `core_config_data` VALUES (553,'default',0,'payment/braintree_paypal/active','0');
+INSERT INTO `core_config_data` VALUES (554,'default',0,'payment/braintree/title','Credit Card (Braintree)');
+INSERT INTO `core_config_data` VALUES (555,'default',0,'payment/braintree/environment','sandbox');
+INSERT INTO `core_config_data` VALUES (556,'default',0,'payment/braintree/payment_action','authorize');
+INSERT INTO `core_config_data` VALUES (557,'default',0,'payment/braintree/merchant_account_id',NULL);
+INSERT INTO `core_config_data` VALUES (558,'default',0,'payment/braintree/merchant_id',NULL);
+INSERT INTO `core_config_data` VALUES (559,'default',0,'payment/braintree/debug','0');
+INSERT INTO `core_config_data` VALUES (560,'default',0,'payment/braintree/capture_action','invoice');
+INSERT INTO `core_config_data` VALUES (561,'default',0,'payment/braintree/order_status','processing');
+INSERT INTO `core_config_data` VALUES (562,'default',0,'payment/braintree/use_vault','0');
+INSERT INTO `core_config_data` VALUES (563,'default',0,'payment/braintree/duplicate_card','0');
+INSERT INTO `core_config_data` VALUES (564,'default',0,'payment/braintree/useccv','1');
+INSERT INTO `core_config_data` VALUES (565,'default',0,'payment/braintree/cctypes','AE,VI,MC,DI,JCB');
+INSERT INTO `core_config_data` VALUES (566,'default',0,'payment/braintree/enable_cc_detection','1');
+INSERT INTO `core_config_data` VALUES (567,'default',0,'payment/braintree/fraudprotection','0');
+INSERT INTO `core_config_data` VALUES (568,'default',0,'payment/braintree/kount_id',NULL);
+INSERT INTO `core_config_data` VALUES (569,'default',0,'payment/braintree/usecache','0');
+INSERT INTO `core_config_data` VALUES (570,'default',0,'payment/braintree/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (571,'default',0,'payment/braintree/allowspecific','0');
+INSERT INTO `core_config_data` VALUES (572,'default',0,'payment/braintree/specificcountry',NULL);
+INSERT INTO `core_config_data` VALUES (573,'default',0,'payment/braintree/countrycreditcard','a:0:{}');
+INSERT INTO `core_config_data` VALUES (574,'default',0,'payment/braintree_paypal/title','PayPal (Braintree)');
+INSERT INTO `core_config_data` VALUES (575,'default',0,'payment/braintree_paypal/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (576,'default',0,'payment/braintree_paypal/merchant_name_override',NULL);
+INSERT INTO `core_config_data` VALUES (577,'default',0,'payment/braintree_paypal/payment_action','authorize');
+INSERT INTO `core_config_data` VALUES (578,'default',0,'payment/braintree_paypal/order_status','processing');
+INSERT INTO `core_config_data` VALUES (579,'default',0,'payment/braintree_paypal/allowspecific','0');
+INSERT INTO `core_config_data` VALUES (580,'default',0,'payment/braintree_paypal/specificcountry',NULL);
+INSERT INTO `core_config_data` VALUES (581,'default',0,'payment/braintree_paypal/require_billing_address','0');
+INSERT INTO `core_config_data` VALUES (582,'default',0,'payment/braintree_paypal/display_on_shopping_cart','0');
+INSERT INTO `core_config_data` VALUES (583,'default',0,'payment/braintree_paypal/allow_shipping_address_override','0');
+INSERT INTO `core_config_data` VALUES (584,'default',0,'payment/braintree_paypal/debug','0');
+INSERT INTO `core_config_data` VALUES (585,'default',0,'payment/braintree/verify_3dsecure','0');
+INSERT INTO `core_config_data` VALUES (586,'default',0,'payment/payflow_express/active','0');
+INSERT INTO `core_config_data` VALUES (587,'default',0,'payment/payflow_advanced/active','0');
+INSERT INTO `core_config_data` VALUES (588,'default',0,'payment/payflow_express_bml/active','0');
+INSERT INTO `core_config_data` VALUES (589,'default',0,'paypal/general/business_account',NULL);
+INSERT INTO `core_config_data` VALUES (590,'default',0,'payment/payflow_advanced/partner','PayPal');
+INSERT INTO `core_config_data` VALUES (591,'default',0,'payment/payflow_advanced/vendor','PayPal');
+INSERT INTO `core_config_data` VALUES (592,'default',0,'payment/payflow_advanced/sandbox_flag','0');
+INSERT INTO `core_config_data` VALUES (593,'default',0,'payment/payflow_advanced/use_proxy','0');
+INSERT INTO `core_config_data` VALUES (594,'default',0,'payment/paypal_express_bml/publisher_id',NULL);
+INSERT INTO `core_config_data` VALUES (595,'default',0,'payment/paypal_express_bml/homepage_display','0');
+INSERT INTO `core_config_data` VALUES (596,'default',0,'payment/paypal_express_bml/homepage_position','0');
+INSERT INTO `core_config_data` VALUES (597,'default',0,'payment/paypal_express_bml/homepage_size','190x100');
+INSERT INTO `core_config_data` VALUES (598,'default',0,'payment/paypal_express_bml/categorypage_display','0');
+INSERT INTO `core_config_data` VALUES (599,'default',0,'payment/paypal_express_bml/categorypage_position','0');
+INSERT INTO `core_config_data` VALUES (600,'default',0,'payment/paypal_express_bml/categorypage_size','190x100');
+INSERT INTO `core_config_data` VALUES (601,'default',0,'payment/paypal_express_bml/productpage_display','0');
+INSERT INTO `core_config_data` VALUES (602,'default',0,'payment/paypal_express_bml/productpage_position','0');
+INSERT INTO `core_config_data` VALUES (603,'default',0,'payment/paypal_express_bml/productpage_size','190x100');
+INSERT INTO `core_config_data` VALUES (604,'default',0,'payment/paypal_express_bml/checkout_display','0');
+INSERT INTO `core_config_data` VALUES (605,'default',0,'payment/paypal_express_bml/checkout_position','0');
+INSERT INTO `core_config_data` VALUES (606,'default',0,'payment/paypal_express_bml/checkout_size','234x60');
+INSERT INTO `core_config_data` VALUES (607,'default',0,'payment/payflow_advanced/title','Credit Card');
+INSERT INTO `core_config_data` VALUES (608,'default',0,'payment/payflow_advanced/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (609,'default',0,'payment/payflow_advanced/payment_action','Authorization');
+INSERT INTO `core_config_data` VALUES (610,'default',0,'payment/payflow_advanced/allowspecific','0');
+INSERT INTO `core_config_data` VALUES (611,'default',0,'payment/payflow_advanced/debug','0');
+INSERT INTO `core_config_data` VALUES (612,'default',0,'payment/payflow_advanced/verify_peer','1');
+INSERT INTO `core_config_data` VALUES (613,'default',0,'payment/payflow_advanced/csc_editable','1');
+INSERT INTO `core_config_data` VALUES (614,'default',0,'payment/payflow_advanced/csc_required','1');
+INSERT INTO `core_config_data` VALUES (615,'default',0,'payment/payflow_advanced/email_confirmation','0');
+INSERT INTO `core_config_data` VALUES (616,'default',0,'payment/payflow_advanced/url_method','GET');
+INSERT INTO `core_config_data` VALUES (617,'default',0,'paypal/fetch_reports/ftp_sandbox','0');
+INSERT INTO `core_config_data` VALUES (618,'default',0,'paypal/fetch_reports/ftp_ip',NULL);
+INSERT INTO `core_config_data` VALUES (619,'default',0,'paypal/fetch_reports/ftp_path',NULL);
+INSERT INTO `core_config_data` VALUES (620,'default',0,'paypal/fetch_reports/active','0');
+INSERT INTO `core_config_data` VALUES (621,'default',0,'paypal/fetch_reports/schedule','1');
+INSERT INTO `core_config_data` VALUES (622,'default',0,'paypal/fetch_reports/time','00,00,00');
+INSERT INTO `core_config_data` VALUES (623,'default',0,'paypal/style/logo',NULL);
+INSERT INTO `core_config_data` VALUES (624,'default',0,'paypal/style/page_style',NULL);
+INSERT INTO `core_config_data` VALUES (625,'default',0,'paypal/style/paypal_hdrimg',NULL);
+INSERT INTO `core_config_data` VALUES (626,'default',0,'paypal/style/paypal_hdrbackcolor',NULL);
+INSERT INTO `core_config_data` VALUES (627,'default',0,'paypal/style/paypal_hdrbordercolor',NULL);
+INSERT INTO `core_config_data` VALUES (628,'default',0,'paypal/style/paypal_payflowcolor',NULL);
+INSERT INTO `core_config_data` VALUES (629,'default',0,'payment/payflow_express/title','PayPal Express Checkout Payflow Edition');
+INSERT INTO `core_config_data` VALUES (630,'default',0,'payment/payflow_express/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (631,'default',0,'payment/payflow_express/payment_action','Authorization');
+INSERT INTO `core_config_data` VALUES (632,'default',0,'payment/payflow_express/visible_on_product','1');
+INSERT INTO `core_config_data` VALUES (633,'default',0,'payment/payflow_express/visible_on_cart','1');
+INSERT INTO `core_config_data` VALUES (634,'default',0,'payment/payflow_express/allowspecific','0');
+INSERT INTO `core_config_data` VALUES (635,'default',0,'payment/payflow_express/debug','0');
+INSERT INTO `core_config_data` VALUES (636,'default',0,'payment/payflow_express/verify_peer','1');
+INSERT INTO `core_config_data` VALUES (637,'default',0,'payment/payflow_express/line_items_enabled','1');
+INSERT INTO `core_config_data` VALUES (638,'default',0,'payment/paypal_express/skip_order_review_step','1');
+INSERT INTO `core_config_data` VALUES (639,'default',0,'payment/paypal_payment_pro/active','0');
+INSERT INTO `core_config_data` VALUES (640,'default',0,'payment/payflowpro/partner',NULL);
+INSERT INTO `core_config_data` VALUES (641,'default',0,'payment/payflowpro/vendor',NULL);
+INSERT INTO `core_config_data` VALUES (642,'default',0,'payment/payflowpro/sandbox_flag','0');
+INSERT INTO `core_config_data` VALUES (643,'default',0,'payment/payflowpro/use_proxy','0');
+INSERT INTO `core_config_data` VALUES (644,'default',0,'payment/payflowpro/title','Credit Card');
+INSERT INTO `core_config_data` VALUES (645,'default',0,'payment/payflowpro/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (646,'default',0,'payment/payflowpro/payment_action','Authorization');
+INSERT INTO `core_config_data` VALUES (647,'default',0,'payment/payflowpro/cctypes','AE,VI');
+INSERT INTO `core_config_data` VALUES (648,'default',0,'payment/payflowpro/allowspecific','0');
+INSERT INTO `core_config_data` VALUES (649,'default',0,'payment/payflowpro/debug','0');
+INSERT INTO `core_config_data` VALUES (650,'default',0,'payment/payflowpro/verify_peer','1');
+INSERT INTO `core_config_data` VALUES (651,'default',0,'payment/payflowpro/useccv','1');
+INSERT INTO `core_config_data` VALUES (652,'default',0,'payment/payflowpro/avs_street','0');
+INSERT INTO `core_config_data` VALUES (653,'default',0,'payment/payflowpro/avs_zip','0');
+INSERT INTO `core_config_data` VALUES (654,'default',0,'payment/payflowpro/avs_international','0');
+INSERT INTO `core_config_data` VALUES (655,'default',0,'payment/payflowpro/avs_security_code','1');
+INSERT INTO `core_config_data` VALUES (656,'default',0,'payment/wps_express/active','0');
+INSERT INTO `core_config_data` VALUES (657,'default',0,'payment/wps_express_bml/active','0');
+INSERT INTO `core_config_data` VALUES (658,'default',0,'paypal/wpp/api_authentication','0');
+INSERT INTO `core_config_data` VALUES (659,'default',0,'paypal/wpp/sandbox_flag','0');
+INSERT INTO `core_config_data` VALUES (660,'default',0,'paypal/wpp/use_proxy','0');
+INSERT INTO `core_config_data` VALUES (661,'default',0,'payment/paypal_express/title','PayPal Express Checkout');
+INSERT INTO `core_config_data` VALUES (662,'default',0,'payment/paypal_express/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (663,'default',0,'payment/paypal_express/payment_action','Authorization');
+INSERT INTO `core_config_data` VALUES (664,'default',0,'payment/paypal_express/visible_on_product','1');
+INSERT INTO `core_config_data` VALUES (665,'default',0,'payment/paypal_express/visible_on_cart','1');
+INSERT INTO `core_config_data` VALUES (666,'default',0,'payment/paypal_express/allowspecific','0');
+INSERT INTO `core_config_data` VALUES (667,'default',0,'payment/paypal_express/debug','0');
+INSERT INTO `core_config_data` VALUES (668,'default',0,'payment/paypal_express/verify_peer','1');
+INSERT INTO `core_config_data` VALUES (669,'default',0,'payment/paypal_express/line_items_enabled','1');
+INSERT INTO `core_config_data` VALUES (670,'default',0,'payment/paypal_express/transfer_shipping_options','0');
+INSERT INTO `core_config_data` VALUES (671,'default',0,'paypal/wpp/button_flavor','dynamic');
+INSERT INTO `core_config_data` VALUES (672,'default',0,'payment/paypal_express/solution_type','Mark');
+INSERT INTO `core_config_data` VALUES (673,'default',0,'payment/paypal_express/require_billing_address','0');
+INSERT INTO `core_config_data` VALUES (674,'default',0,'payment/paypal_express/allow_ba_signup','never');
+INSERT INTO `core_config_data` VALUES (675,'default',0,'payment/paypal_billing_agreement/active','1');
+INSERT INTO `core_config_data` VALUES (676,'default',0,'payment/paypal_billing_agreement/title','PayPal Billing Agreement');
+INSERT INTO `core_config_data` VALUES (677,'default',0,'payment/paypal_billing_agreement/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (678,'default',0,'payment/paypal_billing_agreement/payment_action','Authorization');
+INSERT INTO `core_config_data` VALUES (679,'default',0,'payment/paypal_billing_agreement/allowspecific','0');
+INSERT INTO `core_config_data` VALUES (680,'default',0,'payment/paypal_billing_agreement/debug','0');
+INSERT INTO `core_config_data` VALUES (681,'default',0,'payment/paypal_billing_agreement/verify_peer','1');
+INSERT INTO `core_config_data` VALUES (682,'default',0,'payment/paypal_billing_agreement/line_items_enabled','0');
+INSERT INTO `core_config_data` VALUES (683,'default',0,'payment/paypal_billing_agreement/allow_billing_agreement_wizard','1');
+INSERT INTO `core_config_data` VALUES (684,'default',0,'payment/payflowpro/active','0');
+INSERT INTO `core_config_data` VALUES (685,'default',0,'payment/payflow_link/active','0');
+INSERT INTO `core_config_data` VALUES (686,'default',0,'payment/payflow_link/partner','PayPal');
+INSERT INTO `core_config_data` VALUES (687,'default',0,'payment/payflow_link/vendor',NULL);
+INSERT INTO `core_config_data` VALUES (688,'default',0,'payment/payflow_link/sandbox_flag','0');
+INSERT INTO `core_config_data` VALUES (689,'default',0,'payment/payflow_link/use_proxy','0');
+INSERT INTO `core_config_data` VALUES (690,'default',0,'payment/payflow_link/title','Credit Card');
+INSERT INTO `core_config_data` VALUES (691,'default',0,'payment/payflow_link/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (692,'default',0,'payment/payflow_link/payment_action','Authorization');
+INSERT INTO `core_config_data` VALUES (693,'default',0,'payment/payflow_link/allowspecific','0');
+INSERT INTO `core_config_data` VALUES (694,'default',0,'payment/payflow_link/debug','0');
+INSERT INTO `core_config_data` VALUES (695,'default',0,'payment/payflow_link/verify_peer','1');
+INSERT INTO `core_config_data` VALUES (696,'default',0,'payment/payflow_link/csc_editable','1');
+INSERT INTO `core_config_data` VALUES (697,'default',0,'payment/payflow_link/csc_required','1');
+INSERT INTO `core_config_data` VALUES (698,'default',0,'payment/payflow_link/email_confirmation','0');
+INSERT INTO `core_config_data` VALUES (699,'default',0,'payment/payflow_link/url_method','GET');
+INSERT INTO `core_config_data` VALUES (700,'default',0,'payment/paypal_express/active','0');
+INSERT INTO `core_config_data` VALUES (701,'default',0,'payment/paypal_express_bml/active','0');
+INSERT INTO `core_config_data` VALUES (702,'default',0,'payment/cashondelivery/active','1');
+INSERT INTO `core_config_data` VALUES (703,'default',0,'payment/cashondelivery/title','Cash On Delivery');
+INSERT INTO `core_config_data` VALUES (704,'default',0,'payment/cashondelivery/order_status','pending');
+INSERT INTO `core_config_data` VALUES (705,'default',0,'payment/cashondelivery/allowspecific','0');
+INSERT INTO `core_config_data` VALUES (706,'default',0,'payment/cashondelivery/specificcountry',NULL);
+INSERT INTO `core_config_data` VALUES (707,'default',0,'payment/cashondelivery/instructions',NULL);
+INSERT INTO `core_config_data` VALUES (708,'default',0,'payment/cashondelivery/min_order_total',NULL);
+INSERT INTO `core_config_data` VALUES (709,'default',0,'payment/cashondelivery/max_order_total',NULL);
+INSERT INTO `core_config_data` VALUES (710,'default',0,'payment/cashondelivery/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (711,'default',0,'payment/banktransfer/active','1');
+INSERT INTO `core_config_data` VALUES (712,'default',0,'payment/banktransfer/title','Bank Transfer Payment');
+INSERT INTO `core_config_data` VALUES (713,'default',0,'payment/banktransfer/order_status','pending');
+INSERT INTO `core_config_data` VALUES (714,'default',0,'payment/banktransfer/allowspecific','0');
+INSERT INTO `core_config_data` VALUES (715,'default',0,'payment/banktransfer/specificcountry',NULL);
+INSERT INTO `core_config_data` VALUES (716,'default',0,'payment/banktransfer/instructions',NULL);
+INSERT INTO `core_config_data` VALUES (717,'default',0,'payment/banktransfer/min_order_total',NULL);
+INSERT INTO `core_config_data` VALUES (718,'default',0,'payment/banktransfer/max_order_total',NULL);
+INSERT INTO `core_config_data` VALUES (719,'default',0,'payment/banktransfer/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (720,'default',0,'payment/free/title','No Payment Information Required');
+INSERT INTO `core_config_data` VALUES (721,'default',0,'payment/free/active','1');
+INSERT INTO `core_config_data` VALUES (722,'default',0,'payment/free/order_status','pending');
+INSERT INTO `core_config_data` VALUES (723,'default',0,'payment/free/allowspecific','0');
+INSERT INTO `core_config_data` VALUES (724,'default',0,'payment/free/specificcountry',NULL);
+INSERT INTO `core_config_data` VALUES (725,'default',0,'payment/free/sort_order','1');
+INSERT INTO `core_config_data` VALUES (726,'default',0,'payment/checkmo/active','1');
+INSERT INTO `core_config_data` VALUES (727,'default',0,'payment/checkmo/title','Check / Money order');
+INSERT INTO `core_config_data` VALUES (728,'default',0,'payment/checkmo/order_status','pending');
+INSERT INTO `core_config_data` VALUES (729,'default',0,'payment/checkmo/allowspecific','0');
+INSERT INTO `core_config_data` VALUES (730,'default',0,'payment/checkmo/specificcountry',NULL);
+INSERT INTO `core_config_data` VALUES (731,'default',0,'payment/checkmo/payable_to',NULL);
+INSERT INTO `core_config_data` VALUES (732,'default',0,'payment/checkmo/mailing_address',NULL);
+INSERT INTO `core_config_data` VALUES (733,'default',0,'payment/checkmo/min_order_total',NULL);
+INSERT INTO `core_config_data` VALUES (734,'default',0,'payment/checkmo/max_order_total',NULL);
+INSERT INTO `core_config_data` VALUES (735,'default',0,'payment/checkmo/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (736,'default',0,'payment/purchaseorder/active','0');
+INSERT INTO `core_config_data` VALUES (737,'default',0,'payment/purchaseorder/title','Purchase Order');
+INSERT INTO `core_config_data` VALUES (738,'default',0,'payment/purchaseorder/order_status','pending');
+INSERT INTO `core_config_data` VALUES (739,'default',0,'payment/purchaseorder/allowspecific','0');
+INSERT INTO `core_config_data` VALUES (740,'default',0,'payment/purchaseorder/specificcountry',NULL);
+INSERT INTO `core_config_data` VALUES (741,'default',0,'payment/purchaseorder/min_order_total',NULL);
+INSERT INTO `core_config_data` VALUES (742,'default',0,'payment/purchaseorder/max_order_total',NULL);
+INSERT INTO `core_config_data` VALUES (743,'default',0,'payment/purchaseorder/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (744,'default',0,'payment/authorizenet_directpost/active','0');
+INSERT INTO `core_config_data` VALUES (745,'default',0,'payment/authorizenet_directpost/payment_action','authorize');
+INSERT INTO `core_config_data` VALUES (746,'default',0,'payment/authorizenet_directpost/title','Credit Card Direct Post (Authorize.net)');
+INSERT INTO `core_config_data` VALUES (747,'default',0,'payment/authorizenet_directpost/order_status','processing');
+INSERT INTO `core_config_data` VALUES (748,'default',0,'payment/authorizenet_directpost/test','1');
+INSERT INTO `core_config_data` VALUES (749,'default',0,'payment/authorizenet_directpost/cgi_url','https://secure.authorize.net/gateway/transact.dll');
+INSERT INTO `core_config_data` VALUES (750,'default',0,'payment/authorizenet_directpost/cgi_url_td','https://api2.authorize.net/xml/v1/request.api');
+INSERT INTO `core_config_data` VALUES (751,'default',0,'payment/authorizenet_directpost/currency','USD');
+INSERT INTO `core_config_data` VALUES (752,'default',0,'payment/authorizenet_directpost/debug','0');
+INSERT INTO `core_config_data` VALUES (753,'default',0,'payment/authorizenet_directpost/email_customer','0');
+INSERT INTO `core_config_data` VALUES (754,'default',0,'payment/authorizenet_directpost/merchant_email',NULL);
+INSERT INTO `core_config_data` VALUES (755,'default',0,'payment/authorizenet_directpost/cctypes','AE,VI,MC,DI');
+INSERT INTO `core_config_data` VALUES (756,'default',0,'payment/authorizenet_directpost/useccv','0');
+INSERT INTO `core_config_data` VALUES (757,'default',0,'payment/authorizenet_directpost/allowspecific','0');
+INSERT INTO `core_config_data` VALUES (758,'default',0,'payment/authorizenet_directpost/min_order_total',NULL);
+INSERT INTO `core_config_data` VALUES (759,'default',0,'payment/authorizenet_directpost/max_order_total',NULL);
+INSERT INTO `core_config_data` VALUES (760,'default',0,'payment/authorizenet_directpost/sort_order',NULL);
+INSERT INTO `core_config_data` VALUES (761,'default',0,'admin/emails/forgot_email_template','admin_emails_forgot_email_template');
+INSERT INTO `core_config_data` VALUES (762,'default',0,'admin/emails/forgot_email_identity','custom2');
+INSERT INTO `core_config_data` VALUES (763,'default',0,'admin/emails/password_reset_link_expiration_period','1');
+INSERT INTO `core_config_data` VALUES (764,'default',0,'admin/emails/reset_password_template','admin_emails_reset_password_template');
+INSERT INTO `core_config_data` VALUES (765,'default',0,'admin/startup/menu_item_id','Magento_Backend::dashboard');
+INSERT INTO `core_config_data` VALUES (766,'default',0,'admin/url/use_custom','0');
+INSERT INTO `core_config_data` VALUES (767,'default',0,'admin/url/use_custom_path','0');
+INSERT INTO `core_config_data` VALUES (768,'default',0,'admin/security/use_form_key','1');
+INSERT INTO `core_config_data` VALUES (769,'default',0,'admin/security/use_case_sensitive_login','1');
+INSERT INTO `core_config_data` VALUES (770,'default',0,'admin/security/session_lifetime','3600');
+INSERT INTO `core_config_data` VALUES (771,'default',0,'admin/security/lockout_failures','10');
+INSERT INTO `core_config_data` VALUES (772,'default',0,'admin/security/lockout_threshold','30');
+INSERT INTO `core_config_data` VALUES (773,'default',0,'admin/security/password_lifetime','90');
+INSERT INTO `core_config_data` VALUES (774,'default',0,'admin/security/password_is_forced','1');
+INSERT INTO `core_config_data` VALUES (775,'default',0,'admin/dashboard/enable_charts','0');
+INSERT INTO `core_config_data` VALUES (776,'default',0,'admin/captcha/enable','0');
+INSERT INTO `core_config_data` VALUES (777,'default',0,'system/full_page_cache/varnish/access_list','localhost');
+INSERT INTO `core_config_data` VALUES (778,'default',0,'system/full_page_cache/varnish/backend_host','localhost');
+INSERT INTO `core_config_data` VALUES (779,'default',0,'system/full_page_cache/varnish/backend_port','8080');
+INSERT INTO `core_config_data` VALUES (780,'default',0,'system/cron/index/schedule_generate_every','1');
+INSERT INTO `core_config_data` VALUES (781,'default',0,'system/cron/index/schedule_ahead_for','4');
+INSERT INTO `core_config_data` VALUES (782,'default',0,'system/cron/index/schedule_lifetime','2');
+INSERT INTO `core_config_data` VALUES (783,'default',0,'system/cron/index/history_cleanup_every','10');
+INSERT INTO `core_config_data` VALUES (784,'default',0,'system/cron/index/history_success_lifetime','60');
+INSERT INTO `core_config_data` VALUES (785,'default',0,'system/cron/index/history_failure_lifetime','600');
+INSERT INTO `core_config_data` VALUES (786,'default',0,'system/cron/index/use_separate_process','1');
+INSERT INTO `core_config_data` VALUES (787,'default',0,'system/cron/default/schedule_generate_every','15');
+INSERT INTO `core_config_data` VALUES (788,'default',0,'system/cron/default/schedule_ahead_for','20');
+INSERT INTO `core_config_data` VALUES (789,'default',0,'system/cron/default/schedule_lifetime','15');
+INSERT INTO `core_config_data` VALUES (790,'default',0,'system/cron/default/history_cleanup_every','10');
+INSERT INTO `core_config_data` VALUES (791,'default',0,'system/cron/default/history_success_lifetime','60');
+INSERT INTO `core_config_data` VALUES (792,'default',0,'system/cron/default/history_failure_lifetime','600');
+INSERT INTO `core_config_data` VALUES (793,'default',0,'system/cron/default/use_separate_process','0');
+INSERT INTO `core_config_data` VALUES (794,'default',0,'system/smtp/disable','0');
+INSERT INTO `core_config_data` VALUES (795,'default',0,'system/smtp/host','localhost');
+INSERT INTO `core_config_data` VALUES (796,'default',0,'system/smtp/port','25');
+INSERT INTO `core_config_data` VALUES (797,'default',0,'system/smtp/set_return_path','0');
+INSERT INTO `core_config_data` VALUES (798,'default',0,'system/currency/installed','AUD');
+INSERT INTO `core_config_data` VALUES (799,'default',0,'system/adminnotification/use_https','1');
+INSERT INTO `core_config_data` VALUES (800,'default',0,'system/adminnotification/frequency','1');
+INSERT INTO `core_config_data` VALUES (801,'default',0,'system/backup/enabled','0');
+INSERT INTO `core_config_data` VALUES (802,'default',0,'system/full_page_cache/caching_application','1');
+INSERT INTO `core_config_data` VALUES (803,'default',0,'system/full_page_cache/ttl','86400');
+INSERT INTO `core_config_data` VALUES (804,'default',0,'system/media_storage_configuration/media_storage','0');
+INSERT INTO `core_config_data` VALUES (805,'default',0,'system/media_storage_configuration/configuration_update_time','3600');
+INSERT INTO `core_config_data` VALUES (806,'default',0,'dev/front_end_development_workflow/type','server_side_compilation');
+INSERT INTO `core_config_data` VALUES (807,'default',0,'dev/restrict/allow_ips',NULL);
+INSERT INTO `core_config_data` VALUES (808,'default',0,'dev/debug/template_hints_storefront','0');
+INSERT INTO `core_config_data` VALUES (809,'default',0,'dev/debug/template_hints_admin','0');
+INSERT INTO `core_config_data` VALUES (810,'default',0,'dev/debug/template_hints_blocks','0');
+INSERT INTO `core_config_data` VALUES (811,'default',0,'dev/template/allow_symlink','0');
+INSERT INTO `core_config_data` VALUES (812,'default',0,'dev/template/minify_html','0');
+INSERT INTO `core_config_data` VALUES (813,'default',0,'dev/translate_inline/active','0');
+INSERT INTO `core_config_data` VALUES (814,'default',0,'dev/translate_inline/active_admin','0');
+INSERT INTO `core_config_data` VALUES (815,'default',0,'dev/js/enable_js_bundling','0');
+INSERT INTO `core_config_data` VALUES (816,'default',0,'dev/js/merge_files','0');
+INSERT INTO `core_config_data` VALUES (817,'default',0,'dev/js/minify_files','0');
+INSERT INTO `core_config_data` VALUES (818,'default',0,'dev/js/translate_strategy','dictionary');
+INSERT INTO `core_config_data` VALUES (819,'default',0,'dev/js/session_storage_logging','0');
+INSERT INTO `core_config_data` VALUES (820,'default',0,'dev/js/session_storage_key','collected_errors');
+INSERT INTO `core_config_data` VALUES (821,'default',0,'dev/css/merge_css_files','0');
+INSERT INTO `core_config_data` VALUES (822,'default',0,'dev/css/minify_files','0');
+INSERT INTO `core_config_data` VALUES (823,'default',0,'dev/image/default_adapter','GD2');
+INSERT INTO `core_config_data` VALUES (824,'default',0,'dev/static/sign','0');
+INSERT INTO `core_config_data` VALUES (825,'default',0,'dev/grid/async_indexing','0');
+INSERT INTO `core_config_data` VALUES (826,'default',0,'catalog/layered_navigation/one_price_interval','0');
+INSERT INTO `core_config_data` VALUES (827,'default',0,'catalog/layered_navigation/interval_division_limit','9');
 /*!40000 ALTER TABLE `core_config_data` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3166,12 +4213,13 @@ CREATE TABLE `cron_schedule` (
   PRIMARY KEY (`schedule_id`),
   KEY `CRON_SCHEDULE_JOB_CODE` (`job_code`),
   KEY `CRON_SCHEDULE_SCHEDULED_AT_STATUS` (`scheduled_at`,`status`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='Cron Schedule';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Cron Schedule';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `cron_schedule`
 --
+-- ORDER BY:  `schedule_id`
 
 LOCK TABLES `cron_schedule` WRITE;
 /*!40000 ALTER TABLE `cron_schedule` DISABLE KEYS */;
@@ -3220,6 +4268,7 @@ CREATE TABLE `customer_address_entity` (
 --
 -- Dumping data for table `customer_address_entity`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `customer_address_entity` WRITE;
 /*!40000 ALTER TABLE `customer_address_entity` DISABLE KEYS */;
@@ -3250,6 +4299,7 @@ CREATE TABLE `customer_address_entity_datetime` (
 --
 -- Dumping data for table `customer_address_entity_datetime`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `customer_address_entity_datetime` WRITE;
 /*!40000 ALTER TABLE `customer_address_entity_datetime` DISABLE KEYS */;
@@ -3280,6 +4330,7 @@ CREATE TABLE `customer_address_entity_decimal` (
 --
 -- Dumping data for table `customer_address_entity_decimal`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `customer_address_entity_decimal` WRITE;
 /*!40000 ALTER TABLE `customer_address_entity_decimal` DISABLE KEYS */;
@@ -3310,6 +4361,7 @@ CREATE TABLE `customer_address_entity_int` (
 --
 -- Dumping data for table `customer_address_entity_int`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `customer_address_entity_int` WRITE;
 /*!40000 ALTER TABLE `customer_address_entity_int` DISABLE KEYS */;
@@ -3339,6 +4391,7 @@ CREATE TABLE `customer_address_entity_text` (
 --
 -- Dumping data for table `customer_address_entity_text`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `customer_address_entity_text` WRITE;
 /*!40000 ALTER TABLE `customer_address_entity_text` DISABLE KEYS */;
@@ -3369,6 +4422,7 @@ CREATE TABLE `customer_address_entity_varchar` (
 --
 -- Dumping data for table `customer_address_entity_varchar`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `customer_address_entity_varchar` WRITE;
 /*!40000 ALTER TABLE `customer_address_entity_varchar` DISABLE KEYS */;
@@ -3403,10 +4457,51 @@ CREATE TABLE `customer_eav_attribute` (
 --
 -- Dumping data for table `customer_eav_attribute`
 --
+-- ORDER BY:  `attribute_id`
 
 LOCK TABLES `customer_eav_attribute` WRITE;
 /*!40000 ALTER TABLE `customer_eav_attribute` DISABLE KEYS */;
-INSERT INTO `customer_eav_attribute` VALUES (1,1,NULL,0,NULL,1,10,NULL,1,1,1,0),(2,0,NULL,0,NULL,1,0,NULL,0,0,0,0),(3,1,NULL,0,NULL,1,20,NULL,1,1,0,1),(4,1,NULL,0,NULL,0,30,NULL,0,0,0,0),(5,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,40,NULL,0,0,0,0),(6,0,NULL,0,NULL,0,50,NULL,0,0,0,0),(7,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,60,NULL,0,0,0,0),(8,1,NULL,0,NULL,0,70,NULL,0,0,0,0),(9,1,NULL,0,'a:1:{s:16:\"input_validation\";s:5:\"email\";}',1,80,NULL,1,1,1,1),(10,1,NULL,0,NULL,1,25,NULL,1,1,1,0),(11,1,'date',0,'a:1:{s:16:\"input_validation\";s:4:\"date\";}',0,90,NULL,1,1,1,0),(12,0,NULL,0,NULL,1,0,NULL,0,0,0,0),(13,0,NULL,0,NULL,1,0,NULL,0,0,0,0),(14,0,NULL,0,'a:1:{s:16:\"input_validation\";s:4:\"date\";}',1,0,NULL,0,0,0,0),(15,0,NULL,0,NULL,1,0,NULL,0,0,0,0),(16,0,NULL,0,NULL,1,0,NULL,0,0,0,0),(17,0,NULL,0,'a:1:{s:15:\"max_text_length\";i:255;}',0,100,NULL,1,1,0,1),(18,0,NULL,0,NULL,1,0,NULL,1,1,1,0),(19,0,NULL,0,NULL,0,0,NULL,1,1,1,0),(20,0,NULL,0,'a:0:{}',0,110,NULL,1,1,1,0),(21,1,NULL,0,NULL,1,28,NULL,0,0,0,0),(22,1,NULL,0,NULL,0,10,NULL,0,0,0,0),(23,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,20,NULL,1,0,0,1),(24,0,NULL,0,NULL,0,30,NULL,0,0,0,0),(25,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,40,NULL,1,0,0,1),(26,1,NULL,0,NULL,0,50,NULL,0,0,0,0),(27,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,60,NULL,1,0,0,1),(28,1,NULL,2,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,70,NULL,1,0,0,1),(29,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,80,NULL,1,0,0,1),(30,1,NULL,0,NULL,1,90,NULL,1,1,1,0),(31,1,NULL,0,NULL,1,100,NULL,1,1,0,1),(32,1,NULL,0,NULL,1,100,NULL,0,0,0,0),(33,1,NULL,0,'a:0:{}',1,110,'Magento\\Customer\\Model\\Attribute\\Data\\Postcode',1,1,1,1),(34,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,120,NULL,1,1,1,1),(35,0,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',0,130,NULL,1,0,0,1),(36,1,NULL,0,NULL,1,140,NULL,0,0,0,0),(37,0,NULL,0,NULL,1,0,NULL,0,0,0,0),(38,0,NULL,0,NULL,1,0,NULL,0,0,0,0),(39,0,NULL,0,NULL,1,0,NULL,0,0,0,0),(40,0,NULL,0,NULL,1,0,NULL,0,0,0,0),(41,0,NULL,0,NULL,0,0,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (1,1,NULL,0,NULL,1,10,NULL,1,1,1,0);
+INSERT INTO `customer_eav_attribute` VALUES (2,0,NULL,0,NULL,1,0,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (3,1,NULL,0,NULL,1,20,NULL,1,1,0,1);
+INSERT INTO `customer_eav_attribute` VALUES (4,1,NULL,0,NULL,0,30,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (5,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,40,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (6,0,NULL,0,NULL,0,50,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (7,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,60,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (8,1,NULL,0,NULL,0,70,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (9,1,NULL,0,'a:1:{s:16:\"input_validation\";s:5:\"email\";}',1,80,NULL,1,1,1,1);
+INSERT INTO `customer_eav_attribute` VALUES (10,1,NULL,0,NULL,1,25,NULL,1,1,1,0);
+INSERT INTO `customer_eav_attribute` VALUES (11,1,'date',0,'a:1:{s:16:\"input_validation\";s:4:\"date\";}',0,90,NULL,1,1,1,0);
+INSERT INTO `customer_eav_attribute` VALUES (12,0,NULL,0,NULL,1,0,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (13,0,NULL,0,NULL,1,0,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (14,0,NULL,0,'a:1:{s:16:\"input_validation\";s:4:\"date\";}',1,0,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (15,0,NULL,0,NULL,1,0,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (16,0,NULL,0,NULL,1,0,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (17,0,NULL,0,'a:1:{s:15:\"max_text_length\";i:255;}',0,100,NULL,1,1,0,1);
+INSERT INTO `customer_eav_attribute` VALUES (18,0,NULL,0,NULL,1,0,NULL,1,1,1,0);
+INSERT INTO `customer_eav_attribute` VALUES (19,0,NULL,0,NULL,0,0,NULL,1,1,1,0);
+INSERT INTO `customer_eav_attribute` VALUES (20,0,NULL,0,'a:0:{}',0,110,NULL,1,1,1,0);
+INSERT INTO `customer_eav_attribute` VALUES (21,1,NULL,0,NULL,1,28,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (22,1,NULL,0,NULL,0,10,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (23,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,20,NULL,1,0,0,1);
+INSERT INTO `customer_eav_attribute` VALUES (24,0,NULL,0,NULL,0,30,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (25,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,40,NULL,1,0,0,1);
+INSERT INTO `customer_eav_attribute` VALUES (26,1,NULL,0,NULL,0,50,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (27,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,60,NULL,1,0,0,1);
+INSERT INTO `customer_eav_attribute` VALUES (28,1,NULL,2,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,70,NULL,1,0,0,1);
+INSERT INTO `customer_eav_attribute` VALUES (29,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,80,NULL,1,0,0,1);
+INSERT INTO `customer_eav_attribute` VALUES (30,1,NULL,0,NULL,1,90,NULL,1,1,1,0);
+INSERT INTO `customer_eav_attribute` VALUES (31,1,NULL,0,NULL,1,100,NULL,1,1,0,1);
+INSERT INTO `customer_eav_attribute` VALUES (32,1,NULL,0,NULL,1,100,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (33,1,NULL,0,'a:0:{}',1,110,'Magento\\Customer\\Model\\Attribute\\Data\\Postcode',1,1,1,1);
+INSERT INTO `customer_eav_attribute` VALUES (34,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,120,NULL,1,1,1,1);
+INSERT INTO `customer_eav_attribute` VALUES (35,0,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',0,130,NULL,1,0,0,1);
+INSERT INTO `customer_eav_attribute` VALUES (36,1,NULL,0,NULL,1,140,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (37,0,NULL,0,NULL,1,0,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (38,0,NULL,0,NULL,1,0,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (39,0,NULL,0,NULL,1,0,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (40,0,NULL,0,NULL,1,0,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (41,0,NULL,0,NULL,0,0,NULL,0,0,0,0);
 /*!40000 ALTER TABLE `customer_eav_attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3434,10 +4529,38 @@ CREATE TABLE `customer_eav_attribute_website` (
 --
 -- Dumping data for table `customer_eav_attribute_website`
 --
+-- ORDER BY:  `attribute_id`,`website_id`
 
 LOCK TABLES `customer_eav_attribute_website` WRITE;
 /*!40000 ALTER TABLE `customer_eav_attribute_website` DISABLE KEYS */;
-INSERT INTO `customer_eav_attribute_website` VALUES (1,1,NULL,NULL,NULL,NULL),(3,1,NULL,NULL,NULL,NULL),(4,1,NULL,NULL,NULL,NULL),(6,1,NULL,NULL,NULL,NULL),(8,1,NULL,NULL,NULL,NULL),(9,1,NULL,NULL,NULL,NULL),(10,1,NULL,NULL,NULL,NULL),(11,1,NULL,NULL,NULL,NULL),(17,1,NULL,NULL,NULL,NULL),(18,1,NULL,NULL,NULL,NULL),(19,1,NULL,NULL,NULL,NULL),(20,1,NULL,NULL,NULL,NULL),(21,1,NULL,NULL,NULL,NULL),(22,1,NULL,NULL,NULL,NULL),(23,1,NULL,NULL,NULL,NULL),(24,1,NULL,NULL,NULL,NULL),(25,1,NULL,NULL,NULL,NULL),(26,1,NULL,NULL,NULL,NULL),(27,1,NULL,NULL,NULL,NULL),(28,1,NULL,NULL,NULL,NULL),(29,1,NULL,NULL,NULL,NULL),(30,1,NULL,NULL,NULL,NULL),(31,1,NULL,NULL,NULL,NULL),(32,1,NULL,NULL,NULL,NULL),(33,1,NULL,NULL,NULL,NULL),(34,1,NULL,NULL,NULL,NULL),(35,1,NULL,NULL,NULL,NULL),(36,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (1,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (3,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (4,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (6,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (8,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (9,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (10,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (11,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (17,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (18,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (19,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (20,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (21,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (22,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (23,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (24,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (25,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (26,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (27,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (28,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (29,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (30,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (31,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (32,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (33,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (34,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (35,1,NULL,NULL,NULL,NULL);
+INSERT INTO `customer_eav_attribute_website` VALUES (36,1,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `customer_eav_attribute_website` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3488,6 +4611,7 @@ CREATE TABLE `customer_entity` (
 --
 -- Dumping data for table `customer_entity`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `customer_entity` WRITE;
 /*!40000 ALTER TABLE `customer_entity` DISABLE KEYS */;
@@ -3518,6 +4642,7 @@ CREATE TABLE `customer_entity_datetime` (
 --
 -- Dumping data for table `customer_entity_datetime`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `customer_entity_datetime` WRITE;
 /*!40000 ALTER TABLE `customer_entity_datetime` DISABLE KEYS */;
@@ -3548,6 +4673,7 @@ CREATE TABLE `customer_entity_decimal` (
 --
 -- Dumping data for table `customer_entity_decimal`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `customer_entity_decimal` WRITE;
 /*!40000 ALTER TABLE `customer_entity_decimal` DISABLE KEYS */;
@@ -3578,6 +4704,7 @@ CREATE TABLE `customer_entity_int` (
 --
 -- Dumping data for table `customer_entity_int`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `customer_entity_int` WRITE;
 /*!40000 ALTER TABLE `customer_entity_int` DISABLE KEYS */;
@@ -3607,6 +4734,7 @@ CREATE TABLE `customer_entity_text` (
 --
 -- Dumping data for table `customer_entity_text`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `customer_entity_text` WRITE;
 /*!40000 ALTER TABLE `customer_entity_text` DISABLE KEYS */;
@@ -3637,6 +4765,7 @@ CREATE TABLE `customer_entity_varchar` (
 --
 -- Dumping data for table `customer_entity_varchar`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `customer_entity_varchar` WRITE;
 /*!40000 ALTER TABLE `customer_entity_varchar` DISABLE KEYS */;
@@ -3662,10 +4791,94 @@ CREATE TABLE `customer_form_attribute` (
 --
 -- Dumping data for table `customer_form_attribute`
 --
+-- ORDER BY:  `form_code`,`attribute_id`
 
 LOCK TABLES `customer_form_attribute` WRITE;
 /*!40000 ALTER TABLE `customer_form_attribute` DISABLE KEYS */;
-INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer',1),('adminhtml_customer',3),('adminhtml_customer',4),('customer_account_create',4),('customer_account_edit',4),('adminhtml_customer',5),('customer_account_create',5),('customer_account_edit',5),('adminhtml_customer',6),('customer_account_create',6),('customer_account_edit',6),('adminhtml_customer',7),('customer_account_create',7),('customer_account_edit',7),('adminhtml_customer',8),('customer_account_create',8),('customer_account_edit',8),('adminhtml_checkout',9),('adminhtml_customer',9),('customer_account_create',9),('customer_account_edit',9),('adminhtml_checkout',10),('adminhtml_customer',10),('adminhtml_checkout',11),('adminhtml_customer',11),('customer_account_create',11),('customer_account_edit',11),('adminhtml_checkout',17),('adminhtml_customer',17),('customer_account_create',17),('customer_account_edit',17),('adminhtml_customer',19),('customer_account_create',19),('customer_account_edit',19),('adminhtml_checkout',20),('adminhtml_customer',20),('customer_account_create',20),('customer_account_edit',20),('adminhtml_customer',21),('adminhtml_customer_address',22),('customer_address_edit',22),('customer_register_address',22),('adminhtml_customer_address',23),('customer_address_edit',23),('customer_register_address',23),('adminhtml_customer_address',24),('customer_address_edit',24),('customer_register_address',24),('adminhtml_customer_address',25),('customer_address_edit',25),('customer_register_address',25),('adminhtml_customer_address',26),('customer_address_edit',26),('customer_register_address',26),('adminhtml_customer_address',27),('customer_address_edit',27),('customer_register_address',27),('adminhtml_customer_address',28),('customer_address_edit',28),('customer_register_address',28),('adminhtml_customer_address',29),('customer_address_edit',29),('customer_register_address',29),('adminhtml_customer_address',30),('customer_address_edit',30),('customer_register_address',30),('adminhtml_customer_address',31),('customer_address_edit',31),('customer_register_address',31),('adminhtml_customer_address',32),('customer_address_edit',32),('customer_register_address',32),('adminhtml_customer_address',33),('customer_address_edit',33),('customer_register_address',33),('adminhtml_customer_address',34),('customer_address_edit',34),('customer_register_address',34),('adminhtml_customer_address',35),('customer_address_edit',35),('customer_register_address',35),('adminhtml_customer_address',36),('customer_address_edit',36),('customer_register_address',36);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_checkout',9);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_checkout',10);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_checkout',11);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_checkout',17);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_checkout',20);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer',1);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer',3);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer',4);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer',5);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer',6);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer',7);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer',8);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer',9);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer',10);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer',11);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer',17);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer',19);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer',20);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer',21);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer_address',22);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer_address',23);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer_address',24);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer_address',25);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer_address',26);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer_address',27);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer_address',28);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer_address',29);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer_address',30);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer_address',31);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer_address',32);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer_address',33);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer_address',34);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer_address',35);
+INSERT INTO `customer_form_attribute` VALUES ('adminhtml_customer_address',36);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_create',4);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_create',5);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_create',6);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_create',7);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_create',8);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_create',9);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_create',11);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_create',17);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_create',19);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_create',20);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_edit',4);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_edit',5);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_edit',6);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_edit',7);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_edit',8);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_edit',9);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_edit',11);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_edit',17);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_edit',19);
+INSERT INTO `customer_form_attribute` VALUES ('customer_account_edit',20);
+INSERT INTO `customer_form_attribute` VALUES ('customer_address_edit',22);
+INSERT INTO `customer_form_attribute` VALUES ('customer_address_edit',23);
+INSERT INTO `customer_form_attribute` VALUES ('customer_address_edit',24);
+INSERT INTO `customer_form_attribute` VALUES ('customer_address_edit',25);
+INSERT INTO `customer_form_attribute` VALUES ('customer_address_edit',26);
+INSERT INTO `customer_form_attribute` VALUES ('customer_address_edit',27);
+INSERT INTO `customer_form_attribute` VALUES ('customer_address_edit',28);
+INSERT INTO `customer_form_attribute` VALUES ('customer_address_edit',29);
+INSERT INTO `customer_form_attribute` VALUES ('customer_address_edit',30);
+INSERT INTO `customer_form_attribute` VALUES ('customer_address_edit',31);
+INSERT INTO `customer_form_attribute` VALUES ('customer_address_edit',32);
+INSERT INTO `customer_form_attribute` VALUES ('customer_address_edit',33);
+INSERT INTO `customer_form_attribute` VALUES ('customer_address_edit',34);
+INSERT INTO `customer_form_attribute` VALUES ('customer_address_edit',35);
+INSERT INTO `customer_form_attribute` VALUES ('customer_address_edit',36);
+INSERT INTO `customer_form_attribute` VALUES ('customer_register_address',22);
+INSERT INTO `customer_form_attribute` VALUES ('customer_register_address',23);
+INSERT INTO `customer_form_attribute` VALUES ('customer_register_address',24);
+INSERT INTO `customer_form_attribute` VALUES ('customer_register_address',25);
+INSERT INTO `customer_form_attribute` VALUES ('customer_register_address',26);
+INSERT INTO `customer_form_attribute` VALUES ('customer_register_address',27);
+INSERT INTO `customer_form_attribute` VALUES ('customer_register_address',28);
+INSERT INTO `customer_form_attribute` VALUES ('customer_register_address',29);
+INSERT INTO `customer_form_attribute` VALUES ('customer_register_address',30);
+INSERT INTO `customer_form_attribute` VALUES ('customer_register_address',31);
+INSERT INTO `customer_form_attribute` VALUES ('customer_register_address',32);
+INSERT INTO `customer_form_attribute` VALUES ('customer_register_address',33);
+INSERT INTO `customer_form_attribute` VALUES ('customer_register_address',34);
+INSERT INTO `customer_form_attribute` VALUES ('customer_register_address',35);
+INSERT INTO `customer_form_attribute` VALUES ('customer_register_address',36);
 /*!40000 ALTER TABLE `customer_form_attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3718,6 +4931,7 @@ CREATE TABLE `customer_grid_flat` (
 --
 -- Dumping data for table `customer_grid_flat`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `customer_grid_flat` WRITE;
 /*!40000 ALTER TABLE `customer_grid_flat` DISABLE KEYS */;
@@ -3742,10 +4956,14 @@ CREATE TABLE `customer_group` (
 --
 -- Dumping data for table `customer_group`
 --
+-- ORDER BY:  `customer_group_id`
 
 LOCK TABLES `customer_group` WRITE;
 /*!40000 ALTER TABLE `customer_group` DISABLE KEYS */;
-INSERT INTO `customer_group` VALUES (0,'NOT LOGGED IN',3),(1,'General',3),(2,'Wholesale',3),(3,'Retailer',3);
+INSERT INTO `customer_group` VALUES (0,'NOT LOGGED IN',3);
+INSERT INTO `customer_group` VALUES (1,'General',3);
+INSERT INTO `customer_group` VALUES (2,'Wholesale',3);
+INSERT INTO `customer_group` VALUES (3,'Retailer',3);
 /*!40000 ALTER TABLE `customer_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3769,6 +4987,7 @@ CREATE TABLE `customer_log` (
 --
 -- Dumping data for table `customer_log`
 --
+-- ORDER BY:  `log_id`
 
 LOCK TABLES `customer_log` WRITE;
 /*!40000 ALTER TABLE `customer_log` DISABLE KEYS */;
@@ -3790,12 +5009,13 @@ CREATE TABLE `customer_visitor` (
   PRIMARY KEY (`visitor_id`),
   KEY `CUSTOMER_VISITOR_CUSTOMER_ID` (`customer_id`),
   KEY `CUSTOMER_VISITOR_LAST_VISIT_AT` (`last_visit_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='Visitor Table';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Visitor Table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `customer_visitor`
 --
+-- ORDER BY:  `visitor_id`
 
 LOCK TABLES `customer_visitor` WRITE;
 /*!40000 ALTER TABLE `customer_visitor` DISABLE KEYS */;
@@ -3824,6 +5044,7 @@ CREATE TABLE `design_change` (
 --
 -- Dumping data for table `design_change`
 --
+-- ORDER BY:  `design_change_id`
 
 LOCK TABLES `design_change` WRITE;
 /*!40000 ALTER TABLE `design_change` DISABLE KEYS */;
@@ -3848,10 +5069,255 @@ CREATE TABLE `directory_country` (
 --
 -- Dumping data for table `directory_country`
 --
+-- ORDER BY:  `country_id`
 
 LOCK TABLES `directory_country` WRITE;
 /*!40000 ALTER TABLE `directory_country` DISABLE KEYS */;
-INSERT INTO `directory_country` VALUES ('AD','AD','AND'),('AE','AE','ARE'),('AF','AF','AFG'),('AG','AG','ATG'),('AI','AI','AIA'),('AL','AL','ALB'),('AM','AM','ARM'),('AN','AN','ANT'),('AO','AO','AGO'),('AQ','AQ','ATA'),('AR','AR','ARG'),('AS','AS','ASM'),('AT','AT','AUT'),('AU','AU','AUS'),('AW','AW','ABW'),('AX','AX','ALA'),('AZ','AZ','AZE'),('BA','BA','BIH'),('BB','BB','BRB'),('BD','BD','BGD'),('BE','BE','BEL'),('BF','BF','BFA'),('BG','BG','BGR'),('BH','BH','BHR'),('BI','BI','BDI'),('BJ','BJ','BEN'),('BL','BL','BLM'),('BM','BM','BMU'),('BN','BN','BRN'),('BO','BO','BOL'),('BR','BR','BRA'),('BS','BS','BHS'),('BT','BT','BTN'),('BV','BV','BVT'),('BW','BW','BWA'),('BY','BY','BLR'),('BZ','BZ','BLZ'),('CA','CA','CAN'),('CC','CC','CCK'),('CD','CD','COD'),('CF','CF','CAF'),('CG','CG','COG'),('CH','CH','CHE'),('CI','CI','CIV'),('CK','CK','COK'),('CL','CL','CHL'),('CM','CM','CMR'),('CN','CN','CHN'),('CO','CO','COL'),('CR','CR','CRI'),('CU','CU','CUB'),('CV','CV','CPV'),('CX','CX','CXR'),('CY','CY','CYP'),('CZ','CZ','CZE'),('DE','DE','DEU'),('DJ','DJ','DJI'),('DK','DK','DNK'),('DM','DM','DMA'),('DO','DO','DOM'),('DZ','DZ','DZA'),('EC','EC','ECU'),('EE','EE','EST'),('EG','EG','EGY'),('EH','EH','ESH'),('ER','ER','ERI'),('ES','ES','ESP'),('ET','ET','ETH'),('FI','FI','FIN'),('FJ','FJ','FJI'),('FK','FK','FLK'),('FM','FM','FSM'),('FO','FO','FRO'),('FR','FR','FRA'),('GA','GA','GAB'),('GB','GB','GBR'),('GD','GD','GRD'),('GE','GE','GEO'),('GF','GF','GUF'),('GG','GG','GGY'),('GH','GH','GHA'),('GI','GI','GIB'),('GL','GL','GRL'),('GM','GM','GMB'),('GN','GN','GIN'),('GP','GP','GLP'),('GQ','GQ','GNQ'),('GR','GR','GRC'),('GS','GS','SGS'),('GT','GT','GTM'),('GU','GU','GUM'),('GW','GW','GNB'),('GY','GY','GUY'),('HK','HK','HKG'),('HM','HM','HMD'),('HN','HN','HND'),('HR','HR','HRV'),('HT','HT','HTI'),('HU','HU','HUN'),('ID','ID','IDN'),('IE','IE','IRL'),('IL','IL','ISR'),('IM','IM','IMN'),('IN','IN','IND'),('IO','IO','IOT'),('IQ','IQ','IRQ'),('IR','IR','IRN'),('IS','IS','ISL'),('IT','IT','ITA'),('JE','JE','JEY'),('JM','JM','JAM'),('JO','JO','JOR'),('JP','JP','JPN'),('KE','KE','KEN'),('KG','KG','KGZ'),('KH','KH','KHM'),('KI','KI','KIR'),('KM','KM','COM'),('KN','KN','KNA'),('KP','KP','PRK'),('KR','KR','KOR'),('KW','KW','KWT'),('KY','KY','CYM'),('KZ','KZ','KAZ'),('LA','LA','LAO'),('LB','LB','LBN'),('LC','LC','LCA'),('LI','LI','LIE'),('LK','LK','LKA'),('LR','LR','LBR'),('LS','LS','LSO'),('LT','LT','LTU'),('LU','LU','LUX'),('LV','LV','LVA'),('LY','LY','LBY'),('MA','MA','MAR'),('MC','MC','MCO'),('MD','MD','MDA'),('ME','ME','MNE'),('MF','MF','MAF'),('MG','MG','MDG'),('MH','MH','MHL'),('MK','MK','MKD'),('ML','ML','MLI'),('MM','MM','MMR'),('MN','MN','MNG'),('MO','MO','MAC'),('MP','MP','MNP'),('MQ','MQ','MTQ'),('MR','MR','MRT'),('MS','MS','MSR'),('MT','MT','MLT'),('MU','MU','MUS'),('MV','MV','MDV'),('MW','MW','MWI'),('MX','MX','MEX'),('MY','MY','MYS'),('MZ','MZ','MOZ'),('NA','NA','NAM'),('NC','NC','NCL'),('NE','NE','NER'),('NF','NF','NFK'),('NG','NG','NGA'),('NI','NI','NIC'),('NL','NL','NLD'),('NO','NO','NOR'),('NP','NP','NPL'),('NR','NR','NRU'),('NU','NU','NIU'),('NZ','NZ','NZL'),('OM','OM','OMN'),('PA','PA','PAN'),('PE','PE','PER'),('PF','PF','PYF'),('PG','PG','PNG'),('PH','PH','PHL'),('PK','PK','PAK'),('PL','PL','POL'),('PM','PM','SPM'),('PN','PN','PCN'),('PS','PS','PSE'),('PT','PT','PRT'),('PW','PW','PLW'),('PY','PY','PRY'),('QA','QA','QAT'),('RE','RE','REU'),('RO','RO','ROU'),('RS','RS','SRB'),('RU','RU','RUS'),('RW','RW','RWA'),('SA','SA','SAU'),('SB','SB','SLB'),('SC','SC','SYC'),('SD','SD','SDN'),('SE','SE','SWE'),('SG','SG','SGP'),('SH','SH','SHN'),('SI','SI','SVN'),('SJ','SJ','SJM'),('SK','SK','SVK'),('SL','SL','SLE'),('SM','SM','SMR'),('SN','SN','SEN'),('SO','SO','SOM'),('SR','SR','SUR'),('ST','ST','STP'),('SV','SV','SLV'),('SY','SY','SYR'),('SZ','SZ','SWZ'),('TC','TC','TCA'),('TD','TD','TCD'),('TF','TF','ATF'),('TG','TG','TGO'),('TH','TH','THA'),('TJ','TJ','TJK'),('TK','TK','TKL'),('TL','TL','TLS'),('TM','TM','TKM'),('TN','TN','TUN'),('TO','TO','TON'),('TR','TR','TUR'),('TT','TT','TTO'),('TV','TV','TUV'),('TW','TW','TWN'),('TZ','TZ','TZA'),('UA','UA','UKR'),('UG','UG','UGA'),('UM','UM','UMI'),('US','US','USA'),('UY','UY','URY'),('UZ','UZ','UZB'),('VA','VA','VAT'),('VC','VC','VCT'),('VE','VE','VEN'),('VG','VG','VGB'),('VI','VI','VIR'),('VN','VN','VNM'),('VU','VU','VUT'),('WF','WF','WLF'),('WS','WS','WSM'),('YE','YE','YEM'),('YT','YT','MYT'),('ZA','ZA','ZAF'),('ZM','ZM','ZMB'),('ZW','ZW','ZWE');
+INSERT INTO `directory_country` VALUES ('AD','AD','AND');
+INSERT INTO `directory_country` VALUES ('AE','AE','ARE');
+INSERT INTO `directory_country` VALUES ('AF','AF','AFG');
+INSERT INTO `directory_country` VALUES ('AG','AG','ATG');
+INSERT INTO `directory_country` VALUES ('AI','AI','AIA');
+INSERT INTO `directory_country` VALUES ('AL','AL','ALB');
+INSERT INTO `directory_country` VALUES ('AM','AM','ARM');
+INSERT INTO `directory_country` VALUES ('AN','AN','ANT');
+INSERT INTO `directory_country` VALUES ('AO','AO','AGO');
+INSERT INTO `directory_country` VALUES ('AQ','AQ','ATA');
+INSERT INTO `directory_country` VALUES ('AR','AR','ARG');
+INSERT INTO `directory_country` VALUES ('AS','AS','ASM');
+INSERT INTO `directory_country` VALUES ('AT','AT','AUT');
+INSERT INTO `directory_country` VALUES ('AU','AU','AUS');
+INSERT INTO `directory_country` VALUES ('AW','AW','ABW');
+INSERT INTO `directory_country` VALUES ('AX','AX','ALA');
+INSERT INTO `directory_country` VALUES ('AZ','AZ','AZE');
+INSERT INTO `directory_country` VALUES ('BA','BA','BIH');
+INSERT INTO `directory_country` VALUES ('BB','BB','BRB');
+INSERT INTO `directory_country` VALUES ('BD','BD','BGD');
+INSERT INTO `directory_country` VALUES ('BE','BE','BEL');
+INSERT INTO `directory_country` VALUES ('BF','BF','BFA');
+INSERT INTO `directory_country` VALUES ('BG','BG','BGR');
+INSERT INTO `directory_country` VALUES ('BH','BH','BHR');
+INSERT INTO `directory_country` VALUES ('BI','BI','BDI');
+INSERT INTO `directory_country` VALUES ('BJ','BJ','BEN');
+INSERT INTO `directory_country` VALUES ('BL','BL','BLM');
+INSERT INTO `directory_country` VALUES ('BM','BM','BMU');
+INSERT INTO `directory_country` VALUES ('BN','BN','BRN');
+INSERT INTO `directory_country` VALUES ('BO','BO','BOL');
+INSERT INTO `directory_country` VALUES ('BR','BR','BRA');
+INSERT INTO `directory_country` VALUES ('BS','BS','BHS');
+INSERT INTO `directory_country` VALUES ('BT','BT','BTN');
+INSERT INTO `directory_country` VALUES ('BV','BV','BVT');
+INSERT INTO `directory_country` VALUES ('BW','BW','BWA');
+INSERT INTO `directory_country` VALUES ('BY','BY','BLR');
+INSERT INTO `directory_country` VALUES ('BZ','BZ','BLZ');
+INSERT INTO `directory_country` VALUES ('CA','CA','CAN');
+INSERT INTO `directory_country` VALUES ('CC','CC','CCK');
+INSERT INTO `directory_country` VALUES ('CD','CD','COD');
+INSERT INTO `directory_country` VALUES ('CF','CF','CAF');
+INSERT INTO `directory_country` VALUES ('CG','CG','COG');
+INSERT INTO `directory_country` VALUES ('CH','CH','CHE');
+INSERT INTO `directory_country` VALUES ('CI','CI','CIV');
+INSERT INTO `directory_country` VALUES ('CK','CK','COK');
+INSERT INTO `directory_country` VALUES ('CL','CL','CHL');
+INSERT INTO `directory_country` VALUES ('CM','CM','CMR');
+INSERT INTO `directory_country` VALUES ('CN','CN','CHN');
+INSERT INTO `directory_country` VALUES ('CO','CO','COL');
+INSERT INTO `directory_country` VALUES ('CR','CR','CRI');
+INSERT INTO `directory_country` VALUES ('CU','CU','CUB');
+INSERT INTO `directory_country` VALUES ('CV','CV','CPV');
+INSERT INTO `directory_country` VALUES ('CX','CX','CXR');
+INSERT INTO `directory_country` VALUES ('CY','CY','CYP');
+INSERT INTO `directory_country` VALUES ('CZ','CZ','CZE');
+INSERT INTO `directory_country` VALUES ('DE','DE','DEU');
+INSERT INTO `directory_country` VALUES ('DJ','DJ','DJI');
+INSERT INTO `directory_country` VALUES ('DK','DK','DNK');
+INSERT INTO `directory_country` VALUES ('DM','DM','DMA');
+INSERT INTO `directory_country` VALUES ('DO','DO','DOM');
+INSERT INTO `directory_country` VALUES ('DZ','DZ','DZA');
+INSERT INTO `directory_country` VALUES ('EC','EC','ECU');
+INSERT INTO `directory_country` VALUES ('EE','EE','EST');
+INSERT INTO `directory_country` VALUES ('EG','EG','EGY');
+INSERT INTO `directory_country` VALUES ('EH','EH','ESH');
+INSERT INTO `directory_country` VALUES ('ER','ER','ERI');
+INSERT INTO `directory_country` VALUES ('ES','ES','ESP');
+INSERT INTO `directory_country` VALUES ('ET','ET','ETH');
+INSERT INTO `directory_country` VALUES ('FI','FI','FIN');
+INSERT INTO `directory_country` VALUES ('FJ','FJ','FJI');
+INSERT INTO `directory_country` VALUES ('FK','FK','FLK');
+INSERT INTO `directory_country` VALUES ('FM','FM','FSM');
+INSERT INTO `directory_country` VALUES ('FO','FO','FRO');
+INSERT INTO `directory_country` VALUES ('FR','FR','FRA');
+INSERT INTO `directory_country` VALUES ('GA','GA','GAB');
+INSERT INTO `directory_country` VALUES ('GB','GB','GBR');
+INSERT INTO `directory_country` VALUES ('GD','GD','GRD');
+INSERT INTO `directory_country` VALUES ('GE','GE','GEO');
+INSERT INTO `directory_country` VALUES ('GF','GF','GUF');
+INSERT INTO `directory_country` VALUES ('GG','GG','GGY');
+INSERT INTO `directory_country` VALUES ('GH','GH','GHA');
+INSERT INTO `directory_country` VALUES ('GI','GI','GIB');
+INSERT INTO `directory_country` VALUES ('GL','GL','GRL');
+INSERT INTO `directory_country` VALUES ('GM','GM','GMB');
+INSERT INTO `directory_country` VALUES ('GN','GN','GIN');
+INSERT INTO `directory_country` VALUES ('GP','GP','GLP');
+INSERT INTO `directory_country` VALUES ('GQ','GQ','GNQ');
+INSERT INTO `directory_country` VALUES ('GR','GR','GRC');
+INSERT INTO `directory_country` VALUES ('GS','GS','SGS');
+INSERT INTO `directory_country` VALUES ('GT','GT','GTM');
+INSERT INTO `directory_country` VALUES ('GU','GU','GUM');
+INSERT INTO `directory_country` VALUES ('GW','GW','GNB');
+INSERT INTO `directory_country` VALUES ('GY','GY','GUY');
+INSERT INTO `directory_country` VALUES ('HK','HK','HKG');
+INSERT INTO `directory_country` VALUES ('HM','HM','HMD');
+INSERT INTO `directory_country` VALUES ('HN','HN','HND');
+INSERT INTO `directory_country` VALUES ('HR','HR','HRV');
+INSERT INTO `directory_country` VALUES ('HT','HT','HTI');
+INSERT INTO `directory_country` VALUES ('HU','HU','HUN');
+INSERT INTO `directory_country` VALUES ('ID','ID','IDN');
+INSERT INTO `directory_country` VALUES ('IE','IE','IRL');
+INSERT INTO `directory_country` VALUES ('IL','IL','ISR');
+INSERT INTO `directory_country` VALUES ('IM','IM','IMN');
+INSERT INTO `directory_country` VALUES ('IN','IN','IND');
+INSERT INTO `directory_country` VALUES ('IO','IO','IOT');
+INSERT INTO `directory_country` VALUES ('IQ','IQ','IRQ');
+INSERT INTO `directory_country` VALUES ('IR','IR','IRN');
+INSERT INTO `directory_country` VALUES ('IS','IS','ISL');
+INSERT INTO `directory_country` VALUES ('IT','IT','ITA');
+INSERT INTO `directory_country` VALUES ('JE','JE','JEY');
+INSERT INTO `directory_country` VALUES ('JM','JM','JAM');
+INSERT INTO `directory_country` VALUES ('JO','JO','JOR');
+INSERT INTO `directory_country` VALUES ('JP','JP','JPN');
+INSERT INTO `directory_country` VALUES ('KE','KE','KEN');
+INSERT INTO `directory_country` VALUES ('KG','KG','KGZ');
+INSERT INTO `directory_country` VALUES ('KH','KH','KHM');
+INSERT INTO `directory_country` VALUES ('KI','KI','KIR');
+INSERT INTO `directory_country` VALUES ('KM','KM','COM');
+INSERT INTO `directory_country` VALUES ('KN','KN','KNA');
+INSERT INTO `directory_country` VALUES ('KP','KP','PRK');
+INSERT INTO `directory_country` VALUES ('KR','KR','KOR');
+INSERT INTO `directory_country` VALUES ('KW','KW','KWT');
+INSERT INTO `directory_country` VALUES ('KY','KY','CYM');
+INSERT INTO `directory_country` VALUES ('KZ','KZ','KAZ');
+INSERT INTO `directory_country` VALUES ('LA','LA','LAO');
+INSERT INTO `directory_country` VALUES ('LB','LB','LBN');
+INSERT INTO `directory_country` VALUES ('LC','LC','LCA');
+INSERT INTO `directory_country` VALUES ('LI','LI','LIE');
+INSERT INTO `directory_country` VALUES ('LK','LK','LKA');
+INSERT INTO `directory_country` VALUES ('LR','LR','LBR');
+INSERT INTO `directory_country` VALUES ('LS','LS','LSO');
+INSERT INTO `directory_country` VALUES ('LT','LT','LTU');
+INSERT INTO `directory_country` VALUES ('LU','LU','LUX');
+INSERT INTO `directory_country` VALUES ('LV','LV','LVA');
+INSERT INTO `directory_country` VALUES ('LY','LY','LBY');
+INSERT INTO `directory_country` VALUES ('MA','MA','MAR');
+INSERT INTO `directory_country` VALUES ('MC','MC','MCO');
+INSERT INTO `directory_country` VALUES ('MD','MD','MDA');
+INSERT INTO `directory_country` VALUES ('ME','ME','MNE');
+INSERT INTO `directory_country` VALUES ('MF','MF','MAF');
+INSERT INTO `directory_country` VALUES ('MG','MG','MDG');
+INSERT INTO `directory_country` VALUES ('MH','MH','MHL');
+INSERT INTO `directory_country` VALUES ('MK','MK','MKD');
+INSERT INTO `directory_country` VALUES ('ML','ML','MLI');
+INSERT INTO `directory_country` VALUES ('MM','MM','MMR');
+INSERT INTO `directory_country` VALUES ('MN','MN','MNG');
+INSERT INTO `directory_country` VALUES ('MO','MO','MAC');
+INSERT INTO `directory_country` VALUES ('MP','MP','MNP');
+INSERT INTO `directory_country` VALUES ('MQ','MQ','MTQ');
+INSERT INTO `directory_country` VALUES ('MR','MR','MRT');
+INSERT INTO `directory_country` VALUES ('MS','MS','MSR');
+INSERT INTO `directory_country` VALUES ('MT','MT','MLT');
+INSERT INTO `directory_country` VALUES ('MU','MU','MUS');
+INSERT INTO `directory_country` VALUES ('MV','MV','MDV');
+INSERT INTO `directory_country` VALUES ('MW','MW','MWI');
+INSERT INTO `directory_country` VALUES ('MX','MX','MEX');
+INSERT INTO `directory_country` VALUES ('MY','MY','MYS');
+INSERT INTO `directory_country` VALUES ('MZ','MZ','MOZ');
+INSERT INTO `directory_country` VALUES ('NA','NA','NAM');
+INSERT INTO `directory_country` VALUES ('NC','NC','NCL');
+INSERT INTO `directory_country` VALUES ('NE','NE','NER');
+INSERT INTO `directory_country` VALUES ('NF','NF','NFK');
+INSERT INTO `directory_country` VALUES ('NG','NG','NGA');
+INSERT INTO `directory_country` VALUES ('NI','NI','NIC');
+INSERT INTO `directory_country` VALUES ('NL','NL','NLD');
+INSERT INTO `directory_country` VALUES ('NO','NO','NOR');
+INSERT INTO `directory_country` VALUES ('NP','NP','NPL');
+INSERT INTO `directory_country` VALUES ('NR','NR','NRU');
+INSERT INTO `directory_country` VALUES ('NU','NU','NIU');
+INSERT INTO `directory_country` VALUES ('NZ','NZ','NZL');
+INSERT INTO `directory_country` VALUES ('OM','OM','OMN');
+INSERT INTO `directory_country` VALUES ('PA','PA','PAN');
+INSERT INTO `directory_country` VALUES ('PE','PE','PER');
+INSERT INTO `directory_country` VALUES ('PF','PF','PYF');
+INSERT INTO `directory_country` VALUES ('PG','PG','PNG');
+INSERT INTO `directory_country` VALUES ('PH','PH','PHL');
+INSERT INTO `directory_country` VALUES ('PK','PK','PAK');
+INSERT INTO `directory_country` VALUES ('PL','PL','POL');
+INSERT INTO `directory_country` VALUES ('PM','PM','SPM');
+INSERT INTO `directory_country` VALUES ('PN','PN','PCN');
+INSERT INTO `directory_country` VALUES ('PS','PS','PSE');
+INSERT INTO `directory_country` VALUES ('PT','PT','PRT');
+INSERT INTO `directory_country` VALUES ('PW','PW','PLW');
+INSERT INTO `directory_country` VALUES ('PY','PY','PRY');
+INSERT INTO `directory_country` VALUES ('QA','QA','QAT');
+INSERT INTO `directory_country` VALUES ('RE','RE','REU');
+INSERT INTO `directory_country` VALUES ('RO','RO','ROU');
+INSERT INTO `directory_country` VALUES ('RS','RS','SRB');
+INSERT INTO `directory_country` VALUES ('RU','RU','RUS');
+INSERT INTO `directory_country` VALUES ('RW','RW','RWA');
+INSERT INTO `directory_country` VALUES ('SA','SA','SAU');
+INSERT INTO `directory_country` VALUES ('SB','SB','SLB');
+INSERT INTO `directory_country` VALUES ('SC','SC','SYC');
+INSERT INTO `directory_country` VALUES ('SD','SD','SDN');
+INSERT INTO `directory_country` VALUES ('SE','SE','SWE');
+INSERT INTO `directory_country` VALUES ('SG','SG','SGP');
+INSERT INTO `directory_country` VALUES ('SH','SH','SHN');
+INSERT INTO `directory_country` VALUES ('SI','SI','SVN');
+INSERT INTO `directory_country` VALUES ('SJ','SJ','SJM');
+INSERT INTO `directory_country` VALUES ('SK','SK','SVK');
+INSERT INTO `directory_country` VALUES ('SL','SL','SLE');
+INSERT INTO `directory_country` VALUES ('SM','SM','SMR');
+INSERT INTO `directory_country` VALUES ('SN','SN','SEN');
+INSERT INTO `directory_country` VALUES ('SO','SO','SOM');
+INSERT INTO `directory_country` VALUES ('SR','SR','SUR');
+INSERT INTO `directory_country` VALUES ('ST','ST','STP');
+INSERT INTO `directory_country` VALUES ('SV','SV','SLV');
+INSERT INTO `directory_country` VALUES ('SY','SY','SYR');
+INSERT INTO `directory_country` VALUES ('SZ','SZ','SWZ');
+INSERT INTO `directory_country` VALUES ('TC','TC','TCA');
+INSERT INTO `directory_country` VALUES ('TD','TD','TCD');
+INSERT INTO `directory_country` VALUES ('TF','TF','ATF');
+INSERT INTO `directory_country` VALUES ('TG','TG','TGO');
+INSERT INTO `directory_country` VALUES ('TH','TH','THA');
+INSERT INTO `directory_country` VALUES ('TJ','TJ','TJK');
+INSERT INTO `directory_country` VALUES ('TK','TK','TKL');
+INSERT INTO `directory_country` VALUES ('TL','TL','TLS');
+INSERT INTO `directory_country` VALUES ('TM','TM','TKM');
+INSERT INTO `directory_country` VALUES ('TN','TN','TUN');
+INSERT INTO `directory_country` VALUES ('TO','TO','TON');
+INSERT INTO `directory_country` VALUES ('TR','TR','TUR');
+INSERT INTO `directory_country` VALUES ('TT','TT','TTO');
+INSERT INTO `directory_country` VALUES ('TV','TV','TUV');
+INSERT INTO `directory_country` VALUES ('TW','TW','TWN');
+INSERT INTO `directory_country` VALUES ('TZ','TZ','TZA');
+INSERT INTO `directory_country` VALUES ('UA','UA','UKR');
+INSERT INTO `directory_country` VALUES ('UG','UG','UGA');
+INSERT INTO `directory_country` VALUES ('UM','UM','UMI');
+INSERT INTO `directory_country` VALUES ('US','US','USA');
+INSERT INTO `directory_country` VALUES ('UY','UY','URY');
+INSERT INTO `directory_country` VALUES ('UZ','UZ','UZB');
+INSERT INTO `directory_country` VALUES ('VA','VA','VAT');
+INSERT INTO `directory_country` VALUES ('VC','VC','VCT');
+INSERT INTO `directory_country` VALUES ('VE','VE','VEN');
+INSERT INTO `directory_country` VALUES ('VG','VG','VGB');
+INSERT INTO `directory_country` VALUES ('VI','VI','VIR');
+INSERT INTO `directory_country` VALUES ('VN','VN','VNM');
+INSERT INTO `directory_country` VALUES ('VU','VU','VUT');
+INSERT INTO `directory_country` VALUES ('WF','WF','WLF');
+INSERT INTO `directory_country` VALUES ('WS','WS','WSM');
+INSERT INTO `directory_country` VALUES ('YE','YE','YEM');
+INSERT INTO `directory_country` VALUES ('YT','YT','MYT');
+INSERT INTO `directory_country` VALUES ('ZA','ZA','ZAF');
+INSERT INTO `directory_country` VALUES ('ZM','ZM','ZMB');
+INSERT INTO `directory_country` VALUES ('ZW','ZW','ZWE');
 /*!40000 ALTER TABLE `directory_country` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3875,6 +5341,7 @@ CREATE TABLE `directory_country_format` (
 --
 -- Dumping data for table `directory_country_format`
 --
+-- ORDER BY:  `country_format_id`
 
 LOCK TABLES `directory_country_format` WRITE;
 /*!40000 ALTER TABLE `directory_country_format` DISABLE KEYS */;
@@ -3901,10 +5368,521 @@ CREATE TABLE `directory_country_region` (
 --
 -- Dumping data for table `directory_country_region`
 --
+-- ORDER BY:  `region_id`
 
 LOCK TABLES `directory_country_region` WRITE;
 /*!40000 ALTER TABLE `directory_country_region` DISABLE KEYS */;
-INSERT INTO `directory_country_region` VALUES (1,'US','AL','Alabama'),(2,'US','AK','Alaska'),(3,'US','AS','American Samoa'),(4,'US','AZ','Arizona'),(5,'US','AR','Arkansas'),(6,'US','AE','Armed Forces Africa'),(7,'US','AA','Armed Forces Americas'),(8,'US','AE','Armed Forces Canada'),(9,'US','AE','Armed Forces Europe'),(10,'US','AE','Armed Forces Middle East'),(11,'US','AP','Armed Forces Pacific'),(12,'US','CA','California'),(13,'US','CO','Colorado'),(14,'US','CT','Connecticut'),(15,'US','DE','Delaware'),(16,'US','DC','District of Columbia'),(17,'US','FM','Federated States Of Micronesia'),(18,'US','FL','Florida'),(19,'US','GA','Georgia'),(20,'US','GU','Guam'),(21,'US','HI','Hawaii'),(22,'US','ID','Idaho'),(23,'US','IL','Illinois'),(24,'US','IN','Indiana'),(25,'US','IA','Iowa'),(26,'US','KS','Kansas'),(27,'US','KY','Kentucky'),(28,'US','LA','Louisiana'),(29,'US','ME','Maine'),(30,'US','MH','Marshall Islands'),(31,'US','MD','Maryland'),(32,'US','MA','Massachusetts'),(33,'US','MI','Michigan'),(34,'US','MN','Minnesota'),(35,'US','MS','Mississippi'),(36,'US','MO','Missouri'),(37,'US','MT','Montana'),(38,'US','NE','Nebraska'),(39,'US','NV','Nevada'),(40,'US','NH','New Hampshire'),(41,'US','NJ','New Jersey'),(42,'US','NM','New Mexico'),(43,'US','NY','New York'),(44,'US','NC','North Carolina'),(45,'US','ND','North Dakota'),(46,'US','MP','Northern Mariana Islands'),(47,'US','OH','Ohio'),(48,'US','OK','Oklahoma'),(49,'US','OR','Oregon'),(50,'US','PW','Palau'),(51,'US','PA','Pennsylvania'),(52,'US','PR','Puerto Rico'),(53,'US','RI','Rhode Island'),(54,'US','SC','South Carolina'),(55,'US','SD','South Dakota'),(56,'US','TN','Tennessee'),(57,'US','TX','Texas'),(58,'US','UT','Utah'),(59,'US','VT','Vermont'),(60,'US','VI','Virgin Islands'),(61,'US','VA','Virginia'),(62,'US','WA','Washington'),(63,'US','WV','West Virginia'),(64,'US','WI','Wisconsin'),(65,'US','WY','Wyoming'),(66,'CA','AB','Alberta'),(67,'CA','BC','British Columbia'),(68,'CA','MB','Manitoba'),(69,'CA','NL','Newfoundland and Labrador'),(70,'CA','NB','New Brunswick'),(71,'CA','NS','Nova Scotia'),(72,'CA','NT','Northwest Territories'),(73,'CA','NU','Nunavut'),(74,'CA','ON','Ontario'),(75,'CA','PE','Prince Edward Island'),(76,'CA','QC','Quebec'),(77,'CA','SK','Saskatchewan'),(78,'CA','YT','Yukon Territory'),(79,'DE','NDS','Niedersachsen'),(80,'DE','BAW','Baden-Württemberg'),(81,'DE','BAY','Bayern'),(82,'DE','BER','Berlin'),(83,'DE','BRG','Brandenburg'),(84,'DE','BRE','Bremen'),(85,'DE','HAM','Hamburg'),(86,'DE','HES','Hessen'),(87,'DE','MEC','Mecklenburg-Vorpommern'),(88,'DE','NRW','Nordrhein-Westfalen'),(89,'DE','RHE','Rheinland-Pfalz'),(90,'DE','SAR','Saarland'),(91,'DE','SAS','Sachsen'),(92,'DE','SAC','Sachsen-Anhalt'),(93,'DE','SCN','Schleswig-Holstein'),(94,'DE','THE','Thüringen'),(95,'AT','WI','Wien'),(96,'AT','NO','Niederösterreich'),(97,'AT','OO','Oberösterreich'),(98,'AT','SB','Salzburg'),(99,'AT','KN','Kärnten'),(100,'AT','ST','Steiermark'),(101,'AT','TI','Tirol'),(102,'AT','BL','Burgenland'),(103,'AT','VB','Vorarlberg'),(104,'CH','AG','Aargau'),(105,'CH','AI','Appenzell Innerrhoden'),(106,'CH','AR','Appenzell Ausserrhoden'),(107,'CH','BE','Bern'),(108,'CH','BL','Basel-Landschaft'),(109,'CH','BS','Basel-Stadt'),(110,'CH','FR','Freiburg'),(111,'CH','GE','Genf'),(112,'CH','GL','Glarus'),(113,'CH','GR','Graubünden'),(114,'CH','JU','Jura'),(115,'CH','LU','Luzern'),(116,'CH','NE','Neuenburg'),(117,'CH','NW','Nidwalden'),(118,'CH','OW','Obwalden'),(119,'CH','SG','St. Gallen'),(120,'CH','SH','Schaffhausen'),(121,'CH','SO','Solothurn'),(122,'CH','SZ','Schwyz'),(123,'CH','TG','Thurgau'),(124,'CH','TI','Tessin'),(125,'CH','UR','Uri'),(126,'CH','VD','Waadt'),(127,'CH','VS','Wallis'),(128,'CH','ZG','Zug'),(129,'CH','ZH','Zürich'),(130,'ES','A Coruсa','A Coruña'),(131,'ES','Alava','Alava'),(132,'ES','Albacete','Albacete'),(133,'ES','Alicante','Alicante'),(134,'ES','Almeria','Almeria'),(135,'ES','Asturias','Asturias'),(136,'ES','Avila','Avila'),(137,'ES','Badajoz','Badajoz'),(138,'ES','Baleares','Baleares'),(139,'ES','Barcelona','Barcelona'),(140,'ES','Burgos','Burgos'),(141,'ES','Caceres','Caceres'),(142,'ES','Cadiz','Cadiz'),(143,'ES','Cantabria','Cantabria'),(144,'ES','Castellon','Castellon'),(145,'ES','Ceuta','Ceuta'),(146,'ES','Ciudad Real','Ciudad Real'),(147,'ES','Cordoba','Cordoba'),(148,'ES','Cuenca','Cuenca'),(149,'ES','Girona','Girona'),(150,'ES','Granada','Granada'),(151,'ES','Guadalajara','Guadalajara'),(152,'ES','Guipuzcoa','Guipuzcoa'),(153,'ES','Huelva','Huelva'),(154,'ES','Huesca','Huesca'),(155,'ES','Jaen','Jaen'),(156,'ES','La Rioja','La Rioja'),(157,'ES','Las Palmas','Las Palmas'),(158,'ES','Leon','Leon'),(159,'ES','Lleida','Lleida'),(160,'ES','Lugo','Lugo'),(161,'ES','Madrid','Madrid'),(162,'ES','Malaga','Malaga'),(163,'ES','Melilla','Melilla'),(164,'ES','Murcia','Murcia'),(165,'ES','Navarra','Navarra'),(166,'ES','Ourense','Ourense'),(167,'ES','Palencia','Palencia'),(168,'ES','Pontevedra','Pontevedra'),(169,'ES','Salamanca','Salamanca'),(170,'ES','Santa Cruz de Tenerife','Santa Cruz de Tenerife'),(171,'ES','Segovia','Segovia'),(172,'ES','Sevilla','Sevilla'),(173,'ES','Soria','Soria'),(174,'ES','Tarragona','Tarragona'),(175,'ES','Teruel','Teruel'),(176,'ES','Toledo','Toledo'),(177,'ES','Valencia','Valencia'),(178,'ES','Valladolid','Valladolid'),(179,'ES','Vizcaya','Vizcaya'),(180,'ES','Zamora','Zamora'),(181,'ES','Zaragoza','Zaragoza'),(182,'FR','1','Ain'),(183,'FR','2','Aisne'),(184,'FR','3','Allier'),(185,'FR','4','Alpes-de-Haute-Provence'),(186,'FR','5','Hautes-Alpes'),(187,'FR','6','Alpes-Maritimes'),(188,'FR','7','Ardèche'),(189,'FR','8','Ardennes'),(190,'FR','9','Ariège'),(191,'FR','10','Aube'),(192,'FR','11','Aude'),(193,'FR','12','Aveyron'),(194,'FR','13','Bouches-du-Rhône'),(195,'FR','14','Calvados'),(196,'FR','15','Cantal'),(197,'FR','16','Charente'),(198,'FR','17','Charente-Maritime'),(199,'FR','18','Cher'),(200,'FR','19','Corrèze'),(201,'FR','2A','Corse-du-Sud'),(202,'FR','2B','Haute-Corse'),(203,'FR','21','Côte-d\'Or'),(204,'FR','22','Côtes-d\'Armor'),(205,'FR','23','Creuse'),(206,'FR','24','Dordogne'),(207,'FR','25','Doubs'),(208,'FR','26','Drôme'),(209,'FR','27','Eure'),(210,'FR','28','Eure-et-Loir'),(211,'FR','29','Finistère'),(212,'FR','30','Gard'),(213,'FR','31','Haute-Garonne'),(214,'FR','32','Gers'),(215,'FR','33','Gironde'),(216,'FR','34','Hérault'),(217,'FR','35','Ille-et-Vilaine'),(218,'FR','36','Indre'),(219,'FR','37','Indre-et-Loire'),(220,'FR','38','Isère'),(221,'FR','39','Jura'),(222,'FR','40','Landes'),(223,'FR','41','Loir-et-Cher'),(224,'FR','42','Loire'),(225,'FR','43','Haute-Loire'),(226,'FR','44','Loire-Atlantique'),(227,'FR','45','Loiret'),(228,'FR','46','Lot'),(229,'FR','47','Lot-et-Garonne'),(230,'FR','48','Lozère'),(231,'FR','49','Maine-et-Loire'),(232,'FR','50','Manche'),(233,'FR','51','Marne'),(234,'FR','52','Haute-Marne'),(235,'FR','53','Mayenne'),(236,'FR','54','Meurthe-et-Moselle'),(237,'FR','55','Meuse'),(238,'FR','56','Morbihan'),(239,'FR','57','Moselle'),(240,'FR','58','Nièvre'),(241,'FR','59','Nord'),(242,'FR','60','Oise'),(243,'FR','61','Orne'),(244,'FR','62','Pas-de-Calais'),(245,'FR','63','Puy-de-Dôme'),(246,'FR','64','Pyrénées-Atlantiques'),(247,'FR','65','Hautes-Pyrénées'),(248,'FR','66','Pyrénées-Orientales'),(249,'FR','67','Bas-Rhin'),(250,'FR','68','Haut-Rhin'),(251,'FR','69','Rhône'),(252,'FR','70','Haute-Saône'),(253,'FR','71','Saône-et-Loire'),(254,'FR','72','Sarthe'),(255,'FR','73','Savoie'),(256,'FR','74','Haute-Savoie'),(257,'FR','75','Paris'),(258,'FR','76','Seine-Maritime'),(259,'FR','77','Seine-et-Marne'),(260,'FR','78','Yvelines'),(261,'FR','79','Deux-Sèvres'),(262,'FR','80','Somme'),(263,'FR','81','Tarn'),(264,'FR','82','Tarn-et-Garonne'),(265,'FR','83','Var'),(266,'FR','84','Vaucluse'),(267,'FR','85','Vendée'),(268,'FR','86','Vienne'),(269,'FR','87','Haute-Vienne'),(270,'FR','88','Vosges'),(271,'FR','89','Yonne'),(272,'FR','90','Territoire-de-Belfort'),(273,'FR','91','Essonne'),(274,'FR','92','Hauts-de-Seine'),(275,'FR','93','Seine-Saint-Denis'),(276,'FR','94','Val-de-Marne'),(277,'FR','95','Val-d\'Oise'),(278,'RO','AB','Alba'),(279,'RO','AR','Arad'),(280,'RO','AG','Argeş'),(281,'RO','BC','Bacău'),(282,'RO','BH','Bihor'),(283,'RO','BN','Bistriţa-Năsăud'),(284,'RO','BT','Botoşani'),(285,'RO','BV','Braşov'),(286,'RO','BR','Brăila'),(287,'RO','B','Bucureşti'),(288,'RO','BZ','Buzău'),(289,'RO','CS','Caraş-Severin'),(290,'RO','CL','Călăraşi'),(291,'RO','CJ','Cluj'),(292,'RO','CT','Constanţa'),(293,'RO','CV','Covasna'),(294,'RO','DB','Dâmboviţa'),(295,'RO','DJ','Dolj'),(296,'RO','GL','Galaţi'),(297,'RO','GR','Giurgiu'),(298,'RO','GJ','Gorj'),(299,'RO','HR','Harghita'),(300,'RO','HD','Hunedoara'),(301,'RO','IL','Ialomiţa'),(302,'RO','IS','Iaşi'),(303,'RO','IF','Ilfov'),(304,'RO','MM','Maramureş'),(305,'RO','MH','Mehedinţi'),(306,'RO','MS','Mureş'),(307,'RO','NT','Neamţ'),(308,'RO','OT','Olt'),(309,'RO','PH','Prahova'),(310,'RO','SM','Satu-Mare'),(311,'RO','SJ','Sălaj'),(312,'RO','SB','Sibiu'),(313,'RO','SV','Suceava'),(314,'RO','TR','Teleorman'),(315,'RO','TM','Timiş'),(316,'RO','TL','Tulcea'),(317,'RO','VS','Vaslui'),(318,'RO','VL','Vâlcea'),(319,'RO','VN','Vrancea'),(320,'FI','Lappi','Lappi'),(321,'FI','Pohjois-Pohjanmaa','Pohjois-Pohjanmaa'),(322,'FI','Kainuu','Kainuu'),(323,'FI','Pohjois-Karjala','Pohjois-Karjala'),(324,'FI','Pohjois-Savo','Pohjois-Savo'),(325,'FI','Etelä-Savo','Etelä-Savo'),(326,'FI','Etelä-Pohjanmaa','Etelä-Pohjanmaa'),(327,'FI','Pohjanmaa','Pohjanmaa'),(328,'FI','Pirkanmaa','Pirkanmaa'),(329,'FI','Satakunta','Satakunta'),(330,'FI','Keski-Pohjanmaa','Keski-Pohjanmaa'),(331,'FI','Keski-Suomi','Keski-Suomi'),(332,'FI','Varsinais-Suomi','Varsinais-Suomi'),(333,'FI','Etelä-Karjala','Etelä-Karjala'),(334,'FI','Päijät-Häme','Päijät-Häme'),(335,'FI','Kanta-Häme','Kanta-Häme'),(336,'FI','Uusimaa','Uusimaa'),(337,'FI','Itä-Uusimaa','Itä-Uusimaa'),(338,'FI','Kymenlaakso','Kymenlaakso'),(339,'FI','Ahvenanmaa','Ahvenanmaa'),(340,'EE','EE-37','Harjumaa'),(341,'EE','EE-39','Hiiumaa'),(342,'EE','EE-44','Ida-Virumaa'),(343,'EE','EE-49','Jõgevamaa'),(344,'EE','EE-51','Järvamaa'),(345,'EE','EE-57','Läänemaa'),(346,'EE','EE-59','Lääne-Virumaa'),(347,'EE','EE-65','Põlvamaa'),(348,'EE','EE-67','Pärnumaa'),(349,'EE','EE-70','Raplamaa'),(350,'EE','EE-74','Saaremaa'),(351,'EE','EE-78','Tartumaa'),(352,'EE','EE-82','Valgamaa'),(353,'EE','EE-84','Viljandimaa'),(354,'EE','EE-86','Võrumaa'),(355,'LV','LV-DGV','Daugavpils'),(356,'LV','LV-JEL','Jelgava'),(357,'LV','Jēkabpils','Jēkabpils'),(358,'LV','LV-JUR','Jūrmala'),(359,'LV','LV-LPX','Liepāja'),(360,'LV','LV-LE','Liepājas novads'),(361,'LV','LV-REZ','Rēzekne'),(362,'LV','LV-RIX','Rīga'),(363,'LV','LV-RI','Rīgas novads'),(364,'LV','Valmiera','Valmiera'),(365,'LV','LV-VEN','Ventspils'),(366,'LV','Aglonas novads','Aglonas novads'),(367,'LV','LV-AI','Aizkraukles novads'),(368,'LV','Aizputes novads','Aizputes novads'),(369,'LV','Aknīstes novads','Aknīstes novads'),(370,'LV','Alojas novads','Alojas novads'),(371,'LV','Alsungas novads','Alsungas novads'),(372,'LV','LV-AL','Alūksnes novads'),(373,'LV','Amatas novads','Amatas novads'),(374,'LV','Apes novads','Apes novads'),(375,'LV','Auces novads','Auces novads'),(376,'LV','Babītes novads','Babītes novads'),(377,'LV','Baldones novads','Baldones novads'),(378,'LV','Baltinavas novads','Baltinavas novads'),(379,'LV','LV-BL','Balvu novads'),(380,'LV','LV-BU','Bauskas novads'),(381,'LV','Beverīnas novads','Beverīnas novads'),(382,'LV','Brocēnu novads','Brocēnu novads'),(383,'LV','Burtnieku novads','Burtnieku novads'),(384,'LV','Carnikavas novads','Carnikavas novads'),(385,'LV','Cesvaines novads','Cesvaines novads'),(386,'LV','Ciblas novads','Ciblas novads'),(387,'LV','LV-CE','Cēsu novads'),(388,'LV','Dagdas novads','Dagdas novads'),(389,'LV','LV-DA','Daugavpils novads'),(390,'LV','LV-DO','Dobeles novads'),(391,'LV','Dundagas novads','Dundagas novads'),(392,'LV','Durbes novads','Durbes novads'),(393,'LV','Engures novads','Engures novads'),(394,'LV','Garkalnes novads','Garkalnes novads'),(395,'LV','Grobiņas novads','Grobiņas novads'),(396,'LV','LV-GU','Gulbenes novads'),(397,'LV','Iecavas novads','Iecavas novads'),(398,'LV','Ikšķiles novads','Ikšķiles novads'),(399,'LV','Ilūkstes novads','Ilūkstes novads'),(400,'LV','Inčukalna novads','Inčukalna novads'),(401,'LV','Jaunjelgavas novads','Jaunjelgavas novads'),(402,'LV','Jaunpiebalgas novads','Jaunpiebalgas novads'),(403,'LV','Jaunpils novads','Jaunpils novads'),(404,'LV','LV-JL','Jelgavas novads'),(405,'LV','LV-JK','Jēkabpils novads'),(406,'LV','Kandavas novads','Kandavas novads'),(407,'LV','Kokneses novads','Kokneses novads'),(408,'LV','Krimuldas novads','Krimuldas novads'),(409,'LV','Krustpils novads','Krustpils novads'),(410,'LV','LV-KR','Krāslavas novads'),(411,'LV','LV-KU','Kuldīgas novads'),(412,'LV','Kārsavas novads','Kārsavas novads'),(413,'LV','Lielvārdes novads','Lielvārdes novads'),(414,'LV','LV-LM','Limbažu novads'),(415,'LV','Lubānas novads','Lubānas novads'),(416,'LV','LV-LU','Ludzas novads'),(417,'LV','Līgatnes novads','Līgatnes novads'),(418,'LV','Līvānu novads','Līvānu novads'),(419,'LV','LV-MA','Madonas novads'),(420,'LV','Mazsalacas novads','Mazsalacas novads'),(421,'LV','Mālpils novads','Mālpils novads'),(422,'LV','Mārupes novads','Mārupes novads'),(423,'LV','Naukšēnu novads','Naukšēnu novads'),(424,'LV','Neretas novads','Neretas novads'),(425,'LV','Nīcas novads','Nīcas novads'),(426,'LV','LV-OG','Ogres novads'),(427,'LV','Olaines novads','Olaines novads'),(428,'LV','Ozolnieku novads','Ozolnieku novads'),(429,'LV','LV-PR','Preiļu novads'),(430,'LV','Priekules novads','Priekules novads'),(431,'LV','Priekuļu novads','Priekuļu novads'),(432,'LV','Pārgaujas novads','Pārgaujas novads'),(433,'LV','Pāvilostas novads','Pāvilostas novads'),(434,'LV','Pļaviņu novads','Pļaviņu novads'),(435,'LV','Raunas novads','Raunas novads'),(436,'LV','Riebiņu novads','Riebiņu novads'),(437,'LV','Rojas novads','Rojas novads'),(438,'LV','Ropažu novads','Ropažu novads'),(439,'LV','Rucavas novads','Rucavas novads'),(440,'LV','Rugāju novads','Rugāju novads'),(441,'LV','Rundāles novads','Rundāles novads'),(442,'LV','LV-RE','Rēzeknes novads'),(443,'LV','Rūjienas novads','Rūjienas novads'),(444,'LV','Salacgrīvas novads','Salacgrīvas novads'),(445,'LV','Salas novads','Salas novads'),(446,'LV','Salaspils novads','Salaspils novads'),(447,'LV','LV-SA','Saldus novads'),(448,'LV','Saulkrastu novads','Saulkrastu novads'),(449,'LV','Siguldas novads','Siguldas novads'),(450,'LV','Skrundas novads','Skrundas novads'),(451,'LV','Skrīveru novads','Skrīveru novads'),(452,'LV','Smiltenes novads','Smiltenes novads'),(453,'LV','Stopiņu novads','Stopiņu novads'),(454,'LV','Strenču novads','Strenču novads'),(455,'LV','Sējas novads','Sējas novads'),(456,'LV','LV-TA','Talsu novads'),(457,'LV','LV-TU','Tukuma novads'),(458,'LV','Tērvetes novads','Tērvetes novads'),(459,'LV','Vaiņodes novads','Vaiņodes novads'),(460,'LV','LV-VK','Valkas novads'),(461,'LV','LV-VM','Valmieras novads'),(462,'LV','Varakļānu novads','Varakļānu novads'),(463,'LV','Vecpiebalgas novads','Vecpiebalgas novads'),(464,'LV','Vecumnieku novads','Vecumnieku novads'),(465,'LV','LV-VE','Ventspils novads'),(466,'LV','Viesītes novads','Viesītes novads'),(467,'LV','Viļakas novads','Viļakas novads'),(468,'LV','Viļānu novads','Viļānu novads'),(469,'LV','Vārkavas novads','Vārkavas novads'),(470,'LV','Zilupes novads','Zilupes novads'),(471,'LV','Ādažu novads','Ādažu novads'),(472,'LV','Ērgļu novads','Ērgļu novads'),(473,'LV','Ķeguma novads','Ķeguma novads'),(474,'LV','Ķekavas novads','Ķekavas novads'),(475,'LT','LT-AL','Alytaus Apskritis'),(476,'LT','LT-KU','Kauno Apskritis'),(477,'LT','LT-KL','Klaipėdos Apskritis'),(478,'LT','LT-MR','Marijampolės Apskritis'),(479,'LT','LT-PN','Panevėžio Apskritis'),(480,'LT','LT-SA','Šiaulių Apskritis'),(481,'LT','LT-TA','Tauragės Apskritis'),(482,'LT','LT-TE','Telšių Apskritis'),(483,'LT','LT-UT','Utenos Apskritis'),(484,'LT','LT-VL','Vilniaus Apskritis'),(485,'BR','AC','Acre'),(486,'BR','AL','Alagoas'),(487,'BR','AP','Amapá'),(488,'BR','AM','Amazonas'),(489,'BR','BA','Bahia'),(490,'BR','CE','Ceará'),(491,'BR','ES','Espírito Santo'),(492,'BR','GO','Goiás'),(493,'BR','MA','Maranhão'),(494,'BR','MT','Mato Grosso'),(495,'BR','MS','Mato Grosso do Sul'),(496,'BR','MG','Minas Gerais'),(497,'BR','PA','Pará'),(498,'BR','PB','Paraíba'),(499,'BR','PR','Paraná'),(500,'BR','PE','Pernambuco'),(501,'BR','PI','Piauí'),(502,'BR','RJ','Rio de Janeiro'),(503,'BR','RN','Rio Grande do Norte'),(504,'BR','RS','Rio Grande do Sul'),(505,'BR','RO','Rondônia'),(506,'BR','RR','Roraima'),(507,'BR','SC','Santa Catarina'),(508,'BR','SP','São Paulo'),(509,'BR','SE','Sergipe'),(510,'BR','TO','Tocantins'),(511,'BR','DF','Distrito Federal');
+INSERT INTO `directory_country_region` VALUES (1,'US','AL','Alabama');
+INSERT INTO `directory_country_region` VALUES (2,'US','AK','Alaska');
+INSERT INTO `directory_country_region` VALUES (3,'US','AS','American Samoa');
+INSERT INTO `directory_country_region` VALUES (4,'US','AZ','Arizona');
+INSERT INTO `directory_country_region` VALUES (5,'US','AR','Arkansas');
+INSERT INTO `directory_country_region` VALUES (6,'US','AE','Armed Forces Africa');
+INSERT INTO `directory_country_region` VALUES (7,'US','AA','Armed Forces Americas');
+INSERT INTO `directory_country_region` VALUES (8,'US','AE','Armed Forces Canada');
+INSERT INTO `directory_country_region` VALUES (9,'US','AE','Armed Forces Europe');
+INSERT INTO `directory_country_region` VALUES (10,'US','AE','Armed Forces Middle East');
+INSERT INTO `directory_country_region` VALUES (11,'US','AP','Armed Forces Pacific');
+INSERT INTO `directory_country_region` VALUES (12,'US','CA','California');
+INSERT INTO `directory_country_region` VALUES (13,'US','CO','Colorado');
+INSERT INTO `directory_country_region` VALUES (14,'US','CT','Connecticut');
+INSERT INTO `directory_country_region` VALUES (15,'US','DE','Delaware');
+INSERT INTO `directory_country_region` VALUES (16,'US','DC','District of Columbia');
+INSERT INTO `directory_country_region` VALUES (17,'US','FM','Federated States Of Micronesia');
+INSERT INTO `directory_country_region` VALUES (18,'US','FL','Florida');
+INSERT INTO `directory_country_region` VALUES (19,'US','GA','Georgia');
+INSERT INTO `directory_country_region` VALUES (20,'US','GU','Guam');
+INSERT INTO `directory_country_region` VALUES (21,'US','HI','Hawaii');
+INSERT INTO `directory_country_region` VALUES (22,'US','ID','Idaho');
+INSERT INTO `directory_country_region` VALUES (23,'US','IL','Illinois');
+INSERT INTO `directory_country_region` VALUES (24,'US','IN','Indiana');
+INSERT INTO `directory_country_region` VALUES (25,'US','IA','Iowa');
+INSERT INTO `directory_country_region` VALUES (26,'US','KS','Kansas');
+INSERT INTO `directory_country_region` VALUES (27,'US','KY','Kentucky');
+INSERT INTO `directory_country_region` VALUES (28,'US','LA','Louisiana');
+INSERT INTO `directory_country_region` VALUES (29,'US','ME','Maine');
+INSERT INTO `directory_country_region` VALUES (30,'US','MH','Marshall Islands');
+INSERT INTO `directory_country_region` VALUES (31,'US','MD','Maryland');
+INSERT INTO `directory_country_region` VALUES (32,'US','MA','Massachusetts');
+INSERT INTO `directory_country_region` VALUES (33,'US','MI','Michigan');
+INSERT INTO `directory_country_region` VALUES (34,'US','MN','Minnesota');
+INSERT INTO `directory_country_region` VALUES (35,'US','MS','Mississippi');
+INSERT INTO `directory_country_region` VALUES (36,'US','MO','Missouri');
+INSERT INTO `directory_country_region` VALUES (37,'US','MT','Montana');
+INSERT INTO `directory_country_region` VALUES (38,'US','NE','Nebraska');
+INSERT INTO `directory_country_region` VALUES (39,'US','NV','Nevada');
+INSERT INTO `directory_country_region` VALUES (40,'US','NH','New Hampshire');
+INSERT INTO `directory_country_region` VALUES (41,'US','NJ','New Jersey');
+INSERT INTO `directory_country_region` VALUES (42,'US','NM','New Mexico');
+INSERT INTO `directory_country_region` VALUES (43,'US','NY','New York');
+INSERT INTO `directory_country_region` VALUES (44,'US','NC','North Carolina');
+INSERT INTO `directory_country_region` VALUES (45,'US','ND','North Dakota');
+INSERT INTO `directory_country_region` VALUES (46,'US','MP','Northern Mariana Islands');
+INSERT INTO `directory_country_region` VALUES (47,'US','OH','Ohio');
+INSERT INTO `directory_country_region` VALUES (48,'US','OK','Oklahoma');
+INSERT INTO `directory_country_region` VALUES (49,'US','OR','Oregon');
+INSERT INTO `directory_country_region` VALUES (50,'US','PW','Palau');
+INSERT INTO `directory_country_region` VALUES (51,'US','PA','Pennsylvania');
+INSERT INTO `directory_country_region` VALUES (52,'US','PR','Puerto Rico');
+INSERT INTO `directory_country_region` VALUES (53,'US','RI','Rhode Island');
+INSERT INTO `directory_country_region` VALUES (54,'US','SC','South Carolina');
+INSERT INTO `directory_country_region` VALUES (55,'US','SD','South Dakota');
+INSERT INTO `directory_country_region` VALUES (56,'US','TN','Tennessee');
+INSERT INTO `directory_country_region` VALUES (57,'US','TX','Texas');
+INSERT INTO `directory_country_region` VALUES (58,'US','UT','Utah');
+INSERT INTO `directory_country_region` VALUES (59,'US','VT','Vermont');
+INSERT INTO `directory_country_region` VALUES (60,'US','VI','Virgin Islands');
+INSERT INTO `directory_country_region` VALUES (61,'US','VA','Virginia');
+INSERT INTO `directory_country_region` VALUES (62,'US','WA','Washington');
+INSERT INTO `directory_country_region` VALUES (63,'US','WV','West Virginia');
+INSERT INTO `directory_country_region` VALUES (64,'US','WI','Wisconsin');
+INSERT INTO `directory_country_region` VALUES (65,'US','WY','Wyoming');
+INSERT INTO `directory_country_region` VALUES (66,'CA','AB','Alberta');
+INSERT INTO `directory_country_region` VALUES (67,'CA','BC','British Columbia');
+INSERT INTO `directory_country_region` VALUES (68,'CA','MB','Manitoba');
+INSERT INTO `directory_country_region` VALUES (69,'CA','NL','Newfoundland and Labrador');
+INSERT INTO `directory_country_region` VALUES (70,'CA','NB','New Brunswick');
+INSERT INTO `directory_country_region` VALUES (71,'CA','NS','Nova Scotia');
+INSERT INTO `directory_country_region` VALUES (72,'CA','NT','Northwest Territories');
+INSERT INTO `directory_country_region` VALUES (73,'CA','NU','Nunavut');
+INSERT INTO `directory_country_region` VALUES (74,'CA','ON','Ontario');
+INSERT INTO `directory_country_region` VALUES (75,'CA','PE','Prince Edward Island');
+INSERT INTO `directory_country_region` VALUES (76,'CA','QC','Quebec');
+INSERT INTO `directory_country_region` VALUES (77,'CA','SK','Saskatchewan');
+INSERT INTO `directory_country_region` VALUES (78,'CA','YT','Yukon Territory');
+INSERT INTO `directory_country_region` VALUES (79,'DE','NDS','Niedersachsen');
+INSERT INTO `directory_country_region` VALUES (80,'DE','BAW','Baden-Württemberg');
+INSERT INTO `directory_country_region` VALUES (81,'DE','BAY','Bayern');
+INSERT INTO `directory_country_region` VALUES (82,'DE','BER','Berlin');
+INSERT INTO `directory_country_region` VALUES (83,'DE','BRG','Brandenburg');
+INSERT INTO `directory_country_region` VALUES (84,'DE','BRE','Bremen');
+INSERT INTO `directory_country_region` VALUES (85,'DE','HAM','Hamburg');
+INSERT INTO `directory_country_region` VALUES (86,'DE','HES','Hessen');
+INSERT INTO `directory_country_region` VALUES (87,'DE','MEC','Mecklenburg-Vorpommern');
+INSERT INTO `directory_country_region` VALUES (88,'DE','NRW','Nordrhein-Westfalen');
+INSERT INTO `directory_country_region` VALUES (89,'DE','RHE','Rheinland-Pfalz');
+INSERT INTO `directory_country_region` VALUES (90,'DE','SAR','Saarland');
+INSERT INTO `directory_country_region` VALUES (91,'DE','SAS','Sachsen');
+INSERT INTO `directory_country_region` VALUES (92,'DE','SAC','Sachsen-Anhalt');
+INSERT INTO `directory_country_region` VALUES (93,'DE','SCN','Schleswig-Holstein');
+INSERT INTO `directory_country_region` VALUES (94,'DE','THE','Thüringen');
+INSERT INTO `directory_country_region` VALUES (95,'AT','WI','Wien');
+INSERT INTO `directory_country_region` VALUES (96,'AT','NO','Niederösterreich');
+INSERT INTO `directory_country_region` VALUES (97,'AT','OO','Oberösterreich');
+INSERT INTO `directory_country_region` VALUES (98,'AT','SB','Salzburg');
+INSERT INTO `directory_country_region` VALUES (99,'AT','KN','Kärnten');
+INSERT INTO `directory_country_region` VALUES (100,'AT','ST','Steiermark');
+INSERT INTO `directory_country_region` VALUES (101,'AT','TI','Tirol');
+INSERT INTO `directory_country_region` VALUES (102,'AT','BL','Burgenland');
+INSERT INTO `directory_country_region` VALUES (103,'AT','VB','Vorarlberg');
+INSERT INTO `directory_country_region` VALUES (104,'CH','AG','Aargau');
+INSERT INTO `directory_country_region` VALUES (105,'CH','AI','Appenzell Innerrhoden');
+INSERT INTO `directory_country_region` VALUES (106,'CH','AR','Appenzell Ausserrhoden');
+INSERT INTO `directory_country_region` VALUES (107,'CH','BE','Bern');
+INSERT INTO `directory_country_region` VALUES (108,'CH','BL','Basel-Landschaft');
+INSERT INTO `directory_country_region` VALUES (109,'CH','BS','Basel-Stadt');
+INSERT INTO `directory_country_region` VALUES (110,'CH','FR','Freiburg');
+INSERT INTO `directory_country_region` VALUES (111,'CH','GE','Genf');
+INSERT INTO `directory_country_region` VALUES (112,'CH','GL','Glarus');
+INSERT INTO `directory_country_region` VALUES (113,'CH','GR','Graubünden');
+INSERT INTO `directory_country_region` VALUES (114,'CH','JU','Jura');
+INSERT INTO `directory_country_region` VALUES (115,'CH','LU','Luzern');
+INSERT INTO `directory_country_region` VALUES (116,'CH','NE','Neuenburg');
+INSERT INTO `directory_country_region` VALUES (117,'CH','NW','Nidwalden');
+INSERT INTO `directory_country_region` VALUES (118,'CH','OW','Obwalden');
+INSERT INTO `directory_country_region` VALUES (119,'CH','SG','St. Gallen');
+INSERT INTO `directory_country_region` VALUES (120,'CH','SH','Schaffhausen');
+INSERT INTO `directory_country_region` VALUES (121,'CH','SO','Solothurn');
+INSERT INTO `directory_country_region` VALUES (122,'CH','SZ','Schwyz');
+INSERT INTO `directory_country_region` VALUES (123,'CH','TG','Thurgau');
+INSERT INTO `directory_country_region` VALUES (124,'CH','TI','Tessin');
+INSERT INTO `directory_country_region` VALUES (125,'CH','UR','Uri');
+INSERT INTO `directory_country_region` VALUES (126,'CH','VD','Waadt');
+INSERT INTO `directory_country_region` VALUES (127,'CH','VS','Wallis');
+INSERT INTO `directory_country_region` VALUES (128,'CH','ZG','Zug');
+INSERT INTO `directory_country_region` VALUES (129,'CH','ZH','Zürich');
+INSERT INTO `directory_country_region` VALUES (130,'ES','A Coruсa','A Coruña');
+INSERT INTO `directory_country_region` VALUES (131,'ES','Alava','Alava');
+INSERT INTO `directory_country_region` VALUES (132,'ES','Albacete','Albacete');
+INSERT INTO `directory_country_region` VALUES (133,'ES','Alicante','Alicante');
+INSERT INTO `directory_country_region` VALUES (134,'ES','Almeria','Almeria');
+INSERT INTO `directory_country_region` VALUES (135,'ES','Asturias','Asturias');
+INSERT INTO `directory_country_region` VALUES (136,'ES','Avila','Avila');
+INSERT INTO `directory_country_region` VALUES (137,'ES','Badajoz','Badajoz');
+INSERT INTO `directory_country_region` VALUES (138,'ES','Baleares','Baleares');
+INSERT INTO `directory_country_region` VALUES (139,'ES','Barcelona','Barcelona');
+INSERT INTO `directory_country_region` VALUES (140,'ES','Burgos','Burgos');
+INSERT INTO `directory_country_region` VALUES (141,'ES','Caceres','Caceres');
+INSERT INTO `directory_country_region` VALUES (142,'ES','Cadiz','Cadiz');
+INSERT INTO `directory_country_region` VALUES (143,'ES','Cantabria','Cantabria');
+INSERT INTO `directory_country_region` VALUES (144,'ES','Castellon','Castellon');
+INSERT INTO `directory_country_region` VALUES (145,'ES','Ceuta','Ceuta');
+INSERT INTO `directory_country_region` VALUES (146,'ES','Ciudad Real','Ciudad Real');
+INSERT INTO `directory_country_region` VALUES (147,'ES','Cordoba','Cordoba');
+INSERT INTO `directory_country_region` VALUES (148,'ES','Cuenca','Cuenca');
+INSERT INTO `directory_country_region` VALUES (149,'ES','Girona','Girona');
+INSERT INTO `directory_country_region` VALUES (150,'ES','Granada','Granada');
+INSERT INTO `directory_country_region` VALUES (151,'ES','Guadalajara','Guadalajara');
+INSERT INTO `directory_country_region` VALUES (152,'ES','Guipuzcoa','Guipuzcoa');
+INSERT INTO `directory_country_region` VALUES (153,'ES','Huelva','Huelva');
+INSERT INTO `directory_country_region` VALUES (154,'ES','Huesca','Huesca');
+INSERT INTO `directory_country_region` VALUES (155,'ES','Jaen','Jaen');
+INSERT INTO `directory_country_region` VALUES (156,'ES','La Rioja','La Rioja');
+INSERT INTO `directory_country_region` VALUES (157,'ES','Las Palmas','Las Palmas');
+INSERT INTO `directory_country_region` VALUES (158,'ES','Leon','Leon');
+INSERT INTO `directory_country_region` VALUES (159,'ES','Lleida','Lleida');
+INSERT INTO `directory_country_region` VALUES (160,'ES','Lugo','Lugo');
+INSERT INTO `directory_country_region` VALUES (161,'ES','Madrid','Madrid');
+INSERT INTO `directory_country_region` VALUES (162,'ES','Malaga','Malaga');
+INSERT INTO `directory_country_region` VALUES (163,'ES','Melilla','Melilla');
+INSERT INTO `directory_country_region` VALUES (164,'ES','Murcia','Murcia');
+INSERT INTO `directory_country_region` VALUES (165,'ES','Navarra','Navarra');
+INSERT INTO `directory_country_region` VALUES (166,'ES','Ourense','Ourense');
+INSERT INTO `directory_country_region` VALUES (167,'ES','Palencia','Palencia');
+INSERT INTO `directory_country_region` VALUES (168,'ES','Pontevedra','Pontevedra');
+INSERT INTO `directory_country_region` VALUES (169,'ES','Salamanca','Salamanca');
+INSERT INTO `directory_country_region` VALUES (170,'ES','Santa Cruz de Tenerife','Santa Cruz de Tenerife');
+INSERT INTO `directory_country_region` VALUES (171,'ES','Segovia','Segovia');
+INSERT INTO `directory_country_region` VALUES (172,'ES','Sevilla','Sevilla');
+INSERT INTO `directory_country_region` VALUES (173,'ES','Soria','Soria');
+INSERT INTO `directory_country_region` VALUES (174,'ES','Tarragona','Tarragona');
+INSERT INTO `directory_country_region` VALUES (175,'ES','Teruel','Teruel');
+INSERT INTO `directory_country_region` VALUES (176,'ES','Toledo','Toledo');
+INSERT INTO `directory_country_region` VALUES (177,'ES','Valencia','Valencia');
+INSERT INTO `directory_country_region` VALUES (178,'ES','Valladolid','Valladolid');
+INSERT INTO `directory_country_region` VALUES (179,'ES','Vizcaya','Vizcaya');
+INSERT INTO `directory_country_region` VALUES (180,'ES','Zamora','Zamora');
+INSERT INTO `directory_country_region` VALUES (181,'ES','Zaragoza','Zaragoza');
+INSERT INTO `directory_country_region` VALUES (182,'FR','1','Ain');
+INSERT INTO `directory_country_region` VALUES (183,'FR','2','Aisne');
+INSERT INTO `directory_country_region` VALUES (184,'FR','3','Allier');
+INSERT INTO `directory_country_region` VALUES (185,'FR','4','Alpes-de-Haute-Provence');
+INSERT INTO `directory_country_region` VALUES (186,'FR','5','Hautes-Alpes');
+INSERT INTO `directory_country_region` VALUES (187,'FR','6','Alpes-Maritimes');
+INSERT INTO `directory_country_region` VALUES (188,'FR','7','Ardèche');
+INSERT INTO `directory_country_region` VALUES (189,'FR','8','Ardennes');
+INSERT INTO `directory_country_region` VALUES (190,'FR','9','Ariège');
+INSERT INTO `directory_country_region` VALUES (191,'FR','10','Aube');
+INSERT INTO `directory_country_region` VALUES (192,'FR','11','Aude');
+INSERT INTO `directory_country_region` VALUES (193,'FR','12','Aveyron');
+INSERT INTO `directory_country_region` VALUES (194,'FR','13','Bouches-du-Rhône');
+INSERT INTO `directory_country_region` VALUES (195,'FR','14','Calvados');
+INSERT INTO `directory_country_region` VALUES (196,'FR','15','Cantal');
+INSERT INTO `directory_country_region` VALUES (197,'FR','16','Charente');
+INSERT INTO `directory_country_region` VALUES (198,'FR','17','Charente-Maritime');
+INSERT INTO `directory_country_region` VALUES (199,'FR','18','Cher');
+INSERT INTO `directory_country_region` VALUES (200,'FR','19','Corrèze');
+INSERT INTO `directory_country_region` VALUES (201,'FR','2A','Corse-du-Sud');
+INSERT INTO `directory_country_region` VALUES (202,'FR','2B','Haute-Corse');
+INSERT INTO `directory_country_region` VALUES (203,'FR','21','Côte-d\'Or');
+INSERT INTO `directory_country_region` VALUES (204,'FR','22','Côtes-d\'Armor');
+INSERT INTO `directory_country_region` VALUES (205,'FR','23','Creuse');
+INSERT INTO `directory_country_region` VALUES (206,'FR','24','Dordogne');
+INSERT INTO `directory_country_region` VALUES (207,'FR','25','Doubs');
+INSERT INTO `directory_country_region` VALUES (208,'FR','26','Drôme');
+INSERT INTO `directory_country_region` VALUES (209,'FR','27','Eure');
+INSERT INTO `directory_country_region` VALUES (210,'FR','28','Eure-et-Loir');
+INSERT INTO `directory_country_region` VALUES (211,'FR','29','Finistère');
+INSERT INTO `directory_country_region` VALUES (212,'FR','30','Gard');
+INSERT INTO `directory_country_region` VALUES (213,'FR','31','Haute-Garonne');
+INSERT INTO `directory_country_region` VALUES (214,'FR','32','Gers');
+INSERT INTO `directory_country_region` VALUES (215,'FR','33','Gironde');
+INSERT INTO `directory_country_region` VALUES (216,'FR','34','Hérault');
+INSERT INTO `directory_country_region` VALUES (217,'FR','35','Ille-et-Vilaine');
+INSERT INTO `directory_country_region` VALUES (218,'FR','36','Indre');
+INSERT INTO `directory_country_region` VALUES (219,'FR','37','Indre-et-Loire');
+INSERT INTO `directory_country_region` VALUES (220,'FR','38','Isère');
+INSERT INTO `directory_country_region` VALUES (221,'FR','39','Jura');
+INSERT INTO `directory_country_region` VALUES (222,'FR','40','Landes');
+INSERT INTO `directory_country_region` VALUES (223,'FR','41','Loir-et-Cher');
+INSERT INTO `directory_country_region` VALUES (224,'FR','42','Loire');
+INSERT INTO `directory_country_region` VALUES (225,'FR','43','Haute-Loire');
+INSERT INTO `directory_country_region` VALUES (226,'FR','44','Loire-Atlantique');
+INSERT INTO `directory_country_region` VALUES (227,'FR','45','Loiret');
+INSERT INTO `directory_country_region` VALUES (228,'FR','46','Lot');
+INSERT INTO `directory_country_region` VALUES (229,'FR','47','Lot-et-Garonne');
+INSERT INTO `directory_country_region` VALUES (230,'FR','48','Lozère');
+INSERT INTO `directory_country_region` VALUES (231,'FR','49','Maine-et-Loire');
+INSERT INTO `directory_country_region` VALUES (232,'FR','50','Manche');
+INSERT INTO `directory_country_region` VALUES (233,'FR','51','Marne');
+INSERT INTO `directory_country_region` VALUES (234,'FR','52','Haute-Marne');
+INSERT INTO `directory_country_region` VALUES (235,'FR','53','Mayenne');
+INSERT INTO `directory_country_region` VALUES (236,'FR','54','Meurthe-et-Moselle');
+INSERT INTO `directory_country_region` VALUES (237,'FR','55','Meuse');
+INSERT INTO `directory_country_region` VALUES (238,'FR','56','Morbihan');
+INSERT INTO `directory_country_region` VALUES (239,'FR','57','Moselle');
+INSERT INTO `directory_country_region` VALUES (240,'FR','58','Nièvre');
+INSERT INTO `directory_country_region` VALUES (241,'FR','59','Nord');
+INSERT INTO `directory_country_region` VALUES (242,'FR','60','Oise');
+INSERT INTO `directory_country_region` VALUES (243,'FR','61','Orne');
+INSERT INTO `directory_country_region` VALUES (244,'FR','62','Pas-de-Calais');
+INSERT INTO `directory_country_region` VALUES (245,'FR','63','Puy-de-Dôme');
+INSERT INTO `directory_country_region` VALUES (246,'FR','64','Pyrénées-Atlantiques');
+INSERT INTO `directory_country_region` VALUES (247,'FR','65','Hautes-Pyrénées');
+INSERT INTO `directory_country_region` VALUES (248,'FR','66','Pyrénées-Orientales');
+INSERT INTO `directory_country_region` VALUES (249,'FR','67','Bas-Rhin');
+INSERT INTO `directory_country_region` VALUES (250,'FR','68','Haut-Rhin');
+INSERT INTO `directory_country_region` VALUES (251,'FR','69','Rhône');
+INSERT INTO `directory_country_region` VALUES (252,'FR','70','Haute-Saône');
+INSERT INTO `directory_country_region` VALUES (253,'FR','71','Saône-et-Loire');
+INSERT INTO `directory_country_region` VALUES (254,'FR','72','Sarthe');
+INSERT INTO `directory_country_region` VALUES (255,'FR','73','Savoie');
+INSERT INTO `directory_country_region` VALUES (256,'FR','74','Haute-Savoie');
+INSERT INTO `directory_country_region` VALUES (257,'FR','75','Paris');
+INSERT INTO `directory_country_region` VALUES (258,'FR','76','Seine-Maritime');
+INSERT INTO `directory_country_region` VALUES (259,'FR','77','Seine-et-Marne');
+INSERT INTO `directory_country_region` VALUES (260,'FR','78','Yvelines');
+INSERT INTO `directory_country_region` VALUES (261,'FR','79','Deux-Sèvres');
+INSERT INTO `directory_country_region` VALUES (262,'FR','80','Somme');
+INSERT INTO `directory_country_region` VALUES (263,'FR','81','Tarn');
+INSERT INTO `directory_country_region` VALUES (264,'FR','82','Tarn-et-Garonne');
+INSERT INTO `directory_country_region` VALUES (265,'FR','83','Var');
+INSERT INTO `directory_country_region` VALUES (266,'FR','84','Vaucluse');
+INSERT INTO `directory_country_region` VALUES (267,'FR','85','Vendée');
+INSERT INTO `directory_country_region` VALUES (268,'FR','86','Vienne');
+INSERT INTO `directory_country_region` VALUES (269,'FR','87','Haute-Vienne');
+INSERT INTO `directory_country_region` VALUES (270,'FR','88','Vosges');
+INSERT INTO `directory_country_region` VALUES (271,'FR','89','Yonne');
+INSERT INTO `directory_country_region` VALUES (272,'FR','90','Territoire-de-Belfort');
+INSERT INTO `directory_country_region` VALUES (273,'FR','91','Essonne');
+INSERT INTO `directory_country_region` VALUES (274,'FR','92','Hauts-de-Seine');
+INSERT INTO `directory_country_region` VALUES (275,'FR','93','Seine-Saint-Denis');
+INSERT INTO `directory_country_region` VALUES (276,'FR','94','Val-de-Marne');
+INSERT INTO `directory_country_region` VALUES (277,'FR','95','Val-d\'Oise');
+INSERT INTO `directory_country_region` VALUES (278,'RO','AB','Alba');
+INSERT INTO `directory_country_region` VALUES (279,'RO','AR','Arad');
+INSERT INTO `directory_country_region` VALUES (280,'RO','AG','Argeş');
+INSERT INTO `directory_country_region` VALUES (281,'RO','BC','Bacău');
+INSERT INTO `directory_country_region` VALUES (282,'RO','BH','Bihor');
+INSERT INTO `directory_country_region` VALUES (283,'RO','BN','Bistriţa-Năsăud');
+INSERT INTO `directory_country_region` VALUES (284,'RO','BT','Botoşani');
+INSERT INTO `directory_country_region` VALUES (285,'RO','BV','Braşov');
+INSERT INTO `directory_country_region` VALUES (286,'RO','BR','Brăila');
+INSERT INTO `directory_country_region` VALUES (287,'RO','B','Bucureşti');
+INSERT INTO `directory_country_region` VALUES (288,'RO','BZ','Buzău');
+INSERT INTO `directory_country_region` VALUES (289,'RO','CS','Caraş-Severin');
+INSERT INTO `directory_country_region` VALUES (290,'RO','CL','Călăraşi');
+INSERT INTO `directory_country_region` VALUES (291,'RO','CJ','Cluj');
+INSERT INTO `directory_country_region` VALUES (292,'RO','CT','Constanţa');
+INSERT INTO `directory_country_region` VALUES (293,'RO','CV','Covasna');
+INSERT INTO `directory_country_region` VALUES (294,'RO','DB','Dâmboviţa');
+INSERT INTO `directory_country_region` VALUES (295,'RO','DJ','Dolj');
+INSERT INTO `directory_country_region` VALUES (296,'RO','GL','Galaţi');
+INSERT INTO `directory_country_region` VALUES (297,'RO','GR','Giurgiu');
+INSERT INTO `directory_country_region` VALUES (298,'RO','GJ','Gorj');
+INSERT INTO `directory_country_region` VALUES (299,'RO','HR','Harghita');
+INSERT INTO `directory_country_region` VALUES (300,'RO','HD','Hunedoara');
+INSERT INTO `directory_country_region` VALUES (301,'RO','IL','Ialomiţa');
+INSERT INTO `directory_country_region` VALUES (302,'RO','IS','Iaşi');
+INSERT INTO `directory_country_region` VALUES (303,'RO','IF','Ilfov');
+INSERT INTO `directory_country_region` VALUES (304,'RO','MM','Maramureş');
+INSERT INTO `directory_country_region` VALUES (305,'RO','MH','Mehedinţi');
+INSERT INTO `directory_country_region` VALUES (306,'RO','MS','Mureş');
+INSERT INTO `directory_country_region` VALUES (307,'RO','NT','Neamţ');
+INSERT INTO `directory_country_region` VALUES (308,'RO','OT','Olt');
+INSERT INTO `directory_country_region` VALUES (309,'RO','PH','Prahova');
+INSERT INTO `directory_country_region` VALUES (310,'RO','SM','Satu-Mare');
+INSERT INTO `directory_country_region` VALUES (311,'RO','SJ','Sălaj');
+INSERT INTO `directory_country_region` VALUES (312,'RO','SB','Sibiu');
+INSERT INTO `directory_country_region` VALUES (313,'RO','SV','Suceava');
+INSERT INTO `directory_country_region` VALUES (314,'RO','TR','Teleorman');
+INSERT INTO `directory_country_region` VALUES (315,'RO','TM','Timiş');
+INSERT INTO `directory_country_region` VALUES (316,'RO','TL','Tulcea');
+INSERT INTO `directory_country_region` VALUES (317,'RO','VS','Vaslui');
+INSERT INTO `directory_country_region` VALUES (318,'RO','VL','Vâlcea');
+INSERT INTO `directory_country_region` VALUES (319,'RO','VN','Vrancea');
+INSERT INTO `directory_country_region` VALUES (320,'FI','Lappi','Lappi');
+INSERT INTO `directory_country_region` VALUES (321,'FI','Pohjois-Pohjanmaa','Pohjois-Pohjanmaa');
+INSERT INTO `directory_country_region` VALUES (322,'FI','Kainuu','Kainuu');
+INSERT INTO `directory_country_region` VALUES (323,'FI','Pohjois-Karjala','Pohjois-Karjala');
+INSERT INTO `directory_country_region` VALUES (324,'FI','Pohjois-Savo','Pohjois-Savo');
+INSERT INTO `directory_country_region` VALUES (325,'FI','Etelä-Savo','Etelä-Savo');
+INSERT INTO `directory_country_region` VALUES (326,'FI','Etelä-Pohjanmaa','Etelä-Pohjanmaa');
+INSERT INTO `directory_country_region` VALUES (327,'FI','Pohjanmaa','Pohjanmaa');
+INSERT INTO `directory_country_region` VALUES (328,'FI','Pirkanmaa','Pirkanmaa');
+INSERT INTO `directory_country_region` VALUES (329,'FI','Satakunta','Satakunta');
+INSERT INTO `directory_country_region` VALUES (330,'FI','Keski-Pohjanmaa','Keski-Pohjanmaa');
+INSERT INTO `directory_country_region` VALUES (331,'FI','Keski-Suomi','Keski-Suomi');
+INSERT INTO `directory_country_region` VALUES (332,'FI','Varsinais-Suomi','Varsinais-Suomi');
+INSERT INTO `directory_country_region` VALUES (333,'FI','Etelä-Karjala','Etelä-Karjala');
+INSERT INTO `directory_country_region` VALUES (334,'FI','Päijät-Häme','Päijät-Häme');
+INSERT INTO `directory_country_region` VALUES (335,'FI','Kanta-Häme','Kanta-Häme');
+INSERT INTO `directory_country_region` VALUES (336,'FI','Uusimaa','Uusimaa');
+INSERT INTO `directory_country_region` VALUES (337,'FI','Itä-Uusimaa','Itä-Uusimaa');
+INSERT INTO `directory_country_region` VALUES (338,'FI','Kymenlaakso','Kymenlaakso');
+INSERT INTO `directory_country_region` VALUES (339,'FI','Ahvenanmaa','Ahvenanmaa');
+INSERT INTO `directory_country_region` VALUES (340,'EE','EE-37','Harjumaa');
+INSERT INTO `directory_country_region` VALUES (341,'EE','EE-39','Hiiumaa');
+INSERT INTO `directory_country_region` VALUES (342,'EE','EE-44','Ida-Virumaa');
+INSERT INTO `directory_country_region` VALUES (343,'EE','EE-49','Jõgevamaa');
+INSERT INTO `directory_country_region` VALUES (344,'EE','EE-51','Järvamaa');
+INSERT INTO `directory_country_region` VALUES (345,'EE','EE-57','Läänemaa');
+INSERT INTO `directory_country_region` VALUES (346,'EE','EE-59','Lääne-Virumaa');
+INSERT INTO `directory_country_region` VALUES (347,'EE','EE-65','Põlvamaa');
+INSERT INTO `directory_country_region` VALUES (348,'EE','EE-67','Pärnumaa');
+INSERT INTO `directory_country_region` VALUES (349,'EE','EE-70','Raplamaa');
+INSERT INTO `directory_country_region` VALUES (350,'EE','EE-74','Saaremaa');
+INSERT INTO `directory_country_region` VALUES (351,'EE','EE-78','Tartumaa');
+INSERT INTO `directory_country_region` VALUES (352,'EE','EE-82','Valgamaa');
+INSERT INTO `directory_country_region` VALUES (353,'EE','EE-84','Viljandimaa');
+INSERT INTO `directory_country_region` VALUES (354,'EE','EE-86','Võrumaa');
+INSERT INTO `directory_country_region` VALUES (355,'LV','LV-DGV','Daugavpils');
+INSERT INTO `directory_country_region` VALUES (356,'LV','LV-JEL','Jelgava');
+INSERT INTO `directory_country_region` VALUES (357,'LV','Jēkabpils','Jēkabpils');
+INSERT INTO `directory_country_region` VALUES (358,'LV','LV-JUR','Jūrmala');
+INSERT INTO `directory_country_region` VALUES (359,'LV','LV-LPX','Liepāja');
+INSERT INTO `directory_country_region` VALUES (360,'LV','LV-LE','Liepājas novads');
+INSERT INTO `directory_country_region` VALUES (361,'LV','LV-REZ','Rēzekne');
+INSERT INTO `directory_country_region` VALUES (362,'LV','LV-RIX','Rīga');
+INSERT INTO `directory_country_region` VALUES (363,'LV','LV-RI','Rīgas novads');
+INSERT INTO `directory_country_region` VALUES (364,'LV','Valmiera','Valmiera');
+INSERT INTO `directory_country_region` VALUES (365,'LV','LV-VEN','Ventspils');
+INSERT INTO `directory_country_region` VALUES (366,'LV','Aglonas novads','Aglonas novads');
+INSERT INTO `directory_country_region` VALUES (367,'LV','LV-AI','Aizkraukles novads');
+INSERT INTO `directory_country_region` VALUES (368,'LV','Aizputes novads','Aizputes novads');
+INSERT INTO `directory_country_region` VALUES (369,'LV','Aknīstes novads','Aknīstes novads');
+INSERT INTO `directory_country_region` VALUES (370,'LV','Alojas novads','Alojas novads');
+INSERT INTO `directory_country_region` VALUES (371,'LV','Alsungas novads','Alsungas novads');
+INSERT INTO `directory_country_region` VALUES (372,'LV','LV-AL','Alūksnes novads');
+INSERT INTO `directory_country_region` VALUES (373,'LV','Amatas novads','Amatas novads');
+INSERT INTO `directory_country_region` VALUES (374,'LV','Apes novads','Apes novads');
+INSERT INTO `directory_country_region` VALUES (375,'LV','Auces novads','Auces novads');
+INSERT INTO `directory_country_region` VALUES (376,'LV','Babītes novads','Babītes novads');
+INSERT INTO `directory_country_region` VALUES (377,'LV','Baldones novads','Baldones novads');
+INSERT INTO `directory_country_region` VALUES (378,'LV','Baltinavas novads','Baltinavas novads');
+INSERT INTO `directory_country_region` VALUES (379,'LV','LV-BL','Balvu novads');
+INSERT INTO `directory_country_region` VALUES (380,'LV','LV-BU','Bauskas novads');
+INSERT INTO `directory_country_region` VALUES (381,'LV','Beverīnas novads','Beverīnas novads');
+INSERT INTO `directory_country_region` VALUES (382,'LV','Brocēnu novads','Brocēnu novads');
+INSERT INTO `directory_country_region` VALUES (383,'LV','Burtnieku novads','Burtnieku novads');
+INSERT INTO `directory_country_region` VALUES (384,'LV','Carnikavas novads','Carnikavas novads');
+INSERT INTO `directory_country_region` VALUES (385,'LV','Cesvaines novads','Cesvaines novads');
+INSERT INTO `directory_country_region` VALUES (386,'LV','Ciblas novads','Ciblas novads');
+INSERT INTO `directory_country_region` VALUES (387,'LV','LV-CE','Cēsu novads');
+INSERT INTO `directory_country_region` VALUES (388,'LV','Dagdas novads','Dagdas novads');
+INSERT INTO `directory_country_region` VALUES (389,'LV','LV-DA','Daugavpils novads');
+INSERT INTO `directory_country_region` VALUES (390,'LV','LV-DO','Dobeles novads');
+INSERT INTO `directory_country_region` VALUES (391,'LV','Dundagas novads','Dundagas novads');
+INSERT INTO `directory_country_region` VALUES (392,'LV','Durbes novads','Durbes novads');
+INSERT INTO `directory_country_region` VALUES (393,'LV','Engures novads','Engures novads');
+INSERT INTO `directory_country_region` VALUES (394,'LV','Garkalnes novads','Garkalnes novads');
+INSERT INTO `directory_country_region` VALUES (395,'LV','Grobiņas novads','Grobiņas novads');
+INSERT INTO `directory_country_region` VALUES (396,'LV','LV-GU','Gulbenes novads');
+INSERT INTO `directory_country_region` VALUES (397,'LV','Iecavas novads','Iecavas novads');
+INSERT INTO `directory_country_region` VALUES (398,'LV','Ikšķiles novads','Ikšķiles novads');
+INSERT INTO `directory_country_region` VALUES (399,'LV','Ilūkstes novads','Ilūkstes novads');
+INSERT INTO `directory_country_region` VALUES (400,'LV','Inčukalna novads','Inčukalna novads');
+INSERT INTO `directory_country_region` VALUES (401,'LV','Jaunjelgavas novads','Jaunjelgavas novads');
+INSERT INTO `directory_country_region` VALUES (402,'LV','Jaunpiebalgas novads','Jaunpiebalgas novads');
+INSERT INTO `directory_country_region` VALUES (403,'LV','Jaunpils novads','Jaunpils novads');
+INSERT INTO `directory_country_region` VALUES (404,'LV','LV-JL','Jelgavas novads');
+INSERT INTO `directory_country_region` VALUES (405,'LV','LV-JK','Jēkabpils novads');
+INSERT INTO `directory_country_region` VALUES (406,'LV','Kandavas novads','Kandavas novads');
+INSERT INTO `directory_country_region` VALUES (407,'LV','Kokneses novads','Kokneses novads');
+INSERT INTO `directory_country_region` VALUES (408,'LV','Krimuldas novads','Krimuldas novads');
+INSERT INTO `directory_country_region` VALUES (409,'LV','Krustpils novads','Krustpils novads');
+INSERT INTO `directory_country_region` VALUES (410,'LV','LV-KR','Krāslavas novads');
+INSERT INTO `directory_country_region` VALUES (411,'LV','LV-KU','Kuldīgas novads');
+INSERT INTO `directory_country_region` VALUES (412,'LV','Kārsavas novads','Kārsavas novads');
+INSERT INTO `directory_country_region` VALUES (413,'LV','Lielvārdes novads','Lielvārdes novads');
+INSERT INTO `directory_country_region` VALUES (414,'LV','LV-LM','Limbažu novads');
+INSERT INTO `directory_country_region` VALUES (415,'LV','Lubānas novads','Lubānas novads');
+INSERT INTO `directory_country_region` VALUES (416,'LV','LV-LU','Ludzas novads');
+INSERT INTO `directory_country_region` VALUES (417,'LV','Līgatnes novads','Līgatnes novads');
+INSERT INTO `directory_country_region` VALUES (418,'LV','Līvānu novads','Līvānu novads');
+INSERT INTO `directory_country_region` VALUES (419,'LV','LV-MA','Madonas novads');
+INSERT INTO `directory_country_region` VALUES (420,'LV','Mazsalacas novads','Mazsalacas novads');
+INSERT INTO `directory_country_region` VALUES (421,'LV','Mālpils novads','Mālpils novads');
+INSERT INTO `directory_country_region` VALUES (422,'LV','Mārupes novads','Mārupes novads');
+INSERT INTO `directory_country_region` VALUES (423,'LV','Naukšēnu novads','Naukšēnu novads');
+INSERT INTO `directory_country_region` VALUES (424,'LV','Neretas novads','Neretas novads');
+INSERT INTO `directory_country_region` VALUES (425,'LV','Nīcas novads','Nīcas novads');
+INSERT INTO `directory_country_region` VALUES (426,'LV','LV-OG','Ogres novads');
+INSERT INTO `directory_country_region` VALUES (427,'LV','Olaines novads','Olaines novads');
+INSERT INTO `directory_country_region` VALUES (428,'LV','Ozolnieku novads','Ozolnieku novads');
+INSERT INTO `directory_country_region` VALUES (429,'LV','LV-PR','Preiļu novads');
+INSERT INTO `directory_country_region` VALUES (430,'LV','Priekules novads','Priekules novads');
+INSERT INTO `directory_country_region` VALUES (431,'LV','Priekuļu novads','Priekuļu novads');
+INSERT INTO `directory_country_region` VALUES (432,'LV','Pārgaujas novads','Pārgaujas novads');
+INSERT INTO `directory_country_region` VALUES (433,'LV','Pāvilostas novads','Pāvilostas novads');
+INSERT INTO `directory_country_region` VALUES (434,'LV','Pļaviņu novads','Pļaviņu novads');
+INSERT INTO `directory_country_region` VALUES (435,'LV','Raunas novads','Raunas novads');
+INSERT INTO `directory_country_region` VALUES (436,'LV','Riebiņu novads','Riebiņu novads');
+INSERT INTO `directory_country_region` VALUES (437,'LV','Rojas novads','Rojas novads');
+INSERT INTO `directory_country_region` VALUES (438,'LV','Ropažu novads','Ropažu novads');
+INSERT INTO `directory_country_region` VALUES (439,'LV','Rucavas novads','Rucavas novads');
+INSERT INTO `directory_country_region` VALUES (440,'LV','Rugāju novads','Rugāju novads');
+INSERT INTO `directory_country_region` VALUES (441,'LV','Rundāles novads','Rundāles novads');
+INSERT INTO `directory_country_region` VALUES (442,'LV','LV-RE','Rēzeknes novads');
+INSERT INTO `directory_country_region` VALUES (443,'LV','Rūjienas novads','Rūjienas novads');
+INSERT INTO `directory_country_region` VALUES (444,'LV','Salacgrīvas novads','Salacgrīvas novads');
+INSERT INTO `directory_country_region` VALUES (445,'LV','Salas novads','Salas novads');
+INSERT INTO `directory_country_region` VALUES (446,'LV','Salaspils novads','Salaspils novads');
+INSERT INTO `directory_country_region` VALUES (447,'LV','LV-SA','Saldus novads');
+INSERT INTO `directory_country_region` VALUES (448,'LV','Saulkrastu novads','Saulkrastu novads');
+INSERT INTO `directory_country_region` VALUES (449,'LV','Siguldas novads','Siguldas novads');
+INSERT INTO `directory_country_region` VALUES (450,'LV','Skrundas novads','Skrundas novads');
+INSERT INTO `directory_country_region` VALUES (451,'LV','Skrīveru novads','Skrīveru novads');
+INSERT INTO `directory_country_region` VALUES (452,'LV','Smiltenes novads','Smiltenes novads');
+INSERT INTO `directory_country_region` VALUES (453,'LV','Stopiņu novads','Stopiņu novads');
+INSERT INTO `directory_country_region` VALUES (454,'LV','Strenču novads','Strenču novads');
+INSERT INTO `directory_country_region` VALUES (455,'LV','Sējas novads','Sējas novads');
+INSERT INTO `directory_country_region` VALUES (456,'LV','LV-TA','Talsu novads');
+INSERT INTO `directory_country_region` VALUES (457,'LV','LV-TU','Tukuma novads');
+INSERT INTO `directory_country_region` VALUES (458,'LV','Tērvetes novads','Tērvetes novads');
+INSERT INTO `directory_country_region` VALUES (459,'LV','Vaiņodes novads','Vaiņodes novads');
+INSERT INTO `directory_country_region` VALUES (460,'LV','LV-VK','Valkas novads');
+INSERT INTO `directory_country_region` VALUES (461,'LV','LV-VM','Valmieras novads');
+INSERT INTO `directory_country_region` VALUES (462,'LV','Varakļānu novads','Varakļānu novads');
+INSERT INTO `directory_country_region` VALUES (463,'LV','Vecpiebalgas novads','Vecpiebalgas novads');
+INSERT INTO `directory_country_region` VALUES (464,'LV','Vecumnieku novads','Vecumnieku novads');
+INSERT INTO `directory_country_region` VALUES (465,'LV','LV-VE','Ventspils novads');
+INSERT INTO `directory_country_region` VALUES (466,'LV','Viesītes novads','Viesītes novads');
+INSERT INTO `directory_country_region` VALUES (467,'LV','Viļakas novads','Viļakas novads');
+INSERT INTO `directory_country_region` VALUES (468,'LV','Viļānu novads','Viļānu novads');
+INSERT INTO `directory_country_region` VALUES (469,'LV','Vārkavas novads','Vārkavas novads');
+INSERT INTO `directory_country_region` VALUES (470,'LV','Zilupes novads','Zilupes novads');
+INSERT INTO `directory_country_region` VALUES (471,'LV','Ādažu novads','Ādažu novads');
+INSERT INTO `directory_country_region` VALUES (472,'LV','Ērgļu novads','Ērgļu novads');
+INSERT INTO `directory_country_region` VALUES (473,'LV','Ķeguma novads','Ķeguma novads');
+INSERT INTO `directory_country_region` VALUES (474,'LV','Ķekavas novads','Ķekavas novads');
+INSERT INTO `directory_country_region` VALUES (475,'LT','LT-AL','Alytaus Apskritis');
+INSERT INTO `directory_country_region` VALUES (476,'LT','LT-KU','Kauno Apskritis');
+INSERT INTO `directory_country_region` VALUES (477,'LT','LT-KL','Klaipėdos Apskritis');
+INSERT INTO `directory_country_region` VALUES (478,'LT','LT-MR','Marijampolės Apskritis');
+INSERT INTO `directory_country_region` VALUES (479,'LT','LT-PN','Panevėžio Apskritis');
+INSERT INTO `directory_country_region` VALUES (480,'LT','LT-SA','Šiaulių Apskritis');
+INSERT INTO `directory_country_region` VALUES (481,'LT','LT-TA','Tauragės Apskritis');
+INSERT INTO `directory_country_region` VALUES (482,'LT','LT-TE','Telšių Apskritis');
+INSERT INTO `directory_country_region` VALUES (483,'LT','LT-UT','Utenos Apskritis');
+INSERT INTO `directory_country_region` VALUES (484,'LT','LT-VL','Vilniaus Apskritis');
+INSERT INTO `directory_country_region` VALUES (485,'BR','AC','Acre');
+INSERT INTO `directory_country_region` VALUES (486,'BR','AL','Alagoas');
+INSERT INTO `directory_country_region` VALUES (487,'BR','AP','Amapá');
+INSERT INTO `directory_country_region` VALUES (488,'BR','AM','Amazonas');
+INSERT INTO `directory_country_region` VALUES (489,'BR','BA','Bahia');
+INSERT INTO `directory_country_region` VALUES (490,'BR','CE','Ceará');
+INSERT INTO `directory_country_region` VALUES (491,'BR','ES','Espírito Santo');
+INSERT INTO `directory_country_region` VALUES (492,'BR','GO','Goiás');
+INSERT INTO `directory_country_region` VALUES (493,'BR','MA','Maranhão');
+INSERT INTO `directory_country_region` VALUES (494,'BR','MT','Mato Grosso');
+INSERT INTO `directory_country_region` VALUES (495,'BR','MS','Mato Grosso do Sul');
+INSERT INTO `directory_country_region` VALUES (496,'BR','MG','Minas Gerais');
+INSERT INTO `directory_country_region` VALUES (497,'BR','PA','Pará');
+INSERT INTO `directory_country_region` VALUES (498,'BR','PB','Paraíba');
+INSERT INTO `directory_country_region` VALUES (499,'BR','PR','Paraná');
+INSERT INTO `directory_country_region` VALUES (500,'BR','PE','Pernambuco');
+INSERT INTO `directory_country_region` VALUES (501,'BR','PI','Piauí');
+INSERT INTO `directory_country_region` VALUES (502,'BR','RJ','Rio de Janeiro');
+INSERT INTO `directory_country_region` VALUES (503,'BR','RN','Rio Grande do Norte');
+INSERT INTO `directory_country_region` VALUES (504,'BR','RS','Rio Grande do Sul');
+INSERT INTO `directory_country_region` VALUES (505,'BR','RO','Rondônia');
+INSERT INTO `directory_country_region` VALUES (506,'BR','RR','Roraima');
+INSERT INTO `directory_country_region` VALUES (507,'BR','SC','Santa Catarina');
+INSERT INTO `directory_country_region` VALUES (508,'BR','SP','São Paulo');
+INSERT INTO `directory_country_region` VALUES (509,'BR','SE','Sergipe');
+INSERT INTO `directory_country_region` VALUES (510,'BR','TO','Tocantins');
+INSERT INTO `directory_country_region` VALUES (511,'BR','DF','Distrito Federal');
 /*!40000 ALTER TABLE `directory_country_region` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3928,10 +5906,521 @@ CREATE TABLE `directory_country_region_name` (
 --
 -- Dumping data for table `directory_country_region_name`
 --
+-- ORDER BY:  `locale`,`region_id`
 
 LOCK TABLES `directory_country_region_name` WRITE;
 /*!40000 ALTER TABLE `directory_country_region_name` DISABLE KEYS */;
-INSERT INTO `directory_country_region_name` VALUES ('en_US',1,'Alabama'),('en_US',2,'Alaska'),('en_US',3,'American Samoa'),('en_US',4,'Arizona'),('en_US',5,'Arkansas'),('en_US',6,'Armed Forces Africa'),('en_US',7,'Armed Forces Americas'),('en_US',8,'Armed Forces Canada'),('en_US',9,'Armed Forces Europe'),('en_US',10,'Armed Forces Middle East'),('en_US',11,'Armed Forces Pacific'),('en_US',12,'California'),('en_US',13,'Colorado'),('en_US',14,'Connecticut'),('en_US',15,'Delaware'),('en_US',16,'District of Columbia'),('en_US',17,'Federated States Of Micronesia'),('en_US',18,'Florida'),('en_US',19,'Georgia'),('en_US',20,'Guam'),('en_US',21,'Hawaii'),('en_US',22,'Idaho'),('en_US',23,'Illinois'),('en_US',24,'Indiana'),('en_US',25,'Iowa'),('en_US',26,'Kansas'),('en_US',27,'Kentucky'),('en_US',28,'Louisiana'),('en_US',29,'Maine'),('en_US',30,'Marshall Islands'),('en_US',31,'Maryland'),('en_US',32,'Massachusetts'),('en_US',33,'Michigan'),('en_US',34,'Minnesota'),('en_US',35,'Mississippi'),('en_US',36,'Missouri'),('en_US',37,'Montana'),('en_US',38,'Nebraska'),('en_US',39,'Nevada'),('en_US',40,'New Hampshire'),('en_US',41,'New Jersey'),('en_US',42,'New Mexico'),('en_US',43,'New York'),('en_US',44,'North Carolina'),('en_US',45,'North Dakota'),('en_US',46,'Northern Mariana Islands'),('en_US',47,'Ohio'),('en_US',48,'Oklahoma'),('en_US',49,'Oregon'),('en_US',50,'Palau'),('en_US',51,'Pennsylvania'),('en_US',52,'Puerto Rico'),('en_US',53,'Rhode Island'),('en_US',54,'South Carolina'),('en_US',55,'South Dakota'),('en_US',56,'Tennessee'),('en_US',57,'Texas'),('en_US',58,'Utah'),('en_US',59,'Vermont'),('en_US',60,'Virgin Islands'),('en_US',61,'Virginia'),('en_US',62,'Washington'),('en_US',63,'West Virginia'),('en_US',64,'Wisconsin'),('en_US',65,'Wyoming'),('en_US',66,'Alberta'),('en_US',67,'British Columbia'),('en_US',68,'Manitoba'),('en_US',69,'Newfoundland and Labrador'),('en_US',70,'New Brunswick'),('en_US',71,'Nova Scotia'),('en_US',72,'Northwest Territories'),('en_US',73,'Nunavut'),('en_US',74,'Ontario'),('en_US',75,'Prince Edward Island'),('en_US',76,'Quebec'),('en_US',77,'Saskatchewan'),('en_US',78,'Yukon Territory'),('en_US',79,'Niedersachsen'),('en_US',80,'Baden-Württemberg'),('en_US',81,'Bayern'),('en_US',82,'Berlin'),('en_US',83,'Brandenburg'),('en_US',84,'Bremen'),('en_US',85,'Hamburg'),('en_US',86,'Hessen'),('en_US',87,'Mecklenburg-Vorpommern'),('en_US',88,'Nordrhein-Westfalen'),('en_US',89,'Rheinland-Pfalz'),('en_US',90,'Saarland'),('en_US',91,'Sachsen'),('en_US',92,'Sachsen-Anhalt'),('en_US',93,'Schleswig-Holstein'),('en_US',94,'Thüringen'),('en_US',95,'Wien'),('en_US',96,'Niederösterreich'),('en_US',97,'Oberösterreich'),('en_US',98,'Salzburg'),('en_US',99,'Kärnten'),('en_US',100,'Steiermark'),('en_US',101,'Tirol'),('en_US',102,'Burgenland'),('en_US',103,'Vorarlberg'),('en_US',104,'Aargau'),('en_US',105,'Appenzell Innerrhoden'),('en_US',106,'Appenzell Ausserrhoden'),('en_US',107,'Bern'),('en_US',108,'Basel-Landschaft'),('en_US',109,'Basel-Stadt'),('en_US',110,'Freiburg'),('en_US',111,'Genf'),('en_US',112,'Glarus'),('en_US',113,'Graubünden'),('en_US',114,'Jura'),('en_US',115,'Luzern'),('en_US',116,'Neuenburg'),('en_US',117,'Nidwalden'),('en_US',118,'Obwalden'),('en_US',119,'St. Gallen'),('en_US',120,'Schaffhausen'),('en_US',121,'Solothurn'),('en_US',122,'Schwyz'),('en_US',123,'Thurgau'),('en_US',124,'Tessin'),('en_US',125,'Uri'),('en_US',126,'Waadt'),('en_US',127,'Wallis'),('en_US',128,'Zug'),('en_US',129,'Zürich'),('en_US',130,'A Coruña'),('en_US',131,'Alava'),('en_US',132,'Albacete'),('en_US',133,'Alicante'),('en_US',134,'Almeria'),('en_US',135,'Asturias'),('en_US',136,'Avila'),('en_US',137,'Badajoz'),('en_US',138,'Baleares'),('en_US',139,'Barcelona'),('en_US',140,'Burgos'),('en_US',141,'Caceres'),('en_US',142,'Cadiz'),('en_US',143,'Cantabria'),('en_US',144,'Castellon'),('en_US',145,'Ceuta'),('en_US',146,'Ciudad Real'),('en_US',147,'Cordoba'),('en_US',148,'Cuenca'),('en_US',149,'Girona'),('en_US',150,'Granada'),('en_US',151,'Guadalajara'),('en_US',152,'Guipuzcoa'),('en_US',153,'Huelva'),('en_US',154,'Huesca'),('en_US',155,'Jaen'),('en_US',156,'La Rioja'),('en_US',157,'Las Palmas'),('en_US',158,'Leon'),('en_US',159,'Lleida'),('en_US',160,'Lugo'),('en_US',161,'Madrid'),('en_US',162,'Malaga'),('en_US',163,'Melilla'),('en_US',164,'Murcia'),('en_US',165,'Navarra'),('en_US',166,'Ourense'),('en_US',167,'Palencia'),('en_US',168,'Pontevedra'),('en_US',169,'Salamanca'),('en_US',170,'Santa Cruz de Tenerife'),('en_US',171,'Segovia'),('en_US',172,'Sevilla'),('en_US',173,'Soria'),('en_US',174,'Tarragona'),('en_US',175,'Teruel'),('en_US',176,'Toledo'),('en_US',177,'Valencia'),('en_US',178,'Valladolid'),('en_US',179,'Vizcaya'),('en_US',180,'Zamora'),('en_US',181,'Zaragoza'),('en_US',182,'Ain'),('en_US',183,'Aisne'),('en_US',184,'Allier'),('en_US',185,'Alpes-de-Haute-Provence'),('en_US',186,'Hautes-Alpes'),('en_US',187,'Alpes-Maritimes'),('en_US',188,'Ardèche'),('en_US',189,'Ardennes'),('en_US',190,'Ariège'),('en_US',191,'Aube'),('en_US',192,'Aude'),('en_US',193,'Aveyron'),('en_US',194,'Bouches-du-Rhône'),('en_US',195,'Calvados'),('en_US',196,'Cantal'),('en_US',197,'Charente'),('en_US',198,'Charente-Maritime'),('en_US',199,'Cher'),('en_US',200,'Corrèze'),('en_US',201,'Corse-du-Sud'),('en_US',202,'Haute-Corse'),('en_US',203,'Côte-d\'Or'),('en_US',204,'Côtes-d\'Armor'),('en_US',205,'Creuse'),('en_US',206,'Dordogne'),('en_US',207,'Doubs'),('en_US',208,'Drôme'),('en_US',209,'Eure'),('en_US',210,'Eure-et-Loir'),('en_US',211,'Finistère'),('en_US',212,'Gard'),('en_US',213,'Haute-Garonne'),('en_US',214,'Gers'),('en_US',215,'Gironde'),('en_US',216,'Hérault'),('en_US',217,'Ille-et-Vilaine'),('en_US',218,'Indre'),('en_US',219,'Indre-et-Loire'),('en_US',220,'Isère'),('en_US',221,'Jura'),('en_US',222,'Landes'),('en_US',223,'Loir-et-Cher'),('en_US',224,'Loire'),('en_US',225,'Haute-Loire'),('en_US',226,'Loire-Atlantique'),('en_US',227,'Loiret'),('en_US',228,'Lot'),('en_US',229,'Lot-et-Garonne'),('en_US',230,'Lozère'),('en_US',231,'Maine-et-Loire'),('en_US',232,'Manche'),('en_US',233,'Marne'),('en_US',234,'Haute-Marne'),('en_US',235,'Mayenne'),('en_US',236,'Meurthe-et-Moselle'),('en_US',237,'Meuse'),('en_US',238,'Morbihan'),('en_US',239,'Moselle'),('en_US',240,'Nièvre'),('en_US',241,'Nord'),('en_US',242,'Oise'),('en_US',243,'Orne'),('en_US',244,'Pas-de-Calais'),('en_US',245,'Puy-de-Dôme'),('en_US',246,'Pyrénées-Atlantiques'),('en_US',247,'Hautes-Pyrénées'),('en_US',248,'Pyrénées-Orientales'),('en_US',249,'Bas-Rhin'),('en_US',250,'Haut-Rhin'),('en_US',251,'Rhône'),('en_US',252,'Haute-Saône'),('en_US',253,'Saône-et-Loire'),('en_US',254,'Sarthe'),('en_US',255,'Savoie'),('en_US',256,'Haute-Savoie'),('en_US',257,'Paris'),('en_US',258,'Seine-Maritime'),('en_US',259,'Seine-et-Marne'),('en_US',260,'Yvelines'),('en_US',261,'Deux-Sèvres'),('en_US',262,'Somme'),('en_US',263,'Tarn'),('en_US',264,'Tarn-et-Garonne'),('en_US',265,'Var'),('en_US',266,'Vaucluse'),('en_US',267,'Vendée'),('en_US',268,'Vienne'),('en_US',269,'Haute-Vienne'),('en_US',270,'Vosges'),('en_US',271,'Yonne'),('en_US',272,'Territoire-de-Belfort'),('en_US',273,'Essonne'),('en_US',274,'Hauts-de-Seine'),('en_US',275,'Seine-Saint-Denis'),('en_US',276,'Val-de-Marne'),('en_US',277,'Val-d\'Oise'),('en_US',278,'Alba'),('en_US',279,'Arad'),('en_US',280,'Argeş'),('en_US',281,'Bacău'),('en_US',282,'Bihor'),('en_US',283,'Bistriţa-Năsăud'),('en_US',284,'Botoşani'),('en_US',285,'Braşov'),('en_US',286,'Brăila'),('en_US',287,'Bucureşti'),('en_US',288,'Buzău'),('en_US',289,'Caraş-Severin'),('en_US',290,'Călăraşi'),('en_US',291,'Cluj'),('en_US',292,'Constanţa'),('en_US',293,'Covasna'),('en_US',294,'Dâmboviţa'),('en_US',295,'Dolj'),('en_US',296,'Galaţi'),('en_US',297,'Giurgiu'),('en_US',298,'Gorj'),('en_US',299,'Harghita'),('en_US',300,'Hunedoara'),('en_US',301,'Ialomiţa'),('en_US',302,'Iaşi'),('en_US',303,'Ilfov'),('en_US',304,'Maramureş'),('en_US',305,'Mehedinţi'),('en_US',306,'Mureş'),('en_US',307,'Neamţ'),('en_US',308,'Olt'),('en_US',309,'Prahova'),('en_US',310,'Satu-Mare'),('en_US',311,'Sălaj'),('en_US',312,'Sibiu'),('en_US',313,'Suceava'),('en_US',314,'Teleorman'),('en_US',315,'Timiş'),('en_US',316,'Tulcea'),('en_US',317,'Vaslui'),('en_US',318,'Vâlcea'),('en_US',319,'Vrancea'),('en_US',320,'Lappi'),('en_US',321,'Pohjois-Pohjanmaa'),('en_US',322,'Kainuu'),('en_US',323,'Pohjois-Karjala'),('en_US',324,'Pohjois-Savo'),('en_US',325,'Etelä-Savo'),('en_US',326,'Etelä-Pohjanmaa'),('en_US',327,'Pohjanmaa'),('en_US',328,'Pirkanmaa'),('en_US',329,'Satakunta'),('en_US',330,'Keski-Pohjanmaa'),('en_US',331,'Keski-Suomi'),('en_US',332,'Varsinais-Suomi'),('en_US',333,'Etelä-Karjala'),('en_US',334,'Päijät-Häme'),('en_US',335,'Kanta-Häme'),('en_US',336,'Uusimaa'),('en_US',337,'Itä-Uusimaa'),('en_US',338,'Kymenlaakso'),('en_US',339,'Ahvenanmaa'),('en_US',340,'Harjumaa'),('en_US',341,'Hiiumaa'),('en_US',342,'Ida-Virumaa'),('en_US',343,'Jõgevamaa'),('en_US',344,'Järvamaa'),('en_US',345,'Läänemaa'),('en_US',346,'Lääne-Virumaa'),('en_US',347,'Põlvamaa'),('en_US',348,'Pärnumaa'),('en_US',349,'Raplamaa'),('en_US',350,'Saaremaa'),('en_US',351,'Tartumaa'),('en_US',352,'Valgamaa'),('en_US',353,'Viljandimaa'),('en_US',354,'Võrumaa'),('en_US',355,'Daugavpils'),('en_US',356,'Jelgava'),('en_US',357,'Jēkabpils'),('en_US',358,'Jūrmala'),('en_US',359,'Liepāja'),('en_US',360,'Liepājas novads'),('en_US',361,'Rēzekne'),('en_US',362,'Rīga'),('en_US',363,'Rīgas novads'),('en_US',364,'Valmiera'),('en_US',365,'Ventspils'),('en_US',366,'Aglonas novads'),('en_US',367,'Aizkraukles novads'),('en_US',368,'Aizputes novads'),('en_US',369,'Aknīstes novads'),('en_US',370,'Alojas novads'),('en_US',371,'Alsungas novads'),('en_US',372,'Alūksnes novads'),('en_US',373,'Amatas novads'),('en_US',374,'Apes novads'),('en_US',375,'Auces novads'),('en_US',376,'Babītes novads'),('en_US',377,'Baldones novads'),('en_US',378,'Baltinavas novads'),('en_US',379,'Balvu novads'),('en_US',380,'Bauskas novads'),('en_US',381,'Beverīnas novads'),('en_US',382,'Brocēnu novads'),('en_US',383,'Burtnieku novads'),('en_US',384,'Carnikavas novads'),('en_US',385,'Cesvaines novads'),('en_US',386,'Ciblas novads'),('en_US',387,'Cēsu novads'),('en_US',388,'Dagdas novads'),('en_US',389,'Daugavpils novads'),('en_US',390,'Dobeles novads'),('en_US',391,'Dundagas novads'),('en_US',392,'Durbes novads'),('en_US',393,'Engures novads'),('en_US',394,'Garkalnes novads'),('en_US',395,'Grobiņas novads'),('en_US',396,'Gulbenes novads'),('en_US',397,'Iecavas novads'),('en_US',398,'Ikšķiles novads'),('en_US',399,'Ilūkstes novads'),('en_US',400,'Inčukalna novads'),('en_US',401,'Jaunjelgavas novads'),('en_US',402,'Jaunpiebalgas novads'),('en_US',403,'Jaunpils novads'),('en_US',404,'Jelgavas novads'),('en_US',405,'Jēkabpils novads'),('en_US',406,'Kandavas novads'),('en_US',407,'Kokneses novads'),('en_US',408,'Krimuldas novads'),('en_US',409,'Krustpils novads'),('en_US',410,'Krāslavas novads'),('en_US',411,'Kuldīgas novads'),('en_US',412,'Kārsavas novads'),('en_US',413,'Lielvārdes novads'),('en_US',414,'Limbažu novads'),('en_US',415,'Lubānas novads'),('en_US',416,'Ludzas novads'),('en_US',417,'Līgatnes novads'),('en_US',418,'Līvānu novads'),('en_US',419,'Madonas novads'),('en_US',420,'Mazsalacas novads'),('en_US',421,'Mālpils novads'),('en_US',422,'Mārupes novads'),('en_US',423,'Naukšēnu novads'),('en_US',424,'Neretas novads'),('en_US',425,'Nīcas novads'),('en_US',426,'Ogres novads'),('en_US',427,'Olaines novads'),('en_US',428,'Ozolnieku novads'),('en_US',429,'Preiļu novads'),('en_US',430,'Priekules novads'),('en_US',431,'Priekuļu novads'),('en_US',432,'Pārgaujas novads'),('en_US',433,'Pāvilostas novads'),('en_US',434,'Pļaviņu novads'),('en_US',435,'Raunas novads'),('en_US',436,'Riebiņu novads'),('en_US',437,'Rojas novads'),('en_US',438,'Ropažu novads'),('en_US',439,'Rucavas novads'),('en_US',440,'Rugāju novads'),('en_US',441,'Rundāles novads'),('en_US',442,'Rēzeknes novads'),('en_US',443,'Rūjienas novads'),('en_US',444,'Salacgrīvas novads'),('en_US',445,'Salas novads'),('en_US',446,'Salaspils novads'),('en_US',447,'Saldus novads'),('en_US',448,'Saulkrastu novads'),('en_US',449,'Siguldas novads'),('en_US',450,'Skrundas novads'),('en_US',451,'Skrīveru novads'),('en_US',452,'Smiltenes novads'),('en_US',453,'Stopiņu novads'),('en_US',454,'Strenču novads'),('en_US',455,'Sējas novads'),('en_US',456,'Talsu novads'),('en_US',457,'Tukuma novads'),('en_US',458,'Tērvetes novads'),('en_US',459,'Vaiņodes novads'),('en_US',460,'Valkas novads'),('en_US',461,'Valmieras novads'),('en_US',462,'Varakļānu novads'),('en_US',463,'Vecpiebalgas novads'),('en_US',464,'Vecumnieku novads'),('en_US',465,'Ventspils novads'),('en_US',466,'Viesītes novads'),('en_US',467,'Viļakas novads'),('en_US',468,'Viļānu novads'),('en_US',469,'Vārkavas novads'),('en_US',470,'Zilupes novads'),('en_US',471,'Ādažu novads'),('en_US',472,'Ērgļu novads'),('en_US',473,'Ķeguma novads'),('en_US',474,'Ķekavas novads'),('en_US',475,'Alytaus Apskritis'),('en_US',476,'Kauno Apskritis'),('en_US',477,'Klaipėdos Apskritis'),('en_US',478,'Marijampolės Apskritis'),('en_US',479,'Panevėžio Apskritis'),('en_US',480,'Šiaulių Apskritis'),('en_US',481,'Tauragės Apskritis'),('en_US',482,'Telšių Apskritis'),('en_US',483,'Utenos Apskritis'),('en_US',484,'Vilniaus Apskritis'),('en_US',485,'Acre'),('en_US',486,'Alagoas'),('en_US',487,'Amapá'),('en_US',488,'Amazonas'),('en_US',489,'Bahia'),('en_US',490,'Ceará'),('en_US',491,'Espírito Santo'),('en_US',492,'Goiás'),('en_US',493,'Maranhão'),('en_US',494,'Mato Grosso'),('en_US',495,'Mato Grosso do Sul'),('en_US',496,'Minas Gerais'),('en_US',497,'Pará'),('en_US',498,'Paraíba'),('en_US',499,'Paraná'),('en_US',500,'Pernambuco'),('en_US',501,'Piauí'),('en_US',502,'Rio de Janeiro'),('en_US',503,'Rio Grande do Norte'),('en_US',504,'Rio Grande do Sul'),('en_US',505,'Rondônia'),('en_US',506,'Roraima'),('en_US',507,'Santa Catarina'),('en_US',508,'São Paulo'),('en_US',509,'Sergipe'),('en_US',510,'Tocantins'),('en_US',511,'Distrito Federal');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',1,'Alabama');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',2,'Alaska');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',3,'American Samoa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',4,'Arizona');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',5,'Arkansas');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',6,'Armed Forces Africa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',7,'Armed Forces Americas');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',8,'Armed Forces Canada');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',9,'Armed Forces Europe');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',10,'Armed Forces Middle East');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',11,'Armed Forces Pacific');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',12,'California');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',13,'Colorado');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',14,'Connecticut');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',15,'Delaware');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',16,'District of Columbia');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',17,'Federated States Of Micronesia');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',18,'Florida');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',19,'Georgia');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',20,'Guam');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',21,'Hawaii');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',22,'Idaho');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',23,'Illinois');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',24,'Indiana');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',25,'Iowa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',26,'Kansas');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',27,'Kentucky');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',28,'Louisiana');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',29,'Maine');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',30,'Marshall Islands');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',31,'Maryland');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',32,'Massachusetts');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',33,'Michigan');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',34,'Minnesota');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',35,'Mississippi');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',36,'Missouri');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',37,'Montana');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',38,'Nebraska');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',39,'Nevada');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',40,'New Hampshire');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',41,'New Jersey');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',42,'New Mexico');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',43,'New York');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',44,'North Carolina');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',45,'North Dakota');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',46,'Northern Mariana Islands');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',47,'Ohio');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',48,'Oklahoma');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',49,'Oregon');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',50,'Palau');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',51,'Pennsylvania');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',52,'Puerto Rico');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',53,'Rhode Island');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',54,'South Carolina');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',55,'South Dakota');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',56,'Tennessee');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',57,'Texas');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',58,'Utah');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',59,'Vermont');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',60,'Virgin Islands');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',61,'Virginia');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',62,'Washington');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',63,'West Virginia');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',64,'Wisconsin');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',65,'Wyoming');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',66,'Alberta');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',67,'British Columbia');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',68,'Manitoba');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',69,'Newfoundland and Labrador');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',70,'New Brunswick');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',71,'Nova Scotia');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',72,'Northwest Territories');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',73,'Nunavut');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',74,'Ontario');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',75,'Prince Edward Island');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',76,'Quebec');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',77,'Saskatchewan');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',78,'Yukon Territory');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',79,'Niedersachsen');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',80,'Baden-Württemberg');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',81,'Bayern');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',82,'Berlin');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',83,'Brandenburg');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',84,'Bremen');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',85,'Hamburg');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',86,'Hessen');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',87,'Mecklenburg-Vorpommern');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',88,'Nordrhein-Westfalen');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',89,'Rheinland-Pfalz');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',90,'Saarland');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',91,'Sachsen');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',92,'Sachsen-Anhalt');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',93,'Schleswig-Holstein');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',94,'Thüringen');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',95,'Wien');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',96,'Niederösterreich');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',97,'Oberösterreich');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',98,'Salzburg');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',99,'Kärnten');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',100,'Steiermark');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',101,'Tirol');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',102,'Burgenland');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',103,'Vorarlberg');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',104,'Aargau');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',105,'Appenzell Innerrhoden');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',106,'Appenzell Ausserrhoden');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',107,'Bern');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',108,'Basel-Landschaft');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',109,'Basel-Stadt');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',110,'Freiburg');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',111,'Genf');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',112,'Glarus');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',113,'Graubünden');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',114,'Jura');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',115,'Luzern');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',116,'Neuenburg');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',117,'Nidwalden');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',118,'Obwalden');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',119,'St. Gallen');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',120,'Schaffhausen');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',121,'Solothurn');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',122,'Schwyz');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',123,'Thurgau');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',124,'Tessin');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',125,'Uri');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',126,'Waadt');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',127,'Wallis');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',128,'Zug');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',129,'Zürich');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',130,'A Coruña');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',131,'Alava');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',132,'Albacete');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',133,'Alicante');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',134,'Almeria');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',135,'Asturias');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',136,'Avila');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',137,'Badajoz');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',138,'Baleares');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',139,'Barcelona');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',140,'Burgos');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',141,'Caceres');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',142,'Cadiz');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',143,'Cantabria');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',144,'Castellon');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',145,'Ceuta');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',146,'Ciudad Real');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',147,'Cordoba');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',148,'Cuenca');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',149,'Girona');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',150,'Granada');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',151,'Guadalajara');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',152,'Guipuzcoa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',153,'Huelva');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',154,'Huesca');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',155,'Jaen');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',156,'La Rioja');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',157,'Las Palmas');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',158,'Leon');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',159,'Lleida');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',160,'Lugo');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',161,'Madrid');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',162,'Malaga');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',163,'Melilla');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',164,'Murcia');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',165,'Navarra');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',166,'Ourense');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',167,'Palencia');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',168,'Pontevedra');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',169,'Salamanca');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',170,'Santa Cruz de Tenerife');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',171,'Segovia');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',172,'Sevilla');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',173,'Soria');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',174,'Tarragona');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',175,'Teruel');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',176,'Toledo');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',177,'Valencia');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',178,'Valladolid');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',179,'Vizcaya');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',180,'Zamora');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',181,'Zaragoza');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',182,'Ain');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',183,'Aisne');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',184,'Allier');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',185,'Alpes-de-Haute-Provence');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',186,'Hautes-Alpes');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',187,'Alpes-Maritimes');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',188,'Ardèche');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',189,'Ardennes');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',190,'Ariège');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',191,'Aube');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',192,'Aude');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',193,'Aveyron');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',194,'Bouches-du-Rhône');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',195,'Calvados');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',196,'Cantal');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',197,'Charente');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',198,'Charente-Maritime');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',199,'Cher');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',200,'Corrèze');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',201,'Corse-du-Sud');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',202,'Haute-Corse');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',203,'Côte-d\'Or');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',204,'Côtes-d\'Armor');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',205,'Creuse');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',206,'Dordogne');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',207,'Doubs');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',208,'Drôme');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',209,'Eure');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',210,'Eure-et-Loir');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',211,'Finistère');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',212,'Gard');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',213,'Haute-Garonne');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',214,'Gers');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',215,'Gironde');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',216,'Hérault');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',217,'Ille-et-Vilaine');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',218,'Indre');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',219,'Indre-et-Loire');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',220,'Isère');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',221,'Jura');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',222,'Landes');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',223,'Loir-et-Cher');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',224,'Loire');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',225,'Haute-Loire');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',226,'Loire-Atlantique');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',227,'Loiret');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',228,'Lot');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',229,'Lot-et-Garonne');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',230,'Lozère');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',231,'Maine-et-Loire');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',232,'Manche');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',233,'Marne');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',234,'Haute-Marne');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',235,'Mayenne');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',236,'Meurthe-et-Moselle');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',237,'Meuse');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',238,'Morbihan');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',239,'Moselle');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',240,'Nièvre');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',241,'Nord');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',242,'Oise');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',243,'Orne');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',244,'Pas-de-Calais');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',245,'Puy-de-Dôme');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',246,'Pyrénées-Atlantiques');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',247,'Hautes-Pyrénées');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',248,'Pyrénées-Orientales');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',249,'Bas-Rhin');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',250,'Haut-Rhin');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',251,'Rhône');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',252,'Haute-Saône');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',253,'Saône-et-Loire');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',254,'Sarthe');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',255,'Savoie');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',256,'Haute-Savoie');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',257,'Paris');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',258,'Seine-Maritime');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',259,'Seine-et-Marne');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',260,'Yvelines');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',261,'Deux-Sèvres');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',262,'Somme');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',263,'Tarn');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',264,'Tarn-et-Garonne');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',265,'Var');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',266,'Vaucluse');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',267,'Vendée');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',268,'Vienne');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',269,'Haute-Vienne');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',270,'Vosges');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',271,'Yonne');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',272,'Territoire-de-Belfort');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',273,'Essonne');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',274,'Hauts-de-Seine');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',275,'Seine-Saint-Denis');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',276,'Val-de-Marne');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',277,'Val-d\'Oise');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',278,'Alba');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',279,'Arad');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',280,'Argeş');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',281,'Bacău');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',282,'Bihor');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',283,'Bistriţa-Năsăud');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',284,'Botoşani');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',285,'Braşov');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',286,'Brăila');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',287,'Bucureşti');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',288,'Buzău');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',289,'Caraş-Severin');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',290,'Călăraşi');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',291,'Cluj');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',292,'Constanţa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',293,'Covasna');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',294,'Dâmboviţa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',295,'Dolj');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',296,'Galaţi');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',297,'Giurgiu');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',298,'Gorj');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',299,'Harghita');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',300,'Hunedoara');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',301,'Ialomiţa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',302,'Iaşi');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',303,'Ilfov');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',304,'Maramureş');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',305,'Mehedinţi');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',306,'Mureş');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',307,'Neamţ');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',308,'Olt');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',309,'Prahova');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',310,'Satu-Mare');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',311,'Sălaj');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',312,'Sibiu');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',313,'Suceava');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',314,'Teleorman');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',315,'Timiş');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',316,'Tulcea');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',317,'Vaslui');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',318,'Vâlcea');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',319,'Vrancea');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',320,'Lappi');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',321,'Pohjois-Pohjanmaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',322,'Kainuu');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',323,'Pohjois-Karjala');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',324,'Pohjois-Savo');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',325,'Etelä-Savo');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',326,'Etelä-Pohjanmaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',327,'Pohjanmaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',328,'Pirkanmaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',329,'Satakunta');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',330,'Keski-Pohjanmaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',331,'Keski-Suomi');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',332,'Varsinais-Suomi');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',333,'Etelä-Karjala');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',334,'Päijät-Häme');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',335,'Kanta-Häme');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',336,'Uusimaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',337,'Itä-Uusimaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',338,'Kymenlaakso');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',339,'Ahvenanmaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',340,'Harjumaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',341,'Hiiumaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',342,'Ida-Virumaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',343,'Jõgevamaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',344,'Järvamaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',345,'Läänemaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',346,'Lääne-Virumaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',347,'Põlvamaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',348,'Pärnumaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',349,'Raplamaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',350,'Saaremaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',351,'Tartumaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',352,'Valgamaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',353,'Viljandimaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',354,'Võrumaa');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',355,'Daugavpils');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',356,'Jelgava');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',357,'Jēkabpils');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',358,'Jūrmala');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',359,'Liepāja');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',360,'Liepājas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',361,'Rēzekne');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',362,'Rīga');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',363,'Rīgas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',364,'Valmiera');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',365,'Ventspils');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',366,'Aglonas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',367,'Aizkraukles novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',368,'Aizputes novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',369,'Aknīstes novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',370,'Alojas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',371,'Alsungas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',372,'Alūksnes novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',373,'Amatas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',374,'Apes novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',375,'Auces novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',376,'Babītes novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',377,'Baldones novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',378,'Baltinavas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',379,'Balvu novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',380,'Bauskas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',381,'Beverīnas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',382,'Brocēnu novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',383,'Burtnieku novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',384,'Carnikavas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',385,'Cesvaines novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',386,'Ciblas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',387,'Cēsu novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',388,'Dagdas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',389,'Daugavpils novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',390,'Dobeles novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',391,'Dundagas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',392,'Durbes novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',393,'Engures novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',394,'Garkalnes novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',395,'Grobiņas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',396,'Gulbenes novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',397,'Iecavas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',398,'Ikšķiles novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',399,'Ilūkstes novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',400,'Inčukalna novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',401,'Jaunjelgavas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',402,'Jaunpiebalgas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',403,'Jaunpils novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',404,'Jelgavas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',405,'Jēkabpils novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',406,'Kandavas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',407,'Kokneses novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',408,'Krimuldas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',409,'Krustpils novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',410,'Krāslavas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',411,'Kuldīgas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',412,'Kārsavas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',413,'Lielvārdes novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',414,'Limbažu novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',415,'Lubānas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',416,'Ludzas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',417,'Līgatnes novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',418,'Līvānu novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',419,'Madonas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',420,'Mazsalacas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',421,'Mālpils novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',422,'Mārupes novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',423,'Naukšēnu novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',424,'Neretas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',425,'Nīcas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',426,'Ogres novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',427,'Olaines novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',428,'Ozolnieku novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',429,'Preiļu novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',430,'Priekules novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',431,'Priekuļu novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',432,'Pārgaujas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',433,'Pāvilostas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',434,'Pļaviņu novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',435,'Raunas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',436,'Riebiņu novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',437,'Rojas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',438,'Ropažu novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',439,'Rucavas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',440,'Rugāju novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',441,'Rundāles novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',442,'Rēzeknes novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',443,'Rūjienas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',444,'Salacgrīvas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',445,'Salas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',446,'Salaspils novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',447,'Saldus novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',448,'Saulkrastu novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',449,'Siguldas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',450,'Skrundas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',451,'Skrīveru novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',452,'Smiltenes novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',453,'Stopiņu novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',454,'Strenču novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',455,'Sējas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',456,'Talsu novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',457,'Tukuma novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',458,'Tērvetes novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',459,'Vaiņodes novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',460,'Valkas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',461,'Valmieras novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',462,'Varakļānu novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',463,'Vecpiebalgas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',464,'Vecumnieku novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',465,'Ventspils novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',466,'Viesītes novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',467,'Viļakas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',468,'Viļānu novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',469,'Vārkavas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',470,'Zilupes novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',471,'Ādažu novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',472,'Ērgļu novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',473,'Ķeguma novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',474,'Ķekavas novads');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',475,'Alytaus Apskritis');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',476,'Kauno Apskritis');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',477,'Klaipėdos Apskritis');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',478,'Marijampolės Apskritis');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',479,'Panevėžio Apskritis');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',480,'Šiaulių Apskritis');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',481,'Tauragės Apskritis');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',482,'Telšių Apskritis');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',483,'Utenos Apskritis');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',484,'Vilniaus Apskritis');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',485,'Acre');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',486,'Alagoas');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',487,'Amapá');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',488,'Amazonas');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',489,'Bahia');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',490,'Ceará');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',491,'Espírito Santo');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',492,'Goiás');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',493,'Maranhão');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',494,'Mato Grosso');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',495,'Mato Grosso do Sul');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',496,'Minas Gerais');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',497,'Pará');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',498,'Paraíba');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',499,'Paraná');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',500,'Pernambuco');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',501,'Piauí');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',502,'Rio de Janeiro');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',503,'Rio Grande do Norte');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',504,'Rio Grande do Sul');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',505,'Rondônia');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',506,'Roraima');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',507,'Santa Catarina');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',508,'São Paulo');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',509,'Sergipe');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',510,'Tocantins');
+INSERT INTO `directory_country_region_name` VALUES ('en_US',511,'Distrito Federal');
 /*!40000 ALTER TABLE `directory_country_region_name` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3954,10 +6443,15 @@ CREATE TABLE `directory_currency_rate` (
 --
 -- Dumping data for table `directory_currency_rate`
 --
+-- ORDER BY:  `currency_from`,`currency_to`
 
 LOCK TABLES `directory_currency_rate` WRITE;
 /*!40000 ALTER TABLE `directory_currency_rate` DISABLE KEYS */;
-INSERT INTO `directory_currency_rate` VALUES ('AUD','AUD',1.000000000000),('EUR','EUR',1.000000000000),('EUR','USD',1.415000000000),('USD','EUR',0.706700000000),('USD','USD',1.000000000000);
+INSERT INTO `directory_currency_rate` VALUES ('AUD','AUD',1.000000000000);
+INSERT INTO `directory_currency_rate` VALUES ('EUR','EUR',1.000000000000);
+INSERT INTO `directory_currency_rate` VALUES ('EUR','USD',1.415000000000);
+INSERT INTO `directory_currency_rate` VALUES ('USD','EUR',0.706700000000);
+INSERT INTO `directory_currency_rate` VALUES ('USD','USD',1.000000000000);
 /*!40000 ALTER TABLE `directory_currency_rate` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3989,6 +6483,7 @@ CREATE TABLE `downloadable_link` (
 --
 -- Dumping data for table `downloadable_link`
 --
+-- ORDER BY:  `link_id`
 
 LOCK TABLES `downloadable_link` WRITE;
 /*!40000 ALTER TABLE `downloadable_link` DISABLE KEYS */;
@@ -4018,6 +6513,7 @@ CREATE TABLE `downloadable_link_price` (
 --
 -- Dumping data for table `downloadable_link_price`
 --
+-- ORDER BY:  `price_id`
 
 LOCK TABLES `downloadable_link_price` WRITE;
 /*!40000 ALTER TABLE `downloadable_link_price` DISABLE KEYS */;
@@ -4054,6 +6550,7 @@ CREATE TABLE `downloadable_link_purchased` (
 --
 -- Dumping data for table `downloadable_link_purchased`
 --
+-- ORDER BY:  `purchased_id`
 
 LOCK TABLES `downloadable_link_purchased` WRITE;
 /*!40000 ALTER TABLE `downloadable_link_purchased` DISABLE KEYS */;
@@ -4096,6 +6593,7 @@ CREATE TABLE `downloadable_link_purchased_item` (
 --
 -- Dumping data for table `downloadable_link_purchased_item`
 --
+-- ORDER BY:  `item_id`
 
 LOCK TABLES `downloadable_link_purchased_item` WRITE;
 /*!40000 ALTER TABLE `downloadable_link_purchased_item` DISABLE KEYS */;
@@ -4125,6 +6623,7 @@ CREATE TABLE `downloadable_link_title` (
 --
 -- Dumping data for table `downloadable_link_title`
 --
+-- ORDER BY:  `title_id`
 
 LOCK TABLES `downloadable_link_title` WRITE;
 /*!40000 ALTER TABLE `downloadable_link_title` DISABLE KEYS */;
@@ -4154,6 +6653,7 @@ CREATE TABLE `downloadable_sample` (
 --
 -- Dumping data for table `downloadable_sample`
 --
+-- ORDER BY:  `sample_id`
 
 LOCK TABLES `downloadable_sample` WRITE;
 /*!40000 ALTER TABLE `downloadable_sample` DISABLE KEYS */;
@@ -4183,6 +6683,7 @@ CREATE TABLE `downloadable_sample_title` (
 --
 -- Dumping data for table `downloadable_sample_title`
 --
+-- ORDER BY:  `title_id`
 
 LOCK TABLES `downloadable_sample_title` WRITE;
 /*!40000 ALTER TABLE `downloadable_sample_title` DISABLE KEYS */;
@@ -4223,10 +6724,142 @@ CREATE TABLE `eav_attribute` (
 --
 -- Dumping data for table `eav_attribute`
 --
+-- ORDER BY:  `attribute_id`
 
 LOCK TABLES `eav_attribute` WRITE;
 /*!40000 ALTER TABLE `eav_attribute` DISABLE KEYS */;
-INSERT INTO `eav_attribute` VALUES (1,1,'website_id',NULL,'Magento\\Customer\\Model\\Customer\\Attribute\\Backend\\Website','static',NULL,NULL,'select','Associate to Website',NULL,'Magento\\Customer\\Model\\Customer\\Attribute\\Source\\Website',1,0,NULL,0,NULL),(2,1,'store_id',NULL,'Magento\\Customer\\Model\\Customer\\Attribute\\Backend\\Store','static',NULL,NULL,'select','Create In',NULL,'Magento\\Customer\\Model\\Customer\\Attribute\\Source\\Store',1,0,NULL,0,NULL),(3,1,'created_in',NULL,NULL,'static',NULL,NULL,'text','Created From',NULL,NULL,0,0,NULL,0,NULL),(4,1,'prefix',NULL,NULL,'static',NULL,NULL,'text','Prefix',NULL,NULL,0,0,NULL,0,NULL),(5,1,'firstname',NULL,NULL,'static',NULL,NULL,'text','First Name',NULL,NULL,1,0,NULL,0,NULL),(6,1,'middlename',NULL,NULL,'static',NULL,NULL,'text','Middle Name/Initial',NULL,NULL,0,0,NULL,0,NULL),(7,1,'lastname',NULL,NULL,'static',NULL,NULL,'text','Last Name',NULL,NULL,1,0,NULL,0,NULL),(8,1,'suffix',NULL,NULL,'static',NULL,NULL,'text','Suffix',NULL,NULL,0,0,NULL,0,NULL),(9,1,'email',NULL,NULL,'static',NULL,NULL,'text','Email',NULL,NULL,1,0,NULL,0,NULL),(10,1,'group_id',NULL,NULL,'static',NULL,NULL,'select','Group',NULL,'Magento\\Customer\\Model\\Customer\\Attribute\\Source\\Group',1,0,NULL,0,NULL),(11,1,'dob',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Backend\\Datetime','static',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Frontend\\Datetime','date','Date Of Birth',NULL,NULL,0,0,NULL,0,NULL),(12,1,'password_hash',NULL,'Magento\\Customer\\Model\\Customer\\Attribute\\Backend\\Password','static',NULL,NULL,'hidden',NULL,NULL,NULL,0,0,NULL,0,NULL),(13,1,'rp_token',NULL,NULL,'static',NULL,NULL,'hidden',NULL,NULL,NULL,0,0,NULL,0,NULL),(14,1,'rp_token_created_at',NULL,NULL,'static',NULL,NULL,'date',NULL,NULL,NULL,0,0,NULL,0,NULL),(15,1,'default_billing',NULL,'Magento\\Customer\\Model\\Customer\\Attribute\\Backend\\Billing','static',NULL,NULL,'text','Default Billing Address',NULL,NULL,0,0,NULL,0,NULL),(16,1,'default_shipping',NULL,'Magento\\Customer\\Model\\Customer\\Attribute\\Backend\\Shipping','static',NULL,NULL,'text','Default Shipping Address',NULL,NULL,0,0,NULL,0,NULL),(17,1,'taxvat',NULL,NULL,'static',NULL,NULL,'text','Tax/VAT Number',NULL,NULL,0,0,NULL,0,NULL),(18,1,'confirmation',NULL,NULL,'static',NULL,NULL,'text','Is Confirmed',NULL,NULL,0,0,NULL,0,NULL),(19,1,'created_at',NULL,NULL,'static',NULL,NULL,'date','Created At',NULL,NULL,0,0,NULL,0,NULL),(20,1,'gender',NULL,NULL,'static',NULL,NULL,'select','Gender',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Source\\Table',0,0,NULL,0,NULL),(21,1,'disable_auto_group_change',NULL,'Magento\\Customer\\Model\\Attribute\\Backend\\Data\\Boolean','static',NULL,NULL,'boolean','Disable Automatic Group Change Based on VAT ID',NULL,NULL,0,0,'0',0,NULL),(22,2,'prefix',NULL,NULL,'static',NULL,NULL,'text','Prefix',NULL,NULL,0,0,NULL,0,NULL),(23,2,'firstname',NULL,NULL,'static',NULL,NULL,'text','First Name',NULL,NULL,1,0,NULL,0,NULL),(24,2,'middlename',NULL,NULL,'static',NULL,NULL,'text','Middle Name/Initial',NULL,NULL,0,0,NULL,0,NULL),(25,2,'lastname',NULL,NULL,'static',NULL,NULL,'text','Last Name',NULL,NULL,1,0,NULL,0,NULL),(26,2,'suffix',NULL,NULL,'static',NULL,NULL,'text','Suffix',NULL,NULL,0,0,NULL,0,NULL),(27,2,'company',NULL,NULL,'static',NULL,NULL,'text','Company',NULL,NULL,0,0,NULL,0,NULL),(28,2,'street',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Backend\\DefaultBackend','static',NULL,NULL,'multiline','Street Address',NULL,NULL,1,0,NULL,0,NULL),(29,2,'city',NULL,NULL,'static',NULL,NULL,'text','City',NULL,NULL,1,0,NULL,0,NULL),(30,2,'country_id',NULL,NULL,'static',NULL,NULL,'select','Country',NULL,'Magento\\Customer\\Model\\ResourceModel\\Address\\Attribute\\Source\\Country',1,0,NULL,0,NULL),(31,2,'region',NULL,'Magento\\Customer\\Model\\ResourceModel\\Address\\Attribute\\Backend\\Region','static',NULL,NULL,'text','State/Province',NULL,NULL,0,0,NULL,0,NULL),(32,2,'region_id',NULL,NULL,'static',NULL,NULL,'hidden','State/Province',NULL,'Magento\\Customer\\Model\\ResourceModel\\Address\\Attribute\\Source\\Region',0,0,NULL,0,NULL),(33,2,'postcode',NULL,NULL,'static',NULL,NULL,'text','Zip/Postal Code',NULL,NULL,0,0,NULL,0,NULL),(34,2,'telephone',NULL,NULL,'static',NULL,NULL,'text','Phone Number',NULL,NULL,1,0,NULL,0,NULL),(35,2,'fax',NULL,NULL,'static',NULL,NULL,'text','Fax',NULL,NULL,0,0,NULL,0,NULL),(36,2,'vat_id',NULL,NULL,'static',NULL,NULL,'text','VAT number',NULL,NULL,0,0,NULL,0,NULL),(37,2,'vat_is_valid',NULL,NULL,'static',NULL,NULL,'text','VAT number validity',NULL,NULL,0,0,NULL,0,NULL),(38,2,'vat_request_id',NULL,NULL,'static',NULL,NULL,'text','VAT number validation request ID',NULL,NULL,0,0,NULL,0,NULL),(39,2,'vat_request_date',NULL,NULL,'static',NULL,NULL,'text','VAT number validation request date',NULL,NULL,0,0,NULL,0,NULL),(40,2,'vat_request_success',NULL,NULL,'static',NULL,NULL,'text','VAT number validation request success',NULL,NULL,0,0,NULL,0,NULL),(41,1,'updated_at',NULL,NULL,'static',NULL,NULL,'date','Updated At',NULL,NULL,0,0,NULL,0,NULL),(42,3,'name',NULL,NULL,'varchar',NULL,NULL,'text','Name',NULL,NULL,1,0,NULL,0,NULL),(43,3,'is_active',NULL,NULL,'int',NULL,NULL,'select','Is Active',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Source\\Boolean',1,0,NULL,0,NULL),(44,3,'description',NULL,NULL,'text',NULL,NULL,'textarea','Description',NULL,NULL,0,0,NULL,0,NULL),(45,3,'image',NULL,'Magento\\Catalog\\Model\\Category\\Attribute\\Backend\\Image','varchar',NULL,NULL,'image','Image',NULL,NULL,0,0,NULL,0,NULL),(46,3,'meta_title',NULL,NULL,'varchar',NULL,NULL,'text','Page Title',NULL,NULL,0,0,NULL,0,NULL),(47,3,'meta_keywords',NULL,NULL,'text',NULL,NULL,'textarea','Meta Keywords',NULL,NULL,0,0,NULL,0,NULL),(48,3,'meta_description',NULL,NULL,'text',NULL,NULL,'textarea','Meta Description',NULL,NULL,0,0,NULL,0,NULL),(49,3,'display_mode',NULL,NULL,'varchar',NULL,NULL,'select','Display Mode',NULL,'Magento\\Catalog\\Model\\Category\\Attribute\\Source\\Mode',0,0,NULL,0,NULL),(50,3,'landing_page',NULL,NULL,'int',NULL,NULL,'select','CMS Block',NULL,'Magento\\Catalog\\Model\\Category\\Attribute\\Source\\Page',0,0,NULL,0,NULL),(51,3,'is_anchor',NULL,NULL,'int',NULL,NULL,'select','Is Anchor',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Source\\Boolean',0,0,'1',0,NULL),(52,3,'path',NULL,NULL,'static',NULL,NULL,'text','Path',NULL,NULL,0,0,NULL,0,NULL),(53,3,'position',NULL,NULL,'static',NULL,NULL,'text','Position',NULL,NULL,0,0,NULL,0,NULL),(54,3,'all_children',NULL,NULL,'text',NULL,NULL,'text',NULL,NULL,NULL,0,0,NULL,0,NULL),(55,3,'path_in_store',NULL,NULL,'text',NULL,NULL,'text',NULL,NULL,NULL,0,0,NULL,0,NULL),(56,3,'children',NULL,NULL,'text',NULL,NULL,'text',NULL,NULL,NULL,0,0,NULL,0,NULL),(57,3,'custom_design',NULL,NULL,'varchar',NULL,NULL,'select','Custom Design',NULL,'Magento\\Theme\\Model\\Theme\\Source\\Theme',0,0,NULL,0,NULL),(58,3,'custom_design_from','Magento\\Catalog\\Model\\ResourceModel\\Eav\\Attribute','Magento\\Catalog\\Model\\Attribute\\Backend\\Startdate','datetime',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Frontend\\Datetime','date','Active From',NULL,NULL,0,0,NULL,0,NULL),(59,3,'custom_design_to',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Backend\\Datetime','datetime',NULL,NULL,'date','Active To',NULL,NULL,0,0,NULL,0,NULL),(60,3,'page_layout',NULL,NULL,'varchar',NULL,NULL,'select','Page Layout',NULL,'Magento\\Catalog\\Model\\Category\\Attribute\\Source\\Layout',0,0,NULL,0,NULL),(61,3,'custom_layout_update',NULL,'Magento\\Catalog\\Model\\Attribute\\Backend\\Customlayoutupdate','text',NULL,NULL,'textarea','Custom Layout Update',NULL,NULL,0,0,NULL,0,NULL),(62,3,'level',NULL,NULL,'static',NULL,NULL,'text','Level',NULL,NULL,0,0,NULL,0,NULL),(63,3,'children_count',NULL,NULL,'static',NULL,NULL,'text','Children Count',NULL,NULL,0,0,NULL,0,NULL),(64,3,'available_sort_by',NULL,'Magento\\Catalog\\Model\\Category\\Attribute\\Backend\\Sortby','text',NULL,NULL,'multiselect','Available Product Listing Sort By',NULL,'Magento\\Catalog\\Model\\Category\\Attribute\\Source\\Sortby',1,0,NULL,0,NULL),(65,3,'default_sort_by',NULL,'Magento\\Catalog\\Model\\Category\\Attribute\\Backend\\Sortby','varchar',NULL,NULL,'select','Default Product Listing Sort By',NULL,'Magento\\Catalog\\Model\\Category\\Attribute\\Source\\Sortby',1,0,NULL,0,NULL),(66,3,'include_in_menu',NULL,NULL,'int',NULL,NULL,'select','Include in Navigation Menu',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Source\\Boolean',1,0,'1',0,NULL),(67,3,'custom_use_parent_settings',NULL,NULL,'int',NULL,NULL,'select','Use Parent Category Settings',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Source\\Boolean',0,0,NULL,0,NULL),(68,3,'custom_apply_to_products',NULL,NULL,'int',NULL,NULL,'select','Apply To Products',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Source\\Boolean',0,0,NULL,0,NULL),(69,3,'filter_price_range',NULL,NULL,'decimal',NULL,NULL,'text','Layered Navigation Price Step',NULL,NULL,0,0,NULL,0,NULL),(70,4,'name',NULL,NULL,'varchar',NULL,NULL,'text','Name','validate-length maximum-length-255',NULL,1,0,NULL,0,NULL),(71,4,'sku',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Sku','static',NULL,NULL,'text','SKU','validate-length maximum-length-64',NULL,1,0,NULL,1,NULL),(72,4,'description',NULL,NULL,'text',NULL,NULL,'textarea','Description',NULL,NULL,0,0,NULL,0,NULL),(73,4,'short_description',NULL,NULL,'text',NULL,NULL,'textarea','Short Description',NULL,NULL,0,0,NULL,0,NULL),(74,4,'price',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Price','decimal',NULL,NULL,'price','Price',NULL,NULL,1,0,NULL,0,NULL),(75,4,'special_price',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Price','decimal',NULL,NULL,'price','Special Price',NULL,NULL,0,0,NULL,0,NULL),(76,4,'special_from_date',NULL,'Magento\\Catalog\\Model\\Attribute\\Backend\\Startdate','datetime',NULL,NULL,'date','Special Price From Date',NULL,NULL,0,0,NULL,0,NULL),(77,4,'special_to_date',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Backend\\Datetime','datetime',NULL,NULL,'date','Special Price To Date',NULL,NULL,0,0,NULL,0,NULL),(78,4,'cost',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Price','decimal',NULL,NULL,'price','Cost',NULL,NULL,0,1,NULL,0,NULL),(79,4,'weight',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Weight','decimal',NULL,NULL,'weight','Weight',NULL,NULL,0,0,NULL,0,NULL),(80,4,'manufacturer',NULL,NULL,'int',NULL,NULL,'select','Manufacturer',NULL,NULL,0,1,NULL,0,NULL),(81,4,'meta_title',NULL,NULL,'varchar',NULL,NULL,'text','Meta Title',NULL,NULL,0,0,NULL,0,NULL),(82,4,'meta_keyword',NULL,NULL,'text',NULL,NULL,'textarea','Meta Keywords',NULL,NULL,0,0,NULL,0,NULL),(83,4,'meta_description',NULL,NULL,'varchar',NULL,NULL,'textarea','Meta Description',NULL,NULL,0,0,NULL,0,'Maximum 255 chars'),(84,4,'image',NULL,NULL,'varchar',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Frontend\\Image','media_image','Base Image',NULL,NULL,0,0,NULL,0,NULL),(85,4,'small_image',NULL,NULL,'varchar',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Frontend\\Image','media_image','Small Image',NULL,NULL,0,0,NULL,0,NULL),(86,4,'thumbnail',NULL,NULL,'varchar',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Frontend\\Image','media_image','Thumbnail',NULL,NULL,0,0,NULL,0,NULL),(87,4,'media_gallery',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Media','varchar',NULL,NULL,'gallery','Media Gallery',NULL,NULL,0,0,NULL,0,NULL),(88,4,'old_id',NULL,NULL,'int',NULL,NULL,'text',NULL,NULL,NULL,0,0,NULL,0,NULL),(89,4,'tier_price',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Tierprice','decimal',NULL,NULL,'text','Tier Price',NULL,NULL,0,0,NULL,0,NULL),(90,4,'color',NULL,NULL,'int',NULL,NULL,'select','Color',NULL,NULL,0,1,NULL,0,NULL),(91,4,'news_from_date',NULL,'Magento\\Catalog\\Model\\Attribute\\Backend\\Startdate','datetime',NULL,NULL,'date','Set Product as New from Date',NULL,NULL,0,0,NULL,0,NULL),(92,4,'news_to_date',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Backend\\Datetime','datetime',NULL,NULL,'date','Set Product as New to Date',NULL,NULL,0,0,NULL,0,NULL),(93,4,'gallery',NULL,NULL,'varchar',NULL,NULL,'gallery','Image Gallery',NULL,NULL,0,0,NULL,0,NULL),(94,4,'status',NULL,NULL,'int',NULL,NULL,'select','Status',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Source\\Status',0,0,'1',0,NULL),(95,4,'minimal_price',NULL,NULL,'decimal',NULL,NULL,'price','Minimal Price',NULL,NULL,0,0,NULL,0,NULL),(96,4,'visibility',NULL,NULL,'int',NULL,NULL,'select','Visibility',NULL,'Magento\\Catalog\\Model\\Product\\Visibility',0,0,'4',0,NULL),(97,4,'custom_design',NULL,NULL,'varchar',NULL,NULL,'select','Custom Design',NULL,'Magento\\Theme\\Model\\Theme\\Source\\Theme',0,0,NULL,0,NULL),(98,4,'custom_design_from',NULL,'Magento\\Catalog\\Model\\Attribute\\Backend\\Startdate','datetime',NULL,NULL,'date','Active From',NULL,NULL,0,0,NULL,0,NULL),(99,4,'custom_design_to',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Backend\\Datetime','datetime',NULL,NULL,'date','Active To',NULL,NULL,0,0,NULL,0,NULL),(100,4,'custom_layout_update',NULL,'Magento\\Catalog\\Model\\Attribute\\Backend\\Customlayoutupdate','text',NULL,NULL,'textarea','Custom Layout Update',NULL,NULL,0,0,NULL,0,NULL),(101,4,'page_layout',NULL,NULL,'varchar',NULL,NULL,'select','Page Layout',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Source\\Layout',0,0,NULL,0,NULL),(102,4,'category_ids',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Category','static',NULL,NULL,'text','Categories',NULL,NULL,0,0,NULL,0,NULL),(103,4,'options_container',NULL,NULL,'varchar',NULL,NULL,'select','Display Product Options In',NULL,'Magento\\Catalog\\Model\\Entity\\Product\\Attribute\\Design\\Options\\Container',0,0,'container2',0,NULL),(104,4,'required_options',NULL,NULL,'static',NULL,NULL,'text',NULL,NULL,NULL,0,0,NULL,0,NULL),(105,4,'has_options',NULL,NULL,'static',NULL,NULL,'text',NULL,NULL,NULL,0,0,NULL,0,NULL),(106,4,'image_label',NULL,NULL,'varchar',NULL,NULL,'text','Image Label',NULL,NULL,0,0,NULL,0,NULL),(107,4,'small_image_label',NULL,NULL,'varchar',NULL,NULL,'text','Small Image Label',NULL,NULL,0,0,NULL,0,NULL),(108,4,'thumbnail_label',NULL,NULL,'varchar',NULL,NULL,'text','Thumbnail Label',NULL,NULL,0,0,NULL,0,NULL),(109,4,'created_at',NULL,NULL,'static',NULL,NULL,'date',NULL,NULL,NULL,1,0,NULL,0,NULL),(110,4,'updated_at',NULL,NULL,'static',NULL,NULL,'date',NULL,NULL,NULL,1,0,NULL,0,NULL),(111,4,'country_of_manufacture',NULL,NULL,'varchar',NULL,NULL,'select','Country of Manufacture',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Source\\Countryofmanufacture',0,0,NULL,0,NULL),(112,4,'quantity_and_stock_status',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Stock','int',NULL,NULL,'select','Quantity',NULL,'Magento\\CatalogInventory\\Model\\Source\\Stock',0,0,'1',0,NULL),(113,3,'url_key',NULL,NULL,'varchar',NULL,NULL,'text','URL Key',NULL,NULL,0,0,NULL,0,NULL),(114,3,'url_path',NULL,NULL,'varchar',NULL,NULL,'text',NULL,NULL,NULL,0,0,NULL,0,NULL),(115,4,'url_key',NULL,NULL,'varchar',NULL,NULL,'text','URL Key',NULL,NULL,0,0,NULL,0,NULL),(116,4,'url_path',NULL,NULL,'varchar',NULL,NULL,'text',NULL,NULL,NULL,0,0,NULL,0,NULL),(117,4,'msrp',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Price','decimal',NULL,NULL,'price','Manufacturer\'s Suggested Retail Price',NULL,NULL,0,0,NULL,0,NULL),(118,4,'msrp_display_actual_price_type',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Boolean','varchar',NULL,NULL,'select','Display Actual Price',NULL,'Magento\\Msrp\\Model\\Product\\Attribute\\Source\\Type\\Price',0,0,'0',0,NULL),(119,4,'price_type',NULL,NULL,'int',NULL,NULL,NULL,NULL,NULL,NULL,1,0,NULL,0,NULL),(120,4,'sku_type',NULL,NULL,'int',NULL,NULL,NULL,NULL,NULL,NULL,1,0,NULL,0,NULL),(121,4,'weight_type',NULL,NULL,'int',NULL,NULL,NULL,NULL,NULL,NULL,1,0,NULL,0,NULL),(122,4,'price_view',NULL,NULL,'int',NULL,NULL,'select','Price View',NULL,'Magento\\Bundle\\Model\\Product\\Attribute\\Source\\Price\\View',1,0,NULL,0,NULL),(123,4,'shipment_type',NULL,NULL,'int',NULL,NULL,NULL,'Shipment',NULL,NULL,1,0,NULL,0,NULL),(124,4,'links_purchased_separately',NULL,NULL,'int',NULL,NULL,NULL,'Links can be purchased separately',NULL,NULL,1,0,NULL,0,NULL),(125,4,'samples_title',NULL,NULL,'varchar',NULL,NULL,NULL,'Samples title',NULL,NULL,1,0,NULL,0,NULL),(126,4,'links_title',NULL,NULL,'varchar',NULL,NULL,NULL,'Links title',NULL,NULL,1,0,NULL,0,NULL),(127,4,'links_exist',NULL,NULL,'int',NULL,NULL,NULL,NULL,NULL,NULL,0,0,'0',0,NULL),(128,4,'swatch_image',NULL,NULL,'varchar',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Frontend\\Image','media_image','Swatch Image',NULL,NULL,0,0,NULL,0,NULL),(129,4,'tax_class_id',NULL,NULL,'int',NULL,NULL,'select','Tax Class',NULL,'Magento\\Tax\\Model\\TaxClass\\Source\\Product',0,0,'2',0,NULL),(130,4,'gift_message_available',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Boolean','varchar',NULL,NULL,'select','Allow Gift Message',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Source\\Boolean',0,0,NULL,0,NULL),(131,4,'author',NULL,NULL,'varchar',NULL,NULL,'text','Author',NULL,NULL,0,1,NULL,0,NULL),(132,4,'cover',NULL,NULL,'varchar',NULL,NULL,'text','Cover Type',NULL,NULL,0,1,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (1,1,'website_id',NULL,'Magento\\Customer\\Model\\Customer\\Attribute\\Backend\\Website','static',NULL,NULL,'select','Associate to Website',NULL,'Magento\\Customer\\Model\\Customer\\Attribute\\Source\\Website',1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (2,1,'store_id',NULL,'Magento\\Customer\\Model\\Customer\\Attribute\\Backend\\Store','static',NULL,NULL,'select','Create In',NULL,'Magento\\Customer\\Model\\Customer\\Attribute\\Source\\Store',1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (3,1,'created_in',NULL,NULL,'static',NULL,NULL,'text','Created From',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (4,1,'prefix',NULL,NULL,'static',NULL,NULL,'text','Prefix',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (5,1,'firstname',NULL,NULL,'static',NULL,NULL,'text','First Name',NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (6,1,'middlename',NULL,NULL,'static',NULL,NULL,'text','Middle Name/Initial',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (7,1,'lastname',NULL,NULL,'static',NULL,NULL,'text','Last Name',NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (8,1,'suffix',NULL,NULL,'static',NULL,NULL,'text','Suffix',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (9,1,'email',NULL,NULL,'static',NULL,NULL,'text','Email',NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (10,1,'group_id',NULL,NULL,'static',NULL,NULL,'select','Group',NULL,'Magento\\Customer\\Model\\Customer\\Attribute\\Source\\Group',1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (11,1,'dob',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Backend\\Datetime','static',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Frontend\\Datetime','date','Date Of Birth',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (12,1,'password_hash',NULL,'Magento\\Customer\\Model\\Customer\\Attribute\\Backend\\Password','static',NULL,NULL,'hidden',NULL,NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (13,1,'rp_token',NULL,NULL,'static',NULL,NULL,'hidden',NULL,NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (14,1,'rp_token_created_at',NULL,NULL,'static',NULL,NULL,'date',NULL,NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (15,1,'default_billing',NULL,'Magento\\Customer\\Model\\Customer\\Attribute\\Backend\\Billing','static',NULL,NULL,'text','Default Billing Address',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (16,1,'default_shipping',NULL,'Magento\\Customer\\Model\\Customer\\Attribute\\Backend\\Shipping','static',NULL,NULL,'text','Default Shipping Address',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (17,1,'taxvat',NULL,NULL,'static',NULL,NULL,'text','Tax/VAT Number',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (18,1,'confirmation',NULL,NULL,'static',NULL,NULL,'text','Is Confirmed',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (19,1,'created_at',NULL,NULL,'static',NULL,NULL,'date','Created At',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (20,1,'gender',NULL,NULL,'static',NULL,NULL,'select','Gender',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Source\\Table',0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (21,1,'disable_auto_group_change',NULL,'Magento\\Customer\\Model\\Attribute\\Backend\\Data\\Boolean','static',NULL,NULL,'boolean','Disable Automatic Group Change Based on VAT ID',NULL,NULL,0,0,'0',0,NULL);
+INSERT INTO `eav_attribute` VALUES (22,2,'prefix',NULL,NULL,'static',NULL,NULL,'text','Prefix',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (23,2,'firstname',NULL,NULL,'static',NULL,NULL,'text','First Name',NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (24,2,'middlename',NULL,NULL,'static',NULL,NULL,'text','Middle Name/Initial',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (25,2,'lastname',NULL,NULL,'static',NULL,NULL,'text','Last Name',NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (26,2,'suffix',NULL,NULL,'static',NULL,NULL,'text','Suffix',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (27,2,'company',NULL,NULL,'static',NULL,NULL,'text','Company',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (28,2,'street',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Backend\\DefaultBackend','static',NULL,NULL,'multiline','Street Address',NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (29,2,'city',NULL,NULL,'static',NULL,NULL,'text','City',NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (30,2,'country_id',NULL,NULL,'static',NULL,NULL,'select','Country',NULL,'Magento\\Customer\\Model\\ResourceModel\\Address\\Attribute\\Source\\Country',1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (31,2,'region',NULL,'Magento\\Customer\\Model\\ResourceModel\\Address\\Attribute\\Backend\\Region','static',NULL,NULL,'text','State/Province',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (32,2,'region_id',NULL,NULL,'static',NULL,NULL,'hidden','State/Province',NULL,'Magento\\Customer\\Model\\ResourceModel\\Address\\Attribute\\Source\\Region',0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (33,2,'postcode',NULL,NULL,'static',NULL,NULL,'text','Zip/Postal Code',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (34,2,'telephone',NULL,NULL,'static',NULL,NULL,'text','Phone Number',NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (35,2,'fax',NULL,NULL,'static',NULL,NULL,'text','Fax',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (36,2,'vat_id',NULL,NULL,'static',NULL,NULL,'text','VAT number',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (37,2,'vat_is_valid',NULL,NULL,'static',NULL,NULL,'text','VAT number validity',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (38,2,'vat_request_id',NULL,NULL,'static',NULL,NULL,'text','VAT number validation request ID',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (39,2,'vat_request_date',NULL,NULL,'static',NULL,NULL,'text','VAT number validation request date',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (40,2,'vat_request_success',NULL,NULL,'static',NULL,NULL,'text','VAT number validation request success',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (41,1,'updated_at',NULL,NULL,'static',NULL,NULL,'date','Updated At',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (42,3,'name',NULL,NULL,'varchar',NULL,NULL,'text','Name',NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (43,3,'is_active',NULL,NULL,'int',NULL,NULL,'select','Is Active',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Source\\Boolean',1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (44,3,'description',NULL,NULL,'text',NULL,NULL,'textarea','Description',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (45,3,'image',NULL,'Magento\\Catalog\\Model\\Category\\Attribute\\Backend\\Image','varchar',NULL,NULL,'image','Image',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (46,3,'meta_title',NULL,NULL,'varchar',NULL,NULL,'text','Page Title',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (47,3,'meta_keywords',NULL,NULL,'text',NULL,NULL,'textarea','Meta Keywords',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (48,3,'meta_description',NULL,NULL,'text',NULL,NULL,'textarea','Meta Description',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (49,3,'display_mode',NULL,NULL,'varchar',NULL,NULL,'select','Display Mode',NULL,'Magento\\Catalog\\Model\\Category\\Attribute\\Source\\Mode',0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (50,3,'landing_page',NULL,NULL,'int',NULL,NULL,'select','CMS Block',NULL,'Magento\\Catalog\\Model\\Category\\Attribute\\Source\\Page',0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (51,3,'is_anchor',NULL,NULL,'int',NULL,NULL,'select','Is Anchor',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Source\\Boolean',0,0,'1',0,NULL);
+INSERT INTO `eav_attribute` VALUES (52,3,'path',NULL,NULL,'static',NULL,NULL,'text','Path',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (53,3,'position',NULL,NULL,'static',NULL,NULL,'text','Position',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (54,3,'all_children',NULL,NULL,'text',NULL,NULL,'text',NULL,NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (55,3,'path_in_store',NULL,NULL,'text',NULL,NULL,'text',NULL,NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (56,3,'children',NULL,NULL,'text',NULL,NULL,'text',NULL,NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (57,3,'custom_design',NULL,NULL,'varchar',NULL,NULL,'select','Custom Design',NULL,'Magento\\Theme\\Model\\Theme\\Source\\Theme',0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (58,3,'custom_design_from','Magento\\Catalog\\Model\\ResourceModel\\Eav\\Attribute','Magento\\Catalog\\Model\\Attribute\\Backend\\Startdate','datetime',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Frontend\\Datetime','date','Active From',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (59,3,'custom_design_to',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Backend\\Datetime','datetime',NULL,NULL,'date','Active To',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (60,3,'page_layout',NULL,NULL,'varchar',NULL,NULL,'select','Page Layout',NULL,'Magento\\Catalog\\Model\\Category\\Attribute\\Source\\Layout',0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (61,3,'custom_layout_update',NULL,'Magento\\Catalog\\Model\\Attribute\\Backend\\Customlayoutupdate','text',NULL,NULL,'textarea','Custom Layout Update',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (62,3,'level',NULL,NULL,'static',NULL,NULL,'text','Level',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (63,3,'children_count',NULL,NULL,'static',NULL,NULL,'text','Children Count',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (64,3,'available_sort_by',NULL,'Magento\\Catalog\\Model\\Category\\Attribute\\Backend\\Sortby','text',NULL,NULL,'multiselect','Available Product Listing Sort By',NULL,'Magento\\Catalog\\Model\\Category\\Attribute\\Source\\Sortby',1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (65,3,'default_sort_by',NULL,'Magento\\Catalog\\Model\\Category\\Attribute\\Backend\\Sortby','varchar',NULL,NULL,'select','Default Product Listing Sort By',NULL,'Magento\\Catalog\\Model\\Category\\Attribute\\Source\\Sortby',1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (66,3,'include_in_menu',NULL,NULL,'int',NULL,NULL,'select','Include in Navigation Menu',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Source\\Boolean',1,0,'1',0,NULL);
+INSERT INTO `eav_attribute` VALUES (67,3,'custom_use_parent_settings',NULL,NULL,'int',NULL,NULL,'select','Use Parent Category Settings',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Source\\Boolean',0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (68,3,'custom_apply_to_products',NULL,NULL,'int',NULL,NULL,'select','Apply To Products',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Source\\Boolean',0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (69,3,'filter_price_range',NULL,NULL,'decimal',NULL,NULL,'text','Layered Navigation Price Step',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (70,4,'name',NULL,NULL,'varchar',NULL,NULL,'text','Name','validate-length maximum-length-255',NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (71,4,'sku',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Sku','static',NULL,NULL,'text','SKU','validate-length maximum-length-64',NULL,1,0,NULL,1,NULL);
+INSERT INTO `eav_attribute` VALUES (72,4,'description',NULL,NULL,'text',NULL,NULL,'textarea','Description',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (73,4,'short_description',NULL,NULL,'text',NULL,NULL,'textarea','Short Description',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (74,4,'price',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Price','decimal',NULL,NULL,'price','Price',NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (75,4,'special_price',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Price','decimal',NULL,NULL,'price','Special Price',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (76,4,'special_from_date',NULL,'Magento\\Catalog\\Model\\Attribute\\Backend\\Startdate','datetime',NULL,NULL,'date','Special Price From Date',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (77,4,'special_to_date',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Backend\\Datetime','datetime',NULL,NULL,'date','Special Price To Date',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (78,4,'cost',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Price','decimal',NULL,NULL,'price','Cost',NULL,NULL,0,1,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (79,4,'weight',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Weight','decimal',NULL,NULL,'weight','Weight',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (80,4,'manufacturer',NULL,NULL,'int',NULL,NULL,'select','Manufacturer',NULL,NULL,0,1,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (81,4,'meta_title',NULL,NULL,'varchar',NULL,NULL,'text','Meta Title',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (82,4,'meta_keyword',NULL,NULL,'text',NULL,NULL,'textarea','Meta Keywords',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (83,4,'meta_description',NULL,NULL,'varchar',NULL,NULL,'textarea','Meta Description',NULL,NULL,0,0,NULL,0,'Maximum 255 chars');
+INSERT INTO `eav_attribute` VALUES (84,4,'image',NULL,NULL,'varchar',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Frontend\\Image','media_image','Base Image',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (85,4,'small_image',NULL,NULL,'varchar',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Frontend\\Image','media_image','Small Image',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (86,4,'thumbnail',NULL,NULL,'varchar',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Frontend\\Image','media_image','Thumbnail',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (87,4,'media_gallery',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Media','varchar',NULL,NULL,'gallery','Media Gallery',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (88,4,'old_id',NULL,NULL,'int',NULL,NULL,'text',NULL,NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (89,4,'tier_price',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Tierprice','decimal',NULL,NULL,'text','Tier Price',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (90,4,'color',NULL,NULL,'int',NULL,NULL,'select','Color',NULL,NULL,0,1,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (91,4,'news_from_date',NULL,'Magento\\Catalog\\Model\\Attribute\\Backend\\Startdate','datetime',NULL,NULL,'date','Set Product as New from Date',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (92,4,'news_to_date',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Backend\\Datetime','datetime',NULL,NULL,'date','Set Product as New to Date',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (93,4,'gallery',NULL,NULL,'varchar',NULL,NULL,'gallery','Image Gallery',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (94,4,'status',NULL,NULL,'int',NULL,NULL,'select','Status',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Source\\Status',0,0,'1',0,NULL);
+INSERT INTO `eav_attribute` VALUES (95,4,'minimal_price',NULL,NULL,'decimal',NULL,NULL,'price','Minimal Price',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (96,4,'visibility',NULL,NULL,'int',NULL,NULL,'select','Visibility',NULL,'Magento\\Catalog\\Model\\Product\\Visibility',0,0,'4',0,NULL);
+INSERT INTO `eav_attribute` VALUES (97,4,'custom_design',NULL,NULL,'varchar',NULL,NULL,'select','Custom Design',NULL,'Magento\\Theme\\Model\\Theme\\Source\\Theme',0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (98,4,'custom_design_from',NULL,'Magento\\Catalog\\Model\\Attribute\\Backend\\Startdate','datetime',NULL,NULL,'date','Active From',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (99,4,'custom_design_to',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Backend\\Datetime','datetime',NULL,NULL,'date','Active To',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (100,4,'custom_layout_update',NULL,'Magento\\Catalog\\Model\\Attribute\\Backend\\Customlayoutupdate','text',NULL,NULL,'textarea','Custom Layout Update',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (101,4,'page_layout',NULL,NULL,'varchar',NULL,NULL,'select','Page Layout',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Source\\Layout',0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (102,4,'category_ids',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Category','static',NULL,NULL,'text','Categories',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (103,4,'options_container',NULL,NULL,'varchar',NULL,NULL,'select','Display Product Options In',NULL,'Magento\\Catalog\\Model\\Entity\\Product\\Attribute\\Design\\Options\\Container',0,0,'container2',0,NULL);
+INSERT INTO `eav_attribute` VALUES (104,4,'required_options',NULL,NULL,'static',NULL,NULL,'text',NULL,NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (105,4,'has_options',NULL,NULL,'static',NULL,NULL,'text',NULL,NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (106,4,'image_label',NULL,NULL,'varchar',NULL,NULL,'text','Image Label',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (107,4,'small_image_label',NULL,NULL,'varchar',NULL,NULL,'text','Small Image Label',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (108,4,'thumbnail_label',NULL,NULL,'varchar',NULL,NULL,'text','Thumbnail Label',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (109,4,'created_at',NULL,NULL,'static',NULL,NULL,'date',NULL,NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (110,4,'updated_at',NULL,NULL,'static',NULL,NULL,'date',NULL,NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (111,4,'country_of_manufacture',NULL,NULL,'varchar',NULL,NULL,'select','Country of Manufacture',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Source\\Countryofmanufacture',0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (112,4,'quantity_and_stock_status',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Stock','int',NULL,NULL,'select','Quantity',NULL,'Magento\\CatalogInventory\\Model\\Source\\Stock',0,0,'1',0,NULL);
+INSERT INTO `eav_attribute` VALUES (113,3,'url_key',NULL,NULL,'varchar',NULL,NULL,'text','URL Key',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (114,3,'url_path',NULL,NULL,'varchar',NULL,NULL,'text',NULL,NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (115,4,'url_key',NULL,NULL,'varchar',NULL,NULL,'text','URL Key',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (116,4,'url_path',NULL,NULL,'varchar',NULL,NULL,'text',NULL,NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (117,4,'msrp',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Price','decimal',NULL,NULL,'price','Manufacturer\'s Suggested Retail Price',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (118,4,'msrp_display_actual_price_type',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Boolean','varchar',NULL,NULL,'select','Display Actual Price',NULL,'Magento\\Msrp\\Model\\Product\\Attribute\\Source\\Type\\Price',0,0,'0',0,NULL);
+INSERT INTO `eav_attribute` VALUES (119,4,'price_type',NULL,NULL,'int',NULL,NULL,NULL,NULL,NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (120,4,'sku_type',NULL,NULL,'int',NULL,NULL,NULL,NULL,NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (121,4,'weight_type',NULL,NULL,'int',NULL,NULL,NULL,NULL,NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (122,4,'price_view',NULL,NULL,'int',NULL,NULL,'select','Price View',NULL,'Magento\\Bundle\\Model\\Product\\Attribute\\Source\\Price\\View',1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (123,4,'shipment_type',NULL,NULL,'int',NULL,NULL,NULL,'Shipment',NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (124,4,'links_purchased_separately',NULL,NULL,'int',NULL,NULL,NULL,'Links can be purchased separately',NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (125,4,'samples_title',NULL,NULL,'varchar',NULL,NULL,NULL,'Samples title',NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (126,4,'links_title',NULL,NULL,'varchar',NULL,NULL,NULL,'Links title',NULL,NULL,1,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (127,4,'links_exist',NULL,NULL,'int',NULL,NULL,NULL,NULL,NULL,NULL,0,0,'0',0,NULL);
+INSERT INTO `eav_attribute` VALUES (128,4,'swatch_image',NULL,NULL,'varchar',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Frontend\\Image','media_image','Swatch Image',NULL,NULL,0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (129,4,'tax_class_id',NULL,NULL,'int',NULL,NULL,'select','Tax Class',NULL,'Magento\\Tax\\Model\\TaxClass\\Source\\Product',0,0,'2',0,NULL);
+INSERT INTO `eav_attribute` VALUES (130,4,'gift_message_available',NULL,'Magento\\Catalog\\Model\\Product\\Attribute\\Backend\\Boolean','varchar',NULL,NULL,'select','Allow Gift Message',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Source\\Boolean',0,0,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (131,4,'author',NULL,NULL,'varchar',NULL,NULL,'text','Author',NULL,NULL,0,1,NULL,0,NULL);
+INSERT INTO `eav_attribute` VALUES (132,4,'cover',NULL,NULL,'varchar',NULL,NULL,'text','Cover Type',NULL,NULL,0,1,NULL,0,NULL);
 /*!40000 ALTER TABLE `eav_attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4255,10 +6888,26 @@ CREATE TABLE `eav_attribute_group` (
 --
 -- Dumping data for table `eav_attribute_group`
 --
+-- ORDER BY:  `attribute_group_id`
 
 LOCK TABLES `eav_attribute_group` WRITE;
 /*!40000 ALTER TABLE `eav_attribute_group` DISABLE KEYS */;
-INSERT INTO `eav_attribute_group` VALUES (1,1,'General',1,1,'general',NULL),(2,2,'General',1,1,'general',NULL),(3,3,'General',10,1,'general',NULL),(4,3,'General Information',2,0,'general-information',NULL),(5,3,'Display Settings',20,0,'display-settings',NULL),(6,3,'Custom Design',30,0,'custom-design',NULL),(7,4,'Product Details',1,1,'product-details','basic'),(8,4,'Advanced Pricing',4,0,'advanced-pricing','advanced'),(9,4,'Search Engine Optimization',3,0,'search-engine-optimization','basic'),(10,4,'Images and Videos',2,0,'image-management','basic'),(11,4,'Design',5,0,'design','advanced'),(12,4,'Autosettings',6,0,'autosettings','advanced'),(13,5,'General',1,1,'general',NULL),(14,6,'General',1,1,'general',NULL),(15,7,'General',1,1,'general',NULL),(16,8,'General',1,1,'general',NULL);
+INSERT INTO `eav_attribute_group` VALUES (1,1,'General',1,1,'general',NULL);
+INSERT INTO `eav_attribute_group` VALUES (2,2,'General',1,1,'general',NULL);
+INSERT INTO `eav_attribute_group` VALUES (3,3,'General',10,1,'general',NULL);
+INSERT INTO `eav_attribute_group` VALUES (4,3,'General Information',2,0,'general-information',NULL);
+INSERT INTO `eav_attribute_group` VALUES (5,3,'Display Settings',20,0,'display-settings',NULL);
+INSERT INTO `eav_attribute_group` VALUES (6,3,'Custom Design',30,0,'custom-design',NULL);
+INSERT INTO `eav_attribute_group` VALUES (7,4,'Product Details',1,1,'product-details','basic');
+INSERT INTO `eav_attribute_group` VALUES (8,4,'Advanced Pricing',4,0,'advanced-pricing','advanced');
+INSERT INTO `eav_attribute_group` VALUES (9,4,'Search Engine Optimization',3,0,'search-engine-optimization','basic');
+INSERT INTO `eav_attribute_group` VALUES (10,4,'Images and Videos',2,0,'image-management','basic');
+INSERT INTO `eav_attribute_group` VALUES (11,4,'Design',5,0,'design','advanced');
+INSERT INTO `eav_attribute_group` VALUES (12,4,'Autosettings',6,0,'autosettings','advanced');
+INSERT INTO `eav_attribute_group` VALUES (13,5,'General',1,1,'general',NULL);
+INSERT INTO `eav_attribute_group` VALUES (14,6,'General',1,1,'general',NULL);
+INSERT INTO `eav_attribute_group` VALUES (15,7,'General',1,1,'general',NULL);
+INSERT INTO `eav_attribute_group` VALUES (16,8,'General',1,1,'general',NULL);
 /*!40000 ALTER TABLE `eav_attribute_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4285,6 +6934,7 @@ CREATE TABLE `eav_attribute_label` (
 --
 -- Dumping data for table `eav_attribute_label`
 --
+-- ORDER BY:  `attribute_label_id`
 
 LOCK TABLES `eav_attribute_label` WRITE;
 /*!40000 ALTER TABLE `eav_attribute_label` DISABLE KEYS */;
@@ -4311,10 +6961,13 @@ CREATE TABLE `eav_attribute_option` (
 --
 -- Dumping data for table `eav_attribute_option`
 --
+-- ORDER BY:  `option_id`
 
 LOCK TABLES `eav_attribute_option` WRITE;
 /*!40000 ALTER TABLE `eav_attribute_option` DISABLE KEYS */;
-INSERT INTO `eav_attribute_option` VALUES (1,20,0),(2,20,1),(3,20,3);
+INSERT INTO `eav_attribute_option` VALUES (1,20,0);
+INSERT INTO `eav_attribute_option` VALUES (2,20,1);
+INSERT INTO `eav_attribute_option` VALUES (3,20,3);
 /*!40000 ALTER TABLE `eav_attribute_option` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4343,6 +6996,7 @@ CREATE TABLE `eav_attribute_option_swatch` (
 --
 -- Dumping data for table `eav_attribute_option_swatch`
 --
+-- ORDER BY:  `swatch_id`
 
 LOCK TABLES `eav_attribute_option_swatch` WRITE;
 /*!40000 ALTER TABLE `eav_attribute_option_swatch` DISABLE KEYS */;
@@ -4372,10 +7026,13 @@ CREATE TABLE `eav_attribute_option_value` (
 --
 -- Dumping data for table `eav_attribute_option_value`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `eav_attribute_option_value` WRITE;
 /*!40000 ALTER TABLE `eav_attribute_option_value` DISABLE KEYS */;
-INSERT INTO `eav_attribute_option_value` VALUES (1,1,0,'Male'),(2,2,0,'Female'),(3,3,0,'Not Specified');
+INSERT INTO `eav_attribute_option_value` VALUES (1,1,0,'Male');
+INSERT INTO `eav_attribute_option_value` VALUES (2,2,0,'Female');
+INSERT INTO `eav_attribute_option_value` VALUES (3,3,0,'Not Specified');
 /*!40000 ALTER TABLE `eav_attribute_option_value` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4401,10 +7058,18 @@ CREATE TABLE `eav_attribute_set` (
 --
 -- Dumping data for table `eav_attribute_set`
 --
+-- ORDER BY:  `attribute_set_id`
 
 LOCK TABLES `eav_attribute_set` WRITE;
 /*!40000 ALTER TABLE `eav_attribute_set` DISABLE KEYS */;
-INSERT INTO `eav_attribute_set` VALUES (1,1,'Default',2),(2,2,'Default',2),(3,3,'Default',1),(4,4,'Default',1),(5,5,'Default',1),(6,6,'Default',1),(7,7,'Default',1),(8,8,'Default',1);
+INSERT INTO `eav_attribute_set` VALUES (1,1,'Default',2);
+INSERT INTO `eav_attribute_set` VALUES (2,2,'Default',2);
+INSERT INTO `eav_attribute_set` VALUES (3,3,'Default',1);
+INSERT INTO `eav_attribute_set` VALUES (4,4,'Default',1);
+INSERT INTO `eav_attribute_set` VALUES (5,5,'Default',1);
+INSERT INTO `eav_attribute_set` VALUES (6,6,'Default',1);
+INSERT INTO `eav_attribute_set` VALUES (7,7,'Default',1);
+INSERT INTO `eav_attribute_set` VALUES (8,8,'Default',1);
 /*!40000 ALTER TABLE `eav_attribute_set` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4436,6 +7101,7 @@ CREATE TABLE `eav_entity` (
 --
 -- Dumping data for table `eav_entity`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `eav_entity` WRITE;
 /*!40000 ALTER TABLE `eav_entity` DISABLE KEYS */;
@@ -4469,10 +7135,140 @@ CREATE TABLE `eav_entity_attribute` (
 --
 -- Dumping data for table `eav_entity_attribute`
 --
+-- ORDER BY:  `entity_attribute_id`
 
 LOCK TABLES `eav_entity_attribute` WRITE;
 /*!40000 ALTER TABLE `eav_entity_attribute` DISABLE KEYS */;
-INSERT INTO `eav_entity_attribute` VALUES (1,1,1,1,1,10),(2,1,1,1,2,20),(3,1,1,1,3,20),(4,1,1,1,4,30),(5,1,1,1,5,40),(6,1,1,1,6,50),(7,1,1,1,7,60),(8,1,1,1,8,70),(9,1,1,1,9,80),(10,1,1,1,10,25),(11,1,1,1,11,90),(12,1,1,1,12,81),(13,1,1,1,13,115),(14,1,1,1,14,120),(15,1,1,1,15,82),(16,1,1,1,16,83),(17,1,1,1,17,100),(18,1,1,1,18,85),(19,1,1,1,19,86),(20,1,1,1,20,110),(21,1,1,1,21,121),(22,2,2,2,22,10),(23,2,2,2,23,20),(24,2,2,2,24,30),(25,2,2,2,25,40),(26,2,2,2,26,50),(27,2,2,2,27,60),(28,2,2,2,28,70),(29,2,2,2,29,80),(30,2,2,2,30,90),(31,2,2,2,31,100),(32,2,2,2,32,100),(33,2,2,2,33,110),(34,2,2,2,34,120),(35,2,2,2,35,130),(36,2,2,2,36,131),(37,2,2,2,37,132),(38,2,2,2,38,133),(39,2,2,2,39,134),(40,2,2,2,40,135),(41,1,1,1,41,87),(42,3,3,4,42,1),(43,3,3,4,43,2),(44,3,3,4,44,4),(45,3,3,4,45,5),(46,3,3,4,46,6),(47,3,3,4,47,7),(48,3,3,4,48,8),(49,3,3,5,49,10),(50,3,3,5,50,20),(51,3,3,5,51,30),(52,3,3,4,52,12),(53,3,3,4,53,13),(54,3,3,4,54,14),(55,3,3,4,55,15),(56,3,3,4,56,16),(57,3,3,6,57,10),(58,3,3,6,58,30),(59,3,3,6,59,40),(60,3,3,6,60,50),(61,3,3,6,61,60),(62,3,3,4,62,24),(63,3,3,4,63,25),(64,3,3,5,64,40),(65,3,3,5,65,50),(66,3,3,4,66,10),(67,3,3,6,67,5),(68,3,3,6,68,6),(69,3,3,5,69,51),(87,4,4,7,88,6),(93,4,4,8,95,8),(102,4,4,7,104,14),(103,4,4,7,105,15),(104,4,4,7,106,16),(105,4,4,7,107,17),(106,4,4,7,108,18),(107,4,4,7,109,19),(108,4,4,7,110,20),(111,3,3,4,113,3),(112,3,3,4,114,17),(114,4,4,7,116,11),(118,4,4,7,120,102),(119,4,4,7,121,103),(121,4,4,7,123,104),(122,4,4,7,124,105),(123,4,4,7,125,106),(124,4,4,7,126,107),(125,4,4,7,127,108),(130,4,4,7,70,2),(132,4,4,7,71,3),(134,4,4,7,72,10),(136,4,4,7,74,4),(138,4,4,7,79,8),(140,4,4,7,84,6),(142,4,4,7,94,11),(144,4,4,7,102,9),(146,4,4,7,112,7),(148,4,4,7,119,12),(150,4,4,7,128,1),(152,4,4,7,129,5),(154,4,4,7,131,13),(156,4,4,7,132,14),(158,4,4,10,85,1),(160,4,4,10,86,2),(162,4,4,10,87,3),(164,4,4,10,93,4),(166,4,4,9,81,2),(168,4,4,9,82,3),(170,4,4,9,83,4),(172,4,4,9,115,1),(174,4,4,8,75,1),(176,4,4,8,76,2),(178,4,4,8,77,3),(180,4,4,8,78,4),(182,4,4,8,89,5),(184,4,4,8,117,6),(186,4,4,8,118,7),(188,4,4,8,122,8),(190,4,4,11,97,1),(192,4,4,11,98,2),(194,4,4,11,99,3),(196,4,4,11,100,4),(198,4,4,11,101,5),(200,4,4,11,103,6),(202,4,4,12,73,1),(204,4,4,12,91,3),(206,4,4,12,92,4),(208,4,4,12,96,2),(210,4,4,12,111,5),(212,4,4,12,130,6);
+INSERT INTO `eav_entity_attribute` VALUES (1,1,1,1,1,10);
+INSERT INTO `eav_entity_attribute` VALUES (2,1,1,1,2,20);
+INSERT INTO `eav_entity_attribute` VALUES (3,1,1,1,3,20);
+INSERT INTO `eav_entity_attribute` VALUES (4,1,1,1,4,30);
+INSERT INTO `eav_entity_attribute` VALUES (5,1,1,1,5,40);
+INSERT INTO `eav_entity_attribute` VALUES (6,1,1,1,6,50);
+INSERT INTO `eav_entity_attribute` VALUES (7,1,1,1,7,60);
+INSERT INTO `eav_entity_attribute` VALUES (8,1,1,1,8,70);
+INSERT INTO `eav_entity_attribute` VALUES (9,1,1,1,9,80);
+INSERT INTO `eav_entity_attribute` VALUES (10,1,1,1,10,25);
+INSERT INTO `eav_entity_attribute` VALUES (11,1,1,1,11,90);
+INSERT INTO `eav_entity_attribute` VALUES (12,1,1,1,12,81);
+INSERT INTO `eav_entity_attribute` VALUES (13,1,1,1,13,115);
+INSERT INTO `eav_entity_attribute` VALUES (14,1,1,1,14,120);
+INSERT INTO `eav_entity_attribute` VALUES (15,1,1,1,15,82);
+INSERT INTO `eav_entity_attribute` VALUES (16,1,1,1,16,83);
+INSERT INTO `eav_entity_attribute` VALUES (17,1,1,1,17,100);
+INSERT INTO `eav_entity_attribute` VALUES (18,1,1,1,18,85);
+INSERT INTO `eav_entity_attribute` VALUES (19,1,1,1,19,86);
+INSERT INTO `eav_entity_attribute` VALUES (20,1,1,1,20,110);
+INSERT INTO `eav_entity_attribute` VALUES (21,1,1,1,21,121);
+INSERT INTO `eav_entity_attribute` VALUES (22,2,2,2,22,10);
+INSERT INTO `eav_entity_attribute` VALUES (23,2,2,2,23,20);
+INSERT INTO `eav_entity_attribute` VALUES (24,2,2,2,24,30);
+INSERT INTO `eav_entity_attribute` VALUES (25,2,2,2,25,40);
+INSERT INTO `eav_entity_attribute` VALUES (26,2,2,2,26,50);
+INSERT INTO `eav_entity_attribute` VALUES (27,2,2,2,27,60);
+INSERT INTO `eav_entity_attribute` VALUES (28,2,2,2,28,70);
+INSERT INTO `eav_entity_attribute` VALUES (29,2,2,2,29,80);
+INSERT INTO `eav_entity_attribute` VALUES (30,2,2,2,30,90);
+INSERT INTO `eav_entity_attribute` VALUES (31,2,2,2,31,100);
+INSERT INTO `eav_entity_attribute` VALUES (32,2,2,2,32,100);
+INSERT INTO `eav_entity_attribute` VALUES (33,2,2,2,33,110);
+INSERT INTO `eav_entity_attribute` VALUES (34,2,2,2,34,120);
+INSERT INTO `eav_entity_attribute` VALUES (35,2,2,2,35,130);
+INSERT INTO `eav_entity_attribute` VALUES (36,2,2,2,36,131);
+INSERT INTO `eav_entity_attribute` VALUES (37,2,2,2,37,132);
+INSERT INTO `eav_entity_attribute` VALUES (38,2,2,2,38,133);
+INSERT INTO `eav_entity_attribute` VALUES (39,2,2,2,39,134);
+INSERT INTO `eav_entity_attribute` VALUES (40,2,2,2,40,135);
+INSERT INTO `eav_entity_attribute` VALUES (41,1,1,1,41,87);
+INSERT INTO `eav_entity_attribute` VALUES (42,3,3,4,42,1);
+INSERT INTO `eav_entity_attribute` VALUES (43,3,3,4,43,2);
+INSERT INTO `eav_entity_attribute` VALUES (44,3,3,4,44,4);
+INSERT INTO `eav_entity_attribute` VALUES (45,3,3,4,45,5);
+INSERT INTO `eav_entity_attribute` VALUES (46,3,3,4,46,6);
+INSERT INTO `eav_entity_attribute` VALUES (47,3,3,4,47,7);
+INSERT INTO `eav_entity_attribute` VALUES (48,3,3,4,48,8);
+INSERT INTO `eav_entity_attribute` VALUES (49,3,3,5,49,10);
+INSERT INTO `eav_entity_attribute` VALUES (50,3,3,5,50,20);
+INSERT INTO `eav_entity_attribute` VALUES (51,3,3,5,51,30);
+INSERT INTO `eav_entity_attribute` VALUES (52,3,3,4,52,12);
+INSERT INTO `eav_entity_attribute` VALUES (53,3,3,4,53,13);
+INSERT INTO `eav_entity_attribute` VALUES (54,3,3,4,54,14);
+INSERT INTO `eav_entity_attribute` VALUES (55,3,3,4,55,15);
+INSERT INTO `eav_entity_attribute` VALUES (56,3,3,4,56,16);
+INSERT INTO `eav_entity_attribute` VALUES (57,3,3,6,57,10);
+INSERT INTO `eav_entity_attribute` VALUES (58,3,3,6,58,30);
+INSERT INTO `eav_entity_attribute` VALUES (59,3,3,6,59,40);
+INSERT INTO `eav_entity_attribute` VALUES (60,3,3,6,60,50);
+INSERT INTO `eav_entity_attribute` VALUES (61,3,3,6,61,60);
+INSERT INTO `eav_entity_attribute` VALUES (62,3,3,4,62,24);
+INSERT INTO `eav_entity_attribute` VALUES (63,3,3,4,63,25);
+INSERT INTO `eav_entity_attribute` VALUES (64,3,3,5,64,40);
+INSERT INTO `eav_entity_attribute` VALUES (65,3,3,5,65,50);
+INSERT INTO `eav_entity_attribute` VALUES (66,3,3,4,66,10);
+INSERT INTO `eav_entity_attribute` VALUES (67,3,3,6,67,5);
+INSERT INTO `eav_entity_attribute` VALUES (68,3,3,6,68,6);
+INSERT INTO `eav_entity_attribute` VALUES (69,3,3,5,69,51);
+INSERT INTO `eav_entity_attribute` VALUES (87,4,4,7,88,6);
+INSERT INTO `eav_entity_attribute` VALUES (93,4,4,8,95,8);
+INSERT INTO `eav_entity_attribute` VALUES (102,4,4,7,104,14);
+INSERT INTO `eav_entity_attribute` VALUES (103,4,4,7,105,15);
+INSERT INTO `eav_entity_attribute` VALUES (104,4,4,7,106,16);
+INSERT INTO `eav_entity_attribute` VALUES (105,4,4,7,107,17);
+INSERT INTO `eav_entity_attribute` VALUES (106,4,4,7,108,18);
+INSERT INTO `eav_entity_attribute` VALUES (107,4,4,7,109,19);
+INSERT INTO `eav_entity_attribute` VALUES (108,4,4,7,110,20);
+INSERT INTO `eav_entity_attribute` VALUES (111,3,3,4,113,3);
+INSERT INTO `eav_entity_attribute` VALUES (112,3,3,4,114,17);
+INSERT INTO `eav_entity_attribute` VALUES (114,4,4,7,116,11);
+INSERT INTO `eav_entity_attribute` VALUES (118,4,4,7,120,102);
+INSERT INTO `eav_entity_attribute` VALUES (119,4,4,7,121,103);
+INSERT INTO `eav_entity_attribute` VALUES (121,4,4,7,123,104);
+INSERT INTO `eav_entity_attribute` VALUES (122,4,4,7,124,105);
+INSERT INTO `eav_entity_attribute` VALUES (123,4,4,7,125,106);
+INSERT INTO `eav_entity_attribute` VALUES (124,4,4,7,126,107);
+INSERT INTO `eav_entity_attribute` VALUES (125,4,4,7,127,108);
+INSERT INTO `eav_entity_attribute` VALUES (130,4,4,7,70,2);
+INSERT INTO `eav_entity_attribute` VALUES (132,4,4,7,71,3);
+INSERT INTO `eav_entity_attribute` VALUES (134,4,4,7,72,10);
+INSERT INTO `eav_entity_attribute` VALUES (136,4,4,7,74,4);
+INSERT INTO `eav_entity_attribute` VALUES (138,4,4,7,79,8);
+INSERT INTO `eav_entity_attribute` VALUES (140,4,4,7,84,6);
+INSERT INTO `eav_entity_attribute` VALUES (142,4,4,7,94,11);
+INSERT INTO `eav_entity_attribute` VALUES (144,4,4,7,102,9);
+INSERT INTO `eav_entity_attribute` VALUES (146,4,4,7,112,7);
+INSERT INTO `eav_entity_attribute` VALUES (148,4,4,7,119,12);
+INSERT INTO `eav_entity_attribute` VALUES (150,4,4,7,128,1);
+INSERT INTO `eav_entity_attribute` VALUES (152,4,4,7,129,5);
+INSERT INTO `eav_entity_attribute` VALUES (154,4,4,7,131,13);
+INSERT INTO `eav_entity_attribute` VALUES (156,4,4,7,132,14);
+INSERT INTO `eav_entity_attribute` VALUES (158,4,4,10,85,1);
+INSERT INTO `eav_entity_attribute` VALUES (160,4,4,10,86,2);
+INSERT INTO `eav_entity_attribute` VALUES (162,4,4,10,87,3);
+INSERT INTO `eav_entity_attribute` VALUES (164,4,4,10,93,4);
+INSERT INTO `eav_entity_attribute` VALUES (166,4,4,9,81,2);
+INSERT INTO `eav_entity_attribute` VALUES (168,4,4,9,82,3);
+INSERT INTO `eav_entity_attribute` VALUES (170,4,4,9,83,4);
+INSERT INTO `eav_entity_attribute` VALUES (172,4,4,9,115,1);
+INSERT INTO `eav_entity_attribute` VALUES (174,4,4,8,75,1);
+INSERT INTO `eav_entity_attribute` VALUES (176,4,4,8,76,2);
+INSERT INTO `eav_entity_attribute` VALUES (178,4,4,8,77,3);
+INSERT INTO `eav_entity_attribute` VALUES (180,4,4,8,78,4);
+INSERT INTO `eav_entity_attribute` VALUES (182,4,4,8,89,5);
+INSERT INTO `eav_entity_attribute` VALUES (184,4,4,8,117,6);
+INSERT INTO `eav_entity_attribute` VALUES (186,4,4,8,118,7);
+INSERT INTO `eav_entity_attribute` VALUES (188,4,4,8,122,8);
+INSERT INTO `eav_entity_attribute` VALUES (190,4,4,11,97,1);
+INSERT INTO `eav_entity_attribute` VALUES (192,4,4,11,98,2);
+INSERT INTO `eav_entity_attribute` VALUES (194,4,4,11,99,3);
+INSERT INTO `eav_entity_attribute` VALUES (196,4,4,11,100,4);
+INSERT INTO `eav_entity_attribute` VALUES (198,4,4,11,101,5);
+INSERT INTO `eav_entity_attribute` VALUES (200,4,4,11,103,6);
+INSERT INTO `eav_entity_attribute` VALUES (202,4,4,12,73,1);
+INSERT INTO `eav_entity_attribute` VALUES (204,4,4,12,91,3);
+INSERT INTO `eav_entity_attribute` VALUES (206,4,4,12,92,4);
+INSERT INTO `eav_entity_attribute` VALUES (208,4,4,12,96,2);
+INSERT INTO `eav_entity_attribute` VALUES (210,4,4,12,111,5);
+INSERT INTO `eav_entity_attribute` VALUES (212,4,4,12,130,6);
 /*!40000 ALTER TABLE `eav_entity_attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4504,6 +7300,7 @@ CREATE TABLE `eav_entity_datetime` (
 --
 -- Dumping data for table `eav_entity_datetime`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `eav_entity_datetime` WRITE;
 /*!40000 ALTER TABLE `eav_entity_datetime` DISABLE KEYS */;
@@ -4538,6 +7335,7 @@ CREATE TABLE `eav_entity_decimal` (
 --
 -- Dumping data for table `eav_entity_decimal`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `eav_entity_decimal` WRITE;
 /*!40000 ALTER TABLE `eav_entity_decimal` DISABLE KEYS */;
@@ -4572,6 +7370,7 @@ CREATE TABLE `eav_entity_int` (
 --
 -- Dumping data for table `eav_entity_int`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `eav_entity_int` WRITE;
 /*!40000 ALTER TABLE `eav_entity_int` DISABLE KEYS */;
@@ -4602,6 +7401,7 @@ CREATE TABLE `eav_entity_store` (
 --
 -- Dumping data for table `eav_entity_store`
 --
+-- ORDER BY:  `entity_store_id`
 
 LOCK TABLES `eav_entity_store` WRITE;
 /*!40000 ALTER TABLE `eav_entity_store` DISABLE KEYS */;
@@ -4636,6 +7436,7 @@ CREATE TABLE `eav_entity_text` (
 --
 -- Dumping data for table `eav_entity_text`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `eav_entity_text` WRITE;
 /*!40000 ALTER TABLE `eav_entity_text` DISABLE KEYS */;
@@ -4674,10 +7475,18 @@ CREATE TABLE `eav_entity_type` (
 --
 -- Dumping data for table `eav_entity_type`
 --
+-- ORDER BY:  `entity_type_id`
 
 LOCK TABLES `eav_entity_type` WRITE;
 /*!40000 ALTER TABLE `eav_entity_type` DISABLE KEYS */;
-INSERT INTO `eav_entity_type` VALUES (1,'customer','Magento\\Customer\\Model\\ResourceModel\\Customer','Magento\\Customer\\Model\\Attribute','customer_entity',NULL,NULL,1,'default',1,'Magento\\Eav\\Model\\Entity\\Increment\\NumericValue',0,8,'0','customer_eav_attribute','Magento\\Customer\\Model\\ResourceModel\\Attribute\\Collection'),(2,'customer_address','Magento\\Customer\\Model\\ResourceModel\\Address','Magento\\Customer\\Model\\Attribute','customer_address_entity',NULL,NULL,1,'default',2,NULL,0,8,'0','customer_eav_attribute','Magento\\Customer\\Model\\ResourceModel\\Address\\Attribute\\Collection'),(3,'catalog_category','Magento\\Catalog\\Model\\ResourceModel\\Category','Magento\\Catalog\\Model\\ResourceModel\\Eav\\Attribute','catalog_category_entity',NULL,NULL,1,'default',3,NULL,0,8,'0','catalog_eav_attribute','Magento\\Catalog\\Model\\ResourceModel\\Category\\Attribute\\Collection'),(4,'catalog_product','Magento\\Catalog\\Model\\ResourceModel\\Product','Magento\\Catalog\\Model\\ResourceModel\\Eav\\Attribute','catalog_product_entity',NULL,NULL,1,'default',4,NULL,0,8,'0','catalog_eav_attribute','Magento\\Catalog\\Model\\ResourceModel\\Product\\Attribute\\Collection'),(5,'order','Magento\\Sales\\Model\\ResourceModel\\Order',NULL,'sales_order',NULL,NULL,1,'default',5,'Magento\\Eav\\Model\\Entity\\Increment\\NumericValue',1,8,'0',NULL,NULL),(6,'invoice','Magento\\Sales\\Model\\ResourceModel\\Order',NULL,'sales_invoice',NULL,NULL,1,'default',6,'Magento\\Eav\\Model\\Entity\\Increment\\NumericValue',1,8,'0',NULL,NULL),(7,'creditmemo','Magento\\Sales\\Model\\ResourceModel\\Order\\Creditmemo',NULL,'sales_creditmemo',NULL,NULL,1,'default',7,'Magento\\Eav\\Model\\Entity\\Increment\\NumericValue',1,8,'0',NULL,NULL),(8,'shipment','Magento\\Sales\\Model\\ResourceModel\\Order\\Shipment',NULL,'sales_shipment',NULL,NULL,1,'default',8,'Magento\\Eav\\Model\\Entity\\Increment\\NumericValue',1,8,'0',NULL,NULL);
+INSERT INTO `eav_entity_type` VALUES (1,'customer','Magento\\Customer\\Model\\ResourceModel\\Customer','Magento\\Customer\\Model\\Attribute','customer_entity',NULL,NULL,1,'default',1,'Magento\\Eav\\Model\\Entity\\Increment\\NumericValue',0,8,'0','customer_eav_attribute','Magento\\Customer\\Model\\ResourceModel\\Attribute\\Collection');
+INSERT INTO `eav_entity_type` VALUES (2,'customer_address','Magento\\Customer\\Model\\ResourceModel\\Address','Magento\\Customer\\Model\\Attribute','customer_address_entity',NULL,NULL,1,'default',2,NULL,0,8,'0','customer_eav_attribute','Magento\\Customer\\Model\\ResourceModel\\Address\\Attribute\\Collection');
+INSERT INTO `eav_entity_type` VALUES (3,'catalog_category','Magento\\Catalog\\Model\\ResourceModel\\Category','Magento\\Catalog\\Model\\ResourceModel\\Eav\\Attribute','catalog_category_entity',NULL,NULL,1,'default',3,NULL,0,8,'0','catalog_eav_attribute','Magento\\Catalog\\Model\\ResourceModel\\Category\\Attribute\\Collection');
+INSERT INTO `eav_entity_type` VALUES (4,'catalog_product','Magento\\Catalog\\Model\\ResourceModel\\Product','Magento\\Catalog\\Model\\ResourceModel\\Eav\\Attribute','catalog_product_entity',NULL,NULL,1,'default',4,NULL,0,8,'0','catalog_eav_attribute','Magento\\Catalog\\Model\\ResourceModel\\Product\\Attribute\\Collection');
+INSERT INTO `eav_entity_type` VALUES (5,'order','Magento\\Sales\\Model\\ResourceModel\\Order',NULL,'sales_order',NULL,NULL,1,'default',5,'Magento\\Eav\\Model\\Entity\\Increment\\NumericValue',1,8,'0',NULL,NULL);
+INSERT INTO `eav_entity_type` VALUES (6,'invoice','Magento\\Sales\\Model\\ResourceModel\\Order',NULL,'sales_invoice',NULL,NULL,1,'default',6,'Magento\\Eav\\Model\\Entity\\Increment\\NumericValue',1,8,'0',NULL,NULL);
+INSERT INTO `eav_entity_type` VALUES (7,'creditmemo','Magento\\Sales\\Model\\ResourceModel\\Order\\Creditmemo',NULL,'sales_creditmemo',NULL,NULL,1,'default',7,'Magento\\Eav\\Model\\Entity\\Increment\\NumericValue',1,8,'0',NULL,NULL);
+INSERT INTO `eav_entity_type` VALUES (8,'shipment','Magento\\Sales\\Model\\ResourceModel\\Order\\Shipment',NULL,'sales_shipment',NULL,NULL,1,'default',8,'Magento\\Eav\\Model\\Entity\\Increment\\NumericValue',1,8,'0',NULL,NULL);
 /*!40000 ALTER TABLE `eav_entity_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4709,6 +7518,7 @@ CREATE TABLE `eav_entity_varchar` (
 --
 -- Dumping data for table `eav_entity_varchar`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `eav_entity_varchar` WRITE;
 /*!40000 ALTER TABLE `eav_entity_varchar` DISABLE KEYS */;
@@ -4741,10 +7551,52 @@ CREATE TABLE `eav_form_element` (
 --
 -- Dumping data for table `eav_form_element`
 --
+-- ORDER BY:  `element_id`
 
 LOCK TABLES `eav_form_element` WRITE;
 /*!40000 ALTER TABLE `eav_form_element` DISABLE KEYS */;
-INSERT INTO `eav_form_element` VALUES (1,1,NULL,23,0),(2,1,NULL,25,1),(3,1,NULL,27,2),(4,1,NULL,9,3),(5,1,NULL,28,4),(6,1,NULL,29,5),(7,1,NULL,31,6),(8,1,NULL,33,7),(9,1,NULL,30,8),(10,1,NULL,34,9),(11,1,NULL,35,10),(12,2,NULL,23,0),(13,2,NULL,25,1),(14,2,NULL,27,2),(15,2,NULL,9,3),(16,2,NULL,28,4),(17,2,NULL,29,5),(18,2,NULL,31,6),(19,2,NULL,33,7),(20,2,NULL,30,8),(21,2,NULL,34,9),(22,2,NULL,35,10),(23,3,NULL,23,0),(24,3,NULL,25,1),(25,3,NULL,27,2),(26,3,NULL,28,3),(27,3,NULL,29,4),(28,3,NULL,31,5),(29,3,NULL,33,6),(30,3,NULL,30,7),(31,3,NULL,34,8),(32,3,NULL,35,9),(33,4,NULL,23,0),(34,4,NULL,25,1),(35,4,NULL,27,2),(36,4,NULL,28,3),(37,4,NULL,29,4),(38,4,NULL,31,5),(39,4,NULL,33,6),(40,4,NULL,30,7),(41,4,NULL,34,8),(42,4,NULL,35,9);
+INSERT INTO `eav_form_element` VALUES (1,1,NULL,23,0);
+INSERT INTO `eav_form_element` VALUES (2,1,NULL,25,1);
+INSERT INTO `eav_form_element` VALUES (3,1,NULL,27,2);
+INSERT INTO `eav_form_element` VALUES (4,1,NULL,9,3);
+INSERT INTO `eav_form_element` VALUES (5,1,NULL,28,4);
+INSERT INTO `eav_form_element` VALUES (6,1,NULL,29,5);
+INSERT INTO `eav_form_element` VALUES (7,1,NULL,31,6);
+INSERT INTO `eav_form_element` VALUES (8,1,NULL,33,7);
+INSERT INTO `eav_form_element` VALUES (9,1,NULL,30,8);
+INSERT INTO `eav_form_element` VALUES (10,1,NULL,34,9);
+INSERT INTO `eav_form_element` VALUES (11,1,NULL,35,10);
+INSERT INTO `eav_form_element` VALUES (12,2,NULL,23,0);
+INSERT INTO `eav_form_element` VALUES (13,2,NULL,25,1);
+INSERT INTO `eav_form_element` VALUES (14,2,NULL,27,2);
+INSERT INTO `eav_form_element` VALUES (15,2,NULL,9,3);
+INSERT INTO `eav_form_element` VALUES (16,2,NULL,28,4);
+INSERT INTO `eav_form_element` VALUES (17,2,NULL,29,5);
+INSERT INTO `eav_form_element` VALUES (18,2,NULL,31,6);
+INSERT INTO `eav_form_element` VALUES (19,2,NULL,33,7);
+INSERT INTO `eav_form_element` VALUES (20,2,NULL,30,8);
+INSERT INTO `eav_form_element` VALUES (21,2,NULL,34,9);
+INSERT INTO `eav_form_element` VALUES (22,2,NULL,35,10);
+INSERT INTO `eav_form_element` VALUES (23,3,NULL,23,0);
+INSERT INTO `eav_form_element` VALUES (24,3,NULL,25,1);
+INSERT INTO `eav_form_element` VALUES (25,3,NULL,27,2);
+INSERT INTO `eav_form_element` VALUES (26,3,NULL,28,3);
+INSERT INTO `eav_form_element` VALUES (27,3,NULL,29,4);
+INSERT INTO `eav_form_element` VALUES (28,3,NULL,31,5);
+INSERT INTO `eav_form_element` VALUES (29,3,NULL,33,6);
+INSERT INTO `eav_form_element` VALUES (30,3,NULL,30,7);
+INSERT INTO `eav_form_element` VALUES (31,3,NULL,34,8);
+INSERT INTO `eav_form_element` VALUES (32,3,NULL,35,9);
+INSERT INTO `eav_form_element` VALUES (33,4,NULL,23,0);
+INSERT INTO `eav_form_element` VALUES (34,4,NULL,25,1);
+INSERT INTO `eav_form_element` VALUES (35,4,NULL,27,2);
+INSERT INTO `eav_form_element` VALUES (36,4,NULL,28,3);
+INSERT INTO `eav_form_element` VALUES (37,4,NULL,29,4);
+INSERT INTO `eav_form_element` VALUES (38,4,NULL,31,5);
+INSERT INTO `eav_form_element` VALUES (39,4,NULL,33,6);
+INSERT INTO `eav_form_element` VALUES (40,4,NULL,30,7);
+INSERT INTO `eav_form_element` VALUES (41,4,NULL,34,8);
+INSERT INTO `eav_form_element` VALUES (42,4,NULL,35,9);
 /*!40000 ALTER TABLE `eav_form_element` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4769,6 +7621,7 @@ CREATE TABLE `eav_form_fieldset` (
 --
 -- Dumping data for table `eav_form_fieldset`
 --
+-- ORDER BY:  `fieldset_id`
 
 LOCK TABLES `eav_form_fieldset` WRITE;
 /*!40000 ALTER TABLE `eav_form_fieldset` DISABLE KEYS */;
@@ -4796,6 +7649,7 @@ CREATE TABLE `eav_form_fieldset_label` (
 --
 -- Dumping data for table `eav_form_fieldset_label`
 --
+-- ORDER BY:  `fieldset_id`,`store_id`
 
 LOCK TABLES `eav_form_fieldset_label` WRITE;
 /*!40000 ALTER TABLE `eav_form_fieldset_label` DISABLE KEYS */;
@@ -4826,10 +7680,14 @@ CREATE TABLE `eav_form_type` (
 --
 -- Dumping data for table `eav_form_type`
 --
+-- ORDER BY:  `type_id`
 
 LOCK TABLES `eav_form_type` WRITE;
 /*!40000 ALTER TABLE `eav_form_type` DISABLE KEYS */;
-INSERT INTO `eav_form_type` VALUES (1,'checkout_onepage_register','checkout_onepage_register',1,'',0),(2,'checkout_onepage_register_guest','checkout_onepage_register_guest',1,'',0),(3,'checkout_onepage_billing_address','checkout_onepage_billing_address',1,'',0),(4,'checkout_onepage_shipping_address','checkout_onepage_shipping_address',1,'',0);
+INSERT INTO `eav_form_type` VALUES (1,'checkout_onepage_register','checkout_onepage_register',1,'',0);
+INSERT INTO `eav_form_type` VALUES (2,'checkout_onepage_register_guest','checkout_onepage_register_guest',1,'',0);
+INSERT INTO `eav_form_type` VALUES (3,'checkout_onepage_billing_address','checkout_onepage_billing_address',1,'',0);
+INSERT INTO `eav_form_type` VALUES (4,'checkout_onepage_shipping_address','checkout_onepage_shipping_address',1,'',0);
 /*!40000 ALTER TABLE `eav_form_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4853,10 +7711,16 @@ CREATE TABLE `eav_form_type_entity` (
 --
 -- Dumping data for table `eav_form_type_entity`
 --
+-- ORDER BY:  `type_id`,`entity_type_id`
 
 LOCK TABLES `eav_form_type_entity` WRITE;
 /*!40000 ALTER TABLE `eav_form_type_entity` DISABLE KEYS */;
-INSERT INTO `eav_form_type_entity` VALUES (1,1),(2,1),(1,2),(2,2),(3,2),(4,2);
+INSERT INTO `eav_form_type_entity` VALUES (1,1);
+INSERT INTO `eav_form_type_entity` VALUES (1,2);
+INSERT INTO `eav_form_type_entity` VALUES (2,1);
+INSERT INTO `eav_form_type_entity` VALUES (2,2);
+INSERT INTO `eav_form_type_entity` VALUES (3,2);
+INSERT INTO `eav_form_type_entity` VALUES (4,2);
 /*!40000 ALTER TABLE `eav_form_type_entity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4890,6 +7754,7 @@ CREATE TABLE `email_template` (
 --
 -- Dumping data for table `email_template`
 --
+-- ORDER BY:  `template_id`
 
 LOCK TABLES `email_template` WRITE;
 /*!40000 ALTER TABLE `email_template` DISABLE KEYS */;
@@ -4917,6 +7782,7 @@ CREATE TABLE `flag` (
 --
 -- Dumping data for table `flag`
 --
+-- ORDER BY:  `flag_id`
 
 LOCK TABLES `flag` WRITE;
 /*!40000 ALTER TABLE `flag` DISABLE KEYS */;
@@ -4943,6 +7809,7 @@ CREATE TABLE `gift_message` (
 --
 -- Dumping data for table `gift_message`
 --
+-- ORDER BY:  `gift_message_id`
 
 LOCK TABLES `gift_message` WRITE;
 /*!40000 ALTER TABLE `gift_message` DISABLE KEYS */;
@@ -4971,6 +7838,7 @@ CREATE TABLE `googleoptimizer_code` (
 --
 -- Dumping data for table `googleoptimizer_code`
 --
+-- ORDER BY:  `code_id`
 
 LOCK TABLES `googleoptimizer_code` WRITE;
 /*!40000 ALTER TABLE `googleoptimizer_code` DISABLE KEYS */;
@@ -4999,6 +7867,7 @@ CREATE TABLE `import_history` (
 --
 -- Dumping data for table `import_history`
 --
+-- ORDER BY:  `history_id`
 
 LOCK TABLES `import_history` WRITE;
 /*!40000 ALTER TABLE `import_history` DISABLE KEYS */;
@@ -5024,6 +7893,7 @@ CREATE TABLE `importexport_importdata` (
 --
 -- Dumping data for table `importexport_importdata`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `importexport_importdata` WRITE;
 /*!40000 ALTER TABLE `importexport_importdata` DISABLE KEYS */;
@@ -5051,10 +7921,19 @@ CREATE TABLE `indexer_state` (
 --
 -- Dumping data for table `indexer_state`
 --
+-- ORDER BY:  `state_id`
 
 LOCK TABLES `indexer_state` WRITE;
 /*!40000 ALTER TABLE `indexer_state` DISABLE KEYS */;
-INSERT INTO `indexer_state` VALUES (1,'customer_grid','valid','2016-06-02 09:03:35','9b4506442a512a649dde7c6f25924134'),(2,'catalog_category_product','valid','2016-06-02 09:07:02','86038392fe878acd22d5650a99b4f9b3'),(3,'catalog_product_category','valid','2016-06-02 09:07:02','8fd6f9a1ec8741ce1c7984b549915e8e'),(4,'catalog_product_price','valid','2016-06-02 09:07:02','0dce29088c0563479f66b2a70ebf152b'),(5,'catalog_product_attribute','valid','2016-06-02 09:07:02','5ee6fe2540126b9b2c90c53fe25c4d9a'),(6,'cataloginventory_stock','valid','2016-06-02 09:07:02','030021373629a9e2b3b8ffcc92be9483'),(7,'catalogrule_rule','valid','2016-06-02 09:07:02','63676f01f658a0964f150347a6596a0a'),(8,'catalogrule_product','valid','2016-06-02 09:07:02','f9512548ab97beef43ea393d4a6dc545'),(9,'catalogsearch_fulltext','valid','2016-06-02 09:03:36','a959fbd517e02dc6c79ef261cc983c97');
+INSERT INTO `indexer_state` VALUES (1,'customer_grid','valid','2016-06-02 09:03:35','9b4506442a512a649dde7c6f25924134');
+INSERT INTO `indexer_state` VALUES (2,'catalog_category_product','valid','2016-06-02 09:07:02','86038392fe878acd22d5650a99b4f9b3');
+INSERT INTO `indexer_state` VALUES (3,'catalog_product_category','valid','2016-06-02 09:07:02','8fd6f9a1ec8741ce1c7984b549915e8e');
+INSERT INTO `indexer_state` VALUES (4,'catalog_product_price','valid','2016-06-02 09:07:02','0dce29088c0563479f66b2a70ebf152b');
+INSERT INTO `indexer_state` VALUES (5,'catalog_product_attribute','valid','2016-06-02 09:07:02','5ee6fe2540126b9b2c90c53fe25c4d9a');
+INSERT INTO `indexer_state` VALUES (6,'cataloginventory_stock','valid','2016-06-02 09:07:02','030021373629a9e2b3b8ffcc92be9483');
+INSERT INTO `indexer_state` VALUES (7,'catalogrule_rule','valid','2016-06-02 09:07:02','63676f01f658a0964f150347a6596a0a');
+INSERT INTO `indexer_state` VALUES (8,'catalogrule_product','valid','2016-06-02 09:07:02','f9512548ab97beef43ea393d4a6dc545');
+INSERT INTO `indexer_state` VALUES (9,'catalogsearch_fulltext','valid','2016-06-02 09:03:36','a959fbd517e02dc6c79ef261cc983c97');
 /*!40000 ALTER TABLE `indexer_state` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -5086,6 +7965,7 @@ CREATE TABLE `integration` (
 --
 -- Dumping data for table `integration`
 --
+-- ORDER BY:  `integration_id`
 
 LOCK TABLES `integration` WRITE;
 /*!40000 ALTER TABLE `integration` DISABLE KEYS */;
@@ -5118,6 +7998,7 @@ CREATE TABLE `layout_link` (
 --
 -- Dumping data for table `layout_link`
 --
+-- ORDER BY:  `layout_link_id`
 
 LOCK TABLES `layout_link` WRITE;
 /*!40000 ALTER TABLE `layout_link` DISABLE KEYS */;
@@ -5145,6 +8026,7 @@ CREATE TABLE `layout_update` (
 --
 -- Dumping data for table `layout_update`
 --
+-- ORDER BY:  `layout_update_id`
 
 LOCK TABLES `layout_update` WRITE;
 /*!40000 ALTER TABLE `layout_update` DISABLE KEYS */;
@@ -5174,6 +8056,7 @@ CREATE TABLE `mview_state` (
 --
 -- Dumping data for table `mview_state`
 --
+-- ORDER BY:  `state_id`
 
 LOCK TABLES `mview_state` WRITE;
 /*!40000 ALTER TABLE `mview_state` DISABLE KEYS */;
@@ -5204,6 +8087,7 @@ CREATE TABLE `newsletter_problem` (
 --
 -- Dumping data for table `newsletter_problem`
 --
+-- ORDER BY:  `problem_id`
 
 LOCK TABLES `newsletter_problem` WRITE;
 /*!40000 ALTER TABLE `newsletter_problem` DISABLE KEYS */;
@@ -5238,6 +8122,7 @@ CREATE TABLE `newsletter_queue` (
 --
 -- Dumping data for table `newsletter_queue`
 --
+-- ORDER BY:  `queue_id`
 
 LOCK TABLES `newsletter_queue` WRITE;
 /*!40000 ALTER TABLE `newsletter_queue` DISABLE KEYS */;
@@ -5267,6 +8152,7 @@ CREATE TABLE `newsletter_queue_link` (
 --
 -- Dumping data for table `newsletter_queue_link`
 --
+-- ORDER BY:  `queue_link_id`
 
 LOCK TABLES `newsletter_queue_link` WRITE;
 /*!40000 ALTER TABLE `newsletter_queue_link` DISABLE KEYS */;
@@ -5293,6 +8179,7 @@ CREATE TABLE `newsletter_queue_store_link` (
 --
 -- Dumping data for table `newsletter_queue_store_link`
 --
+-- ORDER BY:  `queue_id`,`store_id`
 
 LOCK TABLES `newsletter_queue_store_link` WRITE;
 /*!40000 ALTER TABLE `newsletter_queue_store_link` DISABLE KEYS */;
@@ -5324,6 +8211,7 @@ CREATE TABLE `newsletter_subscriber` (
 --
 -- Dumping data for table `newsletter_subscriber`
 --
+-- ORDER BY:  `subscriber_id`
 
 LOCK TABLES `newsletter_subscriber` WRITE;
 /*!40000 ALTER TABLE `newsletter_subscriber` DISABLE KEYS */;
@@ -5359,6 +8247,7 @@ CREATE TABLE `newsletter_template` (
 --
 -- Dumping data for table `newsletter_template`
 --
+-- ORDER BY:  `template_id`
 
 LOCK TABLES `newsletter_template` WRITE;
 /*!40000 ALTER TABLE `newsletter_template` DISABLE KEYS */;
@@ -5392,6 +8281,7 @@ CREATE TABLE `oauth_consumer` (
 --
 -- Dumping data for table `oauth_consumer`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `oauth_consumer` WRITE;
 /*!40000 ALTER TABLE `oauth_consumer` DISABLE KEYS */;
@@ -5418,6 +8308,7 @@ CREATE TABLE `oauth_nonce` (
 --
 -- Dumping data for table `oauth_nonce`
 --
+-- ORDER BY:  `nonce`,`consumer_id`
 
 LOCK TABLES `oauth_nonce` WRITE;
 /*!40000 ALTER TABLE `oauth_nonce` DISABLE KEYS */;
@@ -5459,6 +8350,7 @@ CREATE TABLE `oauth_token` (
 --
 -- Dumping data for table `oauth_token`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `oauth_token` WRITE;
 /*!40000 ALTER TABLE `oauth_token` DISABLE KEYS */;
@@ -5477,7 +8369,7 @@ CREATE TABLE `oauth_token_request_log` (
   `user_name` varchar(255) NOT NULL COMMENT 'Customer email or admin login',
   `user_type` smallint(5) unsigned NOT NULL COMMENT 'User type (admin or customer)',
   `failures_count` smallint(5) unsigned DEFAULT '0' COMMENT 'Number of failed authentication attempts in a row',
-  `lock_expires_at` timestamp NOT NULL COMMENT 'Lock expiration time',
+  `lock_expires_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Lock expiration time',
   PRIMARY KEY (`log_id`),
   UNIQUE KEY `OAUTH_TOKEN_REQUEST_LOG_USER_NAME_USER_TYPE` (`user_name`,`user_type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Log of token request authentication failures.';
@@ -5486,6 +8378,7 @@ CREATE TABLE `oauth_token_request_log` (
 --
 -- Dumping data for table `oauth_token_request_log`
 --
+-- ORDER BY:  `log_id`
 
 LOCK TABLES `oauth_token_request_log` WRITE;
 /*!40000 ALTER TABLE `oauth_token_request_log` DISABLE KEYS */;
@@ -5520,6 +8413,7 @@ CREATE TABLE `paypal_billing_agreement` (
 --
 -- Dumping data for table `paypal_billing_agreement`
 --
+-- ORDER BY:  `agreement_id`
 
 LOCK TABLES `paypal_billing_agreement` WRITE;
 /*!40000 ALTER TABLE `paypal_billing_agreement` DISABLE KEYS */;
@@ -5546,6 +8440,7 @@ CREATE TABLE `paypal_billing_agreement_order` (
 --
 -- Dumping data for table `paypal_billing_agreement_order`
 --
+-- ORDER BY:  `agreement_id`,`order_id`
 
 LOCK TABLES `paypal_billing_agreement_order` WRITE;
 /*!40000 ALTER TABLE `paypal_billing_agreement_order` DISABLE KEYS */;
@@ -5573,6 +8468,7 @@ CREATE TABLE `paypal_cert` (
 --
 -- Dumping data for table `paypal_cert`
 --
+-- ORDER BY:  `cert_id`
 
 LOCK TABLES `paypal_cert` WRITE;
 /*!40000 ALTER TABLE `paypal_cert` DISABLE KEYS */;
@@ -5599,6 +8495,7 @@ CREATE TABLE `paypal_payment_transaction` (
 --
 -- Dumping data for table `paypal_payment_transaction`
 --
+-- ORDER BY:  `transaction_id`
 
 LOCK TABLES `paypal_payment_transaction` WRITE;
 /*!40000 ALTER TABLE `paypal_payment_transaction` DISABLE KEYS */;
@@ -5626,6 +8523,7 @@ CREATE TABLE `paypal_settlement_report` (
 --
 -- Dumping data for table `paypal_settlement_report`
 --
+-- ORDER BY:  `report_id`
 
 LOCK TABLES `paypal_settlement_report` WRITE;
 /*!40000 ALTER TABLE `paypal_settlement_report` DISABLE KEYS */;
@@ -5668,6 +8566,7 @@ CREATE TABLE `paypal_settlement_report_row` (
 --
 -- Dumping data for table `paypal_settlement_report_row`
 --
+-- ORDER BY:  `row_id`
 
 LOCK TABLES `paypal_settlement_report_row` WRITE;
 /*!40000 ALTER TABLE `paypal_settlement_report_row` DISABLE KEYS */;
@@ -5701,6 +8600,7 @@ CREATE TABLE `persistent_session` (
 --
 -- Dumping data for table `persistent_session`
 --
+-- ORDER BY:  `persistent_id`
 
 LOCK TABLES `persistent_session` WRITE;
 /*!40000 ALTER TABLE `persistent_session` DISABLE KEYS */;
@@ -5737,6 +8637,7 @@ CREATE TABLE `product_alert_price` (
 --
 -- Dumping data for table `product_alert_price`
 --
+-- ORDER BY:  `alert_price_id`
 
 LOCK TABLES `product_alert_price` WRITE;
 /*!40000 ALTER TABLE `product_alert_price` DISABLE KEYS */;
@@ -5772,6 +8673,7 @@ CREATE TABLE `product_alert_stock` (
 --
 -- Dumping data for table `product_alert_stock`
 --
+-- ORDER BY:  `alert_stock_id`
 
 LOCK TABLES `product_alert_stock` WRITE;
 /*!40000 ALTER TABLE `product_alert_stock` DISABLE KEYS */;
@@ -5847,6 +8749,7 @@ CREATE TABLE `quote` (
 --
 -- Dumping data for table `quote`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `quote` WRITE;
 /*!40000 ALTER TABLE `quote` DISABLE KEYS */;
@@ -5932,6 +8835,7 @@ CREATE TABLE `quote_address` (
 --
 -- Dumping data for table `quote_address`
 --
+-- ORDER BY:  `address_id`
 
 LOCK TABLES `quote_address` WRITE;
 /*!40000 ALTER TABLE `quote_address` DISABLE KEYS */;
@@ -5999,6 +8903,7 @@ CREATE TABLE `quote_address_item` (
 --
 -- Dumping data for table `quote_address_item`
 --
+-- ORDER BY:  `address_item_id`
 
 LOCK TABLES `quote_address_item` WRITE;
 /*!40000 ALTER TABLE `quote_address_item` DISABLE KEYS */;
@@ -6026,6 +8931,7 @@ CREATE TABLE `quote_id_mask` (
 --
 -- Dumping data for table `quote_id_mask`
 --
+-- ORDER BY:  `entity_id`,`quote_id`
 
 LOCK TABLES `quote_id_mask` WRITE;
 /*!40000 ALTER TABLE `quote_id_mask` DISABLE KEYS */;
@@ -6108,6 +9014,7 @@ CREATE TABLE `quote_item` (
 --
 -- Dumping data for table `quote_item`
 --
+-- ORDER BY:  `item_id`
 
 LOCK TABLES `quote_item` WRITE;
 /*!40000 ALTER TABLE `quote_item` DISABLE KEYS */;
@@ -6136,6 +9043,7 @@ CREATE TABLE `quote_item_option` (
 --
 -- Dumping data for table `quote_item_option`
 --
+-- ORDER BY:  `option_id`
 
 LOCK TABLES `quote_item_option` WRITE;
 /*!40000 ALTER TABLE `quote_item_option` DISABLE KEYS */;
@@ -6181,6 +9089,7 @@ CREATE TABLE `quote_payment` (
 --
 -- Dumping data for table `quote_payment`
 --
+-- ORDER BY:  `payment_id`
 
 LOCK TABLES `quote_payment` WRITE;
 /*!40000 ALTER TABLE `quote_payment` DISABLE KEYS */;
@@ -6216,6 +9125,7 @@ CREATE TABLE `quote_shipping_rate` (
 --
 -- Dumping data for table `quote_shipping_rate`
 --
+-- ORDER BY:  `rate_id`
 
 LOCK TABLES `quote_shipping_rate` WRITE;
 /*!40000 ALTER TABLE `quote_shipping_rate` DISABLE KEYS */;
@@ -6245,10 +9155,13 @@ CREATE TABLE `rating` (
 --
 -- Dumping data for table `rating`
 --
+-- ORDER BY:  `rating_id`
 
 LOCK TABLES `rating` WRITE;
 /*!40000 ALTER TABLE `rating` DISABLE KEYS */;
-INSERT INTO `rating` VALUES (1,1,'Quality',0,1),(2,1,'Value',0,1),(3,1,'Price',0,1);
+INSERT INTO `rating` VALUES (1,1,'Quality',0,1);
+INSERT INTO `rating` VALUES (2,1,'Value',0,1);
+INSERT INTO `rating` VALUES (3,1,'Price',0,1);
 /*!40000 ALTER TABLE `rating` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6270,10 +9183,13 @@ CREATE TABLE `rating_entity` (
 --
 -- Dumping data for table `rating_entity`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `rating_entity` WRITE;
 /*!40000 ALTER TABLE `rating_entity` DISABLE KEYS */;
-INSERT INTO `rating_entity` VALUES (1,'product'),(2,'product_review'),(3,'review');
+INSERT INTO `rating_entity` VALUES (1,'product');
+INSERT INTO `rating_entity` VALUES (2,'product_review');
+INSERT INTO `rating_entity` VALUES (3,'review');
 /*!40000 ALTER TABLE `rating_entity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6299,10 +9215,25 @@ CREATE TABLE `rating_option` (
 --
 -- Dumping data for table `rating_option`
 --
+-- ORDER BY:  `option_id`
 
 LOCK TABLES `rating_option` WRITE;
 /*!40000 ALTER TABLE `rating_option` DISABLE KEYS */;
-INSERT INTO `rating_option` VALUES (1,1,'1',1,1),(2,1,'2',2,2),(3,1,'3',3,3),(4,1,'4',4,4),(5,1,'5',5,5),(6,2,'1',1,1),(7,2,'2',2,2),(8,2,'3',3,3),(9,2,'4',4,4),(10,2,'5',5,5),(11,3,'1',1,1),(12,3,'2',2,2),(13,3,'3',3,3),(14,3,'4',4,4),(15,3,'5',5,5);
+INSERT INTO `rating_option` VALUES (1,1,'1',1,1);
+INSERT INTO `rating_option` VALUES (2,1,'2',2,2);
+INSERT INTO `rating_option` VALUES (3,1,'3',3,3);
+INSERT INTO `rating_option` VALUES (4,1,'4',4,4);
+INSERT INTO `rating_option` VALUES (5,1,'5',5,5);
+INSERT INTO `rating_option` VALUES (6,2,'1',1,1);
+INSERT INTO `rating_option` VALUES (7,2,'2',2,2);
+INSERT INTO `rating_option` VALUES (8,2,'3',3,3);
+INSERT INTO `rating_option` VALUES (9,2,'4',4,4);
+INSERT INTO `rating_option` VALUES (10,2,'5',5,5);
+INSERT INTO `rating_option` VALUES (11,3,'1',1,1);
+INSERT INTO `rating_option` VALUES (12,3,'2',2,2);
+INSERT INTO `rating_option` VALUES (13,3,'3',3,3);
+INSERT INTO `rating_option` VALUES (14,3,'4',4,4);
+INSERT INTO `rating_option` VALUES (15,3,'5',5,5);
 /*!40000 ALTER TABLE `rating_option` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6335,6 +9266,7 @@ CREATE TABLE `rating_option_vote` (
 --
 -- Dumping data for table `rating_option_vote`
 --
+-- ORDER BY:  `vote_id`
 
 LOCK TABLES `rating_option_vote` WRITE;
 /*!40000 ALTER TABLE `rating_option_vote` DISABLE KEYS */;
@@ -6368,6 +9300,7 @@ CREATE TABLE `rating_option_vote_aggregated` (
 --
 -- Dumping data for table `rating_option_vote_aggregated`
 --
+-- ORDER BY:  `primary_id`
 
 LOCK TABLES `rating_option_vote_aggregated` WRITE;
 /*!40000 ALTER TABLE `rating_option_vote_aggregated` DISABLE KEYS */;
@@ -6394,6 +9327,7 @@ CREATE TABLE `rating_store` (
 --
 -- Dumping data for table `rating_store`
 --
+-- ORDER BY:  `rating_id`,`store_id`
 
 LOCK TABLES `rating_store` WRITE;
 /*!40000 ALTER TABLE `rating_store` DISABLE KEYS */;
@@ -6421,6 +9355,7 @@ CREATE TABLE `rating_title` (
 --
 -- Dumping data for table `rating_title`
 --
+-- ORDER BY:  `rating_id`,`store_id`
 
 LOCK TABLES `rating_title` WRITE;
 /*!40000 ALTER TABLE `rating_title` DISABLE KEYS */;
@@ -6456,6 +9391,7 @@ CREATE TABLE `report_compared_product_index` (
 --
 -- Dumping data for table `report_compared_product_index`
 --
+-- ORDER BY:  `index_id`
 
 LOCK TABLES `report_compared_product_index` WRITE;
 /*!40000 ALTER TABLE `report_compared_product_index` DISABLE KEYS */;
@@ -6491,6 +9427,7 @@ CREATE TABLE `report_event` (
 --
 -- Dumping data for table `report_event`
 --
+-- ORDER BY:  `event_id`
 
 LOCK TABLES `report_event` WRITE;
 /*!40000 ALTER TABLE `report_event` DISABLE KEYS */;
@@ -6515,10 +9452,16 @@ CREATE TABLE `report_event_types` (
 --
 -- Dumping data for table `report_event_types`
 --
+-- ORDER BY:  `event_type_id`
 
 LOCK TABLES `report_event_types` WRITE;
 /*!40000 ALTER TABLE `report_event_types` DISABLE KEYS */;
-INSERT INTO `report_event_types` VALUES (1,'catalog_product_view',0),(2,'sendfriend_product',0),(3,'catalog_product_compare_add_product',0),(4,'checkout_cart_add_product',0),(5,'wishlist_add_product',0),(6,'wishlist_share',0);
+INSERT INTO `report_event_types` VALUES (1,'catalog_product_view',0);
+INSERT INTO `report_event_types` VALUES (2,'sendfriend_product',0);
+INSERT INTO `report_event_types` VALUES (3,'catalog_product_compare_add_product',0);
+INSERT INTO `report_event_types` VALUES (4,'checkout_cart_add_product',0);
+INSERT INTO `report_event_types` VALUES (5,'wishlist_add_product',0);
+INSERT INTO `report_event_types` VALUES (6,'wishlist_share',0);
 /*!40000 ALTER TABLE `report_event_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6550,6 +9493,7 @@ CREATE TABLE `report_viewed_product_aggregated_daily` (
 --
 -- Dumping data for table `report_viewed_product_aggregated_daily`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `report_viewed_product_aggregated_daily` WRITE;
 /*!40000 ALTER TABLE `report_viewed_product_aggregated_daily` DISABLE KEYS */;
@@ -6584,6 +9528,7 @@ CREATE TABLE `report_viewed_product_aggregated_monthly` (
 --
 -- Dumping data for table `report_viewed_product_aggregated_monthly`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `report_viewed_product_aggregated_monthly` WRITE;
 /*!40000 ALTER TABLE `report_viewed_product_aggregated_monthly` DISABLE KEYS */;
@@ -6618,6 +9563,7 @@ CREATE TABLE `report_viewed_product_aggregated_yearly` (
 --
 -- Dumping data for table `report_viewed_product_aggregated_yearly`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `report_viewed_product_aggregated_yearly` WRITE;
 /*!40000 ALTER TABLE `report_viewed_product_aggregated_yearly` DISABLE KEYS */;
@@ -6653,6 +9599,7 @@ CREATE TABLE `report_viewed_product_index` (
 --
 -- Dumping data for table `report_viewed_product_index`
 --
+-- ORDER BY:  `index_id`
 
 LOCK TABLES `report_viewed_product_index` WRITE;
 /*!40000 ALTER TABLE `report_viewed_product_index` DISABLE KEYS */;
@@ -6678,6 +9625,7 @@ CREATE TABLE `reporting_counts` (
 --
 -- Dumping data for table `reporting_counts`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `reporting_counts` WRITE;
 /*!40000 ALTER TABLE `reporting_counts` DISABLE KEYS */;
@@ -6705,6 +9653,7 @@ CREATE TABLE `reporting_module_status` (
 --
 -- Dumping data for table `reporting_module_status`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `reporting_module_status` WRITE;
 /*!40000 ALTER TABLE `reporting_module_status` DISABLE KEYS */;
@@ -6732,6 +9681,7 @@ CREATE TABLE `reporting_orders` (
 --
 -- Dumping data for table `reporting_orders`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `reporting_orders` WRITE;
 /*!40000 ALTER TABLE `reporting_orders` DISABLE KEYS */;
@@ -6757,6 +9707,7 @@ CREATE TABLE `reporting_system_updates` (
 --
 -- Dumping data for table `reporting_system_updates`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `reporting_system_updates` WRITE;
 /*!40000 ALTER TABLE `reporting_system_updates` DISABLE KEYS */;
@@ -6782,6 +9733,7 @@ CREATE TABLE `reporting_users` (
 --
 -- Dumping data for table `reporting_users`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `reporting_users` WRITE;
 /*!40000 ALTER TABLE `reporting_users` DISABLE KEYS */;
@@ -6813,6 +9765,7 @@ CREATE TABLE `review` (
 --
 -- Dumping data for table `review`
 --
+-- ORDER BY:  `review_id`
 
 LOCK TABLES `review` WRITE;
 /*!40000 ALTER TABLE `review` DISABLE KEYS */;
@@ -6847,6 +9800,7 @@ CREATE TABLE `review_detail` (
 --
 -- Dumping data for table `review_detail`
 --
+-- ORDER BY:  `detail_id`
 
 LOCK TABLES `review_detail` WRITE;
 /*!40000 ALTER TABLE `review_detail` DISABLE KEYS */;
@@ -6870,10 +9824,13 @@ CREATE TABLE `review_entity` (
 --
 -- Dumping data for table `review_entity`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `review_entity` WRITE;
 /*!40000 ALTER TABLE `review_entity` DISABLE KEYS */;
-INSERT INTO `review_entity` VALUES (1,'product'),(2,'customer'),(3,'category');
+INSERT INTO `review_entity` VALUES (1,'product');
+INSERT INTO `review_entity` VALUES (2,'customer');
+INSERT INTO `review_entity` VALUES (3,'category');
 /*!40000 ALTER TABLE `review_entity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6900,6 +9857,7 @@ CREATE TABLE `review_entity_summary` (
 --
 -- Dumping data for table `review_entity_summary`
 --
+-- ORDER BY:  `primary_id`
 
 LOCK TABLES `review_entity_summary` WRITE;
 /*!40000 ALTER TABLE `review_entity_summary` DISABLE KEYS */;
@@ -6923,10 +9881,13 @@ CREATE TABLE `review_status` (
 --
 -- Dumping data for table `review_status`
 --
+-- ORDER BY:  `status_id`
 
 LOCK TABLES `review_status` WRITE;
 /*!40000 ALTER TABLE `review_status` DISABLE KEYS */;
-INSERT INTO `review_status` VALUES (1,'Approved'),(2,'Pending'),(3,'Not Approved');
+INSERT INTO `review_status` VALUES (1,'Approved');
+INSERT INTO `review_status` VALUES (2,'Pending');
+INSERT INTO `review_status` VALUES (3,'Not Approved');
 /*!40000 ALTER TABLE `review_status` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6950,6 +9911,7 @@ CREATE TABLE `review_store` (
 --
 -- Dumping data for table `review_store`
 --
+-- ORDER BY:  `review_id`,`store_id`
 
 LOCK TABLES `review_store` WRITE;
 /*!40000 ALTER TABLE `review_store` DISABLE KEYS */;
@@ -6984,6 +9946,7 @@ CREATE TABLE `sales_bestsellers_aggregated_daily` (
 --
 -- Dumping data for table `sales_bestsellers_aggregated_daily`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `sales_bestsellers_aggregated_daily` WRITE;
 /*!40000 ALTER TABLE `sales_bestsellers_aggregated_daily` DISABLE KEYS */;
@@ -7018,6 +9981,7 @@ CREATE TABLE `sales_bestsellers_aggregated_monthly` (
 --
 -- Dumping data for table `sales_bestsellers_aggregated_monthly`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `sales_bestsellers_aggregated_monthly` WRITE;
 /*!40000 ALTER TABLE `sales_bestsellers_aggregated_monthly` DISABLE KEYS */;
@@ -7052,6 +10016,7 @@ CREATE TABLE `sales_bestsellers_aggregated_yearly` (
 --
 -- Dumping data for table `sales_bestsellers_aggregated_yearly`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `sales_bestsellers_aggregated_yearly` WRITE;
 /*!40000 ALTER TABLE `sales_bestsellers_aggregated_yearly` DISABLE KEYS */;
@@ -7135,6 +10100,7 @@ CREATE TABLE `sales_creditmemo` (
 --
 -- Dumping data for table `sales_creditmemo`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `sales_creditmemo` WRITE;
 /*!40000 ALTER TABLE `sales_creditmemo` DISABLE KEYS */;
@@ -7165,6 +10131,7 @@ CREATE TABLE `sales_creditmemo_comment` (
 --
 -- Dumping data for table `sales_creditmemo_comment`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `sales_creditmemo_comment` WRITE;
 /*!40000 ALTER TABLE `sales_creditmemo_comment` DISABLE KEYS */;
@@ -7223,6 +10190,7 @@ CREATE TABLE `sales_creditmemo_grid` (
 --
 -- Dumping data for table `sales_creditmemo_grid`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `sales_creditmemo_grid` WRITE;
 /*!40000 ALTER TABLE `sales_creditmemo_grid` DISABLE KEYS */;
@@ -7280,6 +10248,7 @@ CREATE TABLE `sales_creditmemo_item` (
 --
 -- Dumping data for table `sales_creditmemo_item`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `sales_creditmemo_item` WRITE;
 /*!40000 ALTER TABLE `sales_creditmemo_item` DISABLE KEYS */;
@@ -7359,6 +10328,7 @@ CREATE TABLE `sales_invoice` (
 --
 -- Dumping data for table `sales_invoice`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `sales_invoice` WRITE;
 /*!40000 ALTER TABLE `sales_invoice` DISABLE KEYS */;
@@ -7389,6 +10359,7 @@ CREATE TABLE `sales_invoice_comment` (
 --
 -- Dumping data for table `sales_invoice_comment`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `sales_invoice_comment` WRITE;
 /*!40000 ALTER TABLE `sales_invoice_comment` DISABLE KEYS */;
@@ -7446,6 +10417,7 @@ CREATE TABLE `sales_invoice_grid` (
 --
 -- Dumping data for table `sales_invoice_grid`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `sales_invoice_grid` WRITE;
 /*!40000 ALTER TABLE `sales_invoice_grid` DISABLE KEYS */;
@@ -7503,6 +10475,7 @@ CREATE TABLE `sales_invoice_item` (
 --
 -- Dumping data for table `sales_invoice_item`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `sales_invoice_item` WRITE;
 /*!40000 ALTER TABLE `sales_invoice_item` DISABLE KEYS */;
@@ -7536,6 +10509,7 @@ CREATE TABLE `sales_invoiced_aggregated` (
 --
 -- Dumping data for table `sales_invoiced_aggregated`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `sales_invoiced_aggregated` WRITE;
 /*!40000 ALTER TABLE `sales_invoiced_aggregated` DISABLE KEYS */;
@@ -7569,6 +10543,7 @@ CREATE TABLE `sales_invoiced_aggregated_order` (
 --
 -- Dumping data for table `sales_invoiced_aggregated_order`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `sales_invoiced_aggregated_order` WRITE;
 /*!40000 ALTER TABLE `sales_invoiced_aggregated_order` DISABLE KEYS */;
@@ -7741,6 +10716,7 @@ CREATE TABLE `sales_order` (
 --
 -- Dumping data for table `sales_order`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `sales_order` WRITE;
 /*!40000 ALTER TABLE `sales_order` DISABLE KEYS */;
@@ -7790,6 +10766,7 @@ CREATE TABLE `sales_order_address` (
 --
 -- Dumping data for table `sales_order_address`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `sales_order_address` WRITE;
 /*!40000 ALTER TABLE `sales_order_address` DISABLE KEYS */;
@@ -7834,6 +10811,7 @@ CREATE TABLE `sales_order_aggregated_created` (
 --
 -- Dumping data for table `sales_order_aggregated_created`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `sales_order_aggregated_created` WRITE;
 /*!40000 ALTER TABLE `sales_order_aggregated_created` DISABLE KEYS */;
@@ -7878,6 +10856,7 @@ CREATE TABLE `sales_order_aggregated_updated` (
 --
 -- Dumping data for table `sales_order_aggregated_updated`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `sales_order_aggregated_updated` WRITE;
 /*!40000 ALTER TABLE `sales_order_aggregated_updated` DISABLE KEYS */;
@@ -7938,6 +10917,7 @@ CREATE TABLE `sales_order_grid` (
 --
 -- Dumping data for table `sales_order_grid`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `sales_order_grid` WRITE;
 /*!40000 ALTER TABLE `sales_order_grid` DISABLE KEYS */;
@@ -8043,6 +11023,7 @@ CREATE TABLE `sales_order_item` (
 --
 -- Dumping data for table `sales_order_item`
 --
+-- ORDER BY:  `item_id`
 
 LOCK TABLES `sales_order_item` WRITE;
 /*!40000 ALTER TABLE `sales_order_item` DISABLE KEYS */;
@@ -8120,6 +11101,7 @@ CREATE TABLE `sales_order_payment` (
 --
 -- Dumping data for table `sales_order_payment`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `sales_order_payment` WRITE;
 /*!40000 ALTER TABLE `sales_order_payment` DISABLE KEYS */;
@@ -8143,10 +11125,22 @@ CREATE TABLE `sales_order_status` (
 --
 -- Dumping data for table `sales_order_status`
 --
+-- ORDER BY:  `status`
 
 LOCK TABLES `sales_order_status` WRITE;
 /*!40000 ALTER TABLE `sales_order_status` DISABLE KEYS */;
-INSERT INTO `sales_order_status` VALUES ('canceled','Canceled'),('closed','Closed'),('complete','Complete'),('fraud','Suspected Fraud'),('holded','On Hold'),('payment_review','Payment Review'),('paypal_canceled_reversal','PayPal Canceled Reversal'),('paypal_reversed','PayPal Reversed'),('pending','Pending'),('pending_payment','Pending Payment'),('pending_paypal','Pending PayPal'),('processing','Processing');
+INSERT INTO `sales_order_status` VALUES ('canceled','Canceled');
+INSERT INTO `sales_order_status` VALUES ('closed','Closed');
+INSERT INTO `sales_order_status` VALUES ('complete','Complete');
+INSERT INTO `sales_order_status` VALUES ('fraud','Suspected Fraud');
+INSERT INTO `sales_order_status` VALUES ('holded','On Hold');
+INSERT INTO `sales_order_status` VALUES ('payment_review','Payment Review');
+INSERT INTO `sales_order_status` VALUES ('paypal_canceled_reversal','PayPal Canceled Reversal');
+INSERT INTO `sales_order_status` VALUES ('paypal_reversed','PayPal Reversed');
+INSERT INTO `sales_order_status` VALUES ('pending','Pending');
+INSERT INTO `sales_order_status` VALUES ('pending_payment','Pending Payment');
+INSERT INTO `sales_order_status` VALUES ('pending_paypal','Pending PayPal');
+INSERT INTO `sales_order_status` VALUES ('processing','Processing');
 /*!40000 ALTER TABLE `sales_order_status` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -8176,6 +11170,7 @@ CREATE TABLE `sales_order_status_history` (
 --
 -- Dumping data for table `sales_order_status_history`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `sales_order_status_history` WRITE;
 /*!40000 ALTER TABLE `sales_order_status_history` DISABLE KEYS */;
@@ -8203,6 +11198,7 @@ CREATE TABLE `sales_order_status_label` (
 --
 -- Dumping data for table `sales_order_status_label`
 --
+-- ORDER BY:  `status`,`store_id`
 
 LOCK TABLES `sales_order_status_label` WRITE;
 /*!40000 ALTER TABLE `sales_order_status_label` DISABLE KEYS */;
@@ -8229,10 +11225,20 @@ CREATE TABLE `sales_order_status_state` (
 --
 -- Dumping data for table `sales_order_status_state`
 --
+-- ORDER BY:  `status`,`state`
 
 LOCK TABLES `sales_order_status_state` WRITE;
 /*!40000 ALTER TABLE `sales_order_status_state` DISABLE KEYS */;
-INSERT INTO `sales_order_status_state` VALUES ('canceled','canceled',1,1),('closed','closed',1,1),('complete','complete',1,1),('fraud','payment_review',0,1),('fraud','processing',0,1),('holded','holded',1,1),('payment_review','payment_review',1,1),('pending','new',1,1),('pending_payment','pending_payment',1,0),('processing','processing',1,1);
+INSERT INTO `sales_order_status_state` VALUES ('canceled','canceled',1,1);
+INSERT INTO `sales_order_status_state` VALUES ('closed','closed',1,1);
+INSERT INTO `sales_order_status_state` VALUES ('complete','complete',1,1);
+INSERT INTO `sales_order_status_state` VALUES ('fraud','payment_review',0,1);
+INSERT INTO `sales_order_status_state` VALUES ('fraud','processing',0,1);
+INSERT INTO `sales_order_status_state` VALUES ('holded','holded',1,1);
+INSERT INTO `sales_order_status_state` VALUES ('payment_review','payment_review',1,1);
+INSERT INTO `sales_order_status_state` VALUES ('pending','new',1,1);
+INSERT INTO `sales_order_status_state` VALUES ('pending_payment','pending_payment',1,0);
+INSERT INTO `sales_order_status_state` VALUES ('processing','processing',1,1);
 /*!40000 ALTER TABLE `sales_order_status_state` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -8263,6 +11269,7 @@ CREATE TABLE `sales_order_tax` (
 --
 -- Dumping data for table `sales_order_tax`
 --
+-- ORDER BY:  `tax_id`
 
 LOCK TABLES `sales_order_tax` WRITE;
 /*!40000 ALTER TABLE `sales_order_tax` DISABLE KEYS */;
@@ -8300,6 +11307,7 @@ CREATE TABLE `sales_order_tax_item` (
 --
 -- Dumping data for table `sales_order_tax_item`
 --
+-- ORDER BY:  `tax_item_id`
 
 LOCK TABLES `sales_order_tax_item` WRITE;
 /*!40000 ALTER TABLE `sales_order_tax_item` DISABLE KEYS */;
@@ -8337,6 +11345,7 @@ CREATE TABLE `sales_payment_transaction` (
 --
 -- Dumping data for table `sales_payment_transaction`
 --
+-- ORDER BY:  `transaction_id`
 
 LOCK TABLES `sales_payment_transaction` WRITE;
 /*!40000 ALTER TABLE `sales_payment_transaction` DISABLE KEYS */;
@@ -8369,6 +11378,7 @@ CREATE TABLE `sales_refunded_aggregated` (
 --
 -- Dumping data for table `sales_refunded_aggregated`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `sales_refunded_aggregated` WRITE;
 /*!40000 ALTER TABLE `sales_refunded_aggregated` DISABLE KEYS */;
@@ -8401,6 +11411,7 @@ CREATE TABLE `sales_refunded_aggregated_order` (
 --
 -- Dumping data for table `sales_refunded_aggregated_order`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `sales_refunded_aggregated_order` WRITE;
 /*!40000 ALTER TABLE `sales_refunded_aggregated_order` DISABLE KEYS */;
@@ -8427,10 +11438,18 @@ CREATE TABLE `sales_sequence_meta` (
 --
 -- Dumping data for table `sales_sequence_meta`
 --
+-- ORDER BY:  `meta_id`
 
 LOCK TABLES `sales_sequence_meta` WRITE;
 /*!40000 ALTER TABLE `sales_sequence_meta` DISABLE KEYS */;
-INSERT INTO `sales_sequence_meta` VALUES (1,'order',0,'sequence_order_0'),(2,'invoice',0,'sequence_invoice_0'),(3,'creditmemo',0,'sequence_creditmemo_0'),(4,'shipment',0,'sequence_shipment_0'),(5,'order',1,'sequence_order_1'),(6,'invoice',1,'sequence_invoice_1'),(7,'creditmemo',1,'sequence_creditmemo_1'),(8,'shipment',1,'sequence_shipment_1');
+INSERT INTO `sales_sequence_meta` VALUES (1,'order',0,'sequence_order_0');
+INSERT INTO `sales_sequence_meta` VALUES (2,'invoice',0,'sequence_invoice_0');
+INSERT INTO `sales_sequence_meta` VALUES (3,'creditmemo',0,'sequence_creditmemo_0');
+INSERT INTO `sales_sequence_meta` VALUES (4,'shipment',0,'sequence_shipment_0');
+INSERT INTO `sales_sequence_meta` VALUES (5,'order',1,'sequence_order_1');
+INSERT INTO `sales_sequence_meta` VALUES (6,'invoice',1,'sequence_invoice_1');
+INSERT INTO `sales_sequence_meta` VALUES (7,'creditmemo',1,'sequence_creditmemo_1');
+INSERT INTO `sales_sequence_meta` VALUES (8,'shipment',1,'sequence_shipment_1');
 /*!40000 ALTER TABLE `sales_sequence_meta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -8460,10 +11479,18 @@ CREATE TABLE `sales_sequence_profile` (
 --
 -- Dumping data for table `sales_sequence_profile`
 --
+-- ORDER BY:  `profile_id`
 
 LOCK TABLES `sales_sequence_profile` WRITE;
 /*!40000 ALTER TABLE `sales_sequence_profile` DISABLE KEYS */;
-INSERT INTO `sales_sequence_profile` VALUES (1,1,NULL,NULL,1,1,4294967295,4294966295,1),(2,2,NULL,NULL,1,1,4294967295,4294966295,1),(3,3,NULL,NULL,1,1,4294967295,4294966295,1),(4,4,NULL,NULL,1,1,4294967295,4294966295,1),(5,5,NULL,NULL,1,1,4294967295,4294966295,1),(6,6,NULL,NULL,1,1,4294967295,4294966295,1),(7,7,NULL,NULL,1,1,4294967295,4294966295,1),(8,8,NULL,NULL,1,1,4294967295,4294966295,1);
+INSERT INTO `sales_sequence_profile` VALUES (1,1,NULL,NULL,1,1,4294967295,4294966295,1);
+INSERT INTO `sales_sequence_profile` VALUES (2,2,NULL,NULL,1,1,4294967295,4294966295,1);
+INSERT INTO `sales_sequence_profile` VALUES (3,3,NULL,NULL,1,1,4294967295,4294966295,1);
+INSERT INTO `sales_sequence_profile` VALUES (4,4,NULL,NULL,1,1,4294967295,4294966295,1);
+INSERT INTO `sales_sequence_profile` VALUES (5,5,NULL,NULL,1,1,4294967295,4294966295,1);
+INSERT INTO `sales_sequence_profile` VALUES (6,6,NULL,NULL,1,1,4294967295,4294966295,1);
+INSERT INTO `sales_sequence_profile` VALUES (7,7,NULL,NULL,1,1,4294967295,4294966295,1);
+INSERT INTO `sales_sequence_profile` VALUES (8,8,NULL,NULL,1,1,4294967295,4294966295,1);
 /*!40000 ALTER TABLE `sales_sequence_profile` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -8510,6 +11537,7 @@ CREATE TABLE `sales_shipment` (
 --
 -- Dumping data for table `sales_shipment`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `sales_shipment` WRITE;
 /*!40000 ALTER TABLE `sales_shipment` DISABLE KEYS */;
@@ -8540,6 +11568,7 @@ CREATE TABLE `sales_shipment_comment` (
 --
 -- Dumping data for table `sales_shipment_comment`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `sales_shipment_comment` WRITE;
 /*!40000 ALTER TABLE `sales_shipment_comment` DISABLE KEYS */;
@@ -8593,6 +11622,7 @@ CREATE TABLE `sales_shipment_grid` (
 --
 -- Dumping data for table `sales_shipment_grid`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `sales_shipment_grid` WRITE;
 /*!40000 ALTER TABLE `sales_shipment_grid` DISABLE KEYS */;
@@ -8628,6 +11658,7 @@ CREATE TABLE `sales_shipment_item` (
 --
 -- Dumping data for table `sales_shipment_item`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `sales_shipment_item` WRITE;
 /*!40000 ALTER TABLE `sales_shipment_item` DISABLE KEYS */;
@@ -8664,6 +11695,7 @@ CREATE TABLE `sales_shipment_track` (
 --
 -- Dumping data for table `sales_shipment_track`
 --
+-- ORDER BY:  `entity_id`
 
 LOCK TABLES `sales_shipment_track` WRITE;
 /*!40000 ALTER TABLE `sales_shipment_track` DISABLE KEYS */;
@@ -8696,6 +11728,7 @@ CREATE TABLE `sales_shipping_aggregated` (
 --
 -- Dumping data for table `sales_shipping_aggregated`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `sales_shipping_aggregated` WRITE;
 /*!40000 ALTER TABLE `sales_shipping_aggregated` DISABLE KEYS */;
@@ -8728,6 +11761,7 @@ CREATE TABLE `sales_shipping_aggregated_order` (
 --
 -- Dumping data for table `sales_shipping_aggregated_order`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `sales_shipping_aggregated_order` WRITE;
 /*!40000 ALTER TABLE `sales_shipping_aggregated_order` DISABLE KEYS */;
@@ -8774,6 +11808,7 @@ CREATE TABLE `salesrule` (
 --
 -- Dumping data for table `salesrule`
 --
+-- ORDER BY:  `rule_id`
 
 LOCK TABLES `salesrule` WRITE;
 /*!40000 ALTER TABLE `salesrule` DISABLE KEYS */;
@@ -8809,6 +11844,7 @@ CREATE TABLE `salesrule_coupon` (
 --
 -- Dumping data for table `salesrule_coupon`
 --
+-- ORDER BY:  `coupon_id`
 
 LOCK TABLES `salesrule_coupon` WRITE;
 /*!40000 ALTER TABLE `salesrule_coupon` DISABLE KEYS */;
@@ -8847,6 +11883,7 @@ CREATE TABLE `salesrule_coupon_aggregated` (
 --
 -- Dumping data for table `salesrule_coupon_aggregated`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `salesrule_coupon_aggregated` WRITE;
 /*!40000 ALTER TABLE `salesrule_coupon_aggregated` DISABLE KEYS */;
@@ -8882,6 +11919,7 @@ CREATE TABLE `salesrule_coupon_aggregated_order` (
 --
 -- Dumping data for table `salesrule_coupon_aggregated_order`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `salesrule_coupon_aggregated_order` WRITE;
 /*!40000 ALTER TABLE `salesrule_coupon_aggregated_order` DISABLE KEYS */;
@@ -8920,6 +11958,7 @@ CREATE TABLE `salesrule_coupon_aggregated_updated` (
 --
 -- Dumping data for table `salesrule_coupon_aggregated_updated`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `salesrule_coupon_aggregated_updated` WRITE;
 /*!40000 ALTER TABLE `salesrule_coupon_aggregated_updated` DISABLE KEYS */;
@@ -8947,6 +11986,7 @@ CREATE TABLE `salesrule_coupon_usage` (
 --
 -- Dumping data for table `salesrule_coupon_usage`
 --
+-- ORDER BY:  `coupon_id`,`customer_id`
 
 LOCK TABLES `salesrule_coupon_usage` WRITE;
 /*!40000 ALTER TABLE `salesrule_coupon_usage` DISABLE KEYS */;
@@ -8976,6 +12016,7 @@ CREATE TABLE `salesrule_customer` (
 --
 -- Dumping data for table `salesrule_customer`
 --
+-- ORDER BY:  `rule_customer_id`
 
 LOCK TABLES `salesrule_customer` WRITE;
 /*!40000 ALTER TABLE `salesrule_customer` DISABLE KEYS */;
@@ -9002,6 +12043,7 @@ CREATE TABLE `salesrule_customer_group` (
 --
 -- Dumping data for table `salesrule_customer_group`
 --
+-- ORDER BY:  `rule_id`,`customer_group_id`
 
 LOCK TABLES `salesrule_customer_group` WRITE;
 /*!40000 ALTER TABLE `salesrule_customer_group` DISABLE KEYS */;
@@ -9031,6 +12073,7 @@ CREATE TABLE `salesrule_label` (
 --
 -- Dumping data for table `salesrule_label`
 --
+-- ORDER BY:  `label_id`
 
 LOCK TABLES `salesrule_label` WRITE;
 /*!40000 ALTER TABLE `salesrule_label` DISABLE KEYS */;
@@ -9063,6 +12106,7 @@ CREATE TABLE `salesrule_product_attribute` (
 --
 -- Dumping data for table `salesrule_product_attribute`
 --
+-- ORDER BY:  `rule_id`,`website_id`,`customer_group_id`,`attribute_id`
 
 LOCK TABLES `salesrule_product_attribute` WRITE;
 /*!40000 ALTER TABLE `salesrule_product_attribute` DISABLE KEYS */;
@@ -9089,6 +12133,7 @@ CREATE TABLE `salesrule_website` (
 --
 -- Dumping data for table `salesrule_website`
 --
+-- ORDER BY:  `rule_id`,`website_id`
 
 LOCK TABLES `salesrule_website` WRITE;
 /*!40000 ALTER TABLE `salesrule_website` DISABLE KEYS */;
@@ -9127,6 +12172,7 @@ CREATE TABLE `search_query` (
 --
 -- Dumping data for table `search_query`
 --
+-- ORDER BY:  `query_id`
 
 LOCK TABLES `search_query` WRITE;
 /*!40000 ALTER TABLE `search_query` DISABLE KEYS */;
@@ -9154,6 +12200,7 @@ CREATE TABLE `sendfriend_log` (
 --
 -- Dumping data for table `sendfriend_log`
 --
+-- ORDER BY:  `log_id`
 
 LOCK TABLES `sendfriend_log` WRITE;
 /*!40000 ALTER TABLE `sendfriend_log` DISABLE KEYS */;
@@ -9176,6 +12223,7 @@ CREATE TABLE `sequence_creditmemo_0` (
 --
 -- Dumping data for table `sequence_creditmemo_0`
 --
+-- ORDER BY:  `sequence_value`
 
 LOCK TABLES `sequence_creditmemo_0` WRITE;
 /*!40000 ALTER TABLE `sequence_creditmemo_0` DISABLE KEYS */;
@@ -9198,6 +12246,7 @@ CREATE TABLE `sequence_creditmemo_1` (
 --
 -- Dumping data for table `sequence_creditmemo_1`
 --
+-- ORDER BY:  `sequence_value`
 
 LOCK TABLES `sequence_creditmemo_1` WRITE;
 /*!40000 ALTER TABLE `sequence_creditmemo_1` DISABLE KEYS */;
@@ -9220,6 +12269,7 @@ CREATE TABLE `sequence_invoice_0` (
 --
 -- Dumping data for table `sequence_invoice_0`
 --
+-- ORDER BY:  `sequence_value`
 
 LOCK TABLES `sequence_invoice_0` WRITE;
 /*!40000 ALTER TABLE `sequence_invoice_0` DISABLE KEYS */;
@@ -9242,6 +12292,7 @@ CREATE TABLE `sequence_invoice_1` (
 --
 -- Dumping data for table `sequence_invoice_1`
 --
+-- ORDER BY:  `sequence_value`
 
 LOCK TABLES `sequence_invoice_1` WRITE;
 /*!40000 ALTER TABLE `sequence_invoice_1` DISABLE KEYS */;
@@ -9264,6 +12315,7 @@ CREATE TABLE `sequence_order_0` (
 --
 -- Dumping data for table `sequence_order_0`
 --
+-- ORDER BY:  `sequence_value`
 
 LOCK TABLES `sequence_order_0` WRITE;
 /*!40000 ALTER TABLE `sequence_order_0` DISABLE KEYS */;
@@ -9286,6 +12338,7 @@ CREATE TABLE `sequence_order_1` (
 --
 -- Dumping data for table `sequence_order_1`
 --
+-- ORDER BY:  `sequence_value`
 
 LOCK TABLES `sequence_order_1` WRITE;
 /*!40000 ALTER TABLE `sequence_order_1` DISABLE KEYS */;
@@ -9308,6 +12361,7 @@ CREATE TABLE `sequence_shipment_0` (
 --
 -- Dumping data for table `sequence_shipment_0`
 --
+-- ORDER BY:  `sequence_value`
 
 LOCK TABLES `sequence_shipment_0` WRITE;
 /*!40000 ALTER TABLE `sequence_shipment_0` DISABLE KEYS */;
@@ -9330,6 +12384,7 @@ CREATE TABLE `sequence_shipment_1` (
 --
 -- Dumping data for table `sequence_shipment_1`
 --
+-- ORDER BY:  `sequence_value`
 
 LOCK TABLES `sequence_shipment_1` WRITE;
 /*!40000 ALTER TABLE `sequence_shipment_1` DISABLE KEYS */;
@@ -9354,6 +12409,7 @@ CREATE TABLE `session` (
 --
 -- Dumping data for table `session`
 --
+-- ORDER BY:  `session_id`
 
 LOCK TABLES `session` WRITE;
 /*!40000 ALTER TABLE `session` DISABLE KEYS */;
@@ -9378,10 +12434,109 @@ CREATE TABLE `setup_module` (
 --
 -- Dumping data for table `setup_module`
 --
+-- ORDER BY:  `module`
 
 LOCK TABLES `setup_module` WRITE;
 /*!40000 ALTER TABLE `setup_module` DISABLE KEYS */;
-INSERT INTO `setup_module` VALUES ('Magento_AdminNotification','2.0.0','2.0.0'),('Magento_AdvancedPricingImportExport','2.0.0','2.0.0'),('Magento_Authorization','2.0.0','2.0.0'),('Magento_Authorizenet','2.0.0','2.0.0'),('Magento_Backend','2.0.0','2.0.0'),('Magento_Backup','2.0.0','2.0.0'),('Magento_Braintree','2.0.0','2.0.0'),('Magento_Bundle','2.0.1','2.0.1'),('Magento_BundleImportExport','2.0.0','2.0.0'),('Magento_CacheInvalidate','2.0.0','2.0.0'),('Magento_Captcha','2.0.0','2.0.0'),('Magento_Catalog','2.0.3','2.0.3'),('Magento_CatalogImportExport','2.0.0','2.0.0'),('Magento_CatalogInventory','2.0.0','2.0.0'),('Magento_CatalogRule','2.0.0','2.0.0'),('Magento_CatalogRuleConfigurable','2.0.0','2.0.0'),('Magento_CatalogSearch','2.0.0','2.0.0'),('Magento_CatalogUrlRewrite','2.0.0','2.0.0'),('Magento_CatalogWidget','2.0.0','2.0.0'),('Magento_Checkout','2.0.0','2.0.0'),('Magento_CheckoutAgreements','2.0.1','2.0.1'),('Magento_Cms','2.0.0','2.0.0'),('Magento_CmsUrlRewrite','2.0.0','2.0.0'),('Magento_Config','2.0.0','2.0.0'),('Magento_ConfigurableImportExport','2.0.0','2.0.0'),('Magento_ConfigurableProduct','2.0.0','2.0.0'),('Magento_Contact','2.0.0','2.0.0'),('Magento_Cookie','2.0.0','2.0.0'),('Magento_Cron','2.0.0','2.0.0'),('Magento_CurrencySymbol','2.0.0','2.0.0'),('Magento_Customer','2.0.6','2.0.6'),('Magento_CustomerImportExport','2.0.0','2.0.0'),('Magento_Deploy','2.0.0','2.0.0'),('Magento_Developer','2.0.0','2.0.0'),('Magento_Dhl','2.0.0','2.0.0'),('Magento_Directory','2.0.0','2.0.0'),('Magento_Downloadable','2.0.0','2.0.0'),('Magento_DownloadableImportExport','2.0.0','2.0.0'),('Magento_Eav','2.0.0','2.0.0'),('Magento_Email','2.0.0','2.0.0'),('Magento_EncryptionKey','2.0.0','2.0.0'),('Magento_Fedex','2.0.0','2.0.0'),('Magento_GiftMessage','2.0.0','2.0.0'),('Magento_GoogleAdwords','2.0.0','2.0.0'),('Magento_GoogleAnalytics','2.0.0','2.0.0'),('Magento_GoogleOptimizer','2.0.0','2.0.0'),('Magento_GroupedImportExport','2.0.0','2.0.0'),('Magento_GroupedProduct','2.0.0','2.0.0'),('Magento_ImportExport','2.0.1','2.0.1'),('Magento_Indexer','2.0.0','2.0.0'),('Magento_Integration','2.0.1','2.0.1'),('Magento_LayeredNavigation','2.0.0','2.0.0'),('Magento_Marketplace','1.0.0','1.0.0'),('Magento_MediaStorage','2.0.0','2.0.0'),('Magento_Msrp','2.0.0','2.0.0'),('Magento_Multishipping','2.0.0','2.0.0'),('Magento_NewRelicReporting','2.0.0','2.0.0'),('Magento_Newsletter','2.0.0','2.0.0'),('Magento_OfflinePayments','2.0.0','2.0.0'),('Magento_OfflineShipping','2.0.0','2.0.0'),('Magento_PageCache','2.0.0','2.0.0'),('Magento_Payment','2.0.0','2.0.0'),('Magento_Paypal','2.0.0','2.0.0'),('Magento_Persistent','2.0.0','2.0.0'),('Magento_ProductAlert','2.0.0','2.0.0'),('Magento_ProductVideo','2.0.0.2','2.0.0.2'),('Magento_Quote','2.0.2','2.0.2'),('Magento_Reports','2.0.0','2.0.0'),('Magento_RequireJs','2.0.0','2.0.0'),('Magento_Review','2.0.0','2.0.0'),('Magento_Rss','2.0.0','2.0.0'),('Magento_Rule','2.0.0','2.0.0'),('Magento_Sales','2.0.1','2.0.1'),('Magento_SalesRule','2.0.0','2.0.0'),('Magento_SalesSequence','2.0.0','2.0.0'),('Magento_SampleData','2.0.0','2.0.0'),('Magento_Search','2.0.1','2.0.1'),('Magento_SendFriend','2.0.0','2.0.0'),('Magento_Shipping','2.0.0','2.0.0'),('Magento_Sitemap','2.0.0','2.0.0'),('Magento_Store','2.0.0','2.0.0'),('Magento_Swagger','2.0.0','2.0.0'),('Magento_Swatches','2.0.0','2.0.0'),('Magento_Tax','2.0.1','2.0.1'),('Magento_TaxImportExport','2.0.0','2.0.0'),('Magento_Theme','2.0.0','2.0.0'),('Magento_Translation','2.0.0','2.0.0'),('Magento_Ui','2.0.0','2.0.0'),('Magento_Ups','2.0.0','2.0.0'),('Magento_UrlRewrite','2.0.0','2.0.0'),('Magento_User','2.0.1','2.0.1'),('Magento_Usps','2.0.0','2.0.0'),('Magento_Variable','2.0.0','2.0.0'),('Magento_Version','2.0.0','2.0.0'),('Magento_Webapi','2.0.0','2.0.0'),('Magento_WebapiSecurity','2.0.0','2.0.0'),('Magento_Weee','2.0.0','2.0.0'),('Magento_Widget','2.0.0','2.0.0'),('Magento_Wishlist','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_AdminNotification','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_AdvancedPricingImportExport','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Authorization','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Authorizenet','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Backend','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Backup','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Braintree','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Bundle','2.0.1','2.0.1');
+INSERT INTO `setup_module` VALUES ('Magento_BundleImportExport','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_CacheInvalidate','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Captcha','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Catalog','2.0.3','2.0.3');
+INSERT INTO `setup_module` VALUES ('Magento_CatalogImportExport','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_CatalogInventory','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_CatalogRule','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_CatalogRuleConfigurable','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_CatalogSearch','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_CatalogUrlRewrite','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_CatalogWidget','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Checkout','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_CheckoutAgreements','2.0.1','2.0.1');
+INSERT INTO `setup_module` VALUES ('Magento_Cms','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_CmsUrlRewrite','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Config','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_ConfigurableImportExport','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_ConfigurableProduct','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Contact','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Cookie','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Cron','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_CurrencySymbol','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Customer','2.0.6','2.0.6');
+INSERT INTO `setup_module` VALUES ('Magento_CustomerImportExport','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Deploy','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Developer','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Dhl','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Directory','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Downloadable','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_DownloadableImportExport','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Eav','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Email','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_EncryptionKey','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Fedex','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_GiftMessage','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_GoogleAdwords','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_GoogleAnalytics','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_GoogleOptimizer','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_GroupedImportExport','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_GroupedProduct','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_ImportExport','2.0.1','2.0.1');
+INSERT INTO `setup_module` VALUES ('Magento_Indexer','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Integration','2.0.1','2.0.1');
+INSERT INTO `setup_module` VALUES ('Magento_LayeredNavigation','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Marketplace','1.0.0','1.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_MediaStorage','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Msrp','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Multishipping','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_NewRelicReporting','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Newsletter','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_OfflinePayments','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_OfflineShipping','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_PageCache','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Payment','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Paypal','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Persistent','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_ProductAlert','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_ProductVideo','2.0.0.2','2.0.0.2');
+INSERT INTO `setup_module` VALUES ('Magento_Quote','2.0.2','2.0.2');
+INSERT INTO `setup_module` VALUES ('Magento_Reports','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_RequireJs','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Review','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Rss','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Rule','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Sales','2.0.1','2.0.1');
+INSERT INTO `setup_module` VALUES ('Magento_SalesRule','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_SalesSequence','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_SampleData','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Search','2.0.1','2.0.1');
+INSERT INTO `setup_module` VALUES ('Magento_SendFriend','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Shipping','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Sitemap','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Store','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Swagger','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Swatches','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Tax','2.0.1','2.0.1');
+INSERT INTO `setup_module` VALUES ('Magento_TaxImportExport','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Theme','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Translation','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Ui','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Ups','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_UrlRewrite','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_User','2.0.1','2.0.1');
+INSERT INTO `setup_module` VALUES ('Magento_Usps','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Variable','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Version','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Webapi','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_WebapiSecurity','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Weee','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Widget','2.0.0','2.0.0');
+INSERT INTO `setup_module` VALUES ('Magento_Wishlist','2.0.0','2.0.0');
 /*!40000 ALTER TABLE `setup_module` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -9410,6 +12565,7 @@ CREATE TABLE `shipping_tablerate` (
 --
 -- Dumping data for table `shipping_tablerate`
 --
+-- ORDER BY:  `pk`
 
 LOCK TABLES `shipping_tablerate` WRITE;
 /*!40000 ALTER TABLE `shipping_tablerate` DISABLE KEYS */;
@@ -9439,6 +12595,7 @@ CREATE TABLE `sitemap` (
 --
 -- Dumping data for table `sitemap`
 --
+-- ORDER BY:  `sitemap_id`
 
 LOCK TABLES `sitemap` WRITE;
 /*!40000 ALTER TABLE `sitemap` DISABLE KEYS */;
@@ -9473,10 +12630,12 @@ CREATE TABLE `store` (
 --
 -- Dumping data for table `store`
 --
+-- ORDER BY:  `store_id`
 
 LOCK TABLES `store` WRITE;
 /*!40000 ALTER TABLE `store` DISABLE KEYS */;
-INSERT INTO `store` VALUES (0,'admin',0,0,'Admin',0,1),(1,'default',1,1,'Default Store View',0,1);
+INSERT INTO `store` VALUES (0,'admin',0,0,'Admin',0,1);
+INSERT INTO `store` VALUES (1,'default',1,1,'Default Store View',0,1);
 /*!40000 ALTER TABLE `store` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -9503,10 +12662,12 @@ CREATE TABLE `store_group` (
 --
 -- Dumping data for table `store_group`
 --
+-- ORDER BY:  `group_id`
 
 LOCK TABLES `store_group` WRITE;
 /*!40000 ALTER TABLE `store_group` DISABLE KEYS */;
-INSERT INTO `store_group` VALUES (0,0,'Default',0,0),(1,1,'Main Website Store',2,1);
+INSERT INTO `store_group` VALUES (0,0,'Default',0,0);
+INSERT INTO `store_group` VALUES (1,1,'Main Website Store',2,1);
 /*!40000 ALTER TABLE `store_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -9534,10 +12695,12 @@ CREATE TABLE `store_website` (
 --
 -- Dumping data for table `store_website`
 --
+-- ORDER BY:  `website_id`
 
 LOCK TABLES `store_website` WRITE;
 /*!40000 ALTER TABLE `store_website` DISABLE KEYS */;
-INSERT INTO `store_website` VALUES (0,'admin','Admin',0,0,0),(1,'base','Main Website',0,1,1);
+INSERT INTO `store_website` VALUES (0,'admin','Admin',0,0,0);
+INSERT INTO `store_website` VALUES (1,'base','Main Website',0,1,1);
 /*!40000 ALTER TABLE `store_website` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -9569,6 +12732,7 @@ CREATE TABLE `tax_calculation` (
 --
 -- Dumping data for table `tax_calculation`
 --
+-- ORDER BY:  `tax_calculation_id`
 
 LOCK TABLES `tax_calculation` WRITE;
 /*!40000 ALTER TABLE `tax_calculation` DISABLE KEYS */;
@@ -9603,10 +12767,13 @@ CREATE TABLE `tax_calculation_rate` (
 --
 -- Dumping data for table `tax_calculation_rate`
 --
+-- ORDER BY:  `tax_calculation_rate_id`
 
 LOCK TABLES `tax_calculation_rate` WRITE;
 /*!40000 ALTER TABLE `tax_calculation_rate` DISABLE KEYS */;
-INSERT INTO `tax_calculation_rate` VALUES (1,'US',12,'*','US-CA-*-Rate 1',8.2500,NULL,NULL,NULL),(2,'US',43,'*','US-NY-*-Rate 1',8.3750,NULL,NULL,NULL),(3,'AU',0,'*','GST',10.0000,NULL,NULL,NULL);
+INSERT INTO `tax_calculation_rate` VALUES (1,'US',12,'*','US-CA-*-Rate 1',8.2500,NULL,NULL,NULL);
+INSERT INTO `tax_calculation_rate` VALUES (2,'US',43,'*','US-NY-*-Rate 1',8.3750,NULL,NULL,NULL);
+INSERT INTO `tax_calculation_rate` VALUES (3,'AU',0,'*','GST',10.0000,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `tax_calculation_rate` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -9633,6 +12800,7 @@ CREATE TABLE `tax_calculation_rate_title` (
 --
 -- Dumping data for table `tax_calculation_rate_title`
 --
+-- ORDER BY:  `tax_calculation_rate_title_id`
 
 LOCK TABLES `tax_calculation_rate_title` WRITE;
 /*!40000 ALTER TABLE `tax_calculation_rate_title` DISABLE KEYS */;
@@ -9661,6 +12829,7 @@ CREATE TABLE `tax_calculation_rule` (
 --
 -- Dumping data for table `tax_calculation_rule`
 --
+-- ORDER BY:  `tax_calculation_rule_id`
 
 LOCK TABLES `tax_calculation_rule` WRITE;
 /*!40000 ALTER TABLE `tax_calculation_rule` DISABLE KEYS */;
@@ -9686,10 +12855,12 @@ CREATE TABLE `tax_class` (
 --
 -- Dumping data for table `tax_class`
 --
+-- ORDER BY:  `class_id`
 
 LOCK TABLES `tax_class` WRITE;
 /*!40000 ALTER TABLE `tax_class` DISABLE KEYS */;
-INSERT INTO `tax_class` VALUES (2,'GST Goods','PRODUCT'),(3,'Retail Customer','CUSTOMER');
+INSERT INTO `tax_class` VALUES (2,'GST Goods','PRODUCT');
+INSERT INTO `tax_class` VALUES (3,'Retail Customer','CUSTOMER');
 /*!40000 ALTER TABLE `tax_class` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -9719,6 +12890,7 @@ CREATE TABLE `tax_order_aggregated_created` (
 --
 -- Dumping data for table `tax_order_aggregated_created`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `tax_order_aggregated_created` WRITE;
 /*!40000 ALTER TABLE `tax_order_aggregated_created` DISABLE KEYS */;
@@ -9751,6 +12923,7 @@ CREATE TABLE `tax_order_aggregated_updated` (
 --
 -- Dumping data for table `tax_order_aggregated_updated`
 --
+-- ORDER BY:  `id`
 
 LOCK TABLES `tax_order_aggregated_updated` WRITE;
 /*!40000 ALTER TABLE `tax_order_aggregated_updated` DISABLE KEYS */;
@@ -9781,10 +12954,15 @@ CREATE TABLE `theme` (
 --
 -- Dumping data for table `theme`
 --
+-- ORDER BY:  `theme_id`
 
 LOCK TABLES `theme` WRITE;
 /*!40000 ALTER TABLE `theme` DISABLE KEYS */;
-INSERT INTO `theme` VALUES (1,NULL,'Magento/blank','Magento Blank','preview_image_574ff666ebbbb.jpeg',0,'frontend',0,'Magento/blank'),(2,1,'Magento/luma','Magento Luma','preview_image_574ff66701960.jpeg',0,'frontend',0,'Magento/luma'),(3,NULL,'Magento/backend','Magento 2 backend',NULL,0,'adminhtml',0,'Magento/backend'),(4,1,'Venustheme/yume','Venustheme Yume','preview_image_57567aa7806a4.jpeg',0,'frontend',0,'Venustheme/yume'),(5,4,'Gaia/rwahs','RWAHS Subtheme','preview_image_5768b7ed162ca.jpeg',0,'frontend',0,'Gaia/rwahs');
+INSERT INTO `theme` VALUES (1,NULL,'Magento/blank','Magento Blank','preview_image_574ff666ebbbb.jpeg',0,'frontend',0,'Magento/blank');
+INSERT INTO `theme` VALUES (2,1,'Magento/luma','Magento Luma','preview_image_574ff66701960.jpeg',0,'frontend',0,'Magento/luma');
+INSERT INTO `theme` VALUES (3,NULL,'Magento/backend','Magento 2 backend',NULL,0,'adminhtml',0,'Magento/backend');
+INSERT INTO `theme` VALUES (4,1,'Venustheme/yume','Venustheme Yume','preview_image_57567aa7806a4.jpeg',0,'frontend',0,'Venustheme/yume');
+INSERT INTO `theme` VALUES (5,4,'Gaia/rwahs','RWAHS Subtheme','preview_image_5768b7ed162ca.jpeg',0,'frontend',0,'Gaia/rwahs');
 /*!40000 ALTER TABLE `theme` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -9812,6 +12990,7 @@ CREATE TABLE `theme_file` (
 --
 -- Dumping data for table `theme_file`
 --
+-- ORDER BY:  `theme_files_id`
 
 LOCK TABLES `theme_file` WRITE;
 /*!40000 ALTER TABLE `theme_file` DISABLE KEYS */;
@@ -9841,6 +13020,7 @@ CREATE TABLE `translation` (
 --
 -- Dumping data for table `translation`
 --
+-- ORDER BY:  `key_id`
 
 LOCK TABLES `translation` WRITE;
 /*!40000 ALTER TABLE `translation` DISABLE KEYS */;
@@ -9873,10 +13053,14 @@ CREATE TABLE `ui_bookmark` (
 --
 -- Dumping data for table `ui_bookmark`
 --
+-- ORDER BY:  `bookmark_id`
 
 LOCK TABLES `ui_bookmark` WRITE;
 /*!40000 ALTER TABLE `ui_bookmark` DISABLE KEYS */;
-INSERT INTO `ui_bookmark` VALUES (1,1,'cms_block_listing','current',0,NULL,'{\"current\":{\"search\":{\"value\":\"\"},\"columns\":{\"block_id\":{\"visible\":true,\"sorting\":\"asc\"},\"title\":{\"visible\":true,\"sorting\":false},\"identifier\":{\"visible\":true,\"sorting\":false},\"store_id\":{\"visible\":true,\"sorting\":false},\"is_active\":{\"visible\":true,\"sorting\":false},\"actions\":{\"visible\":true,\"sorting\":false},\"ids\":{\"visible\":true,\"sorting\":false},\"creation_time\":{\"visible\":true,\"sorting\":false},\"update_time\":{\"visible\":true,\"sorting\":false}},\"filters\":{\"applied\":{\"placeholder\":true}},\"paging\":{\"options\":{\"20\":{\"value\":20,\"label\":20},\"30\":{\"value\":30,\"label\":30},\"50\":{\"value\":50,\"label\":50},\"100\":{\"value\":100,\"label\":100},\"200\":{\"value\":200,\"label\":200}},\"value\":20},\"positions\":{\"ids\":0,\"block_id\":1,\"title\":2,\"identifier\":3,\"store_id\":4,\"is_active\":5,\"creation_time\":6,\"update_time\":7,\"actions\":8}}}','0000-00-00 00:00:00','0000-00-00 00:00:00'),(2,1,'cms_block_listing','default',1,'Default View','{\"views\":{\"default\":{\"label\":\"Default View\",\"index\":\"default\",\"editable\":false,\"data\":{\"search\":{\"value\":\"\"},\"columns\":{\"block_id\":{\"visible\":true,\"sorting\":\"asc\"},\"title\":{\"visible\":true,\"sorting\":false},\"identifier\":{\"visible\":true,\"sorting\":false},\"store_id\":{\"visible\":true,\"sorting\":false},\"is_active\":{\"visible\":true,\"sorting\":false},\"actions\":{\"visible\":true,\"sorting\":false},\"ids\":{\"visible\":true,\"sorting\":false},\"creation_time\":{\"visible\":true,\"sorting\":false},\"update_time\":{\"visible\":true,\"sorting\":false}},\"filters\":{\"applied\":{\"placeholder\":true}},\"paging\":{\"options\":{\"20\":{\"value\":20,\"label\":20},\"30\":{\"value\":30,\"label\":30},\"50\":{\"value\":50,\"label\":50},\"100\":{\"value\":100,\"label\":100},\"200\":{\"value\":200,\"label\":200}},\"value\":20},\"positions\":{\"ids\":0,\"block_id\":1,\"title\":2,\"identifier\":3,\"store_id\":4,\"is_active\":5,\"creation_time\":6,\"update_time\":7,\"actions\":8}},\"value\":\"Default View\"}}}','0000-00-00 00:00:00','0000-00-00 00:00:00'),(3,1,'cms_page_listing','current',0,NULL,'{\"current\":{\"search\":{\"value\":\"\"},\"columns\":{\"page_id\":{\"visible\":true,\"sorting\":\"asc\"},\"title\":{\"visible\":true,\"sorting\":false},\"identifier\":{\"visible\":true,\"sorting\":false},\"store_id\":{\"visible\":true,\"sorting\":false},\"meta_keywords\":{\"visible\":false,\"sorting\":false},\"meta_description\":{\"visible\":false,\"sorting\":false},\"page_layout\":{\"visible\":true,\"sorting\":false},\"is_active\":{\"visible\":true,\"sorting\":false},\"custom_theme\":{\"visible\":false,\"sorting\":false},\"custom_root_template\":{\"visible\":false,\"sorting\":false},\"actions\":{\"visible\":true,\"sorting\":false},\"ids\":{\"visible\":true,\"sorting\":false},\"creation_time\":{\"visible\":true,\"sorting\":false},\"update_time\":{\"visible\":true,\"sorting\":false},\"custom_theme_from\":{\"visible\":false,\"sorting\":false},\"custom_theme_to\":{\"visible\":false,\"sorting\":false}},\"filters\":{\"applied\":{\"placeholder\":true}},\"positions\":{\"ids\":0,\"page_id\":1,\"title\":2,\"identifier\":3,\"page_layout\":4,\"store_id\":5,\"is_active\":6,\"creation_time\":7,\"update_time\":8,\"custom_theme_from\":9,\"custom_theme_to\":10,\"custom_theme\":11,\"custom_root_template\":12,\"meta_keywords\":13,\"meta_description\":14,\"actions\":15},\"paging\":{\"options\":{\"20\":{\"value\":20,\"label\":20},\"30\":{\"value\":30,\"label\":30},\"50\":{\"value\":50,\"label\":50},\"100\":{\"value\":100,\"label\":100},\"200\":{\"value\":200,\"label\":200}},\"value\":20}}}','0000-00-00 00:00:00','0000-00-00 00:00:00'),(4,1,'cms_page_listing','default',1,'Default View','{\"views\":{\"default\":{\"label\":\"Default View\",\"index\":\"default\",\"editable\":false,\"data\":{\"search\":{\"value\":\"\"},\"columns\":{\"page_id\":{\"visible\":true,\"sorting\":\"asc\"},\"title\":{\"visible\":true,\"sorting\":false},\"identifier\":{\"visible\":true,\"sorting\":false},\"store_id\":{\"visible\":true,\"sorting\":false},\"meta_keywords\":{\"visible\":false,\"sorting\":false},\"meta_description\":{\"visible\":false,\"sorting\":false},\"page_layout\":{\"visible\":true,\"sorting\":false},\"is_active\":{\"visible\":true,\"sorting\":false},\"custom_theme\":{\"visible\":false,\"sorting\":false},\"custom_root_template\":{\"visible\":false,\"sorting\":false},\"actions\":{\"visible\":true,\"sorting\":false},\"ids\":{\"visible\":true,\"sorting\":false},\"creation_time\":{\"visible\":true,\"sorting\":false},\"update_time\":{\"visible\":true,\"sorting\":false},\"custom_theme_from\":{\"visible\":false,\"sorting\":false},\"custom_theme_to\":{\"visible\":false,\"sorting\":false}},\"filters\":{\"applied\":{\"placeholder\":true}},\"positions\":{\"ids\":0,\"page_id\":1,\"title\":2,\"identifier\":3,\"page_layout\":4,\"store_id\":5,\"is_active\":6,\"creation_time\":7,\"update_time\":8,\"custom_theme_from\":9,\"custom_theme_to\":10,\"custom_theme\":11,\"custom_root_template\":12,\"meta_keywords\":13,\"meta_description\":14,\"actions\":15},\"paging\":{\"options\":{\"20\":{\"value\":20,\"label\":20},\"30\":{\"value\":30,\"label\":30},\"50\":{\"value\":50,\"label\":50},\"100\":{\"value\":100,\"label\":100},\"200\":{\"value\":200,\"label\":200}},\"value\":20}},\"value\":\"Default View\"}}}','0000-00-00 00:00:00','0000-00-00 00:00:00');
+INSERT INTO `ui_bookmark` VALUES (1,1,'cms_block_listing','current',0,NULL,'{\"current\":{\"search\":{\"value\":\"\"},\"columns\":{\"block_id\":{\"visible\":true,\"sorting\":\"asc\"},\"title\":{\"visible\":true,\"sorting\":false},\"identifier\":{\"visible\":true,\"sorting\":false},\"store_id\":{\"visible\":true,\"sorting\":false},\"is_active\":{\"visible\":true,\"sorting\":false},\"actions\":{\"visible\":true,\"sorting\":false},\"ids\":{\"visible\":true,\"sorting\":false},\"creation_time\":{\"visible\":true,\"sorting\":false},\"update_time\":{\"visible\":true,\"sorting\":false}},\"filters\":{\"applied\":{\"placeholder\":true}},\"paging\":{\"options\":{\"20\":{\"value\":20,\"label\":20},\"30\":{\"value\":30,\"label\":30},\"50\":{\"value\":50,\"label\":50},\"100\":{\"value\":100,\"label\":100},\"200\":{\"value\":200,\"label\":200}},\"value\":20},\"positions\":{\"ids\":0,\"block_id\":1,\"title\":2,\"identifier\":3,\"store_id\":4,\"is_active\":5,\"creation_time\":6,\"update_time\":7,\"actions\":8}}}','0000-00-00 00:00:00','0000-00-00 00:00:00');
+INSERT INTO `ui_bookmark` VALUES (2,1,'cms_block_listing','default',1,'Default View','{\"views\":{\"default\":{\"label\":\"Default View\",\"index\":\"default\",\"editable\":false,\"data\":{\"search\":{\"value\":\"\"},\"columns\":{\"block_id\":{\"visible\":true,\"sorting\":\"asc\"},\"title\":{\"visible\":true,\"sorting\":false},\"identifier\":{\"visible\":true,\"sorting\":false},\"store_id\":{\"visible\":true,\"sorting\":false},\"is_active\":{\"visible\":true,\"sorting\":false},\"actions\":{\"visible\":true,\"sorting\":false},\"ids\":{\"visible\":true,\"sorting\":false},\"creation_time\":{\"visible\":true,\"sorting\":false},\"update_time\":{\"visible\":true,\"sorting\":false}},\"filters\":{\"applied\":{\"placeholder\":true}},\"paging\":{\"options\":{\"20\":{\"value\":20,\"label\":20},\"30\":{\"value\":30,\"label\":30},\"50\":{\"value\":50,\"label\":50},\"100\":{\"value\":100,\"label\":100},\"200\":{\"value\":200,\"label\":200}},\"value\":20},\"positions\":{\"ids\":0,\"block_id\":1,\"title\":2,\"identifier\":3,\"store_id\":4,\"is_active\":5,\"creation_time\":6,\"update_time\":7,\"actions\":8}},\"value\":\"Default View\"}}}','0000-00-00 00:00:00','0000-00-00 00:00:00');
+INSERT INTO `ui_bookmark` VALUES (3,1,'cms_page_listing','current',0,NULL,'{\"current\":{\"search\":{\"value\":\"\"},\"columns\":{\"page_id\":{\"visible\":true,\"sorting\":\"asc\"},\"title\":{\"visible\":true,\"sorting\":false},\"identifier\":{\"visible\":true,\"sorting\":false},\"store_id\":{\"visible\":true,\"sorting\":false},\"meta_keywords\":{\"visible\":false,\"sorting\":false},\"meta_description\":{\"visible\":false,\"sorting\":false},\"page_layout\":{\"visible\":true,\"sorting\":false},\"is_active\":{\"visible\":true,\"sorting\":false},\"custom_theme\":{\"visible\":false,\"sorting\":false},\"custom_root_template\":{\"visible\":false,\"sorting\":false},\"actions\":{\"visible\":true,\"sorting\":false},\"ids\":{\"visible\":true,\"sorting\":false},\"creation_time\":{\"visible\":true,\"sorting\":false},\"update_time\":{\"visible\":true,\"sorting\":false},\"custom_theme_from\":{\"visible\":false,\"sorting\":false},\"custom_theme_to\":{\"visible\":false,\"sorting\":false}},\"filters\":{\"applied\":{\"placeholder\":true}},\"positions\":{\"ids\":0,\"page_id\":1,\"title\":2,\"identifier\":3,\"page_layout\":4,\"store_id\":5,\"is_active\":6,\"creation_time\":7,\"update_time\":8,\"custom_theme_from\":9,\"custom_theme_to\":10,\"custom_theme\":11,\"custom_root_template\":12,\"meta_keywords\":13,\"meta_description\":14,\"actions\":15},\"paging\":{\"options\":{\"20\":{\"value\":20,\"label\":20},\"30\":{\"value\":30,\"label\":30},\"50\":{\"value\":50,\"label\":50},\"100\":{\"value\":100,\"label\":100},\"200\":{\"value\":200,\"label\":200}},\"value\":20}}}','0000-00-00 00:00:00','0000-00-00 00:00:00');
+INSERT INTO `ui_bookmark` VALUES (4,1,'cms_page_listing','default',1,'Default View','{\"views\":{\"default\":{\"label\":\"Default View\",\"index\":\"default\",\"editable\":false,\"data\":{\"search\":{\"value\":\"\"},\"columns\":{\"page_id\":{\"visible\":true,\"sorting\":\"asc\"},\"title\":{\"visible\":true,\"sorting\":false},\"identifier\":{\"visible\":true,\"sorting\":false},\"store_id\":{\"visible\":true,\"sorting\":false},\"meta_keywords\":{\"visible\":false,\"sorting\":false},\"meta_description\":{\"visible\":false,\"sorting\":false},\"page_layout\":{\"visible\":true,\"sorting\":false},\"is_active\":{\"visible\":true,\"sorting\":false},\"custom_theme\":{\"visible\":false,\"sorting\":false},\"custom_root_template\":{\"visible\":false,\"sorting\":false},\"actions\":{\"visible\":true,\"sorting\":false},\"ids\":{\"visible\":true,\"sorting\":false},\"creation_time\":{\"visible\":true,\"sorting\":false},\"update_time\":{\"visible\":true,\"sorting\":false},\"custom_theme_from\":{\"visible\":false,\"sorting\":false},\"custom_theme_to\":{\"visible\":false,\"sorting\":false}},\"filters\":{\"applied\":{\"placeholder\":true}},\"positions\":{\"ids\":0,\"page_id\":1,\"title\":2,\"identifier\":3,\"page_layout\":4,\"store_id\":5,\"is_active\":6,\"creation_time\":7,\"update_time\":8,\"custom_theme_from\":9,\"custom_theme_to\":10,\"custom_theme\":11,\"custom_root_template\":12,\"meta_keywords\":13,\"meta_description\":14,\"actions\":15},\"paging\":{\"options\":{\"20\":{\"value\":20,\"label\":20},\"30\":{\"value\":30,\"label\":30},\"50\":{\"value\":50,\"label\":50},\"100\":{\"value\":100,\"label\":100},\"200\":{\"value\":200,\"label\":200}},\"value\":20}},\"value\":\"Default View\"}}}','0000-00-00 00:00:00','0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `ui_bookmark` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -9908,10 +13092,14 @@ CREATE TABLE `url_rewrite` (
 --
 -- Dumping data for table `url_rewrite`
 --
+-- ORDER BY:  `url_rewrite_id`
 
 LOCK TABLES `url_rewrite` WRITE;
 /*!40000 ALTER TABLE `url_rewrite` DISABLE KEYS */;
-INSERT INTO `url_rewrite` VALUES (1,'cms-page',1,'no-route','cms/page/view/page_id/1',0,1,NULL,1,NULL),(2,'cms-page',2,'home','cms/page/view/page_id/2',0,1,NULL,1,NULL),(3,'cms-page',3,'enable-cookies','cms/page/view/page_id/3',0,1,NULL,1,NULL),(4,'cms-page',4,'privacy-policy-cookie-restriction-mode','cms/page/view/page_id/4',0,1,NULL,1,NULL);
+INSERT INTO `url_rewrite` VALUES (1,'cms-page',1,'no-route','cms/page/view/page_id/1',0,1,NULL,1,NULL);
+INSERT INTO `url_rewrite` VALUES (2,'cms-page',2,'home','cms/page/view/page_id/2',0,1,NULL,1,NULL);
+INSERT INTO `url_rewrite` VALUES (3,'cms-page',3,'enable-cookies','cms/page/view/page_id/3',0,1,NULL,1,NULL);
+INSERT INTO `url_rewrite` VALUES (4,'cms-page',4,'privacy-policy-cookie-restriction-mode','cms/page/view/page_id/4',0,1,NULL,1,NULL);
 /*!40000 ALTER TABLE `url_rewrite` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -9934,6 +13122,7 @@ CREATE TABLE `variable` (
 --
 -- Dumping data for table `variable`
 --
+-- ORDER BY:  `variable_id`
 
 LOCK TABLES `variable` WRITE;
 /*!40000 ALTER TABLE `variable` DISABLE KEYS */;
@@ -9964,6 +13153,7 @@ CREATE TABLE `variable_value` (
 --
 -- Dumping data for table `variable_value`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `variable_value` WRITE;
 /*!40000 ALTER TABLE `variable_value` DISABLE KEYS */;
@@ -10000,6 +13190,7 @@ CREATE TABLE `weee_tax` (
 --
 -- Dumping data for table `weee_tax`
 --
+-- ORDER BY:  `value_id`
 
 LOCK TABLES `weee_tax` WRITE;
 /*!40000 ALTER TABLE `weee_tax` DISABLE KEYS */;
@@ -10026,6 +13217,7 @@ CREATE TABLE `widget` (
 --
 -- Dumping data for table `widget`
 --
+-- ORDER BY:  `widget_id`
 
 LOCK TABLES `widget` WRITE;
 /*!40000 ALTER TABLE `widget` DISABLE KEYS */;
@@ -10056,6 +13248,7 @@ CREATE TABLE `widget_instance` (
 --
 -- Dumping data for table `widget_instance`
 --
+-- ORDER BY:  `instance_id`
 
 LOCK TABLES `widget_instance` WRITE;
 /*!40000 ALTER TABLE `widget_instance` DISABLE KEYS */;
@@ -10087,6 +13280,7 @@ CREATE TABLE `widget_instance_page` (
 --
 -- Dumping data for table `widget_instance_page`
 --
+-- ORDER BY:  `page_id`
 
 LOCK TABLES `widget_instance_page` WRITE;
 /*!40000 ALTER TABLE `widget_instance_page` DISABLE KEYS */;
@@ -10113,6 +13307,7 @@ CREATE TABLE `widget_instance_page_layout` (
 --
 -- Dumping data for table `widget_instance_page_layout`
 --
+-- ORDER BY:  `layout_update_id`,`page_id`
 
 LOCK TABLES `widget_instance_page_layout` WRITE;
 /*!40000 ALTER TABLE `widget_instance_page_layout` DISABLE KEYS */;
@@ -10142,6 +13337,7 @@ CREATE TABLE `wishlist` (
 --
 -- Dumping data for table `wishlist`
 --
+-- ORDER BY:  `wishlist_id`
 
 LOCK TABLES `wishlist` WRITE;
 /*!40000 ALTER TABLE `wishlist` DISABLE KEYS */;
@@ -10176,6 +13372,7 @@ CREATE TABLE `wishlist_item` (
 --
 -- Dumping data for table `wishlist_item`
 --
+-- ORDER BY:  `wishlist_item_id`
 
 LOCK TABLES `wishlist_item` WRITE;
 /*!40000 ALTER TABLE `wishlist_item` DISABLE KEYS */;
@@ -10204,6 +13401,7 @@ CREATE TABLE `wishlist_item_option` (
 --
 -- Dumping data for table `wishlist_item_option`
 --
+-- ORDER BY:  `option_id`
 
 LOCK TABLES `wishlist_item_option` WRITE;
 /*!40000 ALTER TABLE `wishlist_item_option` DISABLE KEYS */;
@@ -10219,4 +13417,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-02 16:24:27
+-- Dump completed on 2016-08-08 15:54:20
