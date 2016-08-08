@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.6.30, for debian-linux-gnu (x86_64)
 --
--- Host: localhost    Database: magento2
+-- Host: staging-shop-db.histwest.org.au    Database: shop
 -- ------------------------------------------------------
--- Server version	5.6.30-0ubuntu0.14.04.1
+-- Server version	5.6.27-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -3723,8 +3723,8 @@ INSERT INTO `core_config_data` VALUES (356,'default',0,'tax/classes/default_prod
 INSERT INTO `core_config_data` VALUES (357,'default',0,'tax/classes/default_customer_tax_class','3');
 INSERT INTO `core_config_data` VALUES (358,'default',0,'tax/calculation/algorithm','TOTAL_BASE_CALCULATION');
 INSERT INTO `core_config_data` VALUES (359,'default',0,'tax/calculation/based_on','shipping');
-INSERT INTO `core_config_data` VALUES (360,'default',0,'tax/calculation/price_includes_tax','0');
-INSERT INTO `core_config_data` VALUES (361,'default',0,'tax/calculation/shipping_includes_tax','0');
+INSERT INTO `core_config_data` VALUES (360,'default',0,'tax/calculation/price_includes_tax','1');
+INSERT INTO `core_config_data` VALUES (361,'default',0,'tax/calculation/shipping_includes_tax','1');
 INSERT INTO `core_config_data` VALUES (362,'default',0,'tax/calculation/apply_after_discount','1');
 INSERT INTO `core_config_data` VALUES (363,'default',0,'tax/calculation/discount_tax','0');
 INSERT INTO `core_config_data` VALUES (364,'default',0,'tax/calculation/apply_tax_on','0');
@@ -13417,4 +13417,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-08 15:54:20
+-- Dump completed on 2016-08-08  8:22:29
