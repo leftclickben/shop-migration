@@ -9689,7 +9689,7 @@ CREATE TABLE `tax_class` (
 
 LOCK TABLES `tax_class` WRITE;
 /*!40000 ALTER TABLE `tax_class` DISABLE KEYS */;
-INSERT INTO `tax_class` VALUES (2,'Taxable Goods','PRODUCT'),(3,'Retail Customer','CUSTOMER');
+INSERT INTO `tax_class` VALUES (2,'GST Goods','PRODUCT'),(3,'Retail Customer','CUSTOMER');
 /*!40000 ALTER TABLE `tax_class` ENABLE KEYS */;
 UNLOCK TABLES;
 
