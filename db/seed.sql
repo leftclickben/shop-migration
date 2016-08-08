@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.6.30, for debian-linux-gnu (x86_64)
 --
--- Host: localhost    Database: t
+-- Host: localhost    Database: magento2
 -- ------------------------------------------------------
 -- Server version	5.6.30-0ubuntu0.14.04.1
 
