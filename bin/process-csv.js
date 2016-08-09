@@ -97,7 +97,7 @@
                                 short_description: '',
                                 weight: 1,
                                 product_online: 1,
-                                tax_class_name: 'Taxable Goods',
+                                tax_class_name: 'GST Goods',
                                 visibility: 'Catalog, Search',
                                 price: record.RRP,
                                 special_price: '',
