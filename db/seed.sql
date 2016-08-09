@@ -7778,7 +7778,7 @@ CREATE TABLE `flag` (
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Date of Last Flag Update',
   PRIMARY KEY (`flag_id`),
   KEY `FLAG_LAST_UPDATE` (`last_update`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Flag';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Flag';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7788,6 +7788,7 @@ CREATE TABLE `flag` (
 
 LOCK TABLES `flag` WRITE;
 /*!40000 ALTER TABLE `flag` DISABLE KEYS */;
+INSERT INTO `flag` VALUES (1,'synchronize',2,'a:6:{s:6:\"source\";O:24:\"Magento\\Framework\\Phrase\":2:{s:30:\"\0Magento\\Framework\\Phrase\0text\";s:11:\"File system\";s:35:\"\0Magento\\Framework\\Phrase\0arguments\";a:0:{}}s:11:\"destination\";O:24:\"Magento\\Framework\\Phrase\":2:{s:30:\"\0Magento\\Framework\\Phrase\0text\";s:13:\"database \"%1\"\";s:35:\"\0Magento\\Framework\\Phrase\0arguments\";a:1:{i:0;s:13:\"default_setup\";}}s:24:\"destination_storage_type\";i:1;s:27:\"destination_connection_name\";s:13:\"default_setup\";s:10:\"has_errors\";b:0;s:15:\"timeout_reached\";b:0;}','2016-08-09 14:53:50');
 /*!40000 ALTER TABLE `flag` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -8033,6 +8034,72 @@ CREATE TABLE `layout_update` (
 LOCK TABLES `layout_update` WRITE;
 /*!40000 ALTER TABLE `layout_update` DISABLE KEYS */;
 /*!40000 ALTER TABLE `layout_update` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `media_storage_directory_storage`
+--
+
+DROP TABLE IF EXISTS `media_storage_directory_storage`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `media_storage_directory_storage` (
+  `directory_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Directory Id',
+  `name` varchar(100) NOT NULL COMMENT 'Directory Name',
+  `path` varchar(255) DEFAULT NULL COMMENT 'Path to the \\Directory',
+  `upload_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Upload Timestamp',
+  `parent_id` int(10) unsigned DEFAULT NULL COMMENT 'Parent \\Directory Id',
+  PRIMARY KEY (`directory_id`),
+  UNIQUE KEY `MEDIA_STORAGE_DIRECTORY_STORAGE_NAME_PARENT_ID` (`name`,`parent_id`),
+  KEY `MEDIA_STORAGE_DIRECTORY_STORAGE_PARENT_ID` (`parent_id`),
+  CONSTRAINT `MDA_STORAGE_DIR_STORAGE_PARENT_ID_MDA_STORAGE_DIR_STORAGE_DIR_ID` FOREIGN KEY (`parent_id`) REFERENCES `media_storage_directory_storage` (`directory_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Directory Storage';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `media_storage_directory_storage`
+--
+-- ORDER BY:  `directory_id`
+
+LOCK TABLES `media_storage_directory_storage` WRITE;
+/*!40000 ALTER TABLE `media_storage_directory_storage` DISABLE KEYS */;
+INSERT INTO `media_storage_directory_storage` VALUES (1,'captcha',NULL,'2016-08-09 14:51:40',NULL);
+INSERT INTO `media_storage_directory_storage` VALUES (2,'admin','captcha','2016-08-09 14:51:40',1);
+INSERT INTO `media_storage_directory_storage` VALUES (3,'base','captcha','2016-08-09 14:51:40',1);
+INSERT INTO `media_storage_directory_storage` VALUES (4,'catalog',NULL,'2016-08-09 14:51:40',NULL);
+INSERT INTO `media_storage_directory_storage` VALUES (5,'product','catalog','2016-08-09 14:51:40',4);
+/*!40000 ALTER TABLE `media_storage_directory_storage` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `media_storage_file_storage`
+--
+
+DROP TABLE IF EXISTS `media_storage_file_storage`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `media_storage_file_storage` (
+  `file_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'File Id',
+  `content` longblob NOT NULL COMMENT 'File Content',
+  `upload_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Upload Timestamp',
+  `filename` varchar(100) NOT NULL COMMENT 'Filename',
+  `directory_id` int(10) unsigned DEFAULT NULL COMMENT 'Identifier of Directory where File is Located',
+  `directory` varchar(255) DEFAULT NULL COMMENT 'Directory Path',
+  PRIMARY KEY (`file_id`),
+  UNIQUE KEY `MEDIA_STORAGE_FILE_STORAGE_FILENAME_DIRECTORY_ID` (`filename`,`directory_id`),
+  KEY `MEDIA_STORAGE_FILE_STORAGE_DIRECTORY_ID` (`directory_id`),
+  CONSTRAINT `MDA_STORAGE_FILE_STORAGE_DIR_ID_MDA_STORAGE_DIR_STORAGE_DIR_ID` FOREIGN KEY (`directory_id`) REFERENCES `media_storage_directory_storage` (`directory_id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='File Storage';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `media_storage_file_storage`
+--
+-- ORDER BY:  `file_id`
+
+LOCK TABLES `media_storage_file_storage` WRITE;
+/*!40000 ALTER TABLE `media_storage_file_storage` DISABLE KEYS */;
+/*!40000 ALTER TABLE `media_storage_file_storage` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -13423,4 +13490,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-09 12:29:51
+-- Dump completed on 2016-08-09 14:51:53
