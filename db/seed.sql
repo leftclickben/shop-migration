@@ -3155,7 +3155,7 @@ CREATE TABLE `checkout_agreement` (
   `is_html` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Is Html',
   `mode` smallint(6) NOT NULL DEFAULT '0' COMMENT 'Applied mode',
   PRIMARY KEY (`agreement_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Checkout Agreement';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Checkout Agreement';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3165,6 +3165,7 @@ CREATE TABLE `checkout_agreement` (
 
 LOCK TABLES `checkout_agreement` WRITE;
 /*!40000 ALTER TABLE `checkout_agreement` DISABLE KEYS */;
+INSERT INTO `checkout_agreement` VALUES (1,'Terms and Conditions','By proceeding with this purchase, you agree to accept the terms and conditions as described on our website: \r\n\r\n<a href=\"https://www.histwest.org.au/terms-and-conditions\" target=\"_blank\">Read full terms and conditions</a>.\r\n',NULL,'I agree to the terms and conditions',1,1,1);
 /*!40000 ALTER TABLE `checkout_agreement` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3192,6 +3193,7 @@ CREATE TABLE `checkout_agreement_store` (
 
 LOCK TABLES `checkout_agreement_store` WRITE;
 /*!40000 ALTER TABLE `checkout_agreement_store` DISABLE KEYS */;
+INSERT INTO `checkout_agreement_store` VALUES (1,1);
 /*!40000 ALTER TABLE `checkout_agreement_store` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -13421,4 +13423,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-09  7:37:29
+-- Dump completed on 2016-08-09 12:29:51
