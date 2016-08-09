@@ -3356,7 +3356,7 @@ CREATE TABLE `core_config_data` (
   `value` text COMMENT 'Config Value',
   PRIMARY KEY (`config_id`),
   UNIQUE KEY `CORE_CONFIG_DATA_SCOPE_SCOPE_ID_PATH` (`scope`,`scope_id`,`path`)
-) ENGINE=InnoDB AUTO_INCREMENT=828 DEFAULT CHARSET=utf8 COMMENT='Config Data';
+) ENGINE=InnoDB AUTO_INCREMENT=829 DEFAULT CHARSET=utf8 COMMENT='Config Data';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4169,7 +4169,7 @@ INSERT INTO `core_config_data` VALUES (800,'default',0,'system/adminnotification
 INSERT INTO `core_config_data` VALUES (801,'default',0,'system/backup/enabled','0');
 INSERT INTO `core_config_data` VALUES (802,'default',0,'system/full_page_cache/caching_application','1');
 INSERT INTO `core_config_data` VALUES (803,'default',0,'system/full_page_cache/ttl','86400');
-INSERT INTO `core_config_data` VALUES (804,'default',0,'system/media_storage_configuration/media_storage','0');
+INSERT INTO `core_config_data` VALUES (804,'default',0,'system/media_storage_configuration/media_storage','1');
 INSERT INTO `core_config_data` VALUES (805,'default',0,'system/media_storage_configuration/configuration_update_time','3600');
 INSERT INTO `core_config_data` VALUES (806,'default',0,'dev/front_end_development_workflow/type','server_side_compilation');
 INSERT INTO `core_config_data` VALUES (807,'default',0,'dev/restrict/allow_ips',NULL);
@@ -4193,6 +4193,7 @@ INSERT INTO `core_config_data` VALUES (824,'default',0,'dev/static/sign','0');
 INSERT INTO `core_config_data` VALUES (825,'default',0,'dev/grid/async_indexing','0');
 INSERT INTO `core_config_data` VALUES (826,'default',0,'catalog/layered_navigation/one_price_interval','0');
 INSERT INTO `core_config_data` VALUES (827,'default',0,'catalog/layered_navigation/interval_division_limit','9');
+INSERT INTO `core_config_data` VALUES (828,'default',0,'system/media_storage_configuration/media_database','default_setup');
 /*!40000 ALTER TABLE `core_config_data` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -13510,4 +13511,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-09 15:34:02
+-- Dump completed on 2016-08-09 16:04:40
