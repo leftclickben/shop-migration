@@ -17,4 +17,4 @@ fi
 source "${localSettings}"
 
 # Create new database seed
-mysqldump --skip-extended-insert --order-by-primary ${dbauth} ${dbhost} "${dbname}" >"$(readlink -f $(dirname $(dirname ${0})))/db/seed.sql"
+mysqldump --hex-blob --skip-extended-insert --order-by-primary ${dbauth} ${dbhost} "${dbname}" >"$(readlink -f $(dirname $(dirname ${0})))/db/seed.sql"
