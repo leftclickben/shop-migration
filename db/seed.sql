@@ -3789,7 +3789,7 @@ INSERT INTO `core_config_data` VALUES (422,'default',0,'carriers/freeshipping/sa
 INSERT INTO `core_config_data` VALUES (423,'default',0,'carriers/freeshipping/specificcountry',NULL);
 INSERT INTO `core_config_data` VALUES (424,'default',0,'carriers/freeshipping/showmethod','0');
 INSERT INTO `core_config_data` VALUES (425,'default',0,'carriers/freeshipping/sort_order',NULL);
-INSERT INTO `core_config_data` VALUES (426,'default',0,'carriers/flatrate/active','1');
+INSERT INTO `core_config_data` VALUES (426,'default',0,'carriers/flatrate/active','0');
 INSERT INTO `core_config_data` VALUES (427,'default',0,'carriers/flatrate/title','Flat Rate');
 INSERT INTO `core_config_data` VALUES (428,'default',0,'carriers/flatrate/name','Fixed');
 INSERT INTO `core_config_data` VALUES (429,'default',0,'carriers/flatrate/type','I');
@@ -3801,17 +3801,17 @@ INSERT INTO `core_config_data` VALUES (434,'default',0,'carriers/flatrate/sallow
 INSERT INTO `core_config_data` VALUES (435,'default',0,'carriers/flatrate/specificcountry',NULL);
 INSERT INTO `core_config_data` VALUES (436,'default',0,'carriers/flatrate/showmethod','0');
 INSERT INTO `core_config_data` VALUES (437,'default',0,'carriers/flatrate/sort_order',NULL);
-INSERT INTO `core_config_data` VALUES (438,'default',0,'carriers/tablerate/active','0');
-INSERT INTO `core_config_data` VALUES (439,'default',0,'carriers/tablerate/title','Best Way');
-INSERT INTO `core_config_data` VALUES (440,'default',0,'carriers/tablerate/name','Table Rate');
+INSERT INTO `core_config_data` VALUES (438,'default',0,'carriers/tablerate/active','1');
+INSERT INTO `core_config_data` VALUES (439,'default',0,'carriers/tablerate/title','Australia Post');
+INSERT INTO `core_config_data` VALUES (440,'default',0,'carriers/tablerate/name','$15 per 3kg or part thereof');
 INSERT INTO `core_config_data` VALUES (441,'default',0,'carriers/tablerate/condition_name','package_weight');
 INSERT INTO `core_config_data` VALUES (442,'default',0,'carriers/tablerate/include_virtual_price','1');
-INSERT INTO `core_config_data` VALUES (443,'websites',1,'carriers/tablerate/import','1464860840,,,,4,0');
+INSERT INTO `core_config_data` VALUES (443,'websites',1,'carriers/tablerate/import','1470728118,,,,4,0');
 INSERT INTO `core_config_data` VALUES (444,'default',0,'carriers/tablerate/handling_type','F');
 INSERT INTO `core_config_data` VALUES (445,'default',0,'carriers/tablerate/handling_fee',NULL);
 INSERT INTO `core_config_data` VALUES (446,'default',0,'carriers/tablerate/specificerrmsg','This shipping method is not available. To use this shipping method, please contact us.');
-INSERT INTO `core_config_data` VALUES (447,'default',0,'carriers/tablerate/sallowspecific','0');
-INSERT INTO `core_config_data` VALUES (448,'default',0,'carriers/tablerate/specificcountry',NULL);
+INSERT INTO `core_config_data` VALUES (447,'default',0,'carriers/tablerate/sallowspecific','1');
+INSERT INTO `core_config_data` VALUES (448,'default',0,'carriers/tablerate/specificcountry','AU');
 INSERT INTO `core_config_data` VALUES (449,'default',0,'carriers/tablerate/showmethod','0');
 INSERT INTO `core_config_data` VALUES (450,'default',0,'carriers/tablerate/sort_order',NULL);
 INSERT INTO `core_config_data` VALUES (451,'default',0,'carriers/ups/active','0');
@@ -12559,7 +12559,7 @@ CREATE TABLE `shipping_tablerate` (
   `cost` decimal(12,4) NOT NULL DEFAULT '0.0000' COMMENT 'Cost',
   PRIMARY KEY (`pk`),
   UNIQUE KEY `UNQ_D60821CDB2AFACEE1566CFC02D0D4CAA` (`website_id`,`dest_country_id`,`dest_region_id`,`dest_zip`,`condition_name`,`condition_value`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Shipping Tablerate';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Shipping Tablerate';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -12569,6 +12569,10 @@ CREATE TABLE `shipping_tablerate` (
 
 LOCK TABLES `shipping_tablerate` WRITE;
 /*!40000 ALTER TABLE `shipping_tablerate` DISABLE KEYS */;
+INSERT INTO `shipping_tablerate` VALUES (1,1,'AU',0,'*','package_weight',0.0000,15.0000,0.0000);
+INSERT INTO `shipping_tablerate` VALUES (2,1,'AU',0,'*','package_weight',3.0000,30.0000,0.0000);
+INSERT INTO `shipping_tablerate` VALUES (3,1,'AU',0,'*','package_weight',6.0000,45.0000,0.0000);
+INSERT INTO `shipping_tablerate` VALUES (4,1,'AU',0,'*','package_weight',9.0000,60.0000,0.0000);
 /*!40000 ALTER TABLE `shipping_tablerate` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -13417,4 +13421,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-08  8:22:29
+-- Dump completed on 2016-08-09  7:37:29
