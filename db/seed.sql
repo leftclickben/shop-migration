@@ -3165,7 +3165,7 @@ CREATE TABLE `checkout_agreement` (
 
 LOCK TABLES `checkout_agreement` WRITE;
 /*!40000 ALTER TABLE `checkout_agreement` DISABLE KEYS */;
-INSERT INTO `checkout_agreement` VALUES (1,'Terms and Conditions','By proceeding with this purchase, you agree to accept the terms and conditions as described on our website: \r\n\r\n<a href=\"https://www.histwest.org.au/terms-and-conditions\" target=\"_blank\">Read full terms and conditions</a>.\r\n',NULL,'I agree to the terms and conditions',1,1,1);
+INSERT INTO `checkout_agreement` VALUES (1,'Terms and Conditions','By proceeding with this purchase, you agree to accept our terms &amp; conditions: \r\n\r\n<a href=\"/terms\" target=\"_blank\">Read full terms and conditions</a>.\r\n',NULL,'I agree to the terms and conditions',1,1,1);
 /*!40000 ALTER TABLE `checkout_agreement` ENABLE KEYS */;
 UNLOCK TABLES;
 
