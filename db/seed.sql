@@ -3431,7 +3431,7 @@ INSERT INTO `core_config_data` VALUES (54,'default',0,'web/session/use_frontend_
 INSERT INTO `core_config_data` VALUES (55,'default',0,'web/browser_capabilities/cookies','1');
 INSERT INTO `core_config_data` VALUES (56,'default',0,'web/browser_capabilities/javascript','1');
 INSERT INTO `core_config_data` VALUES (57,'default',0,'web/browser_capabilities/local_storage','0');
-INSERT INTO `core_config_data` VALUES (58,'default',0,'design/theme/theme_id','5');
+INSERT INTO `core_config_data` VALUES (58,'default',0,'design/theme/theme_id','4');
 INSERT INTO `core_config_data` VALUES (59,'default',0,'design/theme/ua_regexp','a:0:{}');
 INSERT INTO `core_config_data` VALUES (60,'default',0,'design/head/default_title',NULL);
 INSERT INTO `core_config_data` VALUES (61,'default',0,'design/head/title_prefix',NULL);
@@ -13050,7 +13050,7 @@ CREATE TABLE `theme` (
   `type` smallint(6) NOT NULL COMMENT 'Theme type: 0:physical, 1:virtual, 2:staging',
   `code` text COMMENT 'Full theme code, including package',
   PRIMARY KEY (`theme_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Core theme';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='Core theme';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -13063,8 +13063,7 @@ LOCK TABLES `theme` WRITE;
 INSERT INTO `theme` VALUES (1,NULL,'Magento/blank','Magento Blank','preview_image_574ff666ebbbb.jpeg',0,'frontend',0,'Magento/blank');
 INSERT INTO `theme` VALUES (2,1,'Magento/luma','Magento Luma','preview_image_574ff66701960.jpeg',0,'frontend',0,'Magento/luma');
 INSERT INTO `theme` VALUES (3,NULL,'Magento/backend','Magento 2 backend',NULL,0,'adminhtml',0,'Magento/backend');
-INSERT INTO `theme` VALUES (4,1,'Venustheme/yume','Venustheme Yume','preview_image_57567aa7806a4.jpeg',0,'frontend',0,'Venustheme/yume');
-INSERT INTO `theme` VALUES (5,4,'Gaia/rwahs','RWAHS Subtheme','preview_image_5768b7ed162ca.jpeg',0,'frontend',0,'Gaia/rwahs');
+INSERT INTO `theme` VALUES (4,2,'Gaia/rwahsluma','RWAHS Luma Subtheme',NULL,0,'frontend',0,'Gaia/rwahsluma');
 /*!40000 ALTER TABLE `theme` ENABLE KEYS */;
 UNLOCK TABLES;
 
