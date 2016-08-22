@@ -100,6 +100,7 @@
                                 tax_class_name: 'GST Goods',
                                 visibility: 'Catalog, Search',
                                 price: record.RRP,
+                                cost: record.CostPrice,
                                 special_price: '',
                                 special_price_from_date: '',
                                 special_price_to_date: '',
