@@ -3790,11 +3790,11 @@ INSERT INTO `core_config_data` VALUES (413,'default',0,'shipping/shipping_policy
 INSERT INTO `core_config_data` VALUES (414,'default',0,'shipping/shipping_policy/shipping_policy_content',NULL);
 INSERT INTO `core_config_data` VALUES (415,'default',0,'multishipping/options/checkout_multiple','0');
 INSERT INTO `core_config_data` VALUES (416,'default',0,'multishipping/options/checkout_multiple_maximum_qty','100');
-INSERT INTO `core_config_data` VALUES (417,'default',0,'carriers/freeshipping/active','0');
-INSERT INTO `core_config_data` VALUES (418,'default',0,'carriers/freeshipping/title','Free Shipping');
+INSERT INTO `core_config_data` VALUES (417,'default',0,'carriers/freeshipping/active','1');
+INSERT INTO `core_config_data` VALUES (418,'default',0,'carriers/freeshipping/title','Pickup from Nedlands');
 INSERT INTO `core_config_data` VALUES (419,'default',0,'carriers/freeshipping/name','Free');
 INSERT INTO `core_config_data` VALUES (420,'default',0,'carriers/freeshipping/free_shipping_subtotal',NULL);
-INSERT INTO `core_config_data` VALUES (421,'default',0,'carriers/freeshipping/specificerrmsg','This shipping method is not available. To use this shipping method, please contact us.');
+INSERT INTO `core_config_data` VALUES (421,'default',0,'carriers/freeshipping/specificerrmsg',NULL);
 INSERT INTO `core_config_data` VALUES (422,'default',0,'carriers/freeshipping/sallowspecific','0');
 INSERT INTO `core_config_data` VALUES (423,'default',0,'carriers/freeshipping/specificcountry',NULL);
 INSERT INTO `core_config_data` VALUES (424,'default',0,'carriers/freeshipping/showmethod','0');
