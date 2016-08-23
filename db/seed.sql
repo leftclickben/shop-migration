@@ -3812,7 +3812,7 @@ INSERT INTO `core_config_data` VALUES (435,'default',0,'carriers/flatrate/specif
 INSERT INTO `core_config_data` VALUES (436,'default',0,'carriers/flatrate/showmethod','0');
 INSERT INTO `core_config_data` VALUES (437,'default',0,'carriers/flatrate/sort_order',NULL);
 INSERT INTO `core_config_data` VALUES (438,'default',0,'carriers/tablerate/active','1');
-INSERT INTO `core_config_data` VALUES (439,'default',0,'carriers/tablerate/title','Australia Post');
+INSERT INTO `core_config_data` VALUES (439,'default',0,'carriers/tablerate/title','Post or Courier');
 INSERT INTO `core_config_data` VALUES (440,'default',0,'carriers/tablerate/name','$15 per 3kg or part thereof');
 INSERT INTO `core_config_data` VALUES (441,'default',0,'carriers/tablerate/condition_name','package_weight');
 INSERT INTO `core_config_data` VALUES (442,'default',0,'carriers/tablerate/include_virtual_price','1');
