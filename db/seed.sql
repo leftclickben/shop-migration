@@ -589,6 +589,244 @@ INSERT INTO `authorization_rule` VALUES (377,4,'Magento_Backend::global_search',
 UNLOCK TABLES;
 
 --
+-- Table structure for table `bms_purchase_order`
+--
+
+DROP TABLE IF EXISTS `bms_purchase_order`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bms_purchase_order` (
+  `po_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Purchase order id',
+  `po_created_at` timestamp NULL DEFAULT NULL COMMENT 'Created at',
+  `po_updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated at',
+  `po_eta` timestamp NULL DEFAULT NULL COMMENT 'Estimated time of arrival',
+  `po_sup_id` int(10) unsigned NOT NULL COMMENT 'Supplier id',
+  `po_manager` int(10) unsigned NOT NULL COMMENT 'Manager',
+  `po_reference` varchar(30) NOT NULL COMMENT 'Reference',
+  `po_supplier_reference` varchar(30) NOT NULL COMMENT 'Supplier Reference',
+  `po_invoice_reference` varchar(30) NOT NULL COMMENT 'Invoice Reference',
+  `po_invoice_date` timestamp NULL DEFAULT NULL COMMENT 'Invoice date',
+  `po_payment_date` timestamp NULL DEFAULT NULL COMMENT 'Payment date',
+  `po_status` varchar(30) DEFAULT NULL COMMENT 'Status',
+  `po_public_comments` text COMMENT 'Comments',
+  `po_private_comments` text COMMENT 'Comments',
+  `po_delivery_progress` int(11) DEFAULT NULL COMMENT 'Delivery progress',
+  `po_store_id` int(11) DEFAULT NULL COMMENT 'Store id',
+  `po_currency` varchar(5) DEFAULT NULL COMMENT 'Currency',
+  `po_change_rate` decimal(10,4) DEFAULT NULL COMMENT 'Change rate',
+  `po_shipping_cost` decimal(10,4) DEFAULT NULL COMMENT 'Shipping cost',
+  `po_shipping_cost_base` decimal(10,4) DEFAULT NULL COMMENT 'Shipping cost base',
+  `po_additionnal_cost` decimal(10,4) DEFAULT NULL COMMENT 'Additionnal cost',
+  `po_additionnal_cost_base` decimal(10,4) DEFAULT NULL COMMENT 'Additionnal cost base',
+  `po_tax_rate` decimal(4,2) DEFAULT NULL COMMENT 'Tax rate',
+  `po_tax` decimal(10,4) DEFAULT NULL COMMENT 'Tax',
+  `po_tax_base` decimal(10,4) DEFAULT NULL COMMENT 'Tax base',
+  `po_subtotal` decimal(10,4) DEFAULT NULL COMMENT 'Subtotal',
+  `po_subtotal_base` decimal(10,4) DEFAULT NULL COMMENT 'Subtotal base',
+  `po_grandtotal` decimal(10,4) DEFAULT NULL COMMENT 'Grandtotal',
+  `po_grandtotal_base` decimal(10,4) DEFAULT NULL COMMENT 'Grandtotal base',
+  PRIMARY KEY (`po_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Purchase order';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bms_purchase_order`
+--
+-- ORDER BY:  `po_id`
+
+LOCK TABLES `bms_purchase_order` WRITE;
+/*!40000 ALTER TABLE `bms_purchase_order` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bms_purchase_order` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bms_purchase_order_product`
+--
+
+DROP TABLE IF EXISTS `bms_purchase_order_product`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bms_purchase_order_product` (
+  `pop_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Purchase order product id',
+  `pop_po_id` int(11) DEFAULT NULL COMMENT 'Purchase order id',
+  `pop_created_at` timestamp NULL DEFAULT NULL COMMENT 'Created at',
+  `pop_updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated at',
+  `pop_product_id` int(11) DEFAULT NULL COMMENT 'Product id',
+  `pop_sku` varchar(30) DEFAULT NULL COMMENT 'Sku',
+  `pop_name` varchar(255) DEFAULT NULL COMMENT 'Name',
+  `pop_supplier_sku` varchar(30) DEFAULT NULL COMMENT 'Supplier sku',
+  `pop_qty` int(11) DEFAULT NULL COMMENT 'Qty ordered',
+  `pop_qty_received` int(11) DEFAULT NULL COMMENT 'Qty received',
+  `pop_price` decimal(10,4) DEFAULT NULL COMMENT 'Buying price',
+  `pop_price_base` decimal(10,4) DEFAULT NULL COMMENT 'Buying price base',
+  `pop_tax_rate` decimal(6,2) DEFAULT NULL COMMENT 'Tax rate',
+  `pop_tax` decimal(10,4) DEFAULT NULL COMMENT 'Tax rate',
+  `pop_tax_base` decimal(10,4) DEFAULT NULL COMMENT 'Tax rate',
+  `pop_subtotal` decimal(10,4) DEFAULT NULL COMMENT 'Row Subtotal',
+  `pop_subtotal_base` decimal(10,4) DEFAULT NULL COMMENT 'Row Subtotal base',
+  `pop_grandtotal` decimal(10,4) DEFAULT NULL COMMENT 'Row Total',
+  `pop_grandtotal_base` decimal(10,4) DEFAULT NULL COMMENT 'Row Total base',
+  PRIMARY KEY (`pop_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Purchase order product';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bms_purchase_order_product`
+--
+-- ORDER BY:  `pop_id`
+
+LOCK TABLES `bms_purchase_order_product` WRITE;
+/*!40000 ALTER TABLE `bms_purchase_order_product` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bms_purchase_order_product` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bms_purchase_order_reception`
+--
+
+DROP TABLE IF EXISTS `bms_purchase_order_reception`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bms_purchase_order_reception` (
+  `por_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Purchase order reception id',
+  `por_po_id` int(11) DEFAULT NULL COMMENT 'Purchase order id',
+  `por_created_at` timestamp NULL DEFAULT NULL COMMENT 'Created at',
+  `por_updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated at',
+  `por_product_count` int(11) DEFAULT NULL COMMENT 'Products received count',
+  `por_username` varchar(50) DEFAULT NULL COMMENT 'User name',
+  PRIMARY KEY (`por_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Purchase order reception';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bms_purchase_order_reception`
+--
+-- ORDER BY:  `por_id`
+
+LOCK TABLES `bms_purchase_order_reception` WRITE;
+/*!40000 ALTER TABLE `bms_purchase_order_reception` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bms_purchase_order_reception` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bms_purchase_order_reception_item`
+--
+
+DROP TABLE IF EXISTS `bms_purchase_order_reception_item`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bms_purchase_order_reception_item` (
+  `pori_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Purchase order reception item id',
+  `pori_por_id` int(11) DEFAULT NULL COMMENT 'Reception id',
+  `pori_product_id` int(11) DEFAULT NULL COMMENT 'Product id',
+  `pori_created_at` timestamp NULL DEFAULT NULL COMMENT 'Created at',
+  `pori_qty` int(11) DEFAULT NULL COMMENT 'Products received count',
+  `pori_condition` varchar(20) DEFAULT NULL COMMENT 'Products condition',
+  PRIMARY KEY (`pori_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Purchase order reception item';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bms_purchase_order_reception_item`
+--
+-- ORDER BY:  `pori_id`
+
+LOCK TABLES `bms_purchase_order_reception_item` WRITE;
+/*!40000 ALTER TABLE `bms_purchase_order_reception_item` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bms_purchase_order_reception_item` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bms_supplier`
+--
+
+DROP TABLE IF EXISTS `bms_supplier`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bms_supplier` (
+  `sup_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Supplier id',
+  `sup_created_at` timestamp NULL DEFAULT NULL COMMENT 'Created at',
+  `sup_updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated at',
+  `sup_name` varchar(255) DEFAULT NULL COMMENT 'Name',
+  `sup_code` varchar(30) DEFAULT NULL COMMENT 'Code',
+  `sup_contact` varchar(200) DEFAULT NULL COMMENT 'Contact',
+  `sup_email` varchar(200) DEFAULT NULL COMMENT 'Email',
+  `sup_website` varchar(200) DEFAULT NULL COMMENT 'Website',
+  `sup_locale` varchar(8) DEFAULT NULL COMMENT 'Locale',
+  `sup_is_active` smallint(6) DEFAULT NULL COMMENT 'Is active',
+  `sup_notes` text COMMENT 'Notes',
+  `sup_street1` varchar(255) DEFAULT NULL COMMENT 'Street 1',
+  `sup_street2` varchar(255) DEFAULT NULL COMMENT 'Street 2',
+  `sup_postcode` varchar(30) DEFAULT NULL COMMENT 'Postcode',
+  `sup_city` varchar(50) DEFAULT NULL COMMENT 'City',
+  `sup_state` varchar(50) DEFAULT NULL COMMENT 'State or Region',
+  `sup_country` varchar(3) DEFAULT NULL COMMENT 'Country',
+  `sup_telephone` varchar(50) DEFAULT NULL COMMENT 'Telephone',
+  `sup_fax` varchar(50) DEFAULT NULL COMMENT 'Fax',
+  `sup_minimum_of_order` decimal(12,2) DEFAULT NULL COMMENT 'Minimum of order',
+  `sup_carriage_free_amount` decimal(12,2) DEFAULT NULL COMMENT 'Carriage free amount',
+  `sup_currency` varchar(4) DEFAULT NULL COMMENT 'Currency',
+  `sup_tax_rate` decimal(4,2) DEFAULT NULL COMMENT 'Tax rate',
+  `sup_shipping_delay` int(11) DEFAULT NULL COMMENT 'Shipping delay',
+  `sup_shipping_instructions` text COMMENT 'Shipping instructions',
+  `sup_sales_contact` varchar(255) DEFAULT NULL COMMENT 'sales contact',
+  `sup_accounting_contact` varchar(255) DEFAULT NULL COMMENT 'accounting contact',
+  `sup_aftersale_contact` varchar(255) DEFAULT NULL COMMENT 'aftersale contact',
+  `sup_sales_email` varchar(255) DEFAULT NULL COMMENT 'sales email',
+  `sup_accounting_email` varchar(255) DEFAULT NULL COMMENT 'accounting email',
+  `sup_aftersale_email` varchar(255) DEFAULT NULL COMMENT 'aftersale email',
+  `sup_sales_phone` varchar(255) DEFAULT NULL COMMENT 'sales phone',
+  `sup_accounting_phone` varchar(255) DEFAULT NULL COMMENT 'accounting phone',
+  `sup_aftersale_phone` varchar(255) DEFAULT NULL COMMENT 'aftersale phone',
+  `sup_sales_notes` text COMMENT 'sales notes',
+  `sup_accounting_notes` text COMMENT 'accounting notes',
+  `sup_aftersale_notes` text COMMENT 'aftersale notes',
+  `sup_opened_order` int(11) DEFAULT NULL COMMENT 'Opened orders count',
+  PRIMARY KEY (`sup_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Suppliers';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bms_supplier`
+--
+-- ORDER BY:  `sup_id`
+
+LOCK TABLES `bms_supplier` WRITE;
+/*!40000 ALTER TABLE `bms_supplier` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bms_supplier` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `bms_supplier_product`
+--
+
+DROP TABLE IF EXISTS `bms_supplier_product`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bms_supplier_product` (
+  `sp_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Supplier product id',
+  `sp_created_at` timestamp NULL DEFAULT NULL COMMENT 'Created at',
+  `sp_updated_at` timestamp NULL DEFAULT NULL COMMENT 'Updated at',
+  `sp_product_id` int(11) DEFAULT NULL COMMENT 'Product id',
+  `sp_sup_id` int(11) DEFAULT NULL COMMENT 'Supplier id',
+  `sp_sku` varchar(200) DEFAULT NULL COMMENT 'Supplier sku',
+  `sp_price` decimal(10,4) DEFAULT NULL COMMENT 'Price',
+  `sp_base_price` decimal(10,4) DEFAULT NULL COMMENT 'Base price',
+  PRIMARY KEY (`sp_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Supplier products';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bms_supplier_product`
+--
+-- ORDER BY:  `sp_id`
+
+LOCK TABLES `bms_supplier_product` WRITE;
+/*!40000 ALTER TABLE `bms_supplier_product` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bms_supplier_product` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `cache`
 --
 
@@ -12918,6 +13156,7 @@ CREATE TABLE `setup_module` (
 
 LOCK TABLES `setup_module` WRITE;
 /*!40000 ALTER TABLE `setup_module` DISABLE KEYS */;
+INSERT INTO `setup_module` VALUES ('BoostMyShop_Supplier','0.0.3','0.0.3');
 INSERT INTO `setup_module` VALUES ('Magento_AdminNotification','2.0.0','2.0.0');
 INSERT INTO `setup_module` VALUES ('Magento_AdvancedPricingImportExport','2.0.0','2.0.0');
 INSERT INTO `setup_module` VALUES ('Magento_Authorization','2.0.0','2.0.0');
@@ -13900,4 +14139,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-23 10:58:07
+-- Dump completed on 2016-08-24  2:40:28
