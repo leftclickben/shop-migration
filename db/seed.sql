@@ -4453,7 +4453,7 @@ INSERT INTO `core_config_data` VALUES (698,'default',0,'payment/payflow_link/ema
 INSERT INTO `core_config_data` VALUES (699,'default',0,'payment/payflow_link/url_method','GET');
 INSERT INTO `core_config_data` VALUES (700,'default',0,'payment/paypal_express/active','0');
 INSERT INTO `core_config_data` VALUES (701,'default',0,'payment/paypal_express_bml/active','0');
-INSERT INTO `core_config_data` VALUES (702,'default',0,'payment/cashondelivery/active','1');
+INSERT INTO `core_config_data` VALUES (702,'default',0,'payment/cashondelivery/active','0');
 INSERT INTO `core_config_data` VALUES (703,'default',0,'payment/cashondelivery/title','Cash On Delivery');
 INSERT INTO `core_config_data` VALUES (704,'default',0,'payment/cashondelivery/order_status','pending');
 INSERT INTO `core_config_data` VALUES (705,'default',0,'payment/cashondelivery/allowspecific','0');
@@ -4462,7 +4462,7 @@ INSERT INTO `core_config_data` VALUES (707,'default',0,'payment/cashondelivery/i
 INSERT INTO `core_config_data` VALUES (708,'default',0,'payment/cashondelivery/min_order_total',NULL);
 INSERT INTO `core_config_data` VALUES (709,'default',0,'payment/cashondelivery/max_order_total',NULL);
 INSERT INTO `core_config_data` VALUES (710,'default',0,'payment/cashondelivery/sort_order',NULL);
-INSERT INTO `core_config_data` VALUES (711,'default',0,'payment/banktransfer/active','1');
+INSERT INTO `core_config_data` VALUES (711,'default',0,'payment/banktransfer/active','0');
 INSERT INTO `core_config_data` VALUES (712,'default',0,'payment/banktransfer/title','Bank Transfer Payment');
 INSERT INTO `core_config_data` VALUES (713,'default',0,'payment/banktransfer/order_status','pending');
 INSERT INTO `core_config_data` VALUES (714,'default',0,'payment/banktransfer/allowspecific','0');
@@ -4478,7 +4478,7 @@ INSERT INTO `core_config_data` VALUES (723,'default',0,'payment/free/allowspecif
 INSERT INTO `core_config_data` VALUES (724,'default',0,'payment/free/specificcountry',NULL);
 INSERT INTO `core_config_data` VALUES (725,'default',0,'payment/free/sort_order','1');
 INSERT INTO `core_config_data` VALUES (726,'default',0,'payment/checkmo/active','1');
-INSERT INTO `core_config_data` VALUES (727,'default',0,'payment/checkmo/title','Check / Money order');
+INSERT INTO `core_config_data` VALUES (727,'default',0,'payment/checkmo/title','Cheque / Money order');
 INSERT INTO `core_config_data` VALUES (728,'default',0,'payment/checkmo/order_status','pending');
 INSERT INTO `core_config_data` VALUES (729,'default',0,'payment/checkmo/allowspecific','0');
 INSERT INTO `core_config_data` VALUES (730,'default',0,'payment/checkmo/specificcountry',NULL);
