@@ -68,6 +68,10 @@
                             keywords = [ 'Western Australia', 'History' ];
                             metaDescription = 'Buy "' + title + '"';
 
+                            attributes.push('in_print=' + (record.Title.match(/out\s+of\s+print/i) ? 'No' : 'Yes'));
+                            attributes.push('stock_consignment=' + (record.Comment.match(/consign/i) ? 'Yes' : 'No'));
+                            attributes.push('stock_remainder=' + (record.Comment.match(/remainder/i) ? 'Yes' : 'No'));
+
                             if (category) {
                                 keywords.push(category.replace(/^.*\//, ''));
                             }
