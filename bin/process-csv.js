@@ -92,7 +92,7 @@
                             return {
                                 sku: 'BOOK-' + record.BookCode,
                                 store_view_code: '',
-                                attribute_set_code: 'Default',
+                                attribute_set_code: 'Books',
                                 product_type: 'simple',
                                 categories: category || 'Default Category/Books/Other',
                                 product_websites: 'base',
