@@ -924,7 +924,7 @@ CREATE TABLE `catalog_category_entity` (
   `children_count` int(11) NOT NULL COMMENT 'Child Count',
   PRIMARY KEY (`entity_id`),
   KEY `CATALOG_CATEGORY_ENTITY_LEVEL` (`level`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Table';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -934,8 +934,14 @@ CREATE TABLE `catalog_category_entity` (
 
 LOCK TABLES `catalog_category_entity` WRITE;
 /*!40000 ALTER TABLE `catalog_category_entity` DISABLE KEYS */;
-INSERT INTO `catalog_category_entity` VALUES (1,0,0,'2016-06-02 09:03:36','2016-06-02 09:03:36','1',0,0,1);
-INSERT INTO `catalog_category_entity` VALUES (2,3,1,'2016-06-02 09:03:36','2016-06-02 09:03:36','1/2',1,1,0);
+INSERT INTO `catalog_category_entity` VALUES (1,0,0,'2016-06-02 09:03:36','2016-09-01 08:47:57','1',0,0,7);
+INSERT INTO `catalog_category_entity` VALUES (2,3,1,'2016-06-02 09:03:36','2016-09-01 08:47:57','1/2',1,1,6);
+INSERT INTO `catalog_category_entity` VALUES (3,3,2,'2016-09-01 08:43:15','2016-09-01 08:44:06','1/2/3',1,2,0);
+INSERT INTO `catalog_category_entity` VALUES (4,3,2,'2016-09-01 08:44:07','2016-09-01 08:44:50','1/2/4',2,2,0);
+INSERT INTO `catalog_category_entity` VALUES (5,3,2,'2016-09-01 08:45:02','2016-09-01 08:45:44','1/2/5',3,2,0);
+INSERT INTO `catalog_category_entity` VALUES (6,3,2,'2016-09-01 08:45:37','2016-09-01 08:46:19','1/2/6',4,2,0);
+INSERT INTO `catalog_category_entity` VALUES (7,3,2,'2016-09-01 08:46:42','2016-09-01 08:47:25','1/2/7',5,2,0);
+INSERT INTO `catalog_category_entity` VALUES (8,3,2,'2016-09-01 08:47:14','2016-09-01 08:47:57','1/2/8',6,2,0);
 /*!40000 ALTER TABLE `catalog_category_entity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -960,7 +966,7 @@ CREATE TABLE `catalog_category_entity_datetime` (
   CONSTRAINT `CATALOG_CATEGORY_ENTITY_DATETIME_STORE_ID_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`) ON DELETE CASCADE,
   CONSTRAINT `CAT_CTGR_ENTT_DTIME_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE,
   CONSTRAINT `CAT_CTGR_ENTT_DTIME_ENTT_ID_CAT_CTGR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_category_entity` (`entity_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Datetime Attribute Backend Table';
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Datetime Attribute Backend Table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -972,6 +978,18 @@ LOCK TABLES `catalog_category_entity_datetime` WRITE;
 /*!40000 ALTER TABLE `catalog_category_entity_datetime` DISABLE KEYS */;
 INSERT INTO `catalog_category_entity_datetime` VALUES (1,58,0,1,NULL);
 INSERT INTO `catalog_category_entity_datetime` VALUES (2,58,0,2,NULL);
+INSERT INTO `catalog_category_entity_datetime` VALUES (3,58,0,3,NULL);
+INSERT INTO `catalog_category_entity_datetime` VALUES (4,59,0,3,NULL);
+INSERT INTO `catalog_category_entity_datetime` VALUES (5,58,0,4,NULL);
+INSERT INTO `catalog_category_entity_datetime` VALUES (6,59,0,4,NULL);
+INSERT INTO `catalog_category_entity_datetime` VALUES (7,58,0,5,NULL);
+INSERT INTO `catalog_category_entity_datetime` VALUES (8,59,0,5,NULL);
+INSERT INTO `catalog_category_entity_datetime` VALUES (9,58,0,6,NULL);
+INSERT INTO `catalog_category_entity_datetime` VALUES (10,59,0,6,NULL);
+INSERT INTO `catalog_category_entity_datetime` VALUES (11,58,0,7,NULL);
+INSERT INTO `catalog_category_entity_datetime` VALUES (12,59,0,7,NULL);
+INSERT INTO `catalog_category_entity_datetime` VALUES (13,58,0,8,NULL);
+INSERT INTO `catalog_category_entity_datetime` VALUES (14,59,0,8,NULL);
 /*!40000 ALTER TABLE `catalog_category_entity_datetime` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -996,7 +1014,7 @@ CREATE TABLE `catalog_category_entity_decimal` (
   CONSTRAINT `CATALOG_CATEGORY_ENTITY_DECIMAL_STORE_ID_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`) ON DELETE CASCADE,
   CONSTRAINT `CAT_CTGR_ENTT_DEC_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE,
   CONSTRAINT `CAT_CTGR_ENTT_DEC_ENTT_ID_CAT_CTGR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_category_entity` (`entity_id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Catalog Category Decimal Attribute Backend Table';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Decimal Attribute Backend Table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1006,6 +1024,12 @@ CREATE TABLE `catalog_category_entity_decimal` (
 
 LOCK TABLES `catalog_category_entity_decimal` WRITE;
 /*!40000 ALTER TABLE `catalog_category_entity_decimal` DISABLE KEYS */;
+INSERT INTO `catalog_category_entity_decimal` VALUES (1,69,0,3,NULL);
+INSERT INTO `catalog_category_entity_decimal` VALUES (2,69,0,4,NULL);
+INSERT INTO `catalog_category_entity_decimal` VALUES (3,69,0,5,NULL);
+INSERT INTO `catalog_category_entity_decimal` VALUES (4,69,0,6,NULL);
+INSERT INTO `catalog_category_entity_decimal` VALUES (5,69,0,7,NULL);
+INSERT INTO `catalog_category_entity_decimal` VALUES (6,69,0,8,NULL);
 /*!40000 ALTER TABLE `catalog_category_entity_decimal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1030,7 +1054,7 @@ CREATE TABLE `catalog_category_entity_int` (
   CONSTRAINT `CATALOG_CATEGORY_ENTITY_INT_STORE_ID_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`) ON DELETE CASCADE,
   CONSTRAINT `CAT_CTGR_ENTT_INT_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE,
   CONSTRAINT `CAT_CTGR_ENTT_INT_ENTT_ID_CAT_CTGR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_category_entity` (`entity_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Integer Attribute Backend Table';
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Integer Attribute Backend Table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1043,6 +1067,42 @@ LOCK TABLES `catalog_category_entity_int` WRITE;
 INSERT INTO `catalog_category_entity_int` VALUES (1,66,0,1,1);
 INSERT INTO `catalog_category_entity_int` VALUES (2,43,0,2,1);
 INSERT INTO `catalog_category_entity_int` VALUES (3,66,0,2,1);
+INSERT INTO `catalog_category_entity_int` VALUES (4,43,0,3,1);
+INSERT INTO `catalog_category_entity_int` VALUES (5,66,0,3,1);
+INSERT INTO `catalog_category_entity_int` VALUES (6,50,0,3,NULL);
+INSERT INTO `catalog_category_entity_int` VALUES (7,51,0,3,1);
+INSERT INTO `catalog_category_entity_int` VALUES (8,67,0,3,0);
+INSERT INTO `catalog_category_entity_int` VALUES (9,68,0,3,0);
+INSERT INTO `catalog_category_entity_int` VALUES (10,43,0,4,1);
+INSERT INTO `catalog_category_entity_int` VALUES (11,66,0,4,1);
+INSERT INTO `catalog_category_entity_int` VALUES (12,50,0,4,NULL);
+INSERT INTO `catalog_category_entity_int` VALUES (13,51,0,4,1);
+INSERT INTO `catalog_category_entity_int` VALUES (14,67,0,4,0);
+INSERT INTO `catalog_category_entity_int` VALUES (15,68,0,4,0);
+INSERT INTO `catalog_category_entity_int` VALUES (16,43,0,5,1);
+INSERT INTO `catalog_category_entity_int` VALUES (17,66,0,5,1);
+INSERT INTO `catalog_category_entity_int` VALUES (18,50,0,5,NULL);
+INSERT INTO `catalog_category_entity_int` VALUES (19,51,0,5,1);
+INSERT INTO `catalog_category_entity_int` VALUES (20,67,0,5,0);
+INSERT INTO `catalog_category_entity_int` VALUES (21,68,0,5,0);
+INSERT INTO `catalog_category_entity_int` VALUES (22,43,0,6,1);
+INSERT INTO `catalog_category_entity_int` VALUES (23,66,0,6,1);
+INSERT INTO `catalog_category_entity_int` VALUES (24,50,0,6,NULL);
+INSERT INTO `catalog_category_entity_int` VALUES (25,51,0,6,1);
+INSERT INTO `catalog_category_entity_int` VALUES (26,67,0,6,0);
+INSERT INTO `catalog_category_entity_int` VALUES (27,68,0,6,0);
+INSERT INTO `catalog_category_entity_int` VALUES (28,43,0,7,1);
+INSERT INTO `catalog_category_entity_int` VALUES (29,66,0,7,1);
+INSERT INTO `catalog_category_entity_int` VALUES (30,50,0,7,NULL);
+INSERT INTO `catalog_category_entity_int` VALUES (31,51,0,7,1);
+INSERT INTO `catalog_category_entity_int` VALUES (32,67,0,7,0);
+INSERT INTO `catalog_category_entity_int` VALUES (33,68,0,7,0);
+INSERT INTO `catalog_category_entity_int` VALUES (34,43,0,8,1);
+INSERT INTO `catalog_category_entity_int` VALUES (35,66,0,8,1);
+INSERT INTO `catalog_category_entity_int` VALUES (36,50,0,8,NULL);
+INSERT INTO `catalog_category_entity_int` VALUES (37,51,0,8,1);
+INSERT INTO `catalog_category_entity_int` VALUES (38,67,0,8,0);
+INSERT INTO `catalog_category_entity_int` VALUES (39,68,0,8,0);
 /*!40000 ALTER TABLE `catalog_category_entity_int` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1067,7 +1127,7 @@ CREATE TABLE `catalog_category_entity_text` (
   CONSTRAINT `CATALOG_CATEGORY_ENTITY_TEXT_STORE_ID_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`) ON DELETE CASCADE,
   CONSTRAINT `CAT_CTGR_ENTT_TEXT_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE,
   CONSTRAINT `CAT_CTGR_ENTT_TEXT_ENTT_ID_CAT_CTGR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_category_entity` (`entity_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Text Attribute Backend Table';
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Text Attribute Backend Table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1079,6 +1139,36 @@ LOCK TABLES `catalog_category_entity_text` WRITE;
 /*!40000 ALTER TABLE `catalog_category_entity_text` DISABLE KEYS */;
 INSERT INTO `catalog_category_entity_text` VALUES (1,64,0,1,NULL);
 INSERT INTO `catalog_category_entity_text` VALUES (2,64,0,2,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (3,44,0,3,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (4,47,0,3,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (5,48,0,3,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (6,64,0,3,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (7,61,0,3,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (8,44,0,4,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (9,47,0,4,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (10,48,0,4,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (11,64,0,4,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (12,61,0,4,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (13,44,0,5,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (14,47,0,5,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (15,48,0,5,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (16,64,0,5,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (17,61,0,5,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (18,44,0,6,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (19,47,0,6,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (20,48,0,6,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (21,64,0,6,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (22,61,0,6,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (23,44,0,7,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (24,47,0,7,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (25,48,0,7,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (26,64,0,7,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (27,61,0,7,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (28,44,0,8,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (29,47,0,8,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (30,48,0,8,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (31,64,0,8,NULL);
+INSERT INTO `catalog_category_entity_text` VALUES (32,61,0,8,NULL);
 /*!40000 ALTER TABLE `catalog_category_entity_text` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1103,7 +1193,7 @@ CREATE TABLE `catalog_category_entity_varchar` (
   CONSTRAINT `CATALOG_CATEGORY_ENTITY_VARCHAR_STORE_ID_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`) ON DELETE CASCADE,
   CONSTRAINT `CAT_CTGR_ENTT_VCHR_ATTR_ID_EAV_ATTR_ATTR_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE,
   CONSTRAINT `CAT_CTGR_ENTT_VCHR_ENTT_ID_CAT_CTGR_ENTT_ENTT_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_category_entity` (`entity_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Varchar Attribute Backend Table';
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8 COMMENT='Catalog Category Varchar Attribute Backend Table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1116,6 +1206,54 @@ LOCK TABLES `catalog_category_entity_varchar` WRITE;
 INSERT INTO `catalog_category_entity_varchar` VALUES (1,42,0,1,'Root Catalog');
 INSERT INTO `catalog_category_entity_varchar` VALUES (2,42,0,2,'Default Category');
 INSERT INTO `catalog_category_entity_varchar` VALUES (3,49,0,2,'PRODUCTS');
+INSERT INTO `catalog_category_entity_varchar` VALUES (4,42,0,3,'Books');
+INSERT INTO `catalog_category_entity_varchar` VALUES (5,113,0,3,'books');
+INSERT INTO `catalog_category_entity_varchar` VALUES (6,46,0,3,'Buy Books about WA History');
+INSERT INTO `catalog_category_entity_varchar` VALUES (7,49,0,3,'PRODUCTS');
+INSERT INTO `catalog_category_entity_varchar` VALUES (8,57,0,3,NULL);
+INSERT INTO `catalog_category_entity_varchar` VALUES (9,60,0,3,NULL);
+INSERT INTO `catalog_category_entity_varchar` VALUES (10,65,0,3,NULL);
+INSERT INTO `catalog_category_entity_varchar` VALUES (11,114,0,3,'books');
+INSERT INTO `catalog_category_entity_varchar` VALUES (13,42,0,4,'Archival');
+INSERT INTO `catalog_category_entity_varchar` VALUES (14,113,0,4,'archival');
+INSERT INTO `catalog_category_entity_varchar` VALUES (15,46,0,4,'Buy Archival Quality Products');
+INSERT INTO `catalog_category_entity_varchar` VALUES (16,49,0,4,'PRODUCTS');
+INSERT INTO `catalog_category_entity_varchar` VALUES (17,57,0,4,NULL);
+INSERT INTO `catalog_category_entity_varchar` VALUES (18,60,0,4,NULL);
+INSERT INTO `catalog_category_entity_varchar` VALUES (19,65,0,4,NULL);
+INSERT INTO `catalog_category_entity_varchar` VALUES (20,114,0,4,'archival');
+INSERT INTO `catalog_category_entity_varchar` VALUES (21,42,0,5,'Photographs');
+INSERT INTO `catalog_category_entity_varchar` VALUES (22,113,0,5,'photographs');
+INSERT INTO `catalog_category_entity_varchar` VALUES (23,46,0,5,'Buy Photographs from Our Collection');
+INSERT INTO `catalog_category_entity_varchar` VALUES (24,49,0,5,'PRODUCTS');
+INSERT INTO `catalog_category_entity_varchar` VALUES (25,57,0,5,NULL);
+INSERT INTO `catalog_category_entity_varchar` VALUES (26,60,0,5,NULL);
+INSERT INTO `catalog_category_entity_varchar` VALUES (27,65,0,5,NULL);
+INSERT INTO `catalog_category_entity_varchar` VALUES (28,114,0,5,'photographs');
+INSERT INTO `catalog_category_entity_varchar` VALUES (29,42,0,6,'Events');
+INSERT INTO `catalog_category_entity_varchar` VALUES (30,113,0,6,'events');
+INSERT INTO `catalog_category_entity_varchar` VALUES (31,46,0,6,'Buy Tickets to Society Events');
+INSERT INTO `catalog_category_entity_varchar` VALUES (32,49,0,6,'PRODUCTS');
+INSERT INTO `catalog_category_entity_varchar` VALUES (33,57,0,6,NULL);
+INSERT INTO `catalog_category_entity_varchar` VALUES (34,60,0,6,NULL);
+INSERT INTO `catalog_category_entity_varchar` VALUES (35,65,0,6,NULL);
+INSERT INTO `catalog_category_entity_varchar` VALUES (36,114,0,6,'events');
+INSERT INTO `catalog_category_entity_varchar` VALUES (37,42,0,7,'Membership');
+INSERT INTO `catalog_category_entity_varchar` VALUES (38,113,0,7,'membership');
+INSERT INTO `catalog_category_entity_varchar` VALUES (39,46,0,7,'Become a Society Member');
+INSERT INTO `catalog_category_entity_varchar` VALUES (40,49,0,7,'PRODUCTS');
+INSERT INTO `catalog_category_entity_varchar` VALUES (41,57,0,7,NULL);
+INSERT INTO `catalog_category_entity_varchar` VALUES (42,60,0,7,NULL);
+INSERT INTO `catalog_category_entity_varchar` VALUES (43,65,0,7,NULL);
+INSERT INTO `catalog_category_entity_varchar` VALUES (44,114,0,7,'membership');
+INSERT INTO `catalog_category_entity_varchar` VALUES (45,42,0,8,'Donations');
+INSERT INTO `catalog_category_entity_varchar` VALUES (46,113,0,8,'donations');
+INSERT INTO `catalog_category_entity_varchar` VALUES (47,46,0,8,'Donate to the Society');
+INSERT INTO `catalog_category_entity_varchar` VALUES (48,49,0,8,'PRODUCTS');
+INSERT INTO `catalog_category_entity_varchar` VALUES (49,57,0,8,NULL);
+INSERT INTO `catalog_category_entity_varchar` VALUES (50,60,0,8,NULL);
+INSERT INTO `catalog_category_entity_varchar` VALUES (51,65,0,8,NULL);
+INSERT INTO `catalog_category_entity_varchar` VALUES (52,114,0,8,'donations');
 /*!40000 ALTER TABLE `catalog_category_entity_varchar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -14132,7 +14270,7 @@ CREATE TABLE `url_rewrite` (
   UNIQUE KEY `URL_REWRITE_REQUEST_PATH_STORE_ID` (`request_path`,`store_id`),
   KEY `URL_REWRITE_TARGET_PATH` (`target_path`),
   KEY `URL_REWRITE_STORE_ID_ENTITY_ID` (`store_id`,`entity_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='Url Rewrites';
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='Url Rewrites';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -14150,6 +14288,12 @@ INSERT INTO `url_rewrite` VALUES (6,'cms-page',6,'terms','cms/page/view/page_id/
 INSERT INTO `url_rewrite` VALUES (7,'cms-page',7,'privacy','cms/page/view/page_id/7',0,1,NULL,1,NULL);
 INSERT INTO `url_rewrite` VALUES (8,'cms-page',8,'disclaimer','cms/page/view/page_id/8',0,1,NULL,1,NULL);
 INSERT INTO `url_rewrite` VALUES (10,'cms-page',5,'copyright','cms/page/view/page_id/5',0,1,NULL,1,NULL);
+INSERT INTO `url_rewrite` VALUES (11,'category',3,'books.html','catalog/category/view/id/3',0,1,NULL,1,NULL);
+INSERT INTO `url_rewrite` VALUES (12,'category',4,'archival.html','catalog/category/view/id/4',0,1,NULL,1,NULL);
+INSERT INTO `url_rewrite` VALUES (13,'category',5,'photographs.html','catalog/category/view/id/5',0,1,NULL,1,NULL);
+INSERT INTO `url_rewrite` VALUES (14,'category',6,'events.html','catalog/category/view/id/6',0,1,NULL,1,NULL);
+INSERT INTO `url_rewrite` VALUES (15,'category',7,'membership.html','catalog/category/view/id/7',0,1,NULL,1,NULL);
+INSERT INTO `url_rewrite` VALUES (16,'category',8,'donations.html','catalog/category/view/id/8',0,1,NULL,1,NULL);
 /*!40000 ALTER TABLE `url_rewrite` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -14467,4 +14611,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-31 14:34:39
+-- Dump completed on 2016-09-01  8:47:40
