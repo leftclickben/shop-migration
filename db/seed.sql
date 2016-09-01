@@ -1516,7 +1516,7 @@ INSERT INTO `catalog_eav_attribute` VALUES (133,NULL,0,1,0,0,0,0,1,0,0,0,0,NULL,
 INSERT INTO `catalog_eav_attribute` VALUES (134,NULL,0,1,0,0,0,0,1,0,0,0,0,NULL,0,0,0,0,0,1,1,1,1,NULL);
 INSERT INTO `catalog_eav_attribute` VALUES (135,NULL,0,1,0,0,0,0,1,0,0,0,0,NULL,0,0,0,0,0,1,1,1,1,NULL);
 INSERT INTO `catalog_eav_attribute` VALUES (136,NULL,0,1,1,0,1,1,0,0,0,1,1,NULL,1,0,0,0,0,1,1,1,1,NULL);
-INSERT INTO `catalog_eav_attribute` VALUES (138,NULL,0,1,0,0,0,0,1,0,0,0,0,NULL,0,0,0,0,0,1,1,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (138,NULL,1,1,0,0,0,1,1,0,0,0,0,NULL,0,0,0,0,0,1,1,1,1,NULL);
 /*!40000 ALTER TABLE `catalog_eav_attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -7825,7 +7825,7 @@ CREATE TABLE `eav_attribute_option_value` (
   KEY `EAV_ATTRIBUTE_OPTION_VALUE_STORE_ID` (`store_id`),
   CONSTRAINT `EAV_ATTRIBUTE_OPTION_VALUE_STORE_ID_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`) ON DELETE CASCADE,
   CONSTRAINT `EAV_ATTR_OPT_VAL_OPT_ID_EAV_ATTR_OPT_OPT_ID` FOREIGN KEY (`option_id`) REFERENCES `eav_attribute_option` (`option_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Option Value';
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Option Value';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7842,16 +7842,16 @@ INSERT INTO `eav_attribute_option_value` VALUES (4,4,1,'Paperback');
 INSERT INTO `eav_attribute_option_value` VALUES (5,4,0,'Paperback');
 INSERT INTO `eav_attribute_option_value` VALUES (6,5,1,'Hardback');
 INSERT INTO `eav_attribute_option_value` VALUES (7,5,0,'Hardback');
-INSERT INTO `eav_attribute_option_value` VALUES (20,12,1,'$2');
-INSERT INTO `eav_attribute_option_value` VALUES (21,12,0,'$2');
-INSERT INTO `eav_attribute_option_value` VALUES (22,13,1,'$10');
-INSERT INTO `eav_attribute_option_value` VALUES (23,13,0,'$10');
-INSERT INTO `eav_attribute_option_value` VALUES (24,14,1,'$20');
-INSERT INTO `eav_attribute_option_value` VALUES (25,14,0,'$20');
-INSERT INTO `eav_attribute_option_value` VALUES (26,15,1,'$50');
-INSERT INTO `eav_attribute_option_value` VALUES (27,15,0,'$50');
-INSERT INTO `eav_attribute_option_value` VALUES (28,16,1,'$100');
-INSERT INTO `eav_attribute_option_value` VALUES (29,16,0,'$100');
+INSERT INTO `eav_attribute_option_value` VALUES (40,12,1,'$2');
+INSERT INTO `eav_attribute_option_value` VALUES (41,12,0,'$2');
+INSERT INTO `eav_attribute_option_value` VALUES (42,13,1,'$10');
+INSERT INTO `eav_attribute_option_value` VALUES (43,13,0,'$10');
+INSERT INTO `eav_attribute_option_value` VALUES (44,14,1,'$20');
+INSERT INTO `eav_attribute_option_value` VALUES (45,14,0,'$20');
+INSERT INTO `eav_attribute_option_value` VALUES (46,15,1,'$50');
+INSERT INTO `eav_attribute_option_value` VALUES (47,15,0,'$50');
+INSERT INTO `eav_attribute_option_value` VALUES (48,16,1,'$100');
+INSERT INTO `eav_attribute_option_value` VALUES (49,16,0,'$100');
 /*!40000 ALTER TABLE `eav_attribute_option_value` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -14590,4 +14590,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-01  8:51:23
+-- Dump completed on 2016-09-01 12:37:21
