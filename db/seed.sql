@@ -1518,7 +1518,7 @@ INSERT INTO `catalog_eav_attribute` VALUES (135,NULL,0,1,0,0,0,0,1,0,0,0,0,NULL,
 INSERT INTO `catalog_eav_attribute` VALUES (136,NULL,0,1,1,0,1,1,0,0,0,1,1,NULL,1,0,0,0,0,1,1,1,1,NULL);
 INSERT INTO `catalog_eav_attribute` VALUES (138,NULL,1,1,0,0,0,1,1,0,0,0,0,NULL,0,0,0,0,0,1,1,1,1,NULL);
 INSERT INTO `catalog_eav_attribute` VALUES (139,NULL,1,1,0,0,0,0,1,0,0,0,0,NULL,0,0,0,0,0,0,1,0,1,NULL);
-INSERT INTO `catalog_eav_attribute` VALUES (140,NULL,0,1,0,0,0,0,1,0,0,0,0,NULL,0,0,0,0,0,1,1,1,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (140,NULL,1,1,0,0,0,0,1,0,0,0,0,NULL,0,0,0,0,0,1,1,1,1,NULL);
 /*!40000 ALTER TABLE `catalog_eav_attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -14748,4 +14748,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-02  7:02:04
+-- Dump completed on 2016-09-02  9:30:02
