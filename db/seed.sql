@@ -1518,6 +1518,7 @@ INSERT INTO `catalog_eav_attribute` VALUES (135,NULL,0,1,0,0,0,0,1,0,0,0,0,NULL,
 INSERT INTO `catalog_eav_attribute` VALUES (136,NULL,0,1,1,0,1,1,0,0,0,1,1,NULL,1,0,0,0,0,1,1,1,1,NULL);
 INSERT INTO `catalog_eav_attribute` VALUES (138,NULL,1,1,0,0,0,1,1,0,0,0,0,NULL,0,0,0,0,0,1,1,1,1,NULL);
 INSERT INTO `catalog_eav_attribute` VALUES (139,NULL,1,1,0,0,0,0,1,0,0,0,0,NULL,0,0,0,0,0,0,1,0,1,NULL);
+INSERT INTO `catalog_eav_attribute` VALUES (140,NULL,0,1,0,0,0,0,1,0,0,0,0,NULL,0,0,0,0,0,1,1,1,1,NULL);
 /*!40000 ALTER TABLE `catalog_eav_attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -7489,7 +7490,7 @@ CREATE TABLE `eav_attribute` (
   PRIMARY KEY (`attribute_id`),
   UNIQUE KEY `EAV_ATTRIBUTE_ENTITY_TYPE_ID_ATTRIBUTE_CODE` (`entity_type_id`,`attribute_code`),
   CONSTRAINT `EAV_ATTRIBUTE_ENTITY_TYPE_ID_EAV_ENTITY_TYPE_ENTITY_TYPE_ID` FOREIGN KEY (`entity_type_id`) REFERENCES `eav_entity_type` (`entity_type_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute';
+) ENGINE=InnoDB AUTO_INCREMENT=141 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7636,6 +7637,7 @@ INSERT INTO `eav_attribute` VALUES (135,4,'stock_remainder',NULL,NULL,'int',NULL
 INSERT INTO `eav_attribute` VALUES (136,4,'cover',NULL,NULL,'int',NULL,NULL,'select','Cover Type',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Source\\Table',0,1,'4',0,NULL);
 INSERT INTO `eav_attribute` VALUES (138,4,'donation_amount',NULL,NULL,'int',NULL,NULL,'select','Donation Amount',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Source\\Table',0,1,'12',0,NULL);
 INSERT INTO `eav_attribute` VALUES (139,4,'image_format',NULL,NULL,'int',NULL,NULL,'select','Image Format',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Source\\Table',0,1,'17',0,NULL);
+INSERT INTO `eav_attribute` VALUES (140,4,'membership_type',NULL,NULL,'int',NULL,NULL,'select','Membership Type',NULL,'Magento\\Eav\\Model\\Entity\\Attribute\\Source\\Table',0,1,'20',0,NULL);
 /*!40000 ALTER TABLE `eav_attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -7767,7 +7769,7 @@ CREATE TABLE `eav_attribute_option` (
   PRIMARY KEY (`option_id`),
   KEY `EAV_ATTRIBUTE_OPTION_ATTRIBUTE_ID` (`attribute_id`),
   CONSTRAINT `EAV_ATTRIBUTE_OPTION_ATTRIBUTE_ID_EAV_ATTRIBUTE_ATTRIBUTE_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Option';
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Option';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7790,6 +7792,8 @@ INSERT INTO `eav_attribute_option` VALUES (16,138,5);
 INSERT INTO `eav_attribute_option` VALUES (17,139,1);
 INSERT INTO `eav_attribute_option` VALUES (18,139,2);
 INSERT INTO `eav_attribute_option` VALUES (19,139,3);
+INSERT INTO `eav_attribute_option` VALUES (20,140,1);
+INSERT INTO `eav_attribute_option` VALUES (21,140,2);
 /*!40000 ALTER TABLE `eav_attribute_option` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -7842,7 +7846,7 @@ CREATE TABLE `eav_attribute_option_value` (
   KEY `EAV_ATTRIBUTE_OPTION_VALUE_STORE_ID` (`store_id`),
   CONSTRAINT `EAV_ATTRIBUTE_OPTION_VALUE_STORE_ID_STORE_STORE_ID` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`) ON DELETE CASCADE,
   CONSTRAINT `EAV_ATTR_OPT_VAL_OPT_ID_EAV_ATTR_OPT_OPT_ID` FOREIGN KEY (`option_id`) REFERENCES `eav_attribute_option` (`option_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Option Value';
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8 COMMENT='Eav Attribute Option Value';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7875,6 +7879,10 @@ INSERT INTO `eav_attribute_option_value` VALUES (52,18,1,'JPEG (600dpi)');
 INSERT INTO `eav_attribute_option_value` VALUES (53,18,0,'JPEG (600dpi)');
 INSERT INTO `eav_attribute_option_value` VALUES (54,19,1,'TIFF (full resolution)');
 INSERT INTO `eav_attribute_option_value` VALUES (55,19,0,'TIFF (full resolution)');
+INSERT INTO `eav_attribute_option_value` VALUES (56,20,1,'New Member');
+INSERT INTO `eav_attribute_option_value` VALUES (57,20,0,'New Member');
+INSERT INTO `eav_attribute_option_value` VALUES (58,21,1,'Renewal');
+INSERT INTO `eav_attribute_option_value` VALUES (59,21,0,'Renewal');
 /*!40000 ALTER TABLE `eav_attribute_option_value` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -7977,7 +7985,7 @@ CREATE TABLE `eav_entity_attribute` (
   KEY `EAV_ENTITY_ATTRIBUTE_ATTRIBUTE_ID` (`attribute_id`),
   CONSTRAINT `EAV_ENTITY_ATTRIBUTE_ATTRIBUTE_ID_EAV_ATTRIBUTE_ATTRIBUTE_ID` FOREIGN KEY (`attribute_id`) REFERENCES `eav_attribute` (`attribute_id`) ON DELETE CASCADE,
   CONSTRAINT `EAV_ENTT_ATTR_ATTR_GROUP_ID_EAV_ATTR_GROUP_ATTR_GROUP_ID` FOREIGN KEY (`attribute_group_id`) REFERENCES `eav_attribute_group` (`attribute_group_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1735 DEFAULT CHARSET=utf8 COMMENT='Eav Entity Attributes';
+) ENGINE=InnoDB AUTO_INCREMENT=1817 DEFAULT CHARSET=utf8 COMMENT='Eav Entity Attributes';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -8211,46 +8219,6 @@ INSERT INTO `eav_entity_attribute` VALUES (902,4,11,35,124,105);
 INSERT INTO `eav_entity_attribute` VALUES (904,4,11,35,125,106);
 INSERT INTO `eav_entity_attribute` VALUES (906,4,11,35,126,107);
 INSERT INTO `eav_entity_attribute` VALUES (908,4,11,35,127,108);
-INSERT INTO `eav_entity_attribute` VALUES (910,4,11,35,70,2);
-INSERT INTO `eav_entity_attribute` VALUES (912,4,11,35,71,3);
-INSERT INTO `eav_entity_attribute` VALUES (914,4,11,35,72,10);
-INSERT INTO `eav_entity_attribute` VALUES (916,4,11,35,74,4);
-INSERT INTO `eav_entity_attribute` VALUES (918,4,11,35,79,8);
-INSERT INTO `eav_entity_attribute` VALUES (920,4,11,35,84,6);
-INSERT INTO `eav_entity_attribute` VALUES (922,4,11,35,94,11);
-INSERT INTO `eav_entity_attribute` VALUES (924,4,11,35,102,9);
-INSERT INTO `eav_entity_attribute` VALUES (926,4,11,35,112,7);
-INSERT INTO `eav_entity_attribute` VALUES (928,4,11,35,119,12);
-INSERT INTO `eav_entity_attribute` VALUES (930,4,11,35,128,1);
-INSERT INTO `eav_entity_attribute` VALUES (932,4,11,35,129,5);
-INSERT INTO `eav_entity_attribute` VALUES (934,4,11,34,85,1);
-INSERT INTO `eav_entity_attribute` VALUES (936,4,11,34,86,2);
-INSERT INTO `eav_entity_attribute` VALUES (938,4,11,34,87,3);
-INSERT INTO `eav_entity_attribute` VALUES (940,4,11,34,93,4);
-INSERT INTO `eav_entity_attribute` VALUES (942,4,11,33,81,2);
-INSERT INTO `eav_entity_attribute` VALUES (944,4,11,33,82,3);
-INSERT INTO `eav_entity_attribute` VALUES (946,4,11,33,83,4);
-INSERT INTO `eav_entity_attribute` VALUES (948,4,11,33,115,1);
-INSERT INTO `eav_entity_attribute` VALUES (950,4,11,32,75,1);
-INSERT INTO `eav_entity_attribute` VALUES (952,4,11,32,76,2);
-INSERT INTO `eav_entity_attribute` VALUES (954,4,11,32,77,3);
-INSERT INTO `eav_entity_attribute` VALUES (956,4,11,32,78,4);
-INSERT INTO `eav_entity_attribute` VALUES (958,4,11,32,89,5);
-INSERT INTO `eav_entity_attribute` VALUES (960,4,11,32,117,6);
-INSERT INTO `eav_entity_attribute` VALUES (962,4,11,32,118,7);
-INSERT INTO `eav_entity_attribute` VALUES (964,4,11,32,122,8);
-INSERT INTO `eav_entity_attribute` VALUES (966,4,11,31,97,1);
-INSERT INTO `eav_entity_attribute` VALUES (968,4,11,31,98,2);
-INSERT INTO `eav_entity_attribute` VALUES (970,4,11,31,99,3);
-INSERT INTO `eav_entity_attribute` VALUES (972,4,11,31,100,4);
-INSERT INTO `eav_entity_attribute` VALUES (974,4,11,31,101,5);
-INSERT INTO `eav_entity_attribute` VALUES (976,4,11,31,103,6);
-INSERT INTO `eav_entity_attribute` VALUES (978,4,11,30,73,1);
-INSERT INTO `eav_entity_attribute` VALUES (980,4,11,30,91,3);
-INSERT INTO `eav_entity_attribute` VALUES (982,4,11,30,92,4);
-INSERT INTO `eav_entity_attribute` VALUES (984,4,11,30,96,2);
-INSERT INTO `eav_entity_attribute` VALUES (986,4,11,30,111,5);
-INSERT INTO `eav_entity_attribute` VALUES (988,4,11,30,130,6);
 INSERT INTO `eav_entity_attribute` VALUES (1028,4,12,38,95,8);
 INSERT INTO `eav_entity_attribute` VALUES (1060,4,12,41,88,6);
 INSERT INTO `eav_entity_attribute` VALUES (1070,4,12,41,116,11);
@@ -8464,6 +8432,47 @@ INSERT INTO `eav_entity_attribute` VALUES (1728,4,12,36,92,4);
 INSERT INTO `eav_entity_attribute` VALUES (1730,4,12,36,96,2);
 INSERT INTO `eav_entity_attribute` VALUES (1732,4,12,36,111,5);
 INSERT INTO `eav_entity_attribute` VALUES (1734,4,12,36,130,6);
+INSERT INTO `eav_entity_attribute` VALUES (1736,4,11,35,70,2);
+INSERT INTO `eav_entity_attribute` VALUES (1738,4,11,35,71,3);
+INSERT INTO `eav_entity_attribute` VALUES (1740,4,11,35,72,10);
+INSERT INTO `eav_entity_attribute` VALUES (1742,4,11,35,74,4);
+INSERT INTO `eav_entity_attribute` VALUES (1744,4,11,35,79,8);
+INSERT INTO `eav_entity_attribute` VALUES (1746,4,11,35,84,6);
+INSERT INTO `eav_entity_attribute` VALUES (1748,4,11,35,94,11);
+INSERT INTO `eav_entity_attribute` VALUES (1750,4,11,35,102,9);
+INSERT INTO `eav_entity_attribute` VALUES (1752,4,11,35,112,7);
+INSERT INTO `eav_entity_attribute` VALUES (1754,4,11,35,119,12);
+INSERT INTO `eav_entity_attribute` VALUES (1756,4,11,35,128,1);
+INSERT INTO `eav_entity_attribute` VALUES (1758,4,11,35,129,5);
+INSERT INTO `eav_entity_attribute` VALUES (1760,4,11,35,140,13);
+INSERT INTO `eav_entity_attribute` VALUES (1762,4,11,34,85,1);
+INSERT INTO `eav_entity_attribute` VALUES (1764,4,11,34,86,2);
+INSERT INTO `eav_entity_attribute` VALUES (1766,4,11,34,87,3);
+INSERT INTO `eav_entity_attribute` VALUES (1768,4,11,34,93,4);
+INSERT INTO `eav_entity_attribute` VALUES (1770,4,11,33,81,2);
+INSERT INTO `eav_entity_attribute` VALUES (1772,4,11,33,82,3);
+INSERT INTO `eav_entity_attribute` VALUES (1774,4,11,33,83,4);
+INSERT INTO `eav_entity_attribute` VALUES (1776,4,11,33,115,1);
+INSERT INTO `eav_entity_attribute` VALUES (1778,4,11,32,75,1);
+INSERT INTO `eav_entity_attribute` VALUES (1780,4,11,32,76,2);
+INSERT INTO `eav_entity_attribute` VALUES (1782,4,11,32,77,3);
+INSERT INTO `eav_entity_attribute` VALUES (1784,4,11,32,78,4);
+INSERT INTO `eav_entity_attribute` VALUES (1786,4,11,32,89,5);
+INSERT INTO `eav_entity_attribute` VALUES (1788,4,11,32,117,6);
+INSERT INTO `eav_entity_attribute` VALUES (1790,4,11,32,118,7);
+INSERT INTO `eav_entity_attribute` VALUES (1792,4,11,32,122,8);
+INSERT INTO `eav_entity_attribute` VALUES (1794,4,11,31,97,1);
+INSERT INTO `eav_entity_attribute` VALUES (1796,4,11,31,98,2);
+INSERT INTO `eav_entity_attribute` VALUES (1798,4,11,31,99,3);
+INSERT INTO `eav_entity_attribute` VALUES (1800,4,11,31,100,4);
+INSERT INTO `eav_entity_attribute` VALUES (1802,4,11,31,101,5);
+INSERT INTO `eav_entity_attribute` VALUES (1804,4,11,31,103,6);
+INSERT INTO `eav_entity_attribute` VALUES (1806,4,11,30,73,1);
+INSERT INTO `eav_entity_attribute` VALUES (1808,4,11,30,91,3);
+INSERT INTO `eav_entity_attribute` VALUES (1810,4,11,30,92,4);
+INSERT INTO `eav_entity_attribute` VALUES (1812,4,11,30,96,2);
+INSERT INTO `eav_entity_attribute` VALUES (1814,4,11,30,111,5);
+INSERT INTO `eav_entity_attribute` VALUES (1816,4,11,30,130,6);
 /*!40000 ALTER TABLE `eav_entity_attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -14739,4 +14748,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-01 15:29:30
+-- Dump completed on 2016-09-02  7:02:04
