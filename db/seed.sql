@@ -12553,7 +12553,7 @@ CREATE TABLE `salesrule` (
   `simple_free_shipping` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`rule_id`),
   KEY `SALESRULE_IS_ACTIVE_SORT_ORDER_TO_DATE_FROM_DATE` (`is_active`,`sort_order`,`to_date`,`from_date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Salesrule';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Salesrule';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -12563,6 +12563,8 @@ CREATE TABLE `salesrule` (
 
 LOCK TABLES `salesrule` WRITE;
 /*!40000 ALTER TABLE `salesrule` DISABLE KEYS */;
+INSERT INTO `salesrule` VALUES (1,'10% off orders over $150',NULL,NULL,NULL,0,1,'a:7:{s:4:\"type\";s:46:\"Magento\\SalesRule\\Model\\Rule\\Condition\\Combine\";s:9:\"attribute\";N;s:8:\"operator\";N;s:5:\"value\";s:1:\"1\";s:18:\"is_value_processed\";N;s:10:\"aggregator\";s:3:\"all\";s:10:\"conditions\";a:1:{i:0;a:5:{s:4:\"type\";s:46:\"Magento\\SalesRule\\Model\\Rule\\Condition\\Address\";s:9:\"attribute\";s:13:\"base_subtotal\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:5:\">=150\";s:18:\"is_value_processed\";b:0;}}}','a:7:{s:4:\"type\";s:54:\"Magento\\SalesRule\\Model\\Rule\\Condition\\Product\\Combine\";s:9:\"attribute\";N;s:8:\"operator\";N;s:5:\"value\";s:1:\"1\";s:18:\"is_value_processed\";N;s:10:\"aggregator\";s:3:\"all\";s:10:\"conditions\";a:1:{i:0;a:5:{s:4:\"type\";s:46:\"Magento\\SalesRule\\Model\\Rule\\Condition\\Product\";s:9:\"attribute\";s:12:\"category_ids\";s:8:\"operator\";s:2:\"==\";s:5:\"value\";s:4:\"3, 4\";s:18:\"is_value_processed\";b:0;}}}',0,1,NULL,10,'by_percent',10.0000,NULL,0,0,0,1,1,0,0,0);
+INSERT INTO `salesrule` VALUES (2,'5% off for members',NULL,NULL,NULL,0,1,'a:6:{s:4:\"type\";s:46:\"Magento\\SalesRule\\Model\\Rule\\Condition\\Combine\";s:9:\"attribute\";N;s:8:\"operator\";N;s:5:\"value\";s:1:\"1\";s:18:\"is_value_processed\";N;s:10:\"aggregator\";s:3:\"all\";}','a:6:{s:4:\"type\";s:54:\"Magento\\SalesRule\\Model\\Rule\\Condition\\Product\\Combine\";s:9:\"attribute\";N;s:8:\"operator\";N;s:5:\"value\";s:1:\"1\";s:18:\"is_value_processed\";N;s:10:\"aggregator\";s:3:\"all\";}',0,1,NULL,0,'by_percent',5.0000,NULL,0,0,0,1,2,0,0,0);
 /*!40000 ALTER TABLE `salesrule` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -12589,7 +12591,7 @@ CREATE TABLE `salesrule_coupon` (
   UNIQUE KEY `SALESRULE_COUPON_RULE_ID_IS_PRIMARY` (`rule_id`,`is_primary`),
   KEY `SALESRULE_COUPON_RULE_ID` (`rule_id`),
   CONSTRAINT `SALESRULE_COUPON_RULE_ID_SALESRULE_RULE_ID` FOREIGN KEY (`rule_id`) REFERENCES `salesrule` (`rule_id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Salesrule Coupon';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Salesrule Coupon';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -12599,6 +12601,7 @@ CREATE TABLE `salesrule_coupon` (
 
 LOCK TABLES `salesrule_coupon` WRITE;
 /*!40000 ALTER TABLE `salesrule_coupon` DISABLE KEYS */;
+INSERT INTO `salesrule_coupon` VALUES (1,2,'PRELAUNCH',NULL,NULL,0,NULL,1,NULL,0);
 /*!40000 ALTER TABLE `salesrule_coupon` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -12798,6 +12801,10 @@ CREATE TABLE `salesrule_customer_group` (
 
 LOCK TABLES `salesrule_customer_group` WRITE;
 /*!40000 ALTER TABLE `salesrule_customer_group` DISABLE KEYS */;
+INSERT INTO `salesrule_customer_group` VALUES (1,0);
+INSERT INTO `salesrule_customer_group` VALUES (1,1);
+INSERT INTO `salesrule_customer_group` VALUES (2,0);
+INSERT INTO `salesrule_customer_group` VALUES (2,1);
 /*!40000 ALTER TABLE `salesrule_customer_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -12888,6 +12895,8 @@ CREATE TABLE `salesrule_website` (
 
 LOCK TABLES `salesrule_website` WRITE;
 /*!40000 ALTER TABLE `salesrule_website` DISABLE KEYS */;
+INSERT INTO `salesrule_website` VALUES (1,1);
+INSERT INTO `salesrule_website` VALUES (2,1);
 /*!40000 ALTER TABLE `salesrule_website` ENABLE KEYS */;
 UNLOCK TABLES;
 
