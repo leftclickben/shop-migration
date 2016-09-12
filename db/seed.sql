@@ -4385,7 +4385,7 @@ INSERT INTO `core_config_data` VALUES (250,'default',0,'customer/address/street_
 INSERT INTO `core_config_data` VALUES (251,'default',0,'customer/address/prefix_show','opt');
 INSERT INTO `core_config_data` VALUES (252,'default',0,'customer/address/prefix_options',NULL);
 INSERT INTO `core_config_data` VALUES (253,'default',0,'customer/address/middlename_show','0');
-INSERT INTO `core_config_data` VALUES (254,'default',0,'customer/address/suffix_show','opt');
+INSERT INTO `core_config_data` VALUES (254,'default',0,'customer/address/suffix_show',NULL);
 INSERT INTO `core_config_data` VALUES (255,'default',0,'customer/address/suffix_options',NULL);
 INSERT INTO `core_config_data` VALUES (256,'default',0,'customer/address/dob_show','opt');
 INSERT INTO `core_config_data` VALUES (257,'default',0,'customer/address/taxvat_show',NULL);
@@ -5238,7 +5238,7 @@ INSERT INTO `customer_eav_attribute` VALUES (4,1,NULL,0,NULL,0,30,NULL,0,0,0,0);
 INSERT INTO `customer_eav_attribute` VALUES (5,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,40,NULL,0,0,0,0);
 INSERT INTO `customer_eav_attribute` VALUES (6,0,NULL,0,NULL,0,50,NULL,0,0,0,0);
 INSERT INTO `customer_eav_attribute` VALUES (7,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,60,NULL,0,0,0,0);
-INSERT INTO `customer_eav_attribute` VALUES (8,1,NULL,0,NULL,0,70,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (8,0,NULL,0,NULL,0,70,NULL,0,0,0,0);
 INSERT INTO `customer_eav_attribute` VALUES (9,1,NULL,0,'a:1:{s:16:\"input_validation\";s:5:\"email\";}',1,80,NULL,1,1,1,1);
 INSERT INTO `customer_eav_attribute` VALUES (10,1,NULL,0,NULL,1,25,NULL,1,1,1,0);
 INSERT INTO `customer_eav_attribute` VALUES (11,1,'date',0,'a:1:{s:16:\"input_validation\";s:4:\"date\";}',0,90,NULL,1,1,1,0);
@@ -5256,7 +5256,7 @@ INSERT INTO `customer_eav_attribute` VALUES (22,1,NULL,0,NULL,0,10,NULL,0,0,0,0)
 INSERT INTO `customer_eav_attribute` VALUES (23,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,20,NULL,1,0,0,1);
 INSERT INTO `customer_eav_attribute` VALUES (24,0,NULL,0,NULL,0,30,NULL,0,0,0,0);
 INSERT INTO `customer_eav_attribute` VALUES (25,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,40,NULL,1,0,0,1);
-INSERT INTO `customer_eav_attribute` VALUES (26,1,NULL,0,NULL,0,50,NULL,0,0,0,0);
+INSERT INTO `customer_eav_attribute` VALUES (26,0,NULL,0,NULL,0,50,NULL,0,0,0,0);
 INSERT INTO `customer_eav_attribute` VALUES (27,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,60,NULL,1,0,0,1);
 INSERT INTO `customer_eav_attribute` VALUES (28,1,NULL,2,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,70,NULL,1,0,0,1);
 INSERT INTO `customer_eav_attribute` VALUES (29,1,NULL,0,'a:2:{s:15:\"max_text_length\";i:255;s:15:\"min_text_length\";i:1;}',1,80,NULL,1,0,0,1);
@@ -14748,4 +14748,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-02  9:30:02
+-- Dump completed on 2016-09-12 13:16:23
